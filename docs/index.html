@@ -350,8 +350,9 @@ function openHtml(){
     const stopPx=isFinite(entry)?entry*(1+(Number(stopPct)||0)/100):null;
     const tgtPx=isFinite(entry)?entry*(1+(Number(tgtPct)||0)/100):null;
     return `<article class="row"><div class="ic" style="background:${col(p.symbol)}">${esc((p.symbol||'?').slice(0,1))}</div>
-      <div class="mid"><div class="n">${esc(p.symbol)}<span class="tag ${p.tier==='burned'?'b':'r'}">${p.tier==='burned'?'LP נעול':'LP פתוח'}</span>${p.tp1_done?'<span class="tag b">TP1</span>':''}</div>
+      <div class="mid"><div class="n">${esc(p.symbol)}${tierTag(p.tier)}${p.tp1_done?'<span class="tag b">TP1</span>':''}</div>
       <div class="s">כניסה ${tLocal(p.opened_at)} · ${esc(p.held_min)} דק׳ · שיא ${pct(p.peak_pct)}</div>
+      <div class="s">${qualityLine(p.quality)}</div>
       <div class="track"><div class="fill" style="width:${pos}%"></div><i style="inset-inline-start:${pos}%"></i></div>
       <div class="lv"><span>סטופ ${pct(stopPct)} · ${px(stopPx)}</span><span>יעד ${pct(tgtPct)} · ${px(tgtPx)}</span></div></div>
       <div class="rt"><div class="p ${cls(p.live_pnl_usd)}">${pct(p.live_pnl_pct)}</div><div class="d ${cls(p.live_pnl_usd)}">${(p.live_pnl_usd>=0?'+':'')+usd(p.live_pnl_usd)}</div><div class="s">${usd(p.est_value_usd)}</div></div></article>`;
@@ -363,17 +364,28 @@ function histHtml(){
   return rows.slice(0,200).map(t=>{
     const why=reasonHe[t.exit_reason]||t.exit_reason||'—';
     return `<article class="row"><div class="ic" style="background:${col(t.symbol)}">${esc((t.symbol||'?').slice(0,1))}</div>
-      <div class="mid"><div class="n">${esc(t.symbol)}${t.tier==='burned'?'<span class="tag b">LP נעול</span>':(t.tier==='creator_pool'?'<span class="tag r">LP פתוח</span>':'')}<span class="tag ${reasonTag(t.exit_reason)}">${esc(why)}</span></div>
+      <div class="mid"><div class="n">${esc(t.symbol)}${tierTag(t.tier)}<span class="tag ${reasonTag(t.exit_reason)}">${esc(why)}</span></div>
       <div class="s"><bdi dir="ltr">${tLocal(t.opened_at)} → ${tLocal(t.closed_at)}</bdi> · ${t.hold_min??'—'} דק׳${t.session?' · '+esc(t.session):''}</div>
       <div class="s" dir="ltr" style="text-align:right">${px(t.entry_price)} → ${px(t.exit_price)}</div></div>
       <div class="rt"><div class="p ${cls(t.pnl_usd)}">${pct(t.pnl_pct)}</div><div class="d ${cls(t.pnl_usd)}">${(t.pnl_usd>=0?'+':'')+usd(t.pnl_usd)}</div></div></article>`;
   }).join('');
 }
+function tierTag(tier){
+  if(tier==='burned')return '<span class="tag b">LP נעול</span>';
+  if(tier==='bonding_curve')return '<span class="tag n">עקומה</span>';
+  if(tier==='creator_pool')return '<span class="tag r">LP פתוח</span>';
+  return '';
+}
+function qualityLine(q){
+  if(!q)return '';
+  const soc=q.social?'יש רשת':'בלי רשת';
+  return `בדיקה: מחזיקים ${q.holders??'—'} · עשירייה ${q.top10??'—'}% · מפתח ${q.dev_pct??'—'}% · ${soc}`;
+}
 function tierLine(){
   const T=(S.rules&&S.rules.tiers)||{};
   const on=o=>o&&o.enabled!==false;
-  const b=on(T.burned), c=on(T.creator_pool);
-  return `LP נעול (burned): <b class="${b?'up':'dn'}">${b?'פעיל':'כבוי'}</b> · LP פתוח (creator): <b class="${c?'up':'dn'}">${c?'פעיל':'כבוי'}</b>`;
+  const b=on(T.burned), c=on(T.creator_pool), k=on(T.bonding_curve);
+  return `עקומה: <b class="${k?'up':'dn'}">${k?'פעילה':'כבויה'}</b> · LP נעול: <b class="${b?'up':'dn'}">${b?'פעיל':'כבוי'}</b> · LP פתוח: <b class="${c?'up':'dn'}">${c?'פעיל':'כבוי'}</b>`;
 }
 function surgeLine(){
   const g=S.rules&&S.rules.surge;

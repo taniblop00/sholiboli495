@@ -163,19 +163,20 @@ def _bounded_ok(before, after):
         if json.dumps(b.get("tiers"), sort_keys=True) != json.dumps(a.get("tiers"), sort_keys=True): return False, "tiers changed"
         if json.dumps(b.get("exits_by_tier"), sort_keys=True) != json.dumps(a.get("exits_by_tier"), sort_keys=True): return False, "exits_by_tier changed"
         if json.dumps(before.get("safety"), sort_keys=True) != json.dumps(after.get("safety"), sort_keys=True): return False, "swing safety changed"
-        allowed_f = {"min_price_change_m5", "min_buy_sell_ratio_m5", "min_vol_m5_usd", "min_txns_m5", "max_price_change_m5", "max_price_change_h1"}
+        allowed_f = {"min_price_change_m5", "min_buy_sell_ratio_m5", "min_vol_m5_usd", "min_txns_m5", "min_buys_m5", "min_accel", "max_price_change_m5", "max_price_change_h1"}
         for k in set(b["filters"]) | set(a["filters"]):
             if b["filters"].get(k) != a["filters"].get(k):
                 if k not in allowed_f: return False, f"filters.{k} not allowed"
                 lo, hi = R["loose_floor"][k], R["tight_cap"][k]
                 if not (lo <= a["filters"][k] <= hi): return False, f"filters.{k} out of bounds"
         bounds = dict(R.get("burned_bounds") or {})
-        bounds["tp1_gross_pct"] = bounds.get("tp1_gross_pct") or R["tp1_bounds"]
         for k in set(b["exits"]) | set(a["exits"]):
             if b["exits"].get(k) != a["exits"].get(k):
                 if k not in bounds: return False, f"exits.{k} not allowed"
                 lo, hi = bounds[k]
-                if not (lo <= a["exits"][k] <= hi): return False, f"exits.{k} out of bounds"
+                if not (lo <= float(a["exits"][k]) <= hi): return False, f"exits.{k} out of bounds"
+        stop = float((a.get("exits") or {}).get("stop_loss_gross_pct", -6))
+        if stop < -8: return False, "stop looser than -8"
         return True, ""
     except Exception as e:
         return False, f"guard error {e}"
@@ -208,7 +209,7 @@ def review_v2(c, cfg, loop_started_ts=None):
     n_new = sum(1 for r in rows if datetime.datetime.fromisoformat(r["closed_at"]).timestamp() > last_change)
     bb = R.get("burned_bounds") or {}
     if ran >= 45 and rate < R["min_entries_per_hour_floor"] and time.time() - last_change > 1800:
-        for k, step in (("min_price_change_m5", -1.0), ("min_buy_sell_ratio_m5", -0.1), ("min_vol_m5_usd", -1000), ("min_txns_m5", -10), ("max_price_change_m5", 2.0), ("max_price_change_h1", 10.0)):
+        for k, step in (("min_buys_m5", -5), ("min_buy_sell_ratio_m5", -0.1), ("min_price_change_m5", -0.5), ("min_accel", -0.1), ("min_vol_m5_usd", -300), ("max_price_change_m5", 2.0)):
             if k not in F or k not in R["loose_floor"]: continue
             old = F[k]
             new = round(old + step, 3)
@@ -219,12 +220,12 @@ def review_v2(c, cfg, loop_started_ts=None):
         recent = T[-n_new:]; rw = [t for t in recent if (t["pnl_pct"] or 0) > 0]; rl = [t for t in recent if (t["pnl_pct"] or 0) <= 0]
         near_tp1 = [t for t in rl if t["peak"] >= 0.7 * X["tp1_gross_pct"]]
         trailed = [t for t in W if "trail" in (t["reason"] or "") and t["peak"] >= X.get("tp1_gross_pct", 20)]
-        if len(near_tp1) >= 2:
-            lo, hi = R["tp1_bounds"]; old = X["tp1_gross_pct"]; new = max(lo, old - 1)
-            if new != old: X["tp1_gross_pct"] = new; changes.append(f"tp1_gross_pct: {old} -> {new} ({len(near_tp1)} recent losers peaked >= 70% of TP1)")
-        elif len(trailed) >= 3 and "runner_trail_drawdown_pct" in bb:
-            lo, hi = bb["runner_trail_drawdown_pct"]; old = X["runner_trail_drawdown_pct"]; new = min(hi, old + 1)
-            if new != old: X["runner_trail_drawdown_pct"] = new; changes.append(f"runner_trail_drawdown_pct: {old} -> {new} ({len(trailed)} winners stopped by the trail after clearing TP1)")
+        if len(near_tp1) >= 2 and "tp1_gross_pct" in bb:
+            lo, hi = bb["tp1_gross_pct"]; old = X["tp1_gross_pct"]; new = max(lo, old - 1)
+            if new != old: X["tp1_gross_pct"] = new; changes.append(f"tp1_gross_pct: {old} -> {new} ({len(near_tp1)} recent losers peaked >= 70% of the target)")
+        elif len(trailed) >= 3 and "lock_giveback_pct" in bb:
+            lo, hi = bb["lock_giveback_pct"]; old = X.get("lock_giveback_pct", 4); new = min(hi, old + 1)
+            if new != old: X["lock_giveback_pct"] = new; changes.append(f"lock_giveback_pct: {old} -> {new} (winners gave back the quick profit)")
         elif rl and len(rl) / len(recent) > 0.4 and rate >= 2 * R["min_entries_per_hour_floor"]:
             for k, fk, step in (("bs_m5", "min_buy_sell_ratio_m5", 0.1), ("pc_m5", "min_price_change_m5", 1.0)):
                 ml, mw = _med(rl, k), _med(rw, k) if rw else float("nan")

@@ -104,53 +104,65 @@
     "raydium-launchlab",
     "meteora-dbc"
   ],
-  "_mode": "v5 scalp-only, PAPER ONLY (never signs or sends a transaction). Runs on GitHub Actions via main.py --minutes N",
+  "_mode": "v6 scalp-only, PAPER ONLY (never signs or sends a transaction). Runs on GitHub Actions via main.py --minutes N",
   "scalp": {
-    "_why": "v5 (2026-11-02): v4's live session took 5 creator-pool trades, 4 small wins (~+8%) and one liquidity pull at -100%, net about -$2, PF 0.33, then zero entries because the 3-8 min window rejected almost the whole universe as too_old. Creator pools stay in the code but are disabled. v5 trades only burned/locked LP (dominant pool >= 90%, including pump.fun graduates whose PumpSwap LP is burned). Age 3-120 min, plus a 2h-24h surge band. Exits are sized so a winner is larger than a loser: stop -8%, sell 40% at +20%, runner to +60% with a 12% trail, 30 min max.",
-    "position_size_usd": 3.5,
+    "_why": "v6 fast quality scalp (2026-11-02). v5 took 2 trades in 2.5h and net -$0.71: a burned stop filled through a gap, and a runner sat for 17 minutes. blocked_dex was rejecting pump.fun bonding curves (and Meteora/Raydium launchpads) before any quality check. v6 enters early on curves that have no pullable LP, and on burned LP, only when the coin looks real, then takes +10% and leaves. No runner.",
+    "position_size_usd": 3.0,
     "max_concurrent": 3,
     "max_new_per_scan": 2,
     "reentry_cooldown_min": 30,
     "min_cash_reserve_usd": 3.0,
     "max_rugchecks_per_scan": 10,
+    "max_same_deployer": 2,
+    "curve_costs": {
+      "slippage_pct_each_side": 0.75,
+      "_note": "1.5% round trip. A $3 bonding-curve order barely moves the price; this haircut is the fee plus gap."
+    },
     "filters": {
-      "min_age_min": 3,
+      "min_age_min": 2,
+      "max_age_min": 120,
       "min_mcap_usd": 15000,
       "max_mcap_usd": 400000,
-      "min_liquidity_usd": 15000,
-      "min_liq_to_mcap": 0.08,
-      "min_vol_m5_usd": 3000,
-      "min_txns_m5": 40,
-      "min_buy_sell_ratio_m5": 1.5,
-      "min_price_change_m5": 6.0,
-      "max_price_change_m5": 25.0,
-      "min_price_change_h1": -15.0,
-      "max_price_change_h1": 80.0,
+      "min_liquidity_usd": 12000,
+      "min_liq_to_mcap": 0.06,
+      "min_vol_m5_usd": 800,
+      "min_txns_m5": 20,
+      "min_buys_m5": 25,
+      "min_buy_sell_ratio_m5": 1.2,
+      "min_price_change_m5": 3.0,
+      "max_price_change_m5": 30.0,
+      "min_price_change_h1": -40.0,
+      "max_price_change_h1": 120.0,
       "min_accel": 0.4,
+      "require_social": false,
       "allowed_quote_symbols": [
-        "SOL"
+        "SOL",
+        "USDC"
       ],
       "blocked_dexes": [
         "meteora",
-        "meteoradbc",
         "raydium",
+        "orca"
+      ],
+      "curve_dexes": [
+        "pumpfun",
+        "meteoradbc",
         "launchlab",
-        "raydiumlaunchlab",
-        "pumpfun"
+        "raydiumlaunchlab"
       ],
       "allowed_dexes": [
-        "pumpswap"
+        "pumpswap",
+        "pumpfun",
+        "meteoradbc",
+        "launchlab",
+        "raydiumlaunchlab"
       ],
-      "max_age_min": 120,
-      "surge": {
-        "_why": "Older burned-LP tokens are allowed only when the last 5 minutes is a fresh surge, not a dead chart.",
-        "min_age_min": 120,
-        "max_age_min": 1440,
-        "min_price_change_m5": 6.0,
-        "max_price_change_m5": 25.0,
-        "min_buy_sell_ratio_m5": 2.0,
-        "max_price_change_h1": 80.0,
-        "min_liquidity_usd": 30000
+      "curve": {
+        "_why": "Pre-graduation. No LP to pull. Progress is proxied by mcap because the pump.fun HTTP API returns 403 from GitHub runners; $8k-$60k is about 15%-85% of a ~$69k graduation.",
+        "min_age_min": 1,
+        "max_age_min": 30,
+        "min_mcap_usd": 6000,
+        "max_mcap_usd": 60000
       }
     },
     "safety": {
@@ -161,13 +173,13 @@
         "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
         "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
       ],
-      "max_top10_pct_ex_pools": 35.0,
-      "max_single_holder_pct_ex_pools": 8.0,
-      "max_creator_pct": 5.0,
+      "max_top10_pct_ex_pools": 30.0,
+      "max_single_holder_pct_ex_pools": 12.0,
+      "max_creator_pct": 10.0,
       "min_lp_locked_pct": 0,
       "max_rugcheck_score_normalised": null,
       "max_insiders_detected": 3,
-      "min_total_holders": 200,
+      "min_total_holders": 50,
       "ignore_danger_risks": [
         "Large Amount of LP Unlocked",
         "Low Liquidity",
@@ -188,25 +200,27 @@
       "max_roundtrip_quote_loss_pct": 3.5
     },
     "exits": {
-      "stop_loss_gross_pct": -8.0,
-      "tp1_gross_pct": 20.0,
-      "tp1_sell_fraction": 0.4,
-      "stop_after_tp1_gross_pct": 5.0,
-      "runner_take_profit_gross_pct": 60.0,
-      "runner_trail_drawdown_pct": 12.0,
-      "runner_max_min": 30,
-      "time_stop_min": 12,
+      "stop_loss_gross_pct": -6.0,
+      "tp1_gross_pct": 10.0,
+      "tp1_sell_fraction": 1.0,
+      "stop_after_tp1_gross_pct": 10.0,
+      "runner_take_profit_gross_pct": 10.0,
+      "runner_trail_drawdown_pct": 4.0,
+      "runner_max_min": 8,
+      "time_stop_min": 4,
       "time_stop_min_gain_pct": 3.0,
-      "max_hold_min": 30,
-      "exit_if_liquidity_drop_pct": 7.0,
-      "_note": "v5 defaults = burned-LP rules (winners larger than the -8% stop). exits_by_tier.creator_pool keeps the old short rules, used only if that tier is re-enabled.",
-      "exit_sells_to_buys_m5": 1.5,
-      "exit_sell_spike_min_sells": 30,
+      "max_hold_min": 8,
+      "lock_arm_gross_pct": 6.0,
+      "lock_giveback_pct": 4.0,
+      "exit_if_liquidity_drop_pct": 12.0,
+      "_note": "v6: sell 100% at +10%. No runner. Stop -6% (review may not go past -8). Time stop 4 min if under +3%. Hard max 8 min. Lock if price gives back 4% after having been +6%.",
+      "exit_sells_to_buys_m5": 1.0,
+      "exit_sell_spike_min_sells": 15,
       "glitch_jump_multiple": 5.0
     },
     "loop": {
-      "update_every_s": 3,
-      "scan_every_s": 60,
+      "update_every_s": 5,
+      "scan_every_s": 45,
       "swing_update_every_s": 300,
       "swing_cycle_every_s": 600,
       "self_review_every_s": 1800,
@@ -222,10 +236,10 @@
       "min_fdv_usd": 8000,
       "max_recheck": 200
     },
-    "version": "v5",
+    "version": "v6",
     "review_v2": {
       "min_new_trades_for_change": 8,
-      "min_entries_per_hour_floor": 2,
+      "min_entries_per_hour_floor": 3,
       "tp1_bounds": [
         16.0,
         28.0
@@ -235,76 +249,76 @@
         -8.0
       ],
       "loose_floor": {
-        "min_price_change_m5": 4.0,
-        "min_buy_sell_ratio_m5": 1.2,
-        "min_vol_m5_usd": 2500,
-        "min_txns_m5": 25,
-        "max_price_change_m5": 25.0,
-        "max_price_change_h1": 60.0
+        "min_price_change_m5": 2.0,
+        "min_buy_sell_ratio_m5": 1.1,
+        "min_vol_m5_usd": 500,
+        "min_txns_m5": 15,
+        "min_buys_m5": 20,
+        "min_accel": 0.3,
+        "max_price_change_m5": 15.0,
+        "max_price_change_h1": 80.0
       },
       "tight_cap": {
-        "min_price_change_m5": 12.0,
-        "min_buy_sell_ratio_m5": 4.0,
-        "min_vol_m5_usd": 20000,
-        "min_txns_m5": 150,
+        "min_price_change_m5": 8.0,
+        "min_buy_sell_ratio_m5": 2.5,
+        "min_vol_m5_usd": 8000,
+        "min_txns_m5": 80,
+        "min_buys_m5": 80,
+        "min_accel": 2.0,
         "max_price_change_m5": 30.0,
-        "max_price_change_h1": 120.0
+        "max_price_change_h1": 150.0
       },
       "burned_bounds": {
-        "tp1_gross_pct": [16.0, 28.0],
-        "tp1_sell_fraction": [0.3, 0.6],
-        "stop_after_tp1_gross_pct": [2.0, 12.0],
-        "runner_trail_drawdown_pct": [8.0, 18.0],
-        "runner_take_profit_gross_pct": [45.0, 80.0],
-        "time_stop_min": [8.0, 20.0],
-        "time_stop_min_gain_pct": [1.0, 6.0],
-        "max_hold_min": [20.0, 45.0],
-        "runner_max_min": [20.0, 45.0]
+        "stop_loss_gross_pct": [-8.0, -4.0],
+        "tp1_gross_pct": [6.0, 14.0],
+        "tp1_sell_fraction": [1.0, 1.0],
+        "time_stop_min": [2.0, 6.0],
+        "time_stop_min_gain_pct": [1.0, 5.0],
+        "max_hold_min": [4.0, 12.0],
+        "lock_arm_gross_pct": [4.0, 8.0],
+        "lock_giveback_pct": [2.0, 6.0]
       },
       "never_touch": [
         "safety",
         "tiers",
-        "min_age_min",
-        "max_age_min",
-        "surge",
+        "require_social",
+        "curve",
+        "curve_dexes",
+        "blocked_dexes",
         "allowed_dexes",
-        "min_liquidity_usd",
         "position_size_usd",
         "max_concurrent",
-        "stop_loss_gross_pct",
         "glitch_jump_multiple"
       ],
-      "_note": "v5: the review may tune burned-tier momentum and the new exit knobs inside burned_bounds. It cannot re-enable creator_pool, move the -8% stop, or shrink the age window back to a few minutes."
+      "_note": "v6: the review may tune momentum and the fast-exit knobs. Stop cannot go looser than -8. Full take-profit stays 100% (no runner). It cannot turn off the quality gate (safety, social, tiers) or re-enable creator_pool."
     },
     "tiers": {
-      "_why": "LP burned (>=90%) pools cannot be rug-pulled by removing liquidity; creator pools can, at any second.",
+      "_why": "Curves have no LP to pull. Burned LP cannot be pulled. Creator pools can, and stay off.",
       "burned_min_lp_locked_pct": 90,
+      "bonding_curve": {
+        "enabled": true,
+        "position_size_usd": 3.0,
+        "max_concurrent": 3,
+        "min_holders": 50
+      },
       "burned": {
         "enabled": true,
-        "position_size_usd": 3.5,
-        "max_concurrent": 3
+        "position_size_usd": 3.0,
+        "max_concurrent": 3,
+        "min_holders": 150
       },
       "creator_pool": {
         "enabled": false,
         "position_size_usd": 3.0,
         "max_concurrent": 2,
-        "_why": "Disabled in v5. A ~15-20% liquidity-pull rate at -100% is not covered by +8% wins. The code path remains."
+        "min_holders": 150,
+        "_why": "Disabled. Liquidity can be pulled. The code path remains."
       }
     },
     "exits_by_tier": {
-      "creator_pool": {
-        "stop_loss_gross_pct": -5.0,
-        "tp1_gross_pct": 15.0,
-        "tp1_sell_fraction": 0.7,
-        "stop_after_tp1_gross_pct": 10.0,
-        "runner_take_profit_gross_pct": 25.0,
-        "runner_trail_drawdown_pct": 6.0,
-        "runner_max_min": 10,
-        "time_stop_min": 6,
-        "time_stop_min_gain_pct": 2.0,
-        "max_hold_min": 10
-      },
-      "burned": {}
+      "bonding_curve": {},
+      "burned": {},
+      "creator_pool": {}
     }
   },
   "swing_enabled": false
