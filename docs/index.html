@@ -199,7 +199,10 @@ const rejHe={
   rugcheck_unavailable:'RugCheck לא זמין',no_cash:'אין מזומן',no_jupiter_price:'אין מחיר',
   mark_divergence:'פער מחירים',no_buy_route:'אין מסלול קנייה',price_impact:'השפעת מחיר',
   roundtrip_loss:'עלות סיבוב',entry_cost_too_high:'עלות כניסה','no_sell_route_honeypot?':'אין מסלול מכירה',
-  'same_symbol_open(copycat/dup)':'שם כפול',same_symbol_in_scan:'שם כפול בסריקה'
+  'same_symbol_open(copycat/dup)':'שם כפול',same_symbol_in_scan:'שם כפול בסריקה',
+  'tier_disabled:creator_pool':'LP פתוח כבוי','tier_disabled:burned':'LP נעול כבוי',
+  surge_m5:'גל חלש',surge_bs:'גל בלי קונים',surge_liq:'נזילות נמוכה לגל',surge_h1:'גל אחרי קפיצה',surge_m5_hot:'גל חם מדי',
+  m5_sell_pressure:'מעט קונים',m5_not_rising:'בלי מומנטום',m5_parabolic:'קפיצה ב־5 דק׳',no_acceleration:'בלי האצה'
 };
 function reasonTag(r){
   const k=r||'';
@@ -360,11 +363,22 @@ function histHtml(){
   return rows.slice(0,200).map(t=>{
     const why=reasonHe[t.exit_reason]||t.exit_reason||'—';
     return `<article class="row"><div class="ic" style="background:${col(t.symbol)}">${esc((t.symbol||'?').slice(0,1))}</div>
-      <div class="mid"><div class="n">${esc(t.symbol)}<span class="tag ${reasonTag(t.exit_reason)}">${esc(why)}</span></div>
+      <div class="mid"><div class="n">${esc(t.symbol)}${t.tier==='burned'?'<span class="tag b">LP נעול</span>':(t.tier==='creator_pool'?'<span class="tag r">LP פתוח</span>':'')}<span class="tag ${reasonTag(t.exit_reason)}">${esc(why)}</span></div>
       <div class="s"><bdi dir="ltr">${tLocal(t.opened_at)} → ${tLocal(t.closed_at)}</bdi> · ${t.hold_min??'—'} דק׳${t.session?' · '+esc(t.session):''}</div>
       <div class="s" dir="ltr" style="text-align:right">${px(t.entry_price)} → ${px(t.exit_price)}</div></div>
       <div class="rt"><div class="p ${cls(t.pnl_usd)}">${pct(t.pnl_pct)}</div><div class="d ${cls(t.pnl_usd)}">${(t.pnl_usd>=0?'+':'')+usd(t.pnl_usd)}</div></div></article>`;
   }).join('');
+}
+function tierLine(){
+  const T=(S.rules&&S.rules.tiers)||{};
+  const on=o=>o&&o.enabled!==false;
+  const b=on(T.burned), c=on(T.creator_pool);
+  return `LP נעול (burned): <b class="${b?'up':'dn'}">${b?'פעיל':'כבוי'}</b> · LP פתוח (creator): <b class="${c?'up':'dn'}">${c?'פעיל':'כבוי'}</b>`;
+}
+function surgeLine(){
+  const g=S.rules&&S.rules.surge;
+  if(!g)return '';
+  return `גל ‎${g.min_age_min}–${Math.round((g.max_age_min||0)/60)} שע׳: 5 דק׳ ${g.min_price_change_m5}–${g.max_price_change_m5}% · קונים/מוכרים ≥ ${g.min_buy_sell_ratio_m5} · נזילות ≥ $${g.min_liquidity_usd}<br>`;
 }
 function scanHtml(){
   const st=S.status||{}, sc=st.scanner||{}, age=(Date.now()-new Date(S.generated_at))/1000;
@@ -392,7 +406,9 @@ function scanHtml(){
     <div class="s" style="margin-top:8px">דחיות: ${rejects.length?rejects.map(([k,v])=>esc(rejHe[k]||k)+' '+v).join(' · '):'—'}</div>
   </div>
   <div class="scan"><h3>חוקי ${esc(S.engine_version||'')} · מסחר דמה</h3>
-    <div class="rules">גיל ${R.min_age_min??'—'}–${R.max_age_min??'—'} דק׳ · קונים/מוכרים ≥ ${R.min_buy_sell_ratio_m5??'—'} · 5 דק׳ ${R.min_price_change_m5??'—'}% עד ${R.max_price_change_m5??'—'}% · שעה ≤ ${R.max_price_change_h1??'—'}%<br>
+    <div class="rules">${tierLine()}<br>
+    גיל ${R.min_age_min??'—'}–${R.max_age_min??'—'} דק׳ · קונים/מוכרים ≥ ${R.min_buy_sell_ratio_m5??'—'} · 5 דק׳ ${R.min_price_change_m5??'—'}% עד ${R.max_price_change_m5??'—'}% · שעה ≤ ${R.max_price_change_h1??'—'}%<br>
+    ${surgeLine()}
     סטופ ${X.stop_loss_gross_pct??'—'}% · מימוש ${Math.round((X.tp1_sell_fraction||0)*100)}% ב־+${X.tp1_gross_pct??'—'}% · יעד +${X.runner_take_profit_gross_pct??'—'}% · מקסימום ${X.max_hold_min??'—'} דק׳</div>
   </div>`;
 }

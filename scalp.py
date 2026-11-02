@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 """SCALP mode for the memetrader PAPER engine. Simulation only: never signs or sends anything.
-v4: fresh PumpSwap pools (3-8 min old) with a controlled 5m pump and strong buy pressure; quick exits.
-Pools are split into two risk tiers by RugCheck LP data:
-  * "burned"       - LP >= 90% burned/locked (real pump.fun graduates): the creator cannot pull liquidity
-  * "creator_pool" - LP ~0% locked (pool seeded by the creator): liquidity can be pulled at any moment
-    -> smaller size, fewer at once, 70% sold at the first target, max 10 min in the trade
+v5: burned / locked LP only. creator_pool stays in the code but is disabled (its liquidity can be pulled).
+  * "burned"       - dominant pool LP >= 90% locked, or a pump.fun graduate whose PumpSwap LP was burned
+  * "creator_pool" - LP unlocked. Disabled by default.
+Age for burned: 3-120 min on the normal momentum band, or 2h-24h only on a fresh surge.
   python3 scalp.py scan | update | report
 """
 import json, time, datetime, math, os, sys
@@ -101,11 +100,35 @@ def feats(p):
             "pc_m5": pc.get("m5") or 0, "pc_h1": pc.get("h1") or 0, "pc_h6": pc.get("h6") or 0,
             "accel": round(accel, 2), "has_twitter": "twitter" in socials}
 
+def entry_window(f):
+    """v5 age bands. The 3-120 min band uses the normal momentum limits.
+    2h-24h is allowed only as a fresh surge (separate, looser b/s and a wider 5m cap)."""
+    F = C()["filters"]
+    surge = F.get("surge") or {}
+    age = f["age_min"]
+    if age is None: return "no_age"
+    bs = f["buys_m5"] / max(1, f["sells_m5"])
+    if F["min_age_min"] <= age <= F["max_age_min"]:
+        if f["pc_m5"] > F["max_price_change_m5"]: return "m5_parabolic"
+        if bs < F["min_buy_sell_ratio_m5"]: return "m5_sell_pressure"
+        return None
+    smin, smax = surge.get("min_age_min", 120), surge.get("max_age_min", 1440)
+    if age > F["max_age_min"] and smin < age <= smax:
+        if f["pc_m5"] < surge.get("min_price_change_m5", F["min_price_change_m5"]): return "surge_m5"
+        if f["pc_m5"] > surge.get("max_price_change_m5", 25): return "surge_m5_hot"
+        if bs < surge.get("min_buy_sell_ratio_m5", 2.0): return "surge_bs"
+        if f["pc_h1"] > surge.get("max_price_change_h1", F["max_price_change_h1"]): return "surge_h1"
+        if (f["liq"] or 0) < surge.get("min_liquidity_usd", 30000): return "surge_liq"
+        return None
+    return "too_old" if age > F["min_age_min"] else "too_young"
+
 def market_filter(f):
     F = C()["filters"]
+    surge = F.get("surge") or {}
     if f["age_min"] is None: return "no_age"
     if f["age_min"] < F["min_age_min"]: return "too_young"
-    if f["age_min"] > F.get("max_age_min", F.get("max_age_hours", 0.1667) * 60): return "too_old"
+    max_age = max(F.get("max_age_min", 120), surge.get("max_age_min", 0))
+    if f["age_min"] > max_age: return "too_old"
     if f["quote"] not in F["allowed_quote_symbols"]: return "bad_quote"
     if f["dex"] in F.get("blocked_dexes", []): return "blocked_dex"
     if F.get("allowed_dexes") and f["dex"] not in F["allowed_dexes"]: return "dex_not_allowed"
@@ -117,13 +140,29 @@ def market_filter(f):
         if f["liq"] / max(1, f["mcap"]) < F["min_liq_to_mcap"]: return "liq_mcap_ratio"
     if f["vol_m5"] < F["min_vol_m5_usd"]: return "low_vol_m5"
     if f["buys_m5"] + f["sells_m5"] < F["min_txns_m5"]: return "low_txns_m5"
-    if f["buys_m5"] / max(1, f["sells_m5"]) < F["min_buy_sell_ratio_m5"]: return "m5_sell_pressure"
-    if f["pc_m5"] < F["min_price_change_m5"]: return "m5_not_rising"
-    if f["pc_m5"] > F["max_price_change_m5"]: return "m5_parabolic"
+    min_bs = min(F["min_buy_sell_ratio_m5"], surge.get("min_buy_sell_ratio_m5", F["min_buy_sell_ratio_m5"]))
+    max_m5 = max(F["max_price_change_m5"], surge.get("max_price_change_m5", F["max_price_change_m5"]))
+    if f["buys_m5"] / max(1, f["sells_m5"]) < min_bs: return "m5_sell_pressure"
+    if f["pc_m5"] < min(F["min_price_change_m5"], surge.get("min_price_change_m5", F["min_price_change_m5"])): return "m5_not_rising"
+    if f["pc_m5"] > max_m5: return "m5_parabolic"
     if f["pc_h1"] < F["min_price_change_h1"]: return "h1_down"
-    if f["pc_h1"] > F["max_price_change_h1"]: return "h1_parabolic"
+    if f["pc_h1"] > max(F["max_price_change_h1"], surge.get("max_price_change_h1", F["max_price_change_h1"])): return "h1_parabolic"
     if f["accel"] < F["min_accel"]: return "no_acceleration"
-    return None
+    return entry_window(f)
+
+def classify_tier(s, mint):
+    """Burned if the dominant pool's LP is locked, or the pump.fun AMM itself was burned on migration.
+    Never uses max(lpLockedPct): a $0.03 side-pool at 100% must not hide an unlocked creator pool."""
+    T = C().get("tiers") or {}
+    floor = T.get("burned_min_lp_locked_pct", 90)
+    if (s.get("lp_locked_pct") or 0) >= floor:
+        return "burned"
+    launch = s.get("launchpad")
+    lname = (launch.get("name") if isinstance(launch, dict) else launch) or ""
+    pump_origin = str(mint or "").endswith("pump") or "pump" in str(lname).lower()
+    if pump_origin and (s.get("pump_amm_lp_locked_pct") or 0) >= floor:
+        return "burned"
+    return "creator_pool"
 
 def rank(f):
     bs = min(3, f["buys_m5"] / max(1, f["sells_m5"]))
@@ -158,7 +197,9 @@ def scan(c):
         k = (f["symbol"] or "").upper()
         if k in seen_sym: rej("same_symbol_in_scan"); continue
         seen_sym.add(k); dedup.append((m, f))
-    stage1 = dedup
+    # Graduates (mint ends with "pump") are the burned-LP names. Check them before creator pools
+    # so the per-scan RugCheck budget is not spent on a tier that is disabled.
+    stage1 = sorted(dedup, key=lambda x: (not str(x[0]).endswith("pump"), -x[1]["rank"]))
     n_open = c.execute("SELECT COUNT(*) FROM positions WHERE status='open' AND strategy='scalp'").fetchone()[0]
     opened = 0; safe = 0; checks = 0
     for m, f in stage1:
@@ -173,7 +214,7 @@ def scan(c):
             rej(r); log(f"  [scalp] reject {f['symbol']:<10} {r} (top10 {s['top10_ex_pools']}% top1 {s['top1_ex_pools']}% holders {s['holders']} insiders {s['graph_insiders']})"); continue
         if s["decimals"] is None: rej("no_decimals"); continue
         T = S.get("tiers") or {}
-        tier = "burned" if s["lp_locked_pct"] >= T.get("burned_min_lp_locked_pct", 90) else "creator_pool"
+        tier = classify_tier(s, m)
         TT = T.get(tier, {})
         if TT.get("enabled") is False: rej(f"tier_disabled:{tier}"); continue
         n_tier = sum(1 for r in c.execute("SELECT features FROM positions WHERE status='open' AND strategy='scalp'")
@@ -203,7 +244,7 @@ def scan(c):
         entry_cost = 100 * (eff / jp - 1)
         if entry_cost > E["max_total_entry_cost_pct"]: rej("entry_cost_too_high"); log(f"  [scalp] skip {f['symbol']} entry cost {entry_cost:.1f}%"); continue
         feat = {**f, "price_ds": f["price"], "price": jp, "impact": impact, "roundtrip_quote_loss": round(rt_loss, 2), "entry_cost_pct": round(entry_cost, 2),
-                **{k: s[k] for k in ["top10_ex_pools", "top1_ex_pools", "creator_pct", "holders", "graph_insiders", "lp_locked_pct", "rc_score_norm", "risks", "launchpad"]},
+                **{k: s[k] for k in ["top10_ex_pools", "top1_ex_pools", "creator_pct", "holders", "graph_insiders", "lp_locked_pct", "pump_amm_lp_locked_pct", "rc_score_norm", "risks", "launchpad"]},
                 "sources": src.get(m), "tier": tier}
         reasoning = (f"[scalp {tier}] rank {f['rank']} | age {f['age_min']:.0f}m dex {f['dex']} mcap ${f['mcap']:,.0f} liq ${(f['liq'] or 0):,.0f} | 5m: vol ${f['vol_m5']:,.0f} "
                      f"buys/sells {f['buys_m5']}/{f['sells_m5']} chg {f['pc_m5']}% accel x{f['accel']} | 1h chg {f['pc_h1']}% | holders {s['holders']} top10 {s['top10_ex_pools']}% "

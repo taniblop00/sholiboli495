@@ -1,4 +1,4 @@
-# YONI meme-coin PAPER trader (v4) — GitHub Actions bundle
+# YONI meme-coin PAPER trader (v5) — GitHub Actions bundle
 
 **Simulation only.** The engine never builds, signs or sends a transaction, has no wallet and no keys.
 It reads public data only (DexScreener, GeckoTerminal, RugCheck, Jupiter lite *quotes*/prices) and books
@@ -9,7 +9,7 @@ simulated fills in `state.db`.
 |---|---|
 | `main.py` | single entry point: `python main.py --minutes 340` (loop, then clean exit; SIGTERM/SIGINT/`STOP` file → clean exit) |
 | `run.py` | shared helpers: HTTP (hard timeouts), DB, quotes, simulated buy/sell, reports. Paths are relative to the repo (`MT_HOME` overrides) |
-| `scalp.py` | v4 scanner + exits (LP tiers `burned` / `creator_pool`, glitch guard) |
+| `scalp.py` | v5 scanner + exits. Burned/locked LP only (`creator_pool` stays in the code, disabled). Glitch guard unchanged |
 | `review.py` | self-review every 30 min: never raises, version-scoped, bounded by `_bounded_ok` (never touches safety/tiers/sizes/stops) |
 | `export_state.py` | writes `docs/data/state.json` (every 30 s from `main.py`) |
 | `config.json` | v4 rules (`scalp.*`). `config.strict.json` = swing safety floor |

@@ -104,9 +104,9 @@
     "raydium-launchlab",
     "meteora-dbc"
   ],
-  "_mode": "v4 scalp-only, PAPER ONLY (never signs or sends a transaction). Runs on GitHub Actions via main.py --minutes N",
+  "_mode": "v5 scalp-only, PAPER ONLY (never signs or sends a transaction). Runs on GitHub Actions via main.py --minutes N",
   "scalp": {
-    "_why": "v4 (2026-11-02, from the review of all 53 closed trades): 42/44 scalps were creator-seeded PumpSwap pools with ~0% LP locked; 6 of them had their liquidity pulled (-45% to -100%) = 1.1% chance per minute held. Losers that were NOT pulls entered extended (5m +20-29%) with weak buy pressure (buys/sells < 3). v4: stricter entry (b/s >= 3, 5m +6..+20%, age 3-8 min, 1h <= +40%), sell 70% at +15% and cap the trade at 10 min on creator pools, smaller size and max 2 creator pools at once.",
+    "_why": "v5 (2026-11-02): v4's live session took 5 creator-pool trades, 4 small wins (~+8%) and one liquidity pull at -100%, net about -$2, PF 0.33, then zero entries because the 3-8 min window rejected almost the whole universe as too_old. Creator pools stay in the code but are disabled. v5 trades only burned/locked LP (dominant pool >= 90%, including pump.fun graduates whose PumpSwap LP is burned). Age 3-120 min, plus a 2h-24h surge band. Exits are sized so a winner is larger than a loser: stop -8%, sell 40% at +20%, runner to +60% with a 12% trail, 30 min max.",
     "position_size_usd": 3.5,
     "max_concurrent": 3,
     "max_new_per_scan": 2,
@@ -117,16 +117,16 @@
       "min_age_min": 3,
       "min_mcap_usd": 15000,
       "max_mcap_usd": 400000,
-      "min_liquidity_usd": 20000,
-      "min_liq_to_mcap": 0.1,
-      "min_vol_m5_usd": 8000,
-      "min_txns_m5": 60,
-      "min_buy_sell_ratio_m5": 3.0,
+      "min_liquidity_usd": 15000,
+      "min_liq_to_mcap": 0.08,
+      "min_vol_m5_usd": 3000,
+      "min_txns_m5": 40,
+      "min_buy_sell_ratio_m5": 1.5,
       "min_price_change_m5": 6.0,
-      "max_price_change_m5": 20.0,
-      "min_price_change_h1": -10.0,
-      "max_price_change_h1": 40.0,
-      "min_accel": 0.9,
+      "max_price_change_m5": 25.0,
+      "min_price_change_h1": -15.0,
+      "max_price_change_h1": 80.0,
+      "min_accel": 0.4,
       "allowed_quote_symbols": [
         "SOL"
       ],
@@ -141,7 +141,17 @@
       "allowed_dexes": [
         "pumpswap"
       ],
-      "max_age_min": 8
+      "max_age_min": 120,
+      "surge": {
+        "_why": "Older burned-LP tokens are allowed only when the last 5 minutes is a fresh surge, not a dead chart.",
+        "min_age_min": 120,
+        "max_age_min": 1440,
+        "min_price_change_m5": 6.0,
+        "max_price_change_m5": 25.0,
+        "min_buy_sell_ratio_m5": 2.0,
+        "max_price_change_h1": 80.0,
+        "min_liquidity_usd": 30000
+      }
     },
     "safety": {
       "require_mint_revoked": true,
@@ -178,18 +188,18 @@
       "max_roundtrip_quote_loss_pct": 3.5
     },
     "exits": {
-      "stop_loss_gross_pct": -5.0,
-      "tp1_gross_pct": 15.0,
-      "tp1_sell_fraction": 0.7,
-      "stop_after_tp1_gross_pct": 10.0,
-      "runner_take_profit_gross_pct": 25.0,
-      "runner_trail_drawdown_pct": 6.0,
-      "runner_max_min": 10,
-      "time_stop_min": 6,
-      "time_stop_min_gain_pct": 2.0,
-      "max_hold_min": 10,
+      "stop_loss_gross_pct": -8.0,
+      "tp1_gross_pct": 20.0,
+      "tp1_sell_fraction": 0.4,
+      "stop_after_tp1_gross_pct": 5.0,
+      "runner_take_profit_gross_pct": 60.0,
+      "runner_trail_drawdown_pct": 12.0,
+      "runner_max_min": 30,
+      "time_stop_min": 12,
+      "time_stop_min_gain_pct": 3.0,
+      "max_hold_min": 30,
       "exit_if_liquidity_drop_pct": 7.0,
-      "_note": "v4 defaults = creator_pool rules. exits_by_tier overrides per tier.",
+      "_note": "v5 defaults = burned-LP rules (winners larger than the -8% stop). exits_by_tier.creator_pool keeps the old short rules, used only if that tier is re-enabled.",
       "exit_sells_to_buys_m5": 1.5,
       "exit_sell_spike_min_sells": 30,
       "glitch_jump_multiple": 5.0
@@ -212,46 +222,59 @@
       "min_fdv_usd": 8000,
       "max_recheck": 200
     },
-    "version": "v4",
+    "version": "v5",
     "review_v2": {
       "min_new_trades_for_change": 8,
       "min_entries_per_hour_floor": 2,
       "tp1_bounds": [
-        12.0,
-        18.0
+        16.0,
+        28.0
       ],
       "stop_bounds": [
-        -6.0,
-        -4.0
+        -8.0,
+        -8.0
       ],
       "loose_floor": {
         "min_price_change_m5": 4.0,
-        "min_buy_sell_ratio_m5": 3.0,
-        "min_vol_m5_usd": 6000,
-        "min_txns_m5": 50
+        "min_buy_sell_ratio_m5": 1.2,
+        "min_vol_m5_usd": 2500,
+        "min_txns_m5": 25,
+        "max_price_change_m5": 25.0,
+        "max_price_change_h1": 60.0
       },
       "tight_cap": {
-        "min_price_change_m5": 10.0,
-        "min_buy_sell_ratio_m5": 4.5,
+        "min_price_change_m5": 12.0,
+        "min_buy_sell_ratio_m5": 4.0,
         "min_vol_m5_usd": 20000,
-        "min_txns_m5": 150
+        "min_txns_m5": 150,
+        "max_price_change_m5": 30.0,
+        "max_price_change_h1": 120.0
+      },
+      "burned_bounds": {
+        "tp1_gross_pct": [16.0, 28.0],
+        "tp1_sell_fraction": [0.3, 0.6],
+        "stop_after_tp1_gross_pct": [2.0, 12.0],
+        "runner_trail_drawdown_pct": [8.0, 18.0],
+        "runner_take_profit_gross_pct": [45.0, 80.0],
+        "time_stop_min": [8.0, 20.0],
+        "time_stop_min_gain_pct": [1.0, 6.0],
+        "max_hold_min": [20.0, 45.0],
+        "runner_max_min": [20.0, 45.0]
       },
       "never_touch": [
         "safety",
         "tiers",
         "min_age_min",
         "max_age_min",
+        "surge",
         "allowed_dexes",
         "min_liquidity_usd",
-        "max_price_change_m5",
-        "max_price_change_h1",
         "position_size_usd",
         "max_concurrent",
-        "max_hold_min",
-        "runner_max_min",
-        "stop_loss_gross_pct"
+        "stop_loss_gross_pct",
+        "glitch_jump_multiple"
       ],
-      "_note": "bs_m5 floor stays at 3.0 (the strongest winner/loser separator); the review may only tighten it."
+      "_note": "v5: the review may tune burned-tier momentum and the new exit knobs inside burned_bounds. It cannot re-enable creator_pool, move the -8% stop, or shrink the age window back to a few minutes."
     },
     "tiers": {
       "_why": "LP burned (>=90%) pools cannot be rug-pulled by removing liquidity; creator pools can, at any second.",
@@ -262,22 +285,26 @@
         "max_concurrent": 3
       },
       "creator_pool": {
-        "enabled": true,
+        "enabled": false,
         "position_size_usd": 3.0,
-        "max_concurrent": 2
+        "max_concurrent": 2,
+        "_why": "Disabled in v5. A ~15-20% liquidity-pull rate at -100% is not covered by +8% wins. The code path remains."
       }
     },
     "exits_by_tier": {
-      "creator_pool": {},
-      "burned": {
-        "tp1_sell_fraction": 0.5,
-        "stop_after_tp1_gross_pct": 5.0,
-        "runner_take_profit_gross_pct": 40.0,
-        "runner_trail_drawdown_pct": 10.0,
-        "runner_max_min": 20,
-        "max_hold_min": 20,
-        "time_stop_min": 10
-      }
+      "creator_pool": {
+        "stop_loss_gross_pct": -5.0,
+        "tp1_gross_pct": 15.0,
+        "tp1_sell_fraction": 0.7,
+        "stop_after_tp1_gross_pct": 10.0,
+        "runner_take_profit_gross_pct": 25.0,
+        "runner_trail_drawdown_pct": 6.0,
+        "runner_max_min": 10,
+        "time_stop_min": 6,
+        "time_stop_min_gain_pct": 2.0,
+        "max_hold_min": 10
+      },
+      "burned": {}
     }
   },
   "swing_enabled": false
