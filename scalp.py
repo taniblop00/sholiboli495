@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 """SCALP mode for the memetrader PAPER engine. Simulation only: never signs or sends anything.
-v5: burned / locked LP only. creator_pool stays in the code but is disabled (its liquidity can be pulled).
-  * "burned"       - dominant pool LP >= 90% locked, or a pump.fun graduate whose PumpSwap LP was burned
-  * "creator_pool" - LP unlocked. Disabled by default.
-Age for burned: 3-120 min on the normal momentum band, or 2h-24h only on a fresh surge.
+v6 fast quality scalp. Two live tiers:
+  * "bonding_curve" - pump.fun (and other launchpad curves only when DexScreener has a live price).
+                      No LP token the creator can pull. Paper fill uses that price plus a 1.5% round trip.
+  * "burned"        - dominant pool LP >= 90% locked (pump.fun graduates included).
+  * "creator_pool"  - LP unlocked. Still in the code, disabled.
+Full exit at +10%. No runner. Stop -6%. Out within 8 minutes.
   python3 scalp.py scan | update | report
 """
 import json, time, datetime, math, os, sys
@@ -98,61 +100,52 @@ def feats(p):
             "vol_m5": vm5, "vol_h1": vh1, "buys_m5": m5.get("buys") or 0, "sells_m5": m5.get("sells") or 0,
             "buys_h1": h1.get("buys") or 0, "sells_h1": h1.get("sells") or 0,
             "pc_m5": pc.get("m5") or 0, "pc_h1": pc.get("h1") or 0, "pc_h6": pc.get("h6") or 0,
-            "accel": round(accel, 2), "has_twitter": "twitter" in socials}
+            "accel": round(accel, 2), "has_twitter": "twitter" in socials,
+            "has_telegram": "telegram" in socials, "has_website": bool((p.get("info") or {}).get("websites")),
+            "has_social": ("twitter" in socials) or ("telegram" in socials) or bool((p.get("info") or {}).get("websites"))}
 
-def entry_window(f):
-    """v5 age bands. The 3-120 min band uses the normal momentum limits.
-    2h-24h is allowed only as a fresh surge (separate, looser b/s and a wider 5m cap)."""
-    F = C()["filters"]
-    surge = F.get("surge") or {}
-    age = f["age_min"]
-    if age is None: return "no_age"
-    bs = f["buys_m5"] / max(1, f["sells_m5"])
-    if F["min_age_min"] <= age <= F["max_age_min"]:
-        if f["pc_m5"] > F["max_price_change_m5"]: return "m5_parabolic"
-        if bs < F["min_buy_sell_ratio_m5"]: return "m5_sell_pressure"
-        return None
-    smin, smax = surge.get("min_age_min", 120), surge.get("max_age_min", 1440)
-    if age > F["max_age_min"] and smin < age <= smax:
-        if f["pc_m5"] < surge.get("min_price_change_m5", F["min_price_change_m5"]): return "surge_m5"
-        if f["pc_m5"] > surge.get("max_price_change_m5", 25): return "surge_m5_hot"
-        if bs < surge.get("min_buy_sell_ratio_m5", 2.0): return "surge_bs"
-        if f["pc_h1"] > surge.get("max_price_change_h1", F["max_price_change_h1"]): return "surge_h1"
-        if (f["liq"] or 0) < surge.get("min_liquidity_usd", 30000): return "surge_liq"
-        return None
-    return "too_old" if age > F["min_age_min"] else "too_young"
+def curve_dexes():
+    return set(C()["filters"].get("curve_dexes") or ["pumpfun", "meteoradbc", "launchlab", "raydiumlaunchlab"])
+
+def prelim_tier(f):
+    """Tier guessed from the DEX, before RugCheck. Curves have no pullable LP."""
+    if f.get("dex") in curve_dexes(): return "bonding_curve"
+    if f.get("dex") == "pumpswap": return "burned"
+    return None
 
 def market_filter(f):
+    """Shared quality momentum, then the age/mcap window of the tier this DEX belongs to.
+    pump.fun bonding curves are not blocked_dex anymore. Meteora/Raydium AMMs still are."""
     F = C()["filters"]
-    surge = F.get("surge") or {}
     if f["age_min"] is None: return "no_age"
-    if f["age_min"] < F["min_age_min"]: return "too_young"
-    max_age = max(F.get("max_age_min", 120), surge.get("max_age_min", 0))
-    if f["age_min"] > max_age: return "too_old"
+    if not f.get("price"): return "no_reliable_price"
     if f["quote"] not in F["allowed_quote_symbols"]: return "bad_quote"
     if f["dex"] in F.get("blocked_dexes", []): return "blocked_dex"
+    tier = prelim_tier(f)
+    if tier is None: return "blocked_dex"
     if F.get("allowed_dexes") and f["dex"] not in F["allowed_dexes"]: return "dex_not_allowed"
-    if not (F["min_mcap_usd"] <= f["mcap"] <= F["max_mcap_usd"]): return "mcap_range"
-    curve = f["dex"] in ("pumpfun", "meteoradbc", "launchlab", "raydiumlaunchlab")
-    if f["liq"] is None and not curve: return "no_liq_data"
-    if f["liq"] is not None:
+    if F.get("require_social") and not f.get("has_social"): return "no_social"
+    band = F.get("curve") or {} if tier == "bonding_curve" else F
+    if f["age_min"] < band.get("min_age_min", F["min_age_min"]): return "too_young"
+    if f["age_min"] > band.get("max_age_min", F["max_age_min"]): return "too_old"
+    lo_mc, hi_mc = band.get("min_mcap_usd", F["min_mcap_usd"]), band.get("max_mcap_usd", F["max_mcap_usd"])
+    if not (lo_mc <= (f["mcap"] or 0) <= hi_mc): return "mcap_range"
+    if tier != "bonding_curve":
+        if f["liq"] is None: return "no_liq_data"
         if f["liq"] < F["min_liquidity_usd"]: return "low_liq"
         if f["liq"] / max(1, f["mcap"]) < F["min_liq_to_mcap"]: return "liq_mcap_ratio"
     if f["vol_m5"] < F["min_vol_m5_usd"]: return "low_vol_m5"
-    if f["buys_m5"] + f["sells_m5"] < F["min_txns_m5"]: return "low_txns_m5"
-    min_bs = min(F["min_buy_sell_ratio_m5"], surge.get("min_buy_sell_ratio_m5", F["min_buy_sell_ratio_m5"]))
-    max_m5 = max(F["max_price_change_m5"], surge.get("max_price_change_m5", F["max_price_change_m5"]))
-    if f["buys_m5"] / max(1, f["sells_m5"]) < min_bs: return "m5_sell_pressure"
-    if f["pc_m5"] < min(F["min_price_change_m5"], surge.get("min_price_change_m5", F["min_price_change_m5"])): return "m5_not_rising"
-    if f["pc_m5"] > max_m5: return "m5_parabolic"
-    if f["pc_h1"] < F["min_price_change_h1"]: return "h1_down"
-    if f["pc_h1"] > max(F["max_price_change_h1"], surge.get("max_price_change_h1", F["max_price_change_h1"])): return "h1_parabolic"
+    if f["buys_m5"] < F.get("min_buys_m5", 40): return "few_buys"
+    if f["buys_m5"] / max(1, f["sells_m5"]) < F["min_buy_sell_ratio_m5"]: return "m5_sell_pressure"
+    if f["pc_m5"] < F["min_price_change_m5"]: return "m5_not_rising"
+    if f["pc_m5"] > F["max_price_change_m5"]: return "m5_parabolic"
     if f["accel"] < F["min_accel"]: return "no_acceleration"
-    return entry_window(f)
+    return None
 
-def classify_tier(s, mint):
-    """Burned if the dominant pool's LP is locked, or the pump.fun AMM itself was burned on migration.
-    Never uses max(lpLockedPct): a $0.03 side-pool at 100% must not hide an unlocked creator pool."""
+def classify_tier(s, mint, dex=None):
+    """Curves are classified from the DEX. Otherwise burned if the dominant pool's LP is locked.
+    Never uses max(lpLockedPct): a dust side-pool at 100% must not hide an unlocked creator pool."""
+    if dex in curve_dexes(): return "bonding_curve"
     T = C().get("tiers") or {}
     floor = T.get("burned_min_lp_locked_pct", 90)
     if (s.get("lp_locked_pct") or 0) >= floor:
@@ -164,11 +157,41 @@ def classify_tier(s, mint):
         return "burned"
     return "creator_pool"
 
+def quality_gate(f, s, tier):
+    """Extra 'good-looking coin' checks that safety_filter does not already cover.
+    Authorities, danger risks, top10 and dev wallet are enforced in safety (the review cannot edit those)."""
+    T = (C().get("tiers") or {}).get(tier) or {}
+    need = T.get("min_holders")
+    if need and (s.get("holders") or 0) < need: return "few_holders"
+    names = " ".join(s.get("risk_names") or []).lower()
+    if "sniper" in names or "bundle" in names: return "sniper_or_bundle"
+    holders = s.get("holders") or 0
+    if holders and f.get("buys_m5", 0) > max(120, holders * 12): return "wash_buys"
+    return None
+
+def curve_paper_fill(size, mark):
+    """Paper buy on a bonding curve. $3 barely moves the curve; charge 0.75% this side
+    (1.5% round trip with the matching sell haircut). Never calls Jupiter and never sends a tx."""
+    slip = float((C().get("curve_costs") or {}).get("slippage_pct_each_side", 0.75)) / 100.0
+    tokens = size / (mark * (1 + slip))
+    return tokens, size / tokens, slip * 100
+
 def rank(f):
     bs = min(3, f["buys_m5"] / max(1, f["sells_m5"]))
-    mom = 1 - abs(f["pc_m5"] - 10) / 25           # sweet spot ~+10% in 5 min
+    mom = 1 - abs(f["pc_m5"] - 8) / 25            # sweet spot is a small early move, not a vertical candle
     liq = min(1, (f["liq"] or 0) / max(1, f["mcap"]) / 0.15)
-    return round(30 * (bs - 1) / 2 + 25 * max(0, mom) + 25 * min(1, f["accel"] / 3) + 20 * liq, 1)
+    social = 15 if f.get("has_social") else 0     # prefer a social, don't require one (DexScreener rarely has it yet)
+    return round(30 * (bs - 1) / 2 + 25 * max(0, mom) + 25 * min(1, f["accel"] / 3) + 20 * liq + social, 1)
+
+def note_deployer(c, mint, creator):
+    """Count other mints this creator launched in the last day. The launcher check."""
+    if not creator or not isinstance(creator, str): return None
+    c.execute("CREATE TABLE IF NOT EXISTS deployers(creator TEXT, mint TEXT, ts REAL, PRIMARY KEY(creator, mint))")
+    c.execute("INSERT OR IGNORE INTO deployers VALUES(?,?,?)", (creator, mint, time.time()))
+    n = c.execute("SELECT COUNT(*) FROM deployers WHERE creator=? AND mint!=? AND ts>?",
+                  (creator, mint, time.time() - 86400)).fetchone()[0]
+    c.commit()
+    return n
 
 def scan(c):
     S = C(); E = S["entry"]
@@ -199,7 +222,7 @@ def scan(c):
         seen_sym.add(k); dedup.append((m, f))
     # Graduates (mint ends with "pump") are the burned-LP names. Check them before creator pools
     # so the per-scan RugCheck budget is not spent on a tier that is disabled.
-    stage1 = sorted(dedup, key=lambda x: (not str(x[0]).endswith("pump"), -x[1]["rank"]))
+    stage1 = sorted(dedup, key=lambda x: (0 if x[1].get("dex") in curve_dexes() else 1, not str(x[0]).endswith("pump"), -x[1]["rank"]))
     n_open = c.execute("SELECT COUNT(*) FROM positions WHERE status='open' AND strategy='scalp'").fetchone()[0]
     opened = 0; safe = 0; checks = 0
     for m, f in stage1:
@@ -214,9 +237,14 @@ def scan(c):
             rej(r); log(f"  [scalp] reject {f['symbol']:<10} {r} (top10 {s['top10_ex_pools']}% top1 {s['top1_ex_pools']}% holders {s['holders']} insiders {s['graph_insiders']})"); continue
         if s["decimals"] is None: rej("no_decimals"); continue
         T = S.get("tiers") or {}
-        tier = classify_tier(s, m)
+        tier = classify_tier(s, m, f.get("dex"))
         TT = T.get(tier, {})
         if TT.get("enabled") is False: rej(f"tier_disabled:{tier}"); continue
+        qg = quality_gate(f, s, tier)
+        if qg: rej(qg); continue
+        n_seen = note_deployer(c, m, s.get("creator"))
+        if n_seen is not None and n_seen >= S.get("max_same_deployer", 2):
+            rej("serial_deployer"); continue
         n_tier = sum(1 for r in c.execute("SELECT features FROM positions WHERE status='open' AND strategy='scalp'")
                      if (json.loads(r["features"] or "{}").get("tier") or "creator_pool") == tier)
         if n_tier >= TT.get("max_concurrent", S["max_concurrent"]): rej(f"tier_slots_full:{tier}"); continue
@@ -224,26 +252,38 @@ def scan(c):
         cur_cash = run.cash(c)
         size = TT.get("position_size_usd", S["position_size_usd"]); fee = run.fee_usd()
         if cur_cash - size - fee < S["min_cash_reserve_usd"]: rej("no_cash"); continue
-        jp = run.jup_prices([m]).get(m)
-        if not jp: rej("no_jupiter_price"); continue
-        div = 100 * (jp / f["price"] - 1)
-        if abs(div) > E["max_mark_divergence_pct"]: rej("mark_divergence"); log(f"  [scalp] skip {f['symbol']} Jupiter vs DexScreener {div:+.1f}%"); continue
-        lamports = int(size / run.sol_price() * 1e9)
-        qb = run.jup_quote(SOL, m, lamports)
-        if not qb: rej("no_buy_route"); continue
-        impact = float(qb.get("priceImpactPct") or 0) * 100
-        if impact > E["max_price_impact_pct"]: rej("price_impact"); log(f"  [scalp] skip {f['symbol']} buy impact {impact:.2f}%"); continue
-        raw = int(qb["outAmount"])
-        qs = run.jup_quote(m, SOL, raw)
-        if not qs: rej("no_sell_route_honeypot?"); log(f"  [scalp] skip {f['symbol']} NO SELL ROUTE (possible honeypot)"); continue
-        rt_loss = 100 * (1 - int(qs["outAmount"]) / lamports)
-        if rt_loss > E["max_roundtrip_quote_loss_pct"]: rej("roundtrip_loss"); log(f"  [scalp] skip {f['symbol']} instant round-trip quote loss {rt_loss:.1f}%"); continue
-        CO = run.CFG["costs"]
-        tokens = raw / 10 ** s["decimals"] * (1 - CO["extra_slippage_pct_each_side"] / 100) * (1 - CO.get("wallet_swap_fee_pct", 0) / 100)
-        eff = size / tokens
-        entry_cost = 100 * (eff / jp - 1)
-        if entry_cost > E["max_total_entry_cost_pct"]: rej("entry_cost_too_high"); log(f"  [scalp] skip {f['symbol']} entry cost {entry_cost:.1f}%"); continue
-        feat = {**f, "price_ds": f["price"], "price": jp, "impact": impact, "roundtrip_quote_loss": round(rt_loss, 2), "entry_cost_pct": round(entry_cost, 2),
+        if tier == "bonding_curve":
+            # DexScreener priceUsd is the fill. The pump.fun HTTP API is blocked from this host (403),
+            # and a $3 curve buy barely moves the price, so the paper round trip is a flat 1.5%.
+            mark = f["price"]
+            tokens, eff, impact = curve_paper_fill(size, mark)
+            entry_cost = impact
+            rt_loss = impact * 2
+            src_fill = "curve_mark+1.5pct_roundtrip"
+        else:
+            jp = run.jup_prices([m]).get(m)
+            if not jp: rej("no_jupiter_price"); continue
+            div = 100 * (jp / f["price"] - 1)
+            if abs(div) > E["max_mark_divergence_pct"]: rej("mark_divergence"); log(f"  [scalp] skip {f['symbol']} Jupiter vs DexScreener {div:+.1f}%"); continue
+            lamports = int(size / run.sol_price() * 1e9)
+            qb = run.jup_quote(SOL, m, lamports)
+            if not qb: rej("no_buy_route"); continue
+            impact = float(qb.get("priceImpactPct") or 0) * 100
+            if impact > E["max_price_impact_pct"]: rej("price_impact"); log(f"  [scalp] skip {f['symbol']} buy impact {impact:.2f}%"); continue
+            raw = int(qb["outAmount"])
+            qs = run.jup_quote(m, SOL, raw)
+            if not qs: rej("no_sell_route_honeypot?"); log(f"  [scalp] skip {f['symbol']} NO SELL ROUTE (possible honeypot)"); continue
+            rt_loss = 100 * (1 - int(qs["outAmount"]) / lamports)
+            if rt_loss > E["max_roundtrip_quote_loss_pct"]: rej("roundtrip_loss"); log(f"  [scalp] skip {f['symbol']} instant round-trip quote loss {rt_loss:.1f}%"); continue
+            CO = run.CFG["costs"]
+            tokens = raw / 10 ** s["decimals"] * (1 - CO["extra_slippage_pct_each_side"] / 100) * (1 - CO.get("wallet_swap_fee_pct", 0) / 100)
+            mark = jp
+            eff = size / tokens
+            entry_cost = 100 * (eff / jp - 1)
+            src_fill = "jupiter_quote"
+            if entry_cost > E["max_total_entry_cost_pct"]: rej("entry_cost_too_high"); log(f"  [scalp] skip {f['symbol']} entry cost {entry_cost:.1f}%"); continue
+        feat = {**f, "price_ds": f["price"], "price": mark, "impact": impact, "roundtrip_quote_loss": round(rt_loss, 2), "entry_cost_pct": round(entry_cost, 2),
+                "fill_source": src_fill, "creator": s.get("creator"),
                 **{k: s[k] for k in ["top10_ex_pools", "top1_ex_pools", "creator_pct", "holders", "graph_insiders", "lp_locked_pct", "pump_amm_lp_locked_pct", "rc_score_norm", "risks", "launchpad"]},
                 "sources": src.get(m), "tier": tier}
         reasoning = (f"[scalp {tier}] rank {f['rank']} | age {f['age_min']:.0f}m dex {f['dex']} mcap ${f['mcap']:,.0f} liq ${(f['liq'] or 0):,.0f} | 5m: vol ${f['vol_m5']:,.0f} "
@@ -253,14 +293,14 @@ def scan(c):
         cur = c.execute("""INSERT INTO positions(mint,symbol,name,pair,dex,opened_at,entry_mark,entry_eff,tokens,tokens_left,decimals,
             cost_usd,fees_usd,entry_liq,entry_mcap,score,features,reasoning,status,peak_mark,last_mark,last_checked,strategy)
             VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,'open',?,?,?,'scalp')""",
-            (m, f["symbol"], f["name"], f["pair"], f["dex"], iso(), jp, eff, tokens, tokens, s["decimals"], size, fee,
+            (m, f["symbol"], f["name"], f["pair"], f["dex"], iso(), mark, eff, tokens, tokens, s["decimals"], size, fee,
              f["liq"] or 0, f["mcap"], f["rank"], json.dumps(feat, default=str), reasoning, jp, jp, iso()))
         c.execute("INSERT INTO fills(pos_id,ts,side,tokens,usd,mark,eff_price,impact_pct,fee_usd,reason,source) VALUES(?,?,?,?,?,?,?,?,?,?,?)",
-                  (cur.lastrowid, iso(), "BUY", tokens, size, jp, eff, impact, fee, "scalp_entry", "jupiter_quote"))
+                  (cur.lastrowid, iso(), "BUY", tokens, size, mark, eff, impact, fee, "scalp_entry", src_fill))
         c.commit()
         opened += 1; n_open += 1
         STATUS["last_open"] = {"id": cur.lastrowid, "symbol": f["symbol"], "tier": tier, "ts": iso()}
-        log(f"  [scalp] OPEN #{cur.lastrowid} {f['symbol']} ${size:.2f} @ {jp:.8g} (eff {eff:.8g}, +{entry_cost:.1f}%) | {reasoning}")
+        log(f"  [scalp] OPEN #{cur.lastrowid} {f['symbol']} ${size:.2f} @ {mark:.8g} (eff {eff:.8g}, +{entry_cost:.1f}%) | {reasoning}")
     c.execute("INSERT INTO scalp_scans VALUES(?,?,?,?,?,?)", (iso(), len(mints), len(stage1), safe, opened, json.dumps(rejects))); c.commit()
     top = dict(sorted(rejects.items(), key=lambda x: -x[1])[:8])
     STATUS.update({"last_scan": iso(), "universe": len(mints), "watchlist": wl, "momentum_pass": len(stage1), "safety_pass": safe,
@@ -298,7 +338,19 @@ def update(c, force_close_reason=None):
         XT = {**X, **((C().get("exits_by_tier") or {}).get(tier) or {})}   # tier overrides on top of the shared exits
         if not reason and glitch:
             reason = "liquidity_pull_suspected"   # price jumped >x5 in one tick = pool drained, quote is meaningless
-        if not reason and "tp1_gross_pct" in XT:   # ---- v2/v3/v4 exits ----
+        if not reason and "tp1_gross_pct" in XT and XT.get("tp1_sell_fraction", 1) >= 0.999:
+            # v6: full exit at the target. No runner, so a winner does not sit through a gap.
+            _m5 = ((pr or {}).get("txns") or {}).get("m5") or {}
+            sells, buys = _m5.get("sells") or 0, _m5.get("buys") or 0
+            liq_drop = tier != "bonding_curve" and liq is not None and p["entry_liq"] and liq < p["entry_liq"] * (1 - XT["exit_if_liquidity_drop_pct"] / 100)
+            if liq_drop: reason = "liquidity_drop"
+            elif sells > buys and sells >= XT.get("exit_sell_spike_min_sells", 15): reason = "sell_spike"
+            elif g <= XT["stop_loss_gross_pct"]: reason = "stop_loss"
+            elif g >= XT["tp1_gross_pct"]: reason = "take_profit_full"
+            elif pk >= XT.get("lock_arm_gross_pct", 6) and mark <= peak * (1 - XT.get("lock_giveback_pct", 4) / 100): reason = "profit_lock"
+            elif held >= XT["max_hold_min"]: reason = "max_hold"
+            elif held >= XT["time_stop_min"] and g < XT["time_stop_min_gain_pct"]: reason = "time_stop"
+        elif not reason and "tp1_gross_pct" in XT:   # older partial-TP path, kept if a tier sets a fraction below 1
             liq_drop = liq is not None and p["entry_liq"] and liq < p["entry_liq"] * (1 - XT["exit_if_liquidity_drop_pct"] / 100)
             _m5 = ((pr or {}).get("txns") or {}).get("m5") or {}
             _sb = XT.get("exit_sells_to_buys_m5")

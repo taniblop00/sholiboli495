@@ -45,7 +45,9 @@ def build(c, run_info=None, status=None):
             "peak_pct": round(100 * ((p["peak_mark"] or mark) / p["entry_mark"] - 1), 2) if p["entry_mark"] else None,
             "invested_usd": round(invested, 4), "est_value_usd": round(est, 4),
             "live_pnl_usd": round(est - invested, 4), "live_pnl_pct": round(100 * (est / invested - 1), 2) if invested else None,
-            "tp1_done": bool(p["tp1_done"]), "dexscreener": f"https://dexscreener.com/solana/{p['pair']}" if p["pair"] else None})
+            "tp1_done": bool(p["tp1_done"]), "dexscreener": f"https://dexscreener.com/solana/{p['pair']}" if p["pair"] else None,
+            "quality": {"holders": f.get("holders"), "top10": f.get("top10_ex_pools"), "dev_pct": f.get("creator_pct"),
+                        "social": bool(f.get("has_social")), "buys_m5": f.get("buys_m5"), "lp_locked_pct": f.get("lp_locked_pct")}})
     closed = c.execute("SELECT * FROM positions WHERE status='closed' ORDER BY closed_at DESC").fetchall()
     try: sessions = json.loads((c.execute("SELECT v FROM meta WHERE k='sessions'").fetchone() or ["[]"])[0])
     except Exception: sessions = []

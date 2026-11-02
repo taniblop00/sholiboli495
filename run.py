@@ -320,6 +320,7 @@ def safety_features(rc, mint):
         "token_program": rc.get("tokenProgram"), "transfer_fee_pct": tf.get("pct") or 0,
         "decimals": (rc.get("token") or {}).get("decimals"), "launchpad": rc.get("launchpad"),
         "deploy_platform": rc.get("deployPlatform"),
+        "creator": rc.get("creator") or ((rc.get("token") or {}).get("creator")),
     }
 
 def safety_filter(s, S=None):
@@ -490,7 +491,13 @@ def close_part(c, p, frac, mark, reason, cap_mark=None):
     """Simulated sell (Jupiter QUOTE only, never a swap). cap_mark: never book more than tokens x cap_mark
     (used when the pool looks drained, so a broken price can never create a fake profit)."""
     tokens = p["tokens_left"] * frac if frac < 0.999 else p["tokens_left"]
-    usd, impact, srcq = sim_sell(p["mint"], tokens, mark, p["decimals"])
+    tier = (json.loads(p["features"] or "{}").get("tier") if p["features"] else None)
+    if tier == "bonding_curve" and mark:
+        # Same 0.75% sell haircut as the buy. A curve quote is not a Jupiter swap.
+        slip = 0.0075
+        usd, impact, srcq = tokens * mark * (1 - slip), slip * 100, "curve_mark+1.5pct_roundtrip"
+    else:
+        usd, impact, srcq = sim_sell(p["mint"], tokens, mark, p["decimals"])
     if cap_mark is not None and usd > tokens * cap_mark:
         usd = tokens * cap_mark; srcq += "+capped_at_last_good_mark"
     fee = fee_usd()

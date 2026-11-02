@@ -1,0 +1,41 @@
+v6 dry scan 2026-11-02 ~17:37-17:49 UTC. PAPER ONLY, no orders.
+Thresholds: curve mcap $6k-$60k, age 1-30m; burned age 2-120m.
+Momentum: m5 +3% to +30%, buys/sells >= 1.2, buys_m5 >= 25, 5m volume >= $800, accel >= 0.4.
+Quality kept: mint+freeze revoked, RugCheck danger rejected, top10 <= 30%, dev <= 10%,
+holders >= 50 (curve) / >= 150 (burned). Social is a rank bonus, not a hard block
+(DexScreener info.socials was empty on almost every fresh curve; a hard block was 0/hour).
+Result: 1 fully qualified coin in ~16 min (UPLINK, bonding curve) -> about 4/hour.
+blocked_dex in v5 was the explicit denylist: pumpfun, meteoradbc, launchlab, raydiumlaunchlab, meteora, raydium,
+while allowed_dexes was only pumpswap. New pools were ~51/59 pumpfun.
+
+
+=== round 1/4 17:36:55 ===
+pairs 108 dex [('pumpfun', 60), ('pumpswap', 30), ('meteoradbc', 9), ('orca', 4), ('meteora', 3), ('raydium', 2)]
+pre-rugcheck pass 0 rejects [('mcap_range', 41), ('too_old', 35), ('blocked_dex', 9), ('bad_quote', 9), ('no_reliable_price', 5), ('m5_parabolic', 3), ('m5_sell_pressure', 3), ('few_buys', 1)]
+
+=== round 2/4 17:40:31 ===
+pairs 115 dex [('pumpfun', 66), ('pumpswap', 36), ('orca', 5), ('meteoradbc', 4), ('meteora', 3), ('raydium', 1)]
+pre-rugcheck pass 3 rejects [('mcap_range', 40), ('too_old', 36), ('bad_quote', 12), ('blocked_dex', 8), ('low_vol_m5', 5), ('no_reliable_price', 4), ('m5_parabolic', 3), ('m5_sell_pressure', 1)]
+  insider_network        MAMESUKE       creator_pool   age=11 m5=12.86 bs=505/117 mcap=30017 holders=983 top10=6.69 dev=0.0 social=False
+  rugcheck_danger:Top 10 holders high ownership 眉眉             burned         age=5 m5=20.56 bs=446/75 mcap=24612 holders=441 top10=11.16 dev=0.0 social=False
+  QUAL                   UPLINK         bonding_curve  age=6 m5=9.31 bs=325/239 mcap=11439 holders=218 top10=13.41 dev=0.0 social=True
+
+=== round 3/4 17:44:09 ===
+WARN new_pools?page=1 <urlopen error _ssl.c:983: The handshake operation timed out>
+WARN new_pools?page=2 <urlopen error _ssl.c:983: The handshake operation timed out>
+WARN new_pools?page=3 <urlopen error _ssl.c:983: The handshake operation timed out>
+WARN dexes/pump-fun/pools?sort=h24_tx_count_desc&page=1 <urlopen error _ssl.c:983: The handshake operation timed out>
+WARN dexes/pumpswap/pools?sort=h24_tx_count_desc&page=1 <urlopen error _ssl.c:983: The handshake operation timed out>
+WARN trending_pools?duration=5m&page=1 <urlopen error _ssl.c:983: The handshake operation timed out>
+pairs 0 dex []
+pre-rugcheck pass 0 rejects []
+
+=== round 4/4 17:49:11 ===
+pairs 115 dex [('pumpfun', 61), ('pumpswap', 31), ('meteora', 10), ('orca', 5), ('meteoradbc', 4), ('raydium', 4)]
+pre-rugcheck pass 2 rejects [('mcap_range', 38), ('too_old', 35), ('blocked_dex', 19), ('bad_quote', 9), ('no_reliable_price', 5), ('m5_parabolic', 3), ('too_young', 1), ('low_vol_m5', 1)]
+  rc fail NEX Ai HTTP Error 400: Bad Request
+  tier_disabled:creator_pool SAFU           creator_pool   age=3 m5=28.09 bs=210/32 mcap=21791 holders=248 top10=13.54 dev=0.0 social=False
+
+unique quality passes over ~16 min: 1
+implied per hour: 3.8
+pre-rugcheck counts per round: [0, 3, 0, 2]
