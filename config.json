@@ -104,9 +104,9 @@
     "raydium-launchlab",
     "meteora-dbc"
   ],
-  "_mode": "v6 scalp-only, PAPER ONLY (never signs or sends a transaction). Runs on GitHub Actions via main.py --minutes N",
+  "_mode": "v8 liquid fade, PAPER ONLY (never signs or sends a transaction). Runs on GitHub Actions via main.py --minutes N",
   "scalp": {
-    "_why": "v6 fast quality scalp (2026-11-02). v5 took 2 trades in 2.5h and net -$0.71: a burned stop filled through a gap, and a runner sat for 17 minutes. blocked_dex was rejecting pump.fun bonding curves (and Meteora/Raydium launchpads) before any quality check. v6 enters early on curves that have no pullable LP, and on burned LP, only when the coin looks real, then takes +10% and leaves. No runner.",
+    "_why": "v8 (2026-11-02). Fresh-meme sniping has no edge (66 live trades, PF 0.54). Walk-forward on liquid Solana pairs found no config with OOS PF >= 1.3. The live book is the best OOS config that still trades >= 3 times an hour: 5m opening-range fade, TP +1% / SL -0.4% / 30 min, on SOL JUP PENGU TRUMP FARTCOIN. OOS PF 0.32. Exits use the Jupiter sell quote and the quote is the fill (no second haircut). The meme scalp code remains but the loop does not call it.",
     "position_size_usd": 3.0,
     "max_concurrent": 3,
     "max_new_per_scan": 2,
@@ -219,13 +219,13 @@
       "glitch_jump_multiple": 5.0
     },
     "loop": {
-      "update_every_s": 5,
+      "update_every_s": 15,
       "scan_every_s": 45,
       "swing_update_every_s": 300,
       "swing_cycle_every_s": 600,
       "self_review_every_s": 1800,
       "pass_timeout_s": 110,
-      "intra_scan_update_every_s": 5,
+      "intra_scan_update_every_s": 15,
       "export_every_s": 30,
       "drain_min": 12,
       "_note": "drain_min: no new entries in the last N minutes of a run, so nothing is left open between GitHub Actions runs"
@@ -236,7 +236,7 @@
       "min_fdv_usd": 8000,
       "max_recheck": 200
     },
-    "version": "v6",
+    "version": "v8",
     "review_v2": {
       "min_new_trades_for_change": 8,
       "min_entries_per_hour_floor": 3,
@@ -319,6 +319,28 @@
       "bonding_curve": {},
       "burned": {},
       "creator_pool": {}
+    },
+    "liquid": {
+      "strategy": "orb_fade_30m",
+      "label": "orb fade 30m",
+      "timeframe": "5m",
+      "lookback_min": 30,
+      "tp_pct": 1.0,
+      "sl_pct": 0.4,
+      "max_hold_min": 30,
+      "position_size_usd": 3.0,
+      "max_concurrent": 4,
+      "min_cash_reserve_usd": 2.0,
+      "max_entry_roundtrip_loss_pct": 0.45,
+      "priority_fee_sol_per_tx": 0.00005,
+      "_oos": "Walk-forward last 30% (75h shared clock): n=241, 3.21/h, WR 22.8%, avg win +0.487%, avg loss -0.453%, PF 0.318, gross PF 0.789. Does not clear PF 1.3. Deployed because it is the highest OOS PF among configs with >= 3 trades/hour.",
+      "tokens": [
+        {"symbol": "SOL", "mint": "So11111111111111111111111111111111111111112", "decimals": 9, "quote": "USDC", "pool": "Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE", "liq_usd": 25292025},
+        {"symbol": "JUP", "mint": "JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN", "decimals": 6, "quote": "SOL", "pool": "C8Gr6AUuq9hEdSYJzoEpNcdjpojPZwqG5MtQbeouNNwg", "liq_usd": 1797919},
+        {"symbol": "PENGU", "mint": "2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv", "decimals": 6, "quote": "SOL", "pool": "FAqh648xeeaTqL7du49sztp9nfj5PjRQrfvaMccyd9cz", "liq_usd": 3135442},
+        {"symbol": "TRUMP", "mint": "6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN", "decimals": 6, "quote": "SOL", "pool": "3C5YE97HADPDxZehYq9Cis8AXr9aNyrUsczKzE1nDbW9", "liq_usd": 5828187},
+        {"symbol": "FARTCOIN", "mint": "9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump", "decimals": 6, "quote": "SOL", "pool": "Bzc9NZfMqkXR6fz1DBph7BDf9BroyEf6pnzESP7v5iiw", "liq_usd": 6324895}
+      ]
     }
   },
   "swing_enabled": false

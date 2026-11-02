@@ -189,7 +189,8 @@ const reasonHe={
   runner_trailing_stop:'סטופ נגרר',trailing_stop:'סטופ נגרר',runner_breakeven_stop:'סטופ ברווח',
   stop_loss:'סטופ לוס',liquidity_drop:'משיכת נזילות',liquidity_pull_suspected:'משיכת נזילות',
   time_stop:'עצירת זמן',time_stop_flat:'עצירת זמן',max_hold:'זמן מקסימלי',max_hold_time:'זמן מקסימלי',
-  runner_max_hold:'זמן מקסימלי',session_end:'סוף סשן',run_end:'סוף ריצה',sell_spike:'גל מכירות',profit_lock:'נעילת רווח'
+  runner_max_hold:'זמן מקסימלי',session_end:'סוף סשן',run_end:'סוף ריצה',sell_spike:'גל מכירות',profit_lock:'נעילת רווח',
+  quote_take_profit:'יעד (ציטוט מכירה)',quote_stop:'סטופ (ציטוט מכירה)',quote_time_stop:'זמן (ציטוט מכירה)'
 };
 const rejHe={
   too_young:'צעיר מדי',too_old:'מבוגר מדי',low_liq:'נזילות נמוכה',mcap_range:'שווי שוק',
@@ -202,12 +203,14 @@ const rejHe={
   'same_symbol_open(copycat/dup)':'שם כפול',same_symbol_in_scan:'שם כפול בסריקה',
   'tier_disabled:creator_pool':'LP פתוח כבוי','tier_disabled:burned':'LP נעול כבוי',
   surge_m5:'גל חלש',surge_bs:'גל בלי קונים',surge_liq:'נזילות נמוכה לגל',surge_h1:'גל אחרי קפיצה',surge_m5_hot:'גל חם מדי',
-  m5_sell_pressure:'מעט קונים',m5_not_rising:'בלי מומנטום',m5_parabolic:'קפיצה ב־5 דק׳',no_acceleration:'בלי האצה'
+  m5_sell_pressure:'מעט קונים',m5_not_rising:'בלי מומנטום',m5_parabolic:'קפיצה ב־5 דק׳',  no_acceleration:'בלי האצה',
+  no_signal:'אין אות',same_bar:'אות שכבר נוצל',no_buy_quote:'אין ציטוט קנייה',no_sell_quote:'אין ציטוט מכירה',
+  roundtrip_loss:'עלות סיבוב',no_ohlcv:'אין נרות',short_history:'היסטוריה קצרה',already_open:'כבר פתוח'
 };
 function reasonTag(r){
   const k=r||'';
   if(/liquid/.test(k))return 'a';
-  if(/stop_loss|sell_spike/.test(k))return 'r';
+  if(/stop_loss|quote_stop|sell_spike/.test(k))return 'r';
   if(/take_profit|profit/.test(k))return 'b';
   if(/session|run_end|time|max_hold/.test(k))return 'n';
   return '';
@@ -350,7 +353,7 @@ function openHtml(){
     const stopPx=isFinite(entry)?entry*(1+(Number(stopPct)||0)/100):null;
     const tgtPx=isFinite(entry)?entry*(1+(Number(tgtPct)||0)/100):null;
     return `<article class="row"><div class="ic" style="background:${col(p.symbol)}">${esc((p.symbol||'?').slice(0,1))}</div>
-      <div class="mid"><div class="n">${esc(p.symbol)}${tierTag(p.tier)}${p.tp1_done?'<span class="tag b">TP1</span>':''}</div>
+      <div class="mid"><div class="n">${esc(p.symbol)}${stratTag(p.strategy_label||p.strategy)}${tierTag(p.tier)}${p.tp1_done?'<span class="tag b">TP1</span>':''}</div>
       <div class="s">כניסה ${tLocal(p.opened_at)} · ${esc(p.held_min)} דק׳ · שיא ${pct(p.peak_pct)}</div>
       <div class="s">${qualityLine(p.quality)}</div>
       <div class="track"><div class="fill" style="width:${pos}%"></div><i style="inset-inline-start:${pos}%"></i></div>
@@ -364,11 +367,16 @@ function histHtml(){
   return rows.slice(0,200).map(t=>{
     const why=reasonHe[t.exit_reason]||t.exit_reason||'—';
     return `<article class="row"><div class="ic" style="background:${col(t.symbol)}">${esc((t.symbol||'?').slice(0,1))}</div>
-      <div class="mid"><div class="n">${esc(t.symbol)}${tierTag(t.tier)}<span class="tag ${reasonTag(t.exit_reason)}">${esc(why)}</span></div>
+      <div class="mid"><div class="n">${esc(t.symbol)}${stratTag(t.strategy)}${tierTag(t.tier)}<span class="tag ${reasonTag(t.exit_reason)}">${esc(why)}</span></div>
       <div class="s"><bdi dir="ltr">${tLocal(t.opened_at)} → ${tLocal(t.closed_at)}</bdi> · ${t.hold_min??'—'} דק׳${t.session?' · '+esc(t.session):''}</div>
       <div class="s" dir="ltr" style="text-align:right">${px(t.entry_price)} → ${px(t.exit_price)}</div></div>
       <div class="rt"><div class="p ${cls(t.pnl_usd)}">${pct(t.pnl_pct)}</div><div class="d ${cls(t.pnl_usd)}">${(t.pnl_usd>=0?'+':'')+usd(t.pnl_usd)}</div></div></article>`;
   }).join('');
+}
+function stratTag(s){
+  if(!s)return '';
+  const label=s==='scalp'?'סקאלפ':s==='swing'?'סווינג':s;
+  return `<span class="tag n">${esc(label)}</span>`;
 }
 function tierTag(tier){
   if(tier==='burned')return '<span class="tag b">LP נעול</span>';
@@ -380,6 +388,21 @@ function qualityLine(q){
   if(!q)return '';
   const soc=q.social?'יש רשת':'בלי רשת';
   return `בדיקה: מחזיקים ${q.holders??'—'} · עשירייה ${q.top10??'—'}% · מפתח ${q.dev_pct??'—'}% · ${soc}`;
+}
+function rulesText(){
+  const L=S.rules&&S.rules.liquid;
+  if(L){
+    const names=(L.tokens||[]).join(', ');
+    return `אסטרטגיה <b>${esc(L.label||L.strategy||'')}</b> · מטבעות: ${esc(names)}<br>
+    נרות ${esc(L.timeframe||'5m')} · חלון ${L.lookback_min??'—'} דק׳ · יעד +${L.tp_pct??'—'}% · סטופ −${L.sl_pct??'—'}% · החזקה עד ${L.max_hold_min??'—'} דק׳ · גודל $${L.position_size_usd??'—'}<br>
+    כניסה ויציאה לפי ציטוט Jupiter. הסטופ והיעד נמדדים על ציטוט המכירה, בלי הנחת החלקה נוספת.`;
+  }
+  const R=(S.rules&&S.rules.entry)||{};
+  const X=(S.rules&&S.rules.exits)||{};
+  return `${tierLine()}<br>
+    גיל ${R.min_age_min??'—'}–${R.max_age_min??'—'} דק׳ · קונים/מוכרים ≥ ${R.min_buy_sell_ratio_m5??'—'} · 5 דק׳ ${R.min_price_change_m5??'—'}% עד ${R.max_price_change_m5??'—'}% · שעה ≤ ${R.max_price_change_h1??'—'}%<br>
+    ${surgeLine()}
+    סטופ ${X.stop_loss_gross_pct??'—'}% · מימוש ${Math.round((X.tp1_sell_fraction||0)*100)}% ב־+${X.tp1_gross_pct??'—'}% · יעד +${X.runner_take_profit_gross_pct??'—'}% · מקסימום ${X.max_hold_min??'—'} דק׳`;
 }
 function tierLine(){
   const T=(S.rules&&S.rules.tiers)||{};
@@ -412,16 +435,13 @@ function scanHtml(){
   <div class="scan"><h3>מה נסרק עכשיו</h3>
     <div class="kv"><span>סריקה אחרונה</span><b>${sc.last_scan?tLocal(sc.last_scan):'עוד לא רץ'}</b></div>
     <div class="kv"><span>נבדקו</span><b>${sc.universe??'—'}</b></div>
-    <div class="kv"><span>עברו מומנטום</span><b>${sc.momentum_pass??'—'}</b></div>
-    <div class="kv"><span>עברו בטיחות</span><b>${sc.safety_pass??'—'}</b></div>
-    <div class="cands">${cands.length?cands.map(c=>`<div class="cand"><span>${esc(c.symbol)}</span><b>${esc(c.age_min)} דק׳ · ${pct(c.pc_m5)} · b/s ${esc(c.bs_m5)}</b></div>`).join(''):'<div class="empty" style="padding:12px 0">אין מועמדים בסריקה האחרונה</div>'}</div>
+    <div class="kv"><span>${(S.rules&&S.rules.liquid)?'אות כניסה':'עברו מומנטום'}</span><b>${sc.momentum_pass??'—'}</b></div>
+    <div class="kv"><span>${(S.rules&&S.rules.liquid)?'ציטוט תקין':'עברו בטיחות'}</span><b>${sc.safety_pass??'—'}</b></div>
+    <div class="cands">${cands.length?cands.map(c=>`<div class="cand"><span>${esc(c.symbol)}</span><b>${c.strategy?esc(c.strategy)+' · RT '+esc(c.rt_pct)+'%':esc(c.age_min)+' דק׳ · '+pct(c.pc_m5)+' · b/s '+esc(c.bs_m5)}</b></div>`).join(''):'<div class="empty" style="padding:12px 0">אין מועמדים בסריקה האחרונה</div>'}</div>
     <div class="s" style="margin-top:8px">דחיות: ${rejects.length?rejects.map(([k,v])=>esc(rejHe[k]||k)+' '+v).join(' · '):'—'}</div>
   </div>
   <div class="scan"><h3>חוקי ${esc(S.engine_version||'')} · מסחר דמה</h3>
-    <div class="rules">${tierLine()}<br>
-    גיל ${R.min_age_min??'—'}–${R.max_age_min??'—'} דק׳ · קונים/מוכרים ≥ ${R.min_buy_sell_ratio_m5??'—'} · 5 דק׳ ${R.min_price_change_m5??'—'}% עד ${R.max_price_change_m5??'—'}% · שעה ≤ ${R.max_price_change_h1??'—'}%<br>
-    ${surgeLine()}
-    סטופ ${X.stop_loss_gross_pct??'—'}% · מימוש ${Math.round((X.tp1_sell_fraction||0)*100)}% ב־+${X.tp1_gross_pct??'—'}% · יעד +${X.runner_take_profit_gross_pct??'—'}% · מקסימום ${X.max_hold_min??'—'} דק׳</div>
+    <div class="rules">${rulesText()}</div>
   </div>`;
 }
 function syncTabs(){

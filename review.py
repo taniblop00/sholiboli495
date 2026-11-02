@@ -63,6 +63,9 @@ def review(c, loop_started_ts=None):
     Now every config with partial-TP exits (v2/v3/v4...) uses review_v2, and the legacy path only runs for real v1 configs."""
     try:
         cfg = json.load(open(run.CFG_PATH))
+        if str((cfg.get("scalp") or {}).get("version", "")).lower() == "v8":
+            run.log("[review] v8 parameters are fixed from the walk-forward. Self-review does not edit them.")
+            return []
         X = (cfg.get("scalp") or {}).get("exits") or {}
         if "tp1_gross_pct" in X or str(cfg["scalp"].get("version", "")).lower() not in ("", "v1"):
             return review_v2(c, cfg, loop_started_ts)

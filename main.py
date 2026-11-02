@@ -21,7 +21,7 @@ ap.add_argument("--verbose", action="store_true", help="also print log lines to 
 args = ap.parse_args()
 if args.verbose: os.environ["MT_NO_STDOUT"] = "0"
 
-import run, scalp, review, export_state
+import run, scalp, liquid, review, export_state
 
 if run.CFG["scalp"].get("version") is None: raise SystemExit("config.json has no scalp.version")
 
@@ -87,8 +87,22 @@ if not c.execute("SELECT v FROM meta WHERE k=?", (f"{ver}_started",)).fetchone()
 start_eq = run.cash(c) + run.open_value(c)
 RUN = {"started_ts": START, "started_at": run.iso(), "ends_at": run.iso(run.now() + datetime.timedelta(seconds=args.minutes * 60)),
        "start_equity": round(start_eq, 4), "runner": "github-actions" if os.environ.get("GITHUB_ACTIONS") else platform.node()}
+def _v8():
+    return run.CFG["scalp"].get("version") == "v8"
+
+def _update(force=None):
+    if _v8():
+        return liquid.update(c, force_close_reason=force)
+    if force:
+        return scalp.update(c, force_close_reason=force)
+    return scalp.update(c)
+
+def _scan():
+    return liquid.scan(c) if _v8() else scalp.scan(c)
+
 def status(state="running", msg=None):
-    return {"state": state, "phase": PHASE["phase"], "message": msg, "scanner": scalp.STATUS}
+    return {"state": state, "phase": PHASE["phase"], "message": msg,
+            "scanner": liquid.STATUS if _v8() else scalp.STATUS}
 def do_export(state="running", msg=None):
     safe("export", lambda: export_state.export(c, RUN, status(state, msg)), timeout=30)
 
@@ -103,8 +117,9 @@ _last_tick = [0.0]
 def _intra_scan_tick():
     if time.time() - _last_tick[0] < L().get("intra_scan_update_every_s", 5): return
     _last_tick[0] = time.time()
-    if c.execute("SELECT COUNT(*) FROM positions WHERE status='open' AND strategy='scalp'").fetchone()[0]:
-        scalp.update(c); heartbeat("scalp_scan+tick")
+    strat = liquid.STRATEGY if _v8() else "scalp"
+    if c.execute("SELECT COUNT(*) FROM positions WHERE status='open' AND strategy=?", (strat,)).fetchone()[0]:
+        _update(); heartbeat("quote_tick" if _v8() else "scalp_scan+tick")
     if time.time() - last["export"] >= L().get("export_every_s", 30):
         last["export"] = time.time()
         try: export_state.export(c, RUN, status("running", "scanning"))
@@ -116,10 +131,10 @@ def one_pass():
     if t - last["beat"] > 60: run.log(f"WARN loop wall-clock gap of {t - last['beat']:.0f}s - positions re-priced at current market")
     last["beat"] = t
     reload_cfg(); run._SOLPX = None
-    _last_tick[0] = time.time(); safe("scalp_update", lambda: scalp.update(c))
+    _last_tick[0] = time.time(); safe("position_update", lambda: _update())
     draining = DEADLINE - time.time() <= DRAIN
     if not draining and time.time() - last["scan"] >= L()["scan_every_s"]:
-        last["scan"] = time.time(); safe("scalp_scan", lambda: scalp.scan(c))
+        last["scan"] = time.time(); safe("scan", lambda: _scan())
     if time.time() - last["eq"] >= 60:
         last["eq"] = time.time(); safe("equity", lambda: run.record_equity(c))
     if not args.no_review and time.time() - last["review"] >= L().get("self_review_every_s", 1800):
@@ -144,7 +159,7 @@ while not STOP["flag"] and time.time() < DEADLINE:
 why = f"signal {STOP['why']}" if STOP["flag"] else "time limit reached"
 run.log(f"=== RUN END ({why}): closing any open scalp positions (reason run_end) and saving state ===")
 signal.signal(signal.SIGTERM, signal.SIG_IGN); signal.signal(signal.SIGINT, signal.SIG_IGN)
-safe("final_scalp_close", lambda: scalp.update(c, force_close_reason="run_end"), timeout=60)
+safe("final_close", lambda: _update("run_end"), timeout=90)
 if not args.no_review: safe("final_review", lambda: review.review(c, loop_started_ts=START), timeout=60)
 safe("final_lessons", lambda: run.lessons(c), timeout=60); safe("final_equity", lambda: run.record_equity(c))
 safe("final_report", lambda: run.log("\n" + run.report(c, short=True)), timeout=60)

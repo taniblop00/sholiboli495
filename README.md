@@ -1,19 +1,21 @@
-# YONI meme-coin PAPER trader (v6) — GitHub Actions bundle
+# YONI paper trader (v8) — GitHub Actions bundle
 
 **Simulation only.** The engine never builds, signs or sends a transaction, has no wallet and no keys.
-It reads public data only (DexScreener, GeckoTerminal, RugCheck, Jupiter lite *quotes*/prices) and books
-simulated fills in `state.db`.
+It reads public data only (GeckoTerminal candles, Jupiter lite *quotes*/prices) and books simulated fills in `state.db`.
+
+v8 trades a 5-minute opening-range fade on SOL, JUP, PENGU, TRUMP and FARTCOIN. Take-profit, stop and the time stop are all judged on the Jupiter sell quote. The quote is the fill; priority fee is added once per side and is not stacked on a second slippage haircut. Fresh-meme sniping is not the live loop.
 
 ## Layout
 | path | what |
 |---|---|
 | `main.py` | single entry point: `python main.py --minutes 340` (loop, then clean exit; SIGTERM/SIGINT/`STOP` file → clean exit) |
 | `run.py` | shared helpers: HTTP (hard timeouts), DB, quotes, simulated buy/sell, reports. Paths are relative to the repo (`MT_HOME` overrides) |
-| `scalp.py` | v6 fast scalp. Bonding-curve and burned-LP tiers. Full exit at +10%. `creator_pool` stays disabled |
+| `liquid.py` | v8 book: 5m opening-range fade on SOL, JUP, PENGU, TRUMP, FARTCOIN. Exits use the sell quote |
+| `scalp.py` | previous meme scalp. Still in the tree; the v8 loop does not call it |
 | `review.py` | self-review every 30 min: never raises, version-scoped, bounded by `_bounded_ok` (never touches safety/tiers/sizes/stops) |
 | `export_state.py` | writes `docs/data/state.json` (every 30 s from `main.py`) |
 | `config.json` | v4 rules (`scalp.*`). `config.strict.json` = swing safety floor |
-| `state.db` | sqlite: positions, fills, equity, scans, rc_cache, meta. Carries the full history (53 closed trades, equity $20.76) |
+| `state.db` | sqlite ledger. Carries the full history. v8 must not reset cash (carried $14.08 after v6) |
 | `docs/index.html` | black, Hebrew, mobile crypto-wallet dashboard. Polls `state.json` every 25 s (cache-busted). On GitHub Pages it prefers the raw URL so the ledger stays fresh between Pages builds |
 | `scripts/push_state.sh` | commits listed files on top of the latest remote tip via git plumbing (never touches the working tree). Retries on a rejected push instead of rebasing the live working tree |
 | `scripts/sync_state.sh` | background: pushes `state.json` every 120 s; creates `./STOP` if a `STOP` file appears on the remote |

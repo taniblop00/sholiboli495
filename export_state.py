@@ -39,6 +39,7 @@ def build(c, run_info=None, status=None):
         open_val += val
         o = _ts(p["opened_at"]) or now
         open_list.append({"id": p["id"], "symbol": p["symbol"], "name": p["name"], "mint": p["mint"], "pair": p["pair"], "dex": p["dex"],
+            "strategy": p["strategy"], "strategy_label": f.get("strategy_label") or p["strategy"],
             "tier": f.get("tier", "creator_pool"), "opened_at": p["opened_at"], "held_min": round((now - o) / 60, 1),
             "entry_price": p["entry_mark"], "last_price": mark, "peak_price": p["peak_mark"], "last_checked": p["last_checked"],
             "gross_pct": round(100 * (mark / p["entry_mark"] - 1), 2) if p["entry_mark"] else None,
@@ -72,14 +73,23 @@ def build(c, run_info=None, status=None):
     if not eq_hist or eq_hist[-1]["t"] != run.iso(): eq_hist.append({"t": run.iso(), "equity": round(equity, 4)})
     scalp_closed = [p for p in closed if p["strategy"] == "scalp"]
     rs = run_info.get("started_ts")
-    this_run = [p for p in scalp_closed if rs and (_ts(p["opened_at"]) or 0) >= rs]
+    def _in_book(p):
+        return (p["strategy"] or "swing") != "swing"
+    this_run = [p for p in closed if _in_book(p) and rs and (_ts(p["opened_at"]) or 0) >= rs]
     v = run.CFG["scalp"].get("version"); vs = c.execute("SELECT v FROM meta WHERE k=?", (f"{v}_started",)).fetchone()
-    ver_rows = [p for p in scalp_closed if vs and p["opened_at"] >= vs[0]]
+    ver_rows = [p for p in closed if _in_book(p) and vs and p["opened_at"] >= vs[0]]
     ver_hours = (now - (_ts(vs[0]) or now)) / 3600 if vs else None
     hb = None
     try: hb = open(os.path.join(run.BASE, "heartbeat.txt")).read().strip()
     except Exception: pass
     S = run.CFG["scalp"]
+    L = S.get("liquid") or {}
+    liquid_rules = None
+    if L:
+        liquid_rules = {"strategy": L.get("strategy"), "label": L.get("label"), "timeframe": L.get("timeframe"),
+                        "lookback_min": L.get("lookback_min"), "tp_pct": L.get("tp_pct"), "sl_pct": L.get("sl_pct"),
+                        "max_hold_min": L.get("max_hold_min"), "position_size_usd": L.get("position_size_usd"),
+                        "tokens": [t.get("symbol") for t in (L.get("tokens") or [])]}
     return {
         "schema": 1, "mode": "PAPER (simulation only - no real trades, no wallet)", "engine_version": v,
         "generated_at": run.iso(), "generated_at_local": run.local_now().strftime("%Y-%m-%d %H:%M:%S"), "timezone": "Asia/Jerusalem",
@@ -99,7 +109,8 @@ def build(c, run_info=None, status=None):
                   "surge": S["filters"].get("surge"),
                   "exits": {k: S["exits"].get(k) for k in ("stop_loss_gross_pct", "tp1_gross_pct", "tp1_sell_fraction", "stop_after_tp1_gross_pct", "runner_take_profit_gross_pct", "max_hold_min", "time_stop_min", "runner_max_min")},
                   "exits_by_tier": S.get("exits_by_tier") or {},
-                  "tiers": S.get("tiers")},
+                  "tiers": S.get("tiers"),
+                  "liquid": liquid_rules},
     }
 
 def export(c, run_info=None, status=None):

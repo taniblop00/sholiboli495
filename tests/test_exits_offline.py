@@ -48,9 +48,9 @@ dust = [
     {"marketType": "meteora_damm_v2", "lp": {"lpLockedPct": 100, "lpLockedUSD": 0.03, "lpLocked": 8e18, "lpUnlocked": 0}},
 ]
 assert run.lp_locked_pct(dust) < 1
-assert run.CFG["scalp"]["version"] == "v6"
+assert run.CFG["scalp"]["version"] == "v8"
 assert run.CFG["scalp"]["tiers"]["creator_pool"]["enabled"] is False
 assert run.CFG["scalp"]["tiers"]["bonding_curve"]["enabled"] is True
 assert run.CFG["scalp"]["exits"]["tp1_sell_fraction"] == 1.0
 assert run.CFG["scalp"]["exits"]["stop_loss_gross_pct"] >= -8
-print("OK - v6 full take-profit, stop, lock, curve tier and quality gate (temp dir", TMP, ")")
+print("OK - v6 exit path still books full take-profit, stop, lock, curve tier and quality gate; engine version is v8 (temp dir", TMP, ")")
