@@ -1,0 +1,135 @@
+name: paper-trader (PAPER ONLY - no real trades)
+# Simulation only. This workflow has no secrets, no wallet, and no signing step.
+# The engine reads public market data and writes a simulated ledger (state.db).
+#
+# One run at a time per branch. Each run lasts ~340 minutes, then dispatches the next
+# one so the gap is about a minute. A cron every 15 minutes keeps a successor queued
+# if that dispatch fails (the queued run starts when the active one ends — the wait is
+# not 15 minutes). A push to main also starts a run. Bot commits of the ledger do not:
+# GITHUB_TOKEN pushes do not trigger workflows, and those paths are ignored.
+#
+# Stop: commit a file named STOP at the repo root. The live run exits within ~2 min
+# and does not chain. Resume: delete STOP.
+
+on:
+  workflow_dispatch:
+    inputs:
+      minutes:
+        description: "Minutes to run (340 = one full cycle)"
+        required: false
+        default: "340"
+      chain:
+        description: "Queue the next run when this one ends (yes/no)"
+        required: false
+        default: "yes"
+  push:
+    branches: [main]
+    paths-ignore:
+      - "docs/data/**"
+      - "state.db"
+      - "logs/**"
+      - "heartbeat.txt"
+      - "lessons.md"
+      - "config.json"
+  schedule:
+    - cron: "*/15 * * * *"
+
+concurrency:
+  group: paper-trader-${{ github.ref_name }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  trade:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: true
+
+      - name: Stop flag?
+        id: stop
+        run: |
+          if [ -f STOP ]; then
+            echo "STOP file present — not running"
+            echo "stop=1" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/setup-python@v5
+        if: steps.stop.outputs.stop != '1'
+        with:
+          python-version: "3.12"
+
+      - name: Confirm carried state
+        if: steps.stop.outputs.stop != '1'
+        run: |
+          python - <<'PY'
+          import sqlite3, sys
+          c = sqlite3.connect("state.db")
+          row = c.execute("select v from meta where k='cash'").fetchone()
+          if not row:
+              sys.exit("REFUSING TO START: state.db has no cash row (would reset the bankroll)")
+          closed = c.execute("select count(*) from positions where status='closed'").fetchone()[0]
+          opened = c.execute("select count(*) from positions where status='open'").fetchone()[0]
+          print(f"continuity: cash=${float(row[0]):.4f} open={opened} closed={closed}")
+          if closed < 1:
+              sys.exit("REFUSING TO START: state.db has no closed trades — the history was not checked out")
+          PY
+
+      - name: Run paper engine
+        if: steps.stop.outputs.stop != '1'
+        env:
+          MT_TZ: Asia/Jerusalem
+        run: |
+          chmod +x scripts/sync_state.sh scripts/push_state.sh
+          scripts/sync_state.sh 120 &
+          SYNC_PID=$!
+          set +e
+          python main.py --minutes "${{ github.event.inputs.minutes || '340' }}"
+          CODE=$?
+          set -e
+          kill "$SYNC_PID" 2>/dev/null || true
+          wait "$SYNC_PID" 2>/dev/null || true
+          exit "$CODE"
+
+      - name: Save state
+        if: always() && steps.stop.outputs.stop != '1'
+        run: |
+          rm -f STOP
+          chmod +x scripts/push_state.sh
+          scripts/push_state.sh "paper-trader: save state $(date -u +%Y-%m-%dT%H:%MZ)" \
+            state.db docs/data/state.json lessons.md logs/cycle.log config.json heartbeat.txt
+
+      - name: Queue the next run
+        if: always() && steps.stop.outputs.stop != '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CHAIN: ${{ github.event.inputs.chain || 'yes' }}
+        run: |
+          if [ "$CHAIN" != "yes" ]; then
+            echo "chain=$CHAIN — not dispatching a successor"
+            exit 0
+          fi
+          if [ -f STOP ]; then echo "local STOP — not chaining"; exit 0; fi
+          git fetch -q origin "$GITHUB_REF_NAME" || true
+          if git cat-file -e "origin/${GITHUB_REF_NAME}:STOP" 2>/dev/null; then
+            echo "remote STOP — not chaining"
+            exit 0
+          fi
+          # workflow_dispatch is the event GITHUB_TOKEN is allowed to trigger.
+          # Cron already holds a queued successor on main; this starts the next
+          # 340-minute run as soon as this job finishes.
+          if gh api --method POST \
+              "repos/${GITHUB_REPOSITORY}/actions/workflows/paper-trader.yml/dispatches" \
+              -f "ref=${GITHUB_REF_NAME}" \
+              -f "inputs[minutes]=340" \
+              -f "inputs[chain]=yes"; then
+            echo "dispatched the next paper run on ${GITHUB_REF_NAME}"
+          else
+            echo "dispatch failed — the queued cron run will take over"
+          fi
