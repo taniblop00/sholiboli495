@@ -1835,3 +1835,313 @@ SCALP: closed 52 | wins 36 | losses 16 | win rate 69% | avg win +13.2% | avg los
 Scalp entries in last 60 min: 0
 avg win +14.0% | avg loss -37.6% | profit factor 0.61 | best ANAKIN +55.3% | worst BHF -100.0%
 [2026-11-02 19:52:59] === RUN ended cleanly ===
+[2026-11-02 19:53:54] === RUN start pid 2178 v6 PAPER ONLY | 340 min (until 2026-11-03 01:33 Asia/Jerusalem), drain last 12 min | update 5s scan 45s export 30s | equity $18.18 ===
+[2026-11-02 19:54:57] WARN rugcheck 5LoukJ: GET failed https://api.rugcheck.xyz/v1/tokens/5LoukJze454D696R3nGUiUQDGvsTaaakbmC3kQTcpump/report: HTTP 400
+[2026-11-02 19:54:59] WARN rugcheck BTXuRH: GET failed https://api.rugcheck.xyz/v1/tokens/BTXuRH3pH9F8cj2wP6h5hMLjUt3cJdwx1n6RsSWKSu8G/report: HTTP 400
+[2026-11-02 19:55:04] WARN rugcheck Aunae2: GET failed https://api.rugcheck.xyz/v1/tokens/Aunae2kN11MZckC2RZYUc1MfuWCVPddbcxhWW6vPyuc2/report: HTTP 400
+[2026-11-02 19:55:30] WARN rugcheck 8Fwstp: GET failed https://api.rugcheck.xyz/v1/tokens/8FwstpCxcYqg9HdWQWAeJExAWXfePN4JGWajWSon5CYs/report: HTTP 400
+[2026-11-02 19:55:30] [scalp] SCAN universe 303 (watchlist 200, +13 new, -11 dead) | momentum-pass 4 | safety-pass 0 | opened 0 | open 0/3 | top rejects {'too_old': 97, 'blocked_dex': 77, 'mcap_range': 58, 'low_vol_m5': 21, 'bad_quote': 14, 'low_liq': 12, 'm5_sell_pressure': 7, 'no_reliable_price': 4}
+[2026-11-02 19:55:31] WARN loop wall-clock gap of 97s - positions re-priced at current market
+[2026-11-02 19:56:13] WARN rugcheck e7ntm2: GET failed https://api.rugcheck.xyz/v1/tokens/e7ntm2zJFJW6ej7eG4FAKdqySbdrqmeMUMXXf5vF9X3/report: HTTP 400
+[2026-11-02 19:56:43] WARN rugcheck BTXuRH: GET failed https://api.rugcheck.xyz/v1/tokens/BTXuRH3pH9F8cj2wP6h5hMLjUt3cJdwx1n6RsSWKSu8G/report: HTTP 400
+[2026-11-02 19:56:46] WARN rugcheck Aunae2: GET failed https://api.rugcheck.xyz/v1/tokens/Aunae2kN11MZckC2RZYUc1MfuWCVPddbcxhWW6vPyuc2/report: HTTP 400
+[2026-11-02 19:56:47] WARN rugcheck 6zaH2m: GET failed https://api.rugcheck.xyz/v1/tokens/6zaH2mwqnJheJzfsgxDGax7LT2pwpRrguFBaQ7EcDg6B/report: HTTP 400
+[2026-11-02 19:56:50] WARN rugcheck 7i3iWR: GET failed https://api.rugcheck.xyz/v1/tokens/7i3iWRwbQL7NF7Egc6KHgpk5LVxUcm11erZRimsK8JmZ/report: HTTP 400
+[2026-11-02 19:57:21] WATCHDOG: step 'scalp_scan' exceeded 110s - aborted, transaction rolled back, loop continues
+[2026-11-02 19:57:21] WARN loop wall-clock gap of 111s - positions re-priced at current market
+[2026-11-02 19:57:52] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-02 19:58:15] WARN rugcheck Aunae2: GET failed https://api.rugcheck.xyz/v1/tokens/Aunae2kN11MZckC2RZYUc1MfuWCVPddbcxhWW6vPyuc2/report: HTTP 400
+[2026-11-02 19:58:28] WARN rugcheck BTXuRH: GET failed https://api.rugcheck.xyz/v1/tokens/BTXuRH3pH9F8cj2wP6h5hMLjUt3cJdwx1n6RsSWKSu8G/report: HTTP 400
+[2026-11-02 19:58:44] WARN rugcheck e7ntm2: GET failed https://api.rugcheck.xyz/v1/tokens/e7ntm2zJFJW6ej7eG4FAKdqySbdrqmeMUMXXf5vF9X3/report: HTTP 400
+[2026-11-02 19:58:46]   [scalp] reject JoyCoin🎉   insider_network (top10 9.63% top1 1.42% holders 1132 insiders 86)
+[2026-11-02 19:58:46] [scalp] SCAN universe 300 (watchlist 200, +4 new, -5 dead) | momentum-pass 4 | safety-pass 0 | opened 0 | open 0/3 | top rejects {'too_old': 90, 'blocked_dex': 75, 'mcap_range': 61, 'low_vol_m5': 19, 'bad_quote': 14, 'low_liq': 12, 'm5_sell_pressure': 10, 'm5_parabolic': 8}
+[2026-11-02 19:58:47] WARN loop wall-clock gap of 85s - positions re-priced at current market
+[2026-11-02 19:59:58] WARN rugcheck e7ntm2: GET failed https://api.rugcheck.xyz/v1/tokens/e7ntm2zJFJW6ej7eG4FAKdqySbdrqmeMUMXXf5vF9X3/report: The read operation timed out
+[2026-11-02 19:59:59] WARN rugcheck 6zaH2m: GET failed https://api.rugcheck.xyz/v1/tokens/6zaH2mwqnJheJzfsgxDGax7LT2pwpRrguFBaQ7EcDg6B/report: HTTP 400
+[2026-11-02 20:00:03] WARN rugcheck 7D5hHn: GET failed https://api.rugcheck.xyz/v1/tokens/7D5hHnjrgaFKRZUwFDWfawaUduNdsy3GzL7CjTh5WxA4/report: HTTP 400
+[2026-11-02 20:00:37] WATCHDOG: step 'scalp_scan' exceeded 110s - aborted, transaction rolled back, loop continues
+[2026-11-02 20:00:37] WARN loop wall-clock gap of 111s - positions re-priced at current market
+[2026-11-02 20:01:26] WARN rugcheck EotLAH: GET failed https://api.rugcheck.xyz/v1/tokens/EotLAHYN7fufgs2q5Gtik7wHMSQeWXsa6ucAUgRSpump/report: HTTP 400
+[2026-11-02 20:01:27]   [scalp] reject Slingoor   top10_concentrated (top10 30.6% top1 3.39% holders 1410 insiders 0)
+[2026-11-02 20:01:57] WARN rugcheck e7ntm2: GET failed https://api.rugcheck.xyz/v1/tokens/e7ntm2zJFJW6ej7eG4FAKdqySbdrqmeMUMXXf5vF9X3/report: HTTP 400
+[2026-11-02 20:01:59] WARN rugcheck 7D5hHn: GET failed https://api.rugcheck.xyz/v1/tokens/7D5hHnjrgaFKRZUwFDWfawaUduNdsy3GzL7CjTh5WxA4/report: HTTP 400
+[2026-11-02 20:02:06] WARN rugcheck BTXuRH: GET failed https://api.rugcheck.xyz/v1/tokens/BTXuRH3pH9F8cj2wP6h5hMLjUt3cJdwx1n6RsSWKSu8G/report: HTTP 400
+[2026-11-02 20:02:09] WARN rugcheck 6zaH2m: GET failed https://api.rugcheck.xyz/v1/tokens/6zaH2mwqnJheJzfsgxDGax7LT2pwpRrguFBaQ7EcDg6B/report: HTTP 400
+[2026-11-02 20:02:27] WATCHDOG: step 'scalp_scan' exceeded 110s - aborted, transaction rolled back, loop continues
+[2026-11-02 20:02:28] WARN loop wall-clock gap of 111s - positions re-priced at current market
+[2026-11-02 20:02:54] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-02 20:03:17] WARN rugcheck D1f9kx: GET failed https://api.rugcheck.xyz/v1/tokens/D1f9kxtrjXBH2GUD7fqBbEB4jnHXKov3aKYW2D5cpump/report: HTTP 400
+[2026-11-02 20:03:20] WARN rugcheck 2BNG47: GET failed https://api.rugcheck.xyz/v1/tokens/2BNG47cwk6WMAhRmv4QbaurnnsXPrgjqCN3SuSCT9dqu/report: HTTP 400
+[2026-11-02 20:03:38] WARN rugcheck BTXuRH: GET failed https://api.rugcheck.xyz/v1/tokens/BTXuRH3pH9F8cj2wP6h5hMLjUt3cJdwx1n6RsSWKSu8G/report: HTTP 400
+[2026-11-02 20:04:13] WARN rugcheck AGHjop: GET failed https://api.rugcheck.xyz/v1/tokens/AGHjopXsGrGPptWH1AJVJBVjY6dWMtQwkWgVNvhCxXiN/report: The read operation timed out
+[2026-11-02 20:04:13] [scalp] SCAN universe 306 (watchlist 200, +9 new, -12 dead) | momentum-pass 4 | safety-pass 0 | opened 0 | open 0/3 | top rejects {'too_old': 99, 'blocked_dex': 71, 'mcap_range': 66, 'low_vol_m5': 18, 'bad_quote': 12, 'm5_sell_pressure': 11, 'low_liq': 10, 'm5_parabolic': 6}
+[2026-11-02 20:04:13] WARN loop wall-clock gap of 106s - positions re-priced at current market
+[2026-11-02 20:05:01] WARN rugcheck JAu9FN: GET failed https://api.rugcheck.xyz/v1/tokens/JAu9FNWHh5e7Six5EKemWvTkPWqSGVkXNcyBDwpKpump/report: HTTP 400
+[2026-11-02 20:05:14] WARN rugcheck BV2Bq4: GET failed https://api.rugcheck.xyz/v1/tokens/BV2Bq43xYX15Go4EVQX3ps71ucHSDtuKoPKYNK1KHxqU/report: HTTP 400
+[2026-11-02 20:05:37] WARN rugcheck DaiKhs: GET failed https://api.rugcheck.xyz/v1/tokens/DaiKhsRFVdxzE8vUtittVcnY98pGs6eupVo6BbHgB3hT/report: HTTP 400
+[2026-11-02 20:06:03] WATCHDOG: step 'scalp_scan' exceeded 110s - aborted, transaction rolled back, loop continues
+[2026-11-02 20:06:04] WARN loop wall-clock gap of 111s - positions re-priced at current market
+[2026-11-02 20:06:36] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-02 20:06:55] WARN rugcheck 8kuQg3: GET failed https://api.rugcheck.xyz/v1/tokens/8kuQg3WivDtL85VEdw2jEmSXjYt6EEeYBATJ4DtQpump/report: HTTP 400
+[2026-11-02 20:07:08] WARN rugcheck Cgesn9: GET failed https://api.rugcheck.xyz/v1/tokens/Cgesn9MAspUySwNcxHRJC8AGcPk6jEdrrvbjcQ9tTH1L/report: HTTP 400
+[2026-11-02 20:07:24] WARN rugcheck DaiKhs: GET failed https://api.rugcheck.xyz/v1/tokens/DaiKhsRFVdxzE8vUtittVcnY98pGs6eupVo6BbHgB3hT/report: HTTP 400
+[2026-11-02 20:07:26] WARN rugcheck 6zaH2m: GET failed https://api.rugcheck.xyz/v1/tokens/6zaH2mwqnJheJzfsgxDGax7LT2pwpRrguFBaQ7EcDg6B/report: HTTP 400
+[2026-11-02 20:07:36]   [scalp] reject JoyCoin🎉   rugcheck_danger:Top 10 holders high ownership (top10 92.29% top1 89.37% holders 516 insiders 0)
+[2026-11-02 20:07:39]   [scalp] reject NEX Ai     insider_network (top10 7.65% top1 1.04% holders 1131 insiders 65)
+[2026-11-02 20:07:39] [scalp] SCAN universe 314 (watchlist 200, +15 new, -16 dead) | momentum-pass 6 | safety-pass 0 | opened 0 | open 0/3 | top rejects {'too_old': 98, 'blocked_dex': 74, 'mcap_range': 65, 'low_vol_m5': 16, 'bad_quote': 15, 'low_liq': 10, 'm5_sell_pressure': 9, 'm5_parabolic': 8}
+[2026-11-02 20:07:40] WARN loop wall-clock gap of 96s - positions re-priced at current market
+[2026-11-02 20:08:06] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-02 20:08:52] WARN rugcheck 8kuQg3: GET failed https://api.rugcheck.xyz/v1/tokens/8kuQg3WivDtL85VEdw2jEmSXjYt6EEeYBATJ4DtQpump/report: HTTP 400
+[2026-11-02 20:08:53] WARN rugcheck 4MnM6a: GET failed https://api.rugcheck.xyz/v1/tokens/4MnM6aAuayLRhejDSuiaEm2QGyR4ye4Sxhdywt37pump/report: HTTP 400
+[2026-11-02 20:08:59] WARN rugcheck 9nutvj: GET failed https://api.rugcheck.xyz/v1/tokens/9nutvj678qvbouYKqHkSJu3n5cQUEZw42wtPdjekpump/report: HTTP 400
+[2026-11-02 20:08:59] WARN rugcheck Cgesn9: GET failed https://api.rugcheck.xyz/v1/tokens/Cgesn9MAspUySwNcxHRJC8AGcPk6jEdrrvbjcQ9tTH1L/report: HTTP 400
+[2026-11-02 20:08:59] WARN rugcheck 5uRVaV: GET failed https://api.rugcheck.xyz/v1/tokens/5uRVaVDtJjfaNYGCi2sf6Vpq4ANF3Fobq4ajZvWBL953/report: HTTP 400
+[2026-11-02 20:09:00] WARN rugcheck 31D5H6: GET failed https://api.rugcheck.xyz/v1/tokens/31D5H6bBditRBMzAGXKuJQJ9WEsZ9gwYkq7UJCWtEnq6/report: HTTP 400
+[2026-11-02 20:09:00]   [scalp] reject JoyCoin🎉   rugcheck_danger:Top 10 holders high ownership (top10 92.29% top1 89.37% holders 516 insiders 0)
+[2026-11-02 20:09:00] WARN rugcheck DaiKhs: GET failed https://api.rugcheck.xyz/v1/tokens/DaiKhsRFVdxzE8vUtittVcnY98pGs6eupVo6BbHgB3hT/report: HTTP 400
+[2026-11-02 20:09:01] WARN rugcheck 6zaH2m: GET failed https://api.rugcheck.xyz/v1/tokens/6zaH2mwqnJheJzfsgxDGax7LT2pwpRrguFBaQ7EcDg6B/report: HTTP 400
+[2026-11-02 20:09:01] WARN rugcheck 2BNG47: GET failed https://api.rugcheck.xyz/v1/tokens/2BNG47cwk6WMAhRmv4QbaurnnsXPrgjqCN3SuSCT9dqu/report: HTTP 400
+[2026-11-02 20:09:01] [scalp] SCAN universe 315 (watchlist 200, +8 new, -7 dead) | momentum-pass 10 | safety-pass 0 | opened 0 | open 0/3 | top rejects {'too_old': 92, 'blocked_dex': 73, 'mcap_range': 66, 'low_vol_m5': 19, 'bad_quote': 15, 'm5_sell_pressure': 11, 'low_liq': 9, 'rugcheck_unavailable': 9}
+[2026-11-02 20:09:01] WARN loop wall-clock gap of 81s - positions re-priced at current market
+[2026-11-02 20:09:33] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-02 20:09:48]   [scalp] reject SCROOGE    rugcheck_danger:Single holder ownership (top10 64.74% top1 41.94% holders 209 insiders 0)
+[2026-11-02 20:09:49] WARN rugcheck BEqr2p: GET failed https://api.rugcheck.xyz/v1/tokens/BEqr2p52gbtQFnKyD1DdnZaPeJNwkcnLbnVCeQkdpump/report: HTTP 400
+[2026-11-02 20:09:49] WARN rugcheck 31D5H6: GET failed https://api.rugcheck.xyz/v1/tokens/31D5H6bBditRBMzAGXKuJQJ9WEsZ9gwYkq7UJCWtEnq6/report: HTTP 400
+[2026-11-02 20:09:49]   [scalp] reject JoyCoin🎉   rugcheck_danger:Top 10 holders high ownership (top10 92.29% top1 89.37% holders 516 insiders 0)
+[2026-11-02 20:09:49] WARN rugcheck DaiKhs: GET failed https://api.rugcheck.xyz/v1/tokens/DaiKhsRFVdxzE8vUtittVcnY98pGs6eupVo6BbHgB3hT/report: HTTP 400
+[2026-11-02 20:09:55]   [scalp] reject 眉眉         rugcheck_danger:Top 10 holders high ownership (top10 97.45% top1 86.65% holders 365 insiders 0)
+[2026-11-02 20:09:55] WARN rugcheck BuUAEY: GET failed https://api.rugcheck.xyz/v1/tokens/BuUAEYKaAKduvffVz4ErMySVEugAzbiLtvDabntB6BA6/report: HTTP 400
+[2026-11-02 20:09:55] WARN rugcheck 2ERuzJ: GET failed https://api.rugcheck.xyz/v1/tokens/2ERuzJjWZ4V1VMQnME7TmpAdTYScCRCBgbFSSCqTCuzz/report: HTTP 400
+[2026-11-02 20:09:56] WARN rugcheck 6zaH2m: GET failed https://api.rugcheck.xyz/v1/tokens/6zaH2mwqnJheJzfsgxDGax7LT2pwpRrguFBaQ7EcDg6B/report: HTTP 400
+[2026-11-02 20:09:56] WARN rugcheck 6ap4k1: GET failed https://api.rugcheck.xyz/v1/tokens/6ap4k1h9wPbYqztVxiSaEvQRE4yo3YsAanq5iPZSFd6/report: HTTP 400
+[2026-11-02 20:09:56] [scalp] SCAN universe 307 (watchlist 200, +6 new, -8 dead) | momentum-pass 10 | safety-pass 0 | opened 0 | open 0/3 | top rejects {'too_old': 92, 'mcap_range': 68, 'blocked_dex': 65, 'low_vol_m5': 19, 'bad_quote': 15, 'm5_parabolic': 10, 'm5_sell_pressure': 9, 'low_liq': 9}
+[2026-11-02 20:10:15] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-02 20:10:39] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-02 20:11:02]   [scalp] reject USDC       rugcheck_risk:Copycat token (top10 26.29% top1 10% holders 94 insiders 0)
+[2026-11-02 20:11:06]   [scalp] OPEN #63 SLINGOOR $3.00 @ 0.00014211469 (eff 0.00014669505, +3.2%) | [scalp burned] rank 75.4 | age 15m dex pumpswap mcap $143,187 liq $29,327 | 5m: vol $50,586 buys/sells 1632/334 chg 28.97% accel x0.77 | 1h chg 210% | holders 3774 top10 6.58% top1 0.77% insiders 0 | impact 0.78% roundtrip-quote loss 2.3% entry cost 3.2% | src ['gt_trend5m', 'ds_profile']
+[2026-11-02 20:11:08]   [scalp] reject OLDPUMP    rugcheck_danger:Top 10 holders high ownership (top10 97.35% top1 76.04% holders 918 insiders 0)
+[2026-11-02 20:11:08] [scalp] tick: SLINGOOR +0.0% (pk +0%, 0m)
+[2026-11-02 20:11:12]   [scalp] reject 红果短剧       rugcheck_danger:Top 10 holders high ownership (top10 99.02% top1 95.54% holders 263 insiders 0)
+[2026-11-02 20:11:12]   [scalp] reject JoyCoin🎉   rugcheck_danger:Top 10 holders high ownership (top10 92.29% top1 89.37% holders 516 insiders 0)
+[2026-11-02 20:11:22] [scalp] tick: SLINGOOR -5.7% (pk +0%, 0m)
+[2026-11-02 20:11:23]   [scalp] reject FOREVER    rugcheck_danger:Top 10 holders high ownership (top10 92.51% top1 87.14% holders 601 insiders 0)
+[2026-11-02 20:11:27] WARN rugcheck 2BNG47: GET failed https://api.rugcheck.xyz/v1/tokens/2BNG47cwk6WMAhRmv4QbaurnnsXPrgjqCN3SuSCT9dqu/report: HTTP 400
+[2026-11-02 20:11:27]   [scalp] reject 眉眉         rugcheck_danger:Top 10 holders high ownership (top10 97.45% top1 86.65% holders 365 insiders 0)
+[2026-11-02 20:11:27]   [scalp] EXIT #63 SLINGOOR stop_loss: gross -20.4% (peak +0.0%) held 0.4m
+[2026-11-02 20:11:28]   SELL #63 SLINGOOR 100% reason=scalp_stop_loss net $2.20 (mark 0.00011308435, x0.80) via jupiter_quote
+[2026-11-02 20:11:28]   CLOSED #63 SLINGOOR PnL $-0.83 (-27.4%) reason=scalp_stop_loss
+[2026-11-02 20:11:28] [scalp] tick: SLINGOOR -20.4% (pk +0%, 0m)
+[2026-11-02 20:11:30] [scalp] SCAN universe 293 (watchlist 200, +7 new, -6 dead) | momentum-pass 12 | safety-pass 1 | opened 1 | open 1/3 | top rejects {'too_old': 77, 'blocked_dex': 67, 'mcap_range': 65, 'low_vol_m5': 20, 'bad_quote': 13, 'm5_sell_pressure': 12, 'low_liq': 8, 'm5_parabolic': 5}
+[2026-11-02 20:11:30] WARN loop wall-clock gap of 94s - positions re-priced at current market
+[2026-11-02 20:12:00] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-02 20:12:20] ERROR in scalp_scan: Traceback (most recent call last): |   File "/home/runner/work/sholiboli495/sholiboli495/main.py", line 56, in safe |     try: return fn() |                 ^^^^ |   File "/home/runner/work/sholiboli495/sholiboli495/main.py", line 122, in <lambda> |     last["scan"] = time.time(); safe("scalp_scan", lambda: scalp.scan(c)) |                                                            ^^^^^^^^^^^^^ |   File "/home/runner/work/sholiboli495/sholiboli495/scalp.py", line 297, in scan |     f["liq"] or 0, f["mcap"], f["rank"], json.dumps(feat, default=str), reasoning, jp, jp, iso())) |                                                                                    ^^ | UnboundLocalError: cannot access local variable 'jp' where it is not associated with a value | 
+[2026-11-02 20:12:37] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-02 20:13:02] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-02 20:13:18]   [scalp] reject OLDPUMP    rugcheck_danger:Top 10 holders high ownership (top10 97.35% top1 76.04% holders 918 insiders 0)
+[2026-11-02 20:13:20]   [scalp] skip NULL Jupiter vs DexScreener +11.6%
+[2026-11-02 20:13:29]   [scalp] reject MAMESUKE   rugcheck_danger:Top 10 holders high ownership (top10 92.88% top1 65.97% holders 353 insiders 0)
+[2026-11-02 20:13:31]   [scalp] reject horse      top10_concentrated (top10 37.1% top1 18.97% holders 1773 insiders 0)
+[2026-11-02 20:13:31]   [scalp] reject JoyCoin🎉   rugcheck_danger:Top 10 holders high ownership (top10 92.29% top1 89.37% holders 516 insiders 0)
+[2026-11-02 20:13:31]   [scalp] reject 红果短剧       rugcheck_danger:Top 10 holders high ownership (top10 99.02% top1 95.54% holders 263 insiders 0)
+[2026-11-02 20:13:31]   [scalp] reject FOREVER    rugcheck_danger:Top 10 holders high ownership (top10 92.51% top1 87.14% holders 601 insiders 0)
+[2026-11-02 20:13:31]   [scalp] reject 眉眉         rugcheck_danger:Top 10 holders high ownership (top10 97.45% top1 86.65% holders 365 insiders 0)
+[2026-11-02 20:13:31] [scalp] SCAN universe 292 (watchlist 200, +10 new, -4 dead) | momentum-pass 10 | safety-pass 1 | opened 0 | open 0/3 | top rejects {'too_old': 74, 'blocked_dex': 73, 'mcap_range': 61, 'low_vol_m5': 20, 'm5_sell_pressure': 17, 'bad_quote': 12, 'm5_parabolic': 8, 'low_liq': 7}
+[2026-11-02 20:13:31] WARN loop wall-clock gap of 70s - positions re-priced at current market
+[2026-11-02 20:14:14]   [scalp] OPEN #64 NULL $3.00 @ 6.9644284e-05 (eff 7.131718e-05, +2.4%) | [scalp burned] rank 72.8 | age 27m dex pumpswap mcap $71,419 liq $20,204 | 5m: vol $11,194 buys/sells 168/103 chg 8.43% accel x0.45 | 1h chg 87.38% | holders 1018 top10 15.85% top1 2.79% insiders 0 | impact 0.00% roundtrip-quote loss 2.4% entry cost 2.4% | src ['ds_profile', 'watchlist']
+[2026-11-02 20:14:14]   [scalp] reject OLDPUMP    rugcheck_danger:Top 10 holders high ownership (top10 97.35% top1 76.04% holders 918 insiders 0)
+[2026-11-02 20:14:24]   [scalp] reject MAMESUKE   rugcheck_danger:Top 10 holders high ownership (top10 94.73% top1 78.42% holders 846 insiders 0)
+[2026-11-02 20:14:24]   [scalp] reject 红果短剧       rugcheck_danger:Top 10 holders high ownership (top10 99.02% top1 95.54% holders 263 insiders 0)
+[2026-11-02 20:14:24]   [scalp] reject FOREVER    rugcheck_danger:Top 10 holders high ownership (top10 92.51% top1 87.14% holders 601 insiders 0)
+[2026-11-02 20:14:24]   [scalp] reject 眉眉         rugcheck_danger:Top 10 holders high ownership (top10 97.45% top1 86.65% holders 365 insiders 0)
+[2026-11-02 20:14:25] [scalp] tick: NULL -3.9% (pk +0%, 0m)
+[2026-11-02 20:14:30] WARN rugcheck 2BNG47: GET failed https://api.rugcheck.xyz/v1/tokens/2BNG47cwk6WMAhRmv4QbaurnnsXPrgjqCN3SuSCT9dqu/report: HTTP 400
+[2026-11-02 20:14:30] [scalp] SCAN universe 308 (watchlist 200, +6 new, -11 dead) | momentum-pass 12 | safety-pass 1 | opened 1 | open 1/3 | top rejects {'too_old': 90, 'blocked_dex': 70, 'mcap_range': 63, 'low_vol_m5': 22, 'm5_sell_pressure': 15, 'bad_quote': 10, 'low_liq': 8, 'm5_parabolic': 6}
+[2026-11-02 20:14:31] [scalp] tick: NULL -3.3% (pk +0%, 0m)
+[2026-11-02 20:14:38] [scalp] tick: NULL -3.0% (pk +0%, 0m)
+[2026-11-02 20:14:45] [scalp] tick: NULL -5.2% (pk +0%, 1m)
+[2026-11-02 20:14:51]   [scalp] EXIT #64 NULL stop_loss: gross -6.9% (peak +0.0%) held 0.6m
+[2026-11-02 20:14:52]   SELL #64 NULL 100% reason=scalp_stop_loss net $2.64 (mark 6.4808711e-05, x0.93) via jupiter_quote
+[2026-11-02 20:14:52]   CLOSED #64 NULL PnL $-0.39 (-12.8%) reason=scalp_stop_loss
+[2026-11-02 20:14:52] [scalp] tick: NULL -6.9% (pk +0%, 1m)
+[2026-11-02 20:15:05] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-02 20:15:22]   [scalp] reject OLDPUMP    rugcheck_danger:Top 10 holders high ownership (top10 97.35% top1 76.04% holders 918 insiders 0)
+[2026-11-02 20:15:22]   [scalp] reject MAMESUKE   rugcheck_danger:Top 10 holders high ownership (top10 94.73% top1 78.42% holders 846 insiders 0)
+[2026-11-02 20:15:24]   [scalp] reject Minecraft  rugcheck_danger:Top 10 holders high ownership (top10 82.47% top1 14.61% holders 2127 insiders 0)
+[2026-11-02 20:15:28]   [scalp] reject FAGENT     rugcheck_danger:Top 10 holders high ownership (top10 83.61% top1 66.08% holders 1473 insiders 0)
+[2026-11-02 20:15:28]   [scalp] reject 红果短剧       rugcheck_danger:Top 10 holders high ownership (top10 99.02% top1 95.54% holders 263 insiders 0)
+[2026-11-02 20:15:28]   [scalp] reject 眉眉         rugcheck_danger:Top 10 holders high ownership (top10 97.45% top1 86.65% holders 365 insiders 0)
+[2026-11-02 20:15:28]   [scalp] reject FOREVER    rugcheck_danger:Top 10 holders high ownership (top10 92.51% top1 87.14% holders 601 insiders 0)
+[2026-11-02 20:15:28] [scalp] SCAN universe 303 (watchlist 200, +3 new, -2 dead) | momentum-pass 11 | safety-pass 0 | opened 0 | open 0/3 | top rejects {'too_old': 93, 'blocked_dex': 67, 'mcap_range': 59, 'low_vol_m5': 23, 'm5_sell_pressure': 14, 'bad_quote': 10, 'm5_not_rising': 7, 'low_liq': 7}
+[2026-11-02 20:16:08]   [scalp] reject MAMESUKE   rugcheck_danger:Top 10 holders high ownership (top10 94.73% top1 78.42% holders 846 insiders 0)
+[2026-11-02 20:16:15]   [scalp] OPEN #65 Horse $3.00 @ 0.0001244978 (eff 0.00012871433, +3.4%) | [scalp burned] rank 67.8 | age 5m dex pumpswap mcap $121,375 liq $28,342 | 5m: vol $158,256 buys/sells 1440/419 chg 23.57% accel x1.01 | 1h chg 102% | holders 520 top10 6.05% top1 0.68% insiders 0 | impact 0.97% roundtrip-quote loss 2.3% entry cost 3.4% | src ['gt_trend5m', 'watchlist']
+[2026-11-02 20:16:15]   [scalp] reject OLDPUMP    rugcheck_danger:Top 10 holders high ownership (top10 97.35% top1 76.04% holders 918 insiders 0)
+[2026-11-02 20:16:15]   [scalp] reject Minecraft  rugcheck_danger:Top 10 holders high ownership (top10 82.47% top1 14.61% holders 2127 insiders 0)
+[2026-11-02 20:16:15]   [scalp] reject 红果短剧       rugcheck_danger:Top 10 holders high ownership (top10 99.02% top1 95.54% holders 263 insiders 0)
+[2026-11-02 20:16:15]   [scalp] reject JoyCoin🎉   rugcheck_danger:Top 10 holders high ownership (top10 92.29% top1 89.37% holders 516 insiders 0)
+[2026-11-02 20:16:15]   [scalp] reject 眉眉         rugcheck_danger:Top 10 holders high ownership (top10 97.45% top1 86.65% holders 365 insiders 0)
+[2026-11-02 20:16:15]   [scalp] reject FOREVER    rugcheck_danger:Top 10 holders high ownership (top10 92.51% top1 87.14% holders 601 insiders 0)
+[2026-11-02 20:16:15] [scalp] SCAN universe 307 (watchlist 200, +4 new, -5 dead) | momentum-pass 13 | safety-pass 1 | opened 1 | open 1/3 | top rejects {'too_old': 93, 'blocked_dex': 69, 'mcap_range': 60, 'low_vol_m5': 23, 'm5_sell_pressure': 15, 'bad_quote': 11, 'rugcheck_danger:Top 10 holders high ownership': 7, 'low_liq': 6}
+[2026-11-02 20:16:16] [scalp] tick: Horse +0.0% (pk +0%, 0m)
+[2026-11-02 20:16:23] [scalp] tick: Horse -4.9% (pk +0%, 0m)
+[2026-11-02 20:16:29]   [scalp] EXIT #65 Horse stop_loss: gross -7.6% (peak +0.0%) held 0.2m
+[2026-11-02 20:16:30]   SELL #65 Horse 100% reason=scalp_stop_loss net $2.56 (mark 0.00011503451, x0.92) via jupiter_quote
+[2026-11-02 20:16:30]   CLOSED #65 Horse PnL $-0.47 (-15.6%) reason=scalp_stop_loss
+[2026-11-02 20:16:30] [scalp] tick: Horse -7.6% (pk +0%, 0m)
+[2026-11-02 20:16:51] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-02 20:17:10]   [scalp] reject MAMESUKE   rugcheck_danger:Top 10 holders high ownership (top10 94.73% top1 78.42% holders 846 insiders 0)
+[2026-11-02 20:17:10]   [scalp] reject OLDPUMP    rugcheck_danger:Top 10 holders high ownership (top10 97.35% top1 76.04% holders 918 insiders 0)
+[2026-11-02 20:17:10]   [scalp] reject Minecraft  rugcheck_danger:Top 10 holders high ownership (top10 82.47% top1 14.61% holders 2127 insiders 0)
+[2026-11-02 20:17:10]   [scalp] reject 红果短剧       rugcheck_danger:Top 10 holders high ownership (top10 99.02% top1 95.54% holders 263 insiders 0)
+[2026-11-02 20:17:10]   [scalp] reject JoyCoin🎉   rugcheck_danger:Top 10 holders high ownership (top10 92.29% top1 89.37% holders 516 insiders 0)
+[2026-11-02 20:17:10]   [scalp] reject FOREVER    rugcheck_danger:Top 10 holders high ownership (top10 92.51% top1 87.14% holders 601 insiders 0)
+[2026-11-02 20:17:14] [scalp] SCAN universe 307 (watchlist 200, +5 new, -0 dead) | momentum-pass 14 | safety-pass 0 | opened 0 | open 0/3 | top rejects {'too_old': 92, 'blocked_dex': 70, 'mcap_range': 61, 'low_vol_m5': 25, 'm5_sell_pressure': 11, 'bad_quote': 11, 'low_liq': 7, 'rugcheck_danger:Top 10 holders high ownership': 6}
+[2026-11-02 20:17:30] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-02 20:18:00] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-02 20:18:14]   [scalp] reject USDC       rugcheck_risk:Copycat token (top10 26.29% top1 10% holders 94 insiders 0)
+[2026-11-02 20:18:14]   [scalp] reject MAMESUKE   rugcheck_danger:Top 10 holders high ownership (top10 94.73% top1 78.42% holders 846 insiders 0)
+[2026-11-02 20:18:14]   [scalp] reject Minecraft  rugcheck_danger:Top 10 holders high ownership (top10 82.47% top1 14.61% holders 2127 insiders 0)
+[2026-11-02 20:18:14]   [scalp] reject 红果短剧       rugcheck_danger:Top 10 holders high ownership (top10 99.02% top1 95.54% holders 263 insiders 0)
+[2026-11-02 20:18:14]   [scalp] reject FOREVER    rugcheck_danger:Top 10 holders high ownership (top10 92.51% top1 87.14% holders 601 insiders 0)
+[2026-11-02 20:18:14]   [scalp] reject FAGENT     rugcheck_danger:Top 10 holders high ownership (top10 83.61% top1 66.08% holders 1473 insiders 0)
+[2026-11-02 20:18:14] [scalp] SCAN universe 290 (watchlist 200, +7 new, -10 dead) | momentum-pass 12 | safety-pass 0 | opened 0 | open 0/3 | top rejects {'blocked_dex': 72, 'too_old': 70, 'mcap_range': 66, 'low_vol_m5': 26, 'bad_quote': 11, 'm5_sell_pressure': 8, 'low_liq': 7, 'rugcheck_danger:Top 10 holders high ownership': 5}
+[2026-11-02 20:18:15] WARN loop wall-clock gap of 60s - positions re-priced at current market
+[2026-11-02 20:18:30] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-02 20:19:09]   [scalp] reject MAMESUKE   rugcheck_danger:Top 10 holders high ownership (top10 94.73% top1 78.42% holders 846 insiders 0)
+[2026-11-02 20:19:09]   [scalp] reject Minecraft  rugcheck_danger:Top 10 holders high ownership (top10 82.47% top1 14.61% holders 2127 insiders 0)
+[2026-11-02 20:19:09]   [scalp] reject 红果短剧       rugcheck_danger:Top 10 holders high ownership (top10 99.02% top1 95.54% holders 263 insiders 0)
+[2026-11-02 20:19:09]   [scalp] reject FOREVER    rugcheck_danger:Top 10 holders high ownership (top10 92.51% top1 87.14% holders 601 insiders 0)
+[2026-11-02 20:19:09]   [scalp] reject FAGENT     rugcheck_danger:Top 10 holders high ownership (top10 83.61% top1 66.08% holders 1473 insiders 0)
+[2026-11-02 20:19:11]   [scalp] reject horse      rugcheck_danger:Top 10 holders high ownership (top10 100.0% top1 99.94% holders 75 insiders 0)
+[2026-11-02 20:19:14] [scalp] SCAN universe 288 (watchlist 200, +5 new, -3 dead) | momentum-pass 11 | safety-pass 0 | opened 0 | open 0/3 | top rejects {'too_old': 71, 'mcap_range': 69, 'blocked_dex': 67, 'low_vol_m5': 24, 'm5_sell_pressure': 12, 'bad_quote': 10, 'low_liq': 6, 'rugcheck_danger:Top 10 holders high ownership': 6}
+[2026-11-02 20:19:30] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-02 20:19:52] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-02 20:20:11]   [scalp] reject RICO       rugcheck_danger:Creator history of rugged tokens (top10 19.71% top1 2.59% holders 1449 insiders 0)
+[2026-11-02 20:20:11]   [scalp] reject MAMESUKE   rugcheck_danger:Top 10 holders high ownership (top10 94.73% top1 78.42% holders 846 insiders 0)
+[2026-11-02 20:20:11]   [scalp] reject Minecraft  rugcheck_danger:Top 10 holders high ownership (top10 82.47% top1 14.61% holders 2127 insiders 0)
+[2026-11-02 20:20:11]   [scalp] reject FOREVER    rugcheck_danger:Top 10 holders high ownership (top10 92.51% top1 87.14% holders 601 insiders 0)
+[2026-11-02 20:20:11]   [scalp] reject 红果短剧       rugcheck_danger:Top 10 holders high ownership (top10 99.02% top1 95.54% holders 263 insiders 0)
+[2026-11-02 20:20:11]   [scalp] reject FAGENT     rugcheck_danger:Top 10 holders high ownership (top10 83.61% top1 66.08% holders 1473 insiders 0)
+[2026-11-02 20:20:25] [scalp] SCAN universe 291 (watchlist 200, +6 new, -4 dead) | momentum-pass 10 | safety-pass 0 | opened 0 | open 0/3 | top rejects {'mcap_range': 72, 'too_old': 71, 'blocked_dex': 67, 'low_vol_m5': 25, 'm5_sell_pressure': 14, 'bad_quote': 11, 'low_liq': 6, 'rugcheck_danger:Top 10 holders high ownership': 5}
+[2026-11-02 20:20:26] WARN loop wall-clock gap of 71s - positions re-priced at current market
+[2026-11-02 20:21:12]   [scalp] reject RICO       rugcheck_danger:Creator history of rugged tokens (top10 19.71% top1 2.59% holders 1449 insiders 0)
+[2026-11-02 20:21:12]   [scalp] reject MAMESUKE   rugcheck_danger:Top 10 holders high ownership (top10 94.73% top1 78.42% holders 846 insiders 0)
+[2026-11-02 20:21:16]   [scalp] OPEN #66 Robinhood $3.00 @ 0.00020774978 (eff 0.00021503435, +3.5%) | [scalp burned] rank 64.9 | age 21m dex pumpswap mcap $205,876 liq $34,928 | 5m: vol $955 buys/sells 2161/959 chg 10.36% accel x0.41 | 1h chg 440% | holders 2506 top10 9.89% top1 8.35% insiders 0 | impact 1.02% roundtrip-quote loss 2.4% entry cost 3.5% | src ['gt_trend5m', 'watchlist']
+[2026-11-02 20:21:16]   [scalp] reject Minecraft  rugcheck_danger:Top 10 holders high ownership (top10 82.47% top1 14.61% holders 2127 insiders 0)
+[2026-11-02 20:21:18]   [scalp] reject 红果短剧       rugcheck_danger:Top 10 holders high ownership (top10 91.93% top1 88.39% holders 1179 insiders 0)
+[2026-11-02 20:21:18]   [scalp] reject FOREVER    rugcheck_danger:Top 10 holders high ownership (top10 92.51% top1 87.14% holders 601 insiders 0)
+[2026-11-02 20:21:20]   [scalp] reject FAGENT     rugcheck_danger:Top 10 holders high ownership (top10 83.61% top1 66.08% holders 1473 insiders 0)
+[2026-11-02 20:21:20] [scalp] SCAN universe 308 (watchlist 200, +5 new, -10 dead) | momentum-pass 12 | safety-pass 1 | opened 1 | open 1/3 | top rejects {'too_old': 84, 'mcap_range': 74, 'blocked_dex': 66, 'low_vol_m5': 26, 'm5_sell_pressure': 11, 'bad_quote': 11, 'low_liq': 7, 'm5_not_rising': 5}
+[2026-11-02 20:21:21] [scalp] tick: Robinhood +0.2% (pk +0%, 0m)
+[2026-11-02 20:21:28] [scalp] tick: Robinhood -0.3% (pk +0%, 0m)
+[2026-11-02 20:21:36] [scalp] tick: Robinhood +1.5% (pk +2%, 0m)
+[2026-11-02 20:21:44] [scalp] tick: Robinhood +1.8% (pk +2%, 0m)
+[2026-11-02 20:21:52] [scalp] tick: Robinhood +1.9% (pk +2%, 1m)
+[2026-11-02 20:22:03] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-02 20:22:05] [scalp] tick: Robinhood +2.3% (pk +2%, 1m)
+[2026-11-02 20:22:11] [scalp] tick: Robinhood +2.5% (pk +3%, 1m)
+[2026-11-02 20:22:16] [scalp] tick: Robinhood +2.9% (pk +3%, 1m)
+[2026-11-02 20:22:19] ERROR in scalp_scan: Traceback (most recent call last): |   File "/home/runner/work/sholiboli495/sholiboli495/main.py", line 56, in safe |     try: return fn() |                 ^^^^ |   File "/home/runner/work/sholiboli495/sholiboli495/main.py", line 122, in <lambda> |     last["scan"] = time.time(); safe("scalp_scan", lambda: scalp.scan(c)) |                                                            ^^^^^^^^^^^^^ |   File "/home/runner/work/sholiboli495/sholiboli495/scalp.py", line 297, in scan |     f["liq"] or 0, f["mcap"], f["rank"], json.dumps(feat, default=str), reasoning, jp, jp, iso())) |                                                                                    ^^ | UnboundLocalError: cannot access local variable 'jp' where it is not associated with a value | 
+[2026-11-02 20:22:20] [scalp] tick: Robinhood +2.9% (pk +3%, 1m)
+[2026-11-02 20:22:27] [scalp] tick: Robinhood +1.9% (pk +3%, 1m)
+[2026-11-02 20:22:37]   [scalp] EXIT #66 Robinhood stop_loss: gross -72.8% (peak +2.9%) held 1.4m
+[2026-11-02 20:22:38]   SELL #66 Robinhood 100% reason=scalp_stop_loss net $0.73 (mark 5.6516491e-05, x0.27) via jupiter_quote
+[2026-11-02 20:22:38]   CLOSED #66 Robinhood PnL $-2.30 (-75.9%) reason=scalp_stop_loss
+[2026-11-02 20:22:38] [scalp] tick: Robinhood -72.8% (pk +3%, 1m)
+[2026-11-02 20:22:52] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-02 20:23:13]   [scalp] skip Slingoor Jupiter vs DexScreener -25.9%
+[2026-11-02 20:23:13]   [scalp] reject MAMESUKE   rugcheck_danger:Top 10 holders high ownership (top10 94.73% top1 78.42% holders 846 insiders 0)
+[2026-11-02 20:23:13]   [scalp] reject Minecraft  rugcheck_danger:Top 10 holders high ownership (top10 82.47% top1 14.61% holders 2127 insiders 0)
+[2026-11-02 20:23:13]   [scalp] reject 红果短剧       rugcheck_danger:Top 10 holders high ownership (top10 91.93% top1 88.39% holders 1179 insiders 0)
+[2026-11-02 20:23:15]   [scalp] reject FAGENT     rugcheck_danger:Top 10 holders high ownership (top10 83.61% top1 66.08% holders 1473 insiders 0)
+[2026-11-02 20:23:20] [scalp] SCAN universe 311 (watchlist 200, +9 new, -8 dead) | momentum-pass 9 | safety-pass 1 | opened 0 | open 0/3 | top rejects {'too_old': 87, 'blocked_dex': 70, 'mcap_range': 66, 'low_vol_m5': 23, 'm5_parabolic': 12, 'm5_sell_pressure': 12, 'bad_quote': 9, 'low_liq': 9}
+[2026-11-02 20:23:20] [review v6] v6 trades 4: WR 0%, avg win +0.0%, avg loss -32.9%, entries last 60 min 4 (floor 3/h), equity $14.19 | Config changes: none (4 new trades since last change; need 8, or rate below floor after 45 min)
+[2026-11-02 20:23:20] WARN loop wall-clock gap of 61s - positions re-priced at current market
+[2026-11-02 20:23:53] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-02 20:24:14]   [scalp] reject MI         rugcheck_risk:Single holder ownership (top10 61.66% top1 33.13% holders 123 insiders 0)
+[2026-11-02 20:24:14]   [scalp] reject MAMESUKE   rugcheck_danger:Top 10 holders high ownership (top10 94.73% top1 78.42% holders 846 insiders 0)
+[2026-11-02 20:24:14]   [scalp] reject Minecraft  rugcheck_danger:Top 10 holders high ownership (top10 82.47% top1 14.61% holders 2127 insiders 0)
+[2026-11-02 20:24:14]   [scalp] reject 红果短剧       rugcheck_danger:Top 10 holders high ownership (top10 91.93% top1 88.39% holders 1179 insiders 0)
+[2026-11-02 20:24:14]   [scalp] reject FAGENT     rugcheck_danger:Top 10 holders high ownership (top10 83.61% top1 66.08% holders 1473 insiders 0)
+[2026-11-02 20:24:14] [scalp] SCAN universe 305 (watchlist 200, +7 new, -9 dead) | momentum-pass 9 | safety-pass 0 | opened 0 | open 0/3 | top rejects {'too_old': 83, 'blocked_dex': 68, 'mcap_range': 67, 'low_vol_m5': 25, 'm5_parabolic': 12, 'bad_quote': 9, 'm5_sell_pressure': 9, 'low_liq': 8}
+[2026-11-02 20:24:30] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-02 20:24:57] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-02 20:25:11]   [scalp] reject MI         rugcheck_risk:Single holder ownership (top10 61.66% top1 33.13% holders 123 insiders 0)
+[2026-11-02 20:25:11]   [scalp] reject RICO       rugcheck_danger:Creator history of rugged tokens (top10 19.71% top1 2.59% holders 1449 insiders 0)
+[2026-11-02 20:25:12]   [scalp] reject MAMESUKE   rugcheck_danger:Top 10 holders high ownership (top10 94.2% top1 78.91% holders 1564 insiders 0)
+[2026-11-02 20:25:12]   [scalp] reject Minecraft  rugcheck_danger:Top 10 holders high ownership (top10 82.47% top1 14.61% holders 2127 insiders 0)
+[2026-11-02 20:25:14]   [scalp] reject Coca-Cola  insider_network (top10 7.09% top1 6.48% holders 2276 insiders 1418)
+[2026-11-02 20:25:19]   [scalp] reject FAGENT     rugcheck_danger:Top 10 holders high ownership (top10 83.61% top1 66.08% holders 1473 insiders 0)
+[2026-11-02 20:25:19] [scalp] SCAN universe 287 (watchlist 200, +11 new, -11 dead) | momentum-pass 12 | safety-pass 0 | opened 0 | open 0/3 | top rejects {'too_old': 68, 'mcap_range': 68, 'blocked_dex': 61, 'low_vol_m5': 25, 'm5_parabolic': 12, 'bad_quote': 10, 'm5_sell_pressure': 9, 'low_liq': 7}
+[2026-11-02 20:25:20] WARN loop wall-clock gap of 66s - positions re-priced at current market
+[2026-11-02 20:25:47] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-02 20:26:09]   [scalp] reject MI         rugcheck_risk:Single holder ownership (top10 61.66% top1 33.13% holders 123 insiders 0)
+[2026-11-02 20:26:09]   [scalp] reject RICO       rugcheck_danger:Creator history of rugged tokens (top10 19.71% top1 2.59% holders 1449 insiders 0)
+[2026-11-02 20:26:09]   [scalp] reject MAMESUKE   rugcheck_danger:Top 10 holders high ownership (top10 94.2% top1 78.91% holders 1564 insiders 0)
+[2026-11-02 20:26:10]   [scalp] reject Minecraft  top10_concentrated (top10 33.46% top1 14.61% holders 2144 insiders 1128)
+[2026-11-02 20:26:10]   [scalp] reject Coca-Cola  insider_network (top10 7.09% top1 6.48% holders 2276 insiders 1418)
+[2026-11-02 20:26:10]   [scalp] reject 红果短剧       rugcheck_danger:Top 10 holders high ownership (top10 91.93% top1 88.39% holders 1179 insiders 0)
+[2026-11-02 20:26:12]   [scalp] reject FAGENT     rugcheck_danger:Top 10 holders high ownership (top10 71.52% top1 52.63% holders 2114 insiders 0)
+[2026-11-02 20:26:12] [scalp] SCAN universe 305 (watchlist 200, +1 new, -0 dead) | momentum-pass 13 | safety-pass 0 | opened 0 | open 0/3 | top rejects {'too_old': 84, 'mcap_range': 66, 'blocked_dex': 62, 'low_vol_m5': 25, 'bad_quote': 11, 'm5_parabolic': 11, 'm5_sell_pressure': 9, 'low_liq': 8}
+[2026-11-02 20:26:28] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-02 20:26:53] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-02 20:27:10]   [scalp] reject DWOG       rugcheck_danger:Single holder ownership (top10 58.67% top1 47.15% holders 207 insiders 5)
+[2026-11-02 20:27:10]   [scalp] reject MAMESUKE   rugcheck_danger:Top 10 holders high ownership (top10 94.2% top1 78.91% holders 1564 insiders 0)
+[2026-11-02 20:27:10]   [scalp] reject Minecraft  top10_concentrated (top10 33.46% top1 14.61% holders 2144 insiders 1128)
+[2026-11-02 20:27:15]   [scalp] OPEN #67 POSSUM $3.00 @ 7.6542044e-05 (eff 7.8318583e-05, +2.3%) | [scalp burned] rank 42.4 | age 10m dex pumpswap mcap $72,210 liq $20,238 | 5m: vol $63,810 buys/sells 1304/1057 chg 25.72% accel x1.39 | 1h chg 88.01% | holders 2035 top10 7.69% top1 1.38% insiders 0 | impact 1.28% roundtrip-quote loss 2.8% entry cost 2.3% | src ['gt_trend5m', 'watchlist']
+[2026-11-02 20:27:15]   [scalp] reject 红果短剧       rugcheck_danger:Top 10 holders high ownership (top10 91.93% top1 88.39% holders 1179 insiders 0)
+[2026-11-02 20:27:15]   [scalp] reject FAGENT     rugcheck_danger:Top 10 holders high ownership (top10 71.52% top1 52.63% holders 2114 insiders 0)
+[2026-11-02 20:27:15] [scalp] SCAN universe 289 (watchlist 200, +2 new, -6 dead) | momentum-pass 12 | safety-pass 1 | opened 1 | open 1/3 | top rejects {'too_old': 73, 'mcap_range': 66, 'blocked_dex': 61, 'low_vol_m5': 27, 'bad_quote': 11, 'm5_parabolic': 8, 'm5_sell_pressure': 7, 'm5_not_rising': 7}
+[2026-11-02 20:27:15] WARN loop wall-clock gap of 63s - positions re-priced at current market
+[2026-11-02 20:27:16] [scalp] tick: POSSUM +0.0% (pk +0%, 0m)
+[2026-11-02 20:27:23] [scalp] tick: POSSUM +1.4% (pk +1%, 0m)
+[2026-11-02 20:27:31] [scalp] tick: POSSUM +8.3% (pk +8%, 0m)
+[2026-11-02 20:27:36]   [scalp] EXIT #67 POSSUM take_profit_full: gross +10.6% (peak +10.6%) held 0.4m
+[2026-11-02 20:27:38]   SELL #67 POSSUM 100% reason=scalp_take_profit_full net $2.92 (mark 8.4632864e-05, x1.11) via jupiter_quote
+[2026-11-02 20:27:38]   CLOSED #67 POSSUM PnL $-0.11 (-3.5%) reason=scalp_take_profit_full
+[2026-11-02 20:27:38] [scalp] tick: POSSUM +10.6% (pk +11%, 0m)
+[2026-11-02 20:27:47] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-02 20:28:13]   [scalp] reject DWOG       rugcheck_danger:Single holder ownership (top10 58.67% top1 47.15% holders 207 insiders 5)
+[2026-11-02 20:28:16]   [scalp] reject MAMESUKE   rugcheck_danger:Top 10 holders high ownership (top10 84.49% top1 65.69% holders 754 insiders 0)
+[2026-11-02 20:28:16]   [scalp] reject 红果短剧       rugcheck_danger:Top 10 holders high ownership (top10 91.93% top1 88.39% holders 1179 insiders 0)
+[2026-11-02 20:28:19] [scalp] SCAN universe 308 (watchlist 200, +5 new, -2 dead) | momentum-pass 11 | safety-pass 0 | opened 0 | open 0/3 | top rejects {'too_old': 89, 'mcap_range': 67, 'blocked_dex': 64, 'low_vol_m5': 26, 'bad_quote': 11, 'm5_sell_pressure': 9, 'low_liq': 7, 'tier_disabled:creator_pool': 7}
+[2026-11-02 20:28:19] WARN loop wall-clock gap of 64s - positions re-priced at current market
+[2026-11-02 20:28:37] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-02 20:29:16]   [scalp] reject DWOG       rugcheck_danger:Single holder ownership (top10 58.67% top1 47.15% holders 207 insiders 5)
+[2026-11-02 20:29:18]   [scalp] reject OLDPUMP    rugcheck_danger:Single holder ownership (top10 63.5% top1 52.46% holders 1675 insiders 0)
+[2026-11-02 20:29:18]   [scalp] reject MAMESUKE   rugcheck_danger:Top 10 holders high ownership (top10 84.49% top1 65.69% holders 754 insiders 0)
+[2026-11-02 20:29:18]   [scalp] reject Minecraft  top10_concentrated (top10 33.46% top1 14.61% holders 2144 insiders 1128)
+[2026-11-02 20:29:21]   [scalp] reject 红果短剧       rugcheck_danger:Top 10 holders high ownership (top10 91.93% top1 88.39% holders 1179 insiders 0)
+[2026-11-02 20:29:21] [scalp] SCAN universe 291 (watchlist 200, +10 new, -9 dead) | momentum-pass 14 | safety-pass 0 | opened 0 | open 0/3 | top rejects {'too_old': 71, 'blocked_dex': 67, 'mcap_range': 65, 'low_vol_m5': 27, 'm5_parabolic': 10, 'bad_quote': 9, 'm5_sell_pressure': 9, 'low_liq': 7}
+[2026-11-02 20:29:22] WARN loop wall-clock gap of 62s - positions re-priced at current market
+[2026-11-02 20:29:40] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-02 20:30:06] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-02 20:30:23] ERROR in scalp_scan: Traceback (most recent call last): |   File "/home/runner/work/sholiboli495/sholiboli495/main.py", line 56, in safe |     try: return fn() |                 ^^^^ |   File "/home/runner/work/sholiboli495/sholiboli495/main.py", line 122, in <lambda> |     last["scan"] = time.time(); safe("scalp_scan", lambda: scalp.scan(c)) |                                                            ^^^^^^^^^^^^^ |   File "/home/runner/work/sholiboli495/sholiboli495/scalp.py", line 297, in scan |     f["liq"] or 0, f["mcap"], f["rank"], json.dumps(feat, default=str), reasoning, jp, jp, iso())) |                                                                                    ^^ | UnboundLocalError: cannot access local variable 'jp' where it is not associated with a value | 
+[2026-11-02 20:30:24] WARN loop wall-clock gap of 62s - positions re-priced at current market
+[2026-11-02 20:30:40] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-02 20:31:18] ERROR in scalp_scan: Traceback (most recent call last): |   File "/home/runner/work/sholiboli495/sholiboli495/main.py", line 56, in safe |     try: return fn() |                 ^^^^ |   File "/home/runner/work/sholiboli495/sholiboli495/main.py", line 122, in <lambda> |     last["scan"] = time.time(); safe("scalp_scan", lambda: scalp.scan(c)) |                                                            ^^^^^^^^^^^^^ |   File "/home/runner/work/sholiboli495/sholiboli495/scalp.py", line 297, in scan |     f["liq"] or 0, f["mcap"], f["rank"], json.dumps(feat, default=str), reasoning, jp, jp, iso())) |                                                                                    ^^ | UnboundLocalError: cannot access local variable 'jp' where it is not associated with a value | 
+[2026-11-02 20:31:39] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-02 20:32:03] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-02 20:32:19]   [scalp] reject OLDPUMP    rugcheck_danger:Single holder ownership (top10 63.5% top1 52.46% holders 1675 insiders 0)
+[2026-11-02 20:32:19]   [scalp] reject Minecraft  top10_concentrated (top10 33.46% top1 14.61% holders 2144 insiders 1128)
+[2026-11-02 20:32:25]   [scalp] reject 红果短剧       rugcheck_danger:Top 10 holders high ownership (top10 85.67% top1 79.18% holders 2113 insiders 65)
+[2026-11-02 20:32:27]   [scalp] reject God's Frog insider_network (top10 7.48% top1 1.15% holders 785 insiders 79)
+[2026-11-02 20:32:30]   [scalp] reject CATO       top10_concentrated (top10 36.24% top1 18.16% holders 608 insiders 0)
+[2026-11-02 20:32:30] [scalp] SCAN universe 292 (watchlist 200, +6 new, -5 dead) | momentum-pass 12 | safety-pass 0 | opened 0 | open 0/3 | top rejects {'too_old': 75, 'mcap_range': 68, 'blocked_dex': 64, 'low_vol_m5': 26, 'm5_sell_pressure': 11, 'bad_quote': 8, 'low_liq': 8, 'm5_parabolic': 7}
+[2026-11-02 20:32:31] WARN loop wall-clock gap of 72s - positions re-priced at current market
+[2026-11-02 20:33:06] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-02 20:33:23]   [scalp] reject Minecraft  top10_concentrated (top10 33.46% top1 14.61% holders 2144 insiders 1128)
+[2026-11-02 20:33:23]   [scalp] reject 红果短剧       rugcheck_danger:Top 10 holders high ownership (top10 85.67% top1 79.18% holders 2113 insiders 65)
+[2026-11-02 20:33:23]   [scalp] reject God's Frog insider_network (top10 7.48% top1 1.15% holders 785 insiders 79)
+[2026-11-02 20:33:26]   [scalp] reject CATO       top10_concentrated (top10 36.24% top1 18.16% holders 608 insiders 0)
+[2026-11-02 20:33:29] [scalp] SCAN universe 312 (watchlist 200, +4 new, -9 dead) | momentum-pass 10 | safety-pass 0 | opened 0 | open 0/3 | top rejects {'too_old': 89, 'mcap_range': 69, 'blocked_dex': 67, 'low_vol_m5': 29, 'm5_sell_pressure': 9, 'bad_quote': 9, 'low_liq': 9, 'm5_parabolic': 8}
+[2026-11-02 20:33:29] === RUN END (signal STOP file): closing any open scalp positions (reason run_end) and saving state ===
+[2026-11-02 20:33:29] [review v6] v6 trades 5: WR 0%, avg win +0.0%, avg loss -27.0%, entries last 60 min 5 (floor 3/h), equity $14.08 | Config changes: none (5 new trades since last change; need 8, or rate below floor after 45 min)
+[2026-11-02 20:33:29] 
+PAPER TRADING REPORT (2026-11-02 20:33 Asia/Jerusalem) - simulation only, no real trades
+Bankroll start $30.00 | cash $14.08 | open positions value (mark) $0.00 | equity $14.08 (-53.1%)
+ALL: closed trades 66 | wins 38 | losses 28 | win rate 58% | realized PnL $-15.92
+SWING: closed 9 | wins 2 | losses 7 | win rate 22% | avg win +27.8% | avg loss -35.3% | net PnL $-7.17 | profit factor 0.21 | avg hold 123 min
+SCALP: closed 57 | wins 36 | losses 21 | win rate 63% | avg win +13.2% | avg loss -35.8% | net PnL $-8.75 | profit factor 0.66 | avg hold 10 min
+Scalp entries in last 60 min: 5
+avg win +14.0% | avg loss -35.7% | profit factor 0.54 | best ANAKIN +55.3% | worst BHF -100.0%
+[2026-11-02 20:33:29] === RUN ended cleanly ===

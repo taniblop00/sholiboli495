@@ -150,9 +150,20 @@ Per-trade notes are appended automatically after each closed trade. The aggregat
 - v5 trades 2: WR 50%, avg win +0.7%, avg loss -20.9%, entries last 60 min 0 (floor 2/h), equity $18.18
 - Median winners vs losers: age_min 83.4/72.3, mcap 2.57e+05/1.89e+05, liq 4.13e+04/3.51e+04, pc_m5 9.55/15.8, bs_m5 2.9/4.56, holders 6.72e+03/4.52e+03, top10 1.84/1.3, entry_cost 4.58/4.68, peak 23.1/5.99
 - Config changes: none (0 new trades since last change; need 8, or rate below floor after 45 min)
+### Self-review v6 2026-11-02 20:23 Asia/Jerusalem (auto)
+- v6 trades 4: WR 0%, avg win +0.0%, avg loss -32.9%, entries last 60 min 4 (floor 3/h), equity $14.19
+- Config changes: none (4 new trades since last change; need 8, or rate below floor after 45 min)
+- 2026-11-02 20:11 | [SCALP] #63 SLINGOOR | LOSS -27.4% ($-0.83) | exit scalp_stop_loss after 0m, peak +0% | age 15m mcap $143,187 5m chg 28.97% accel x0.77 b/s 1632/334 | entered after >15% 5m candle (late), 5m buys >= 2x sells, very fresh (15m), never went green (bad timing/entry at local top)
+- 2026-11-02 20:14 | [SCALP] #64 NULL | LOSS -12.8% ($-0.39) | exit scalp_stop_loss after 1m, peak +0% | age 27m mcap $71,419 5m chg 8.43% accel x0.45 b/s 168/103 | very fresh (27m), never went green (bad timing/entry at local top)
+- 2026-11-02 20:16 | [SCALP] #65 Horse | LOSS -15.6% ($-0.47) | exit scalp_stop_loss after 0m, peak +0% | age 5m mcap $121,375 5m chg 23.57% accel x1.01 b/s 1440/419 | entered after >15% 5m candle (late), 5m buys >= 2x sells, very fresh (5m), never went green (bad timing/entry at local top)
+- 2026-11-02 20:22 | [SCALP] #66 Robinhood | LOSS -75.9% ($-2.30) | exit scalp_stop_loss after 1m, peak +3% | age 21m mcap $205,876 5m chg 10.36% accel x0.41 b/s 2161/959 | 5m buys >= 2x sells, very fresh (21m)
+### Self-review v6 2026-11-02 20:33 Asia/Jerusalem (auto)
+- v6 trades 5: WR 0%, avg win +0.0%, avg loss -27.0%, entries last 60 min 5 (floor 3/h), equity $14.08
+- Config changes: none (5 new trades since last change; need 8, or rate below floor after 45 min)
+- 2026-11-02 20:27 | [SCALP] #67 POSSUM | LOSS -3.5% ($-0.11) | exit scalp_take_profit_full after 0m, peak +11% | age 10m mcap $72,210 5m chg 25.72% accel x1.39 b/s 1304/1057 | entered after >15% 5m candle (late), very fresh (10m)
 
 <!-- AGGREGATE -->
-## Aggregate SWING (auto-regenerated 2026-11-02 19:52 Asia/Jerusalem)
+## Aggregate SWING (auto-regenerated 2026-11-02 20:33 Asia/Jerusalem)
 
 Closed 9: 2 wins / 7 losses.
 
@@ -191,24 +202,24 @@ Rejected-token follow-up (price ~6h+ after rejection):
 
 ## Aggregate SCALP
 
-Closed 52: 36 wins / 16 losses, net $-4.65
+Closed 57: 36 wins / 21 losses, net $-8.75
 
 | feature | avg winners | avg losers |
 |---|---|---|
-| rank | 72.5 | 65.8 |
-| age_min | 11.2 | 25.3 |
-| mcap | 4.11e+04 | 4.31e+04 |
-| pc_m5 | 14.8 | 17.7 |
-| pc_h1 | 40.7 | 62 |
-| accel | 1.04 | 1.09 |
-| bs_m5 | 4.18 | 3.38 |
-| entry_cost_pct | 2.35 | 2.36 |
-| top10_ex_pools | 9.15 | 10.3 |
-| holders | 712 | 863 |
-| peak_pct | 30.1 | 9.43e+04 |
+| rank | 72.5 | 65.5 |
+| age_min | 11.2 | 23 |
+| mcap | 4.11e+04 | 6.21e+04 |
+| pc_m5 | 14.8 | 18.1 |
+| pc_h1 | 40.7 | 91.4 |
+| accel | 1.04 | 1.02 |
+| bs_m5 | 4.18 | 3.22 |
+| entry_cost_pct | 2.35 | 2.51 |
+| top10_ex_pools | 9.15 | 10.1 |
+| holders | 712 | 1.13e+03 |
+| peak_pct | 30.1 | 7.19e+04 |
 
-Exit reasons: scalp_liquidity_drop: n=8 sum $-13.27, scalp_liquidity_pull_suspected: n=1 sum $-3.03, scalp_profit_lock: n=1 sum $-0.31, scalp_run_end: n=1 sum $+0.15, scalp_runner_breakeven_stop: n=1 sum $+0.20, scalp_runner_take_profit: n=14 sum $+8.57, scalp_runner_trailing_stop: n=8 sum $+1.66, scalp_session_end: n=5 sum $+1.00, scalp_stop_loss: n=5 sum $-3.70, scalp_take_profit: n=6 sum $+4.06, scalp_time_stop: n=1 sum $-0.32, scalp_trailing_stop: n=1 sum $+0.32
+Exit reasons: scalp_liquidity_drop: n=8 sum $-13.27, scalp_liquidity_pull_suspected: n=1 sum $-3.03, scalp_profit_lock: n=1 sum $-0.31, scalp_run_end: n=1 sum $+0.15, scalp_runner_breakeven_stop: n=1 sum $+0.20, scalp_runner_take_profit: n=14 sum $+8.57, scalp_runner_trailing_stop: n=8 sum $+1.66, scalp_session_end: n=5 sum $+1.00, scalp_stop_loss: n=9 sum $-7.68, scalp_take_profit: n=6 sum $+4.06, scalp_take_profit_full: n=1 sum $-0.11, scalp_time_stop: n=1 sum $-0.32, scalp_trailing_stop: n=1 sum $+0.32
 
 Suggested tuning:
-- winners had higher bs_m5 (4.18 vs 3.38) -> raise its min
-- 9 losers were up >=10% first -> lower lock/trail triggers
+- winners had higher bs_m5 (4.18 vs 3.22) -> raise its min
+- 10 losers were up >=10% first -> lower lock/trail triggers
