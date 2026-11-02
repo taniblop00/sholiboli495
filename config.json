@@ -1,0 +1,284 @@
+{
+  "_comment": "All strategy parameters. Tune from lessons.md. Paper trading only - no real transactions are ever sent.",
+  "bankroll_start_usd": 30.0,
+  "position_size_usd": 4.0,
+  "position_size_pct_of_equity": 0.14,
+  "max_concurrent_positions": 6,
+  "max_new_positions_per_cycle": 2,
+  "reentry_cooldown_hours": 24,
+  "min_cash_reserve_usd": 3.0,
+  "filters": {
+    "min_age_hours": 0.5,
+    "max_age_hours": 120,
+    "min_mcap_usd": 30000,
+    "max_mcap_usd": 10000000,
+    "min_liquidity_usd": 12000,
+    "min_liq_to_mcap": 0.05,
+    "min_vol_h1_usd": 5000,
+    "min_txns_h1": 80,
+    "min_buy_sell_ratio_h1": 1.05,
+    "min_price_change_h1": 0.0,
+    "max_price_change_h1": 150.0,
+    "min_price_change_h6": -35.0,
+    "max_price_change_m5": 25.0,
+    "min_price_change_m5": -12.0,
+    "allowed_quote_symbols": [
+      "SOL",
+      "USDC",
+      "USDT"
+    ]
+  },
+  "safety": {
+    "require_mint_revoked": true,
+    "require_freeze_revoked": true,
+    "max_top10_pct_ex_pools": 30.0,
+    "max_single_holder_pct_ex_pools": 10.0,
+    "max_creator_pct": 5.0,
+    "min_lp_locked_pct": 0,
+    "max_rugcheck_score_normalised": 40,
+    "max_insiders_detected": 10,
+    "min_total_holders": 400,
+    "danger_risk_names_block": [
+      "Freeze Authority still enabled",
+      "Mint Authority still enabled",
+      "Copycat token",
+      "Low Liquidity",
+      "Single holder ownership",
+      "High ownership",
+      "Top 10 holders high ownership"
+    ],
+    "allowed_token_programs": [
+      "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+      "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+    ],
+    "block_transfer_fee": true,
+    "ignore_danger_risks": [
+      "Large Amount of LP Unlocked"
+    ]
+  },
+  "scoring": {
+    "min_score_to_enter": 62,
+    "weights": {
+      "liq_ratio": 15,
+      "volume_turnover": 15,
+      "buy_pressure": 15,
+      "momentum": 15,
+      "holders": 15,
+      "distribution": 15,
+      "socials": 10
+    }
+  },
+  "costs": {
+    "use_jupiter_quote": true,
+    "extra_slippage_pct_each_side": 1.5,
+    "fallback_slippage_pct_each_side": 3.0,
+    "priority_fee_sol_per_tx": 0.0003,
+    "network_base_fee_sol_per_tx": 5e-06,
+    "max_entry_price_impact_pct": 2.0,
+    "wallet_swap_fee_pct": 0.85,
+    "_note": "Jupiter quote outAmount already includes pool/LP/creator fees (PumpSwap canonical ~1.0-1.25%/side for small caps). extra_slippage covers MEV/latency. wallet_swap_fee_pct = Phantom in-app swap fee (0.85%); set 0 if trading via Jupiter directly.",
+    "max_mark_divergence_pct": 10,
+    "max_total_entry_cost_pct": 7
+  },
+  "exits": {
+    "stop_loss_pct": -30.0,
+    "tp1_multiple": 1.8,
+    "tp1_sell_fraction": 0.5,
+    "tp2_multiple": 3.5,
+    "tp2_sell_fraction": 0.5,
+    "breakeven_after_tp1": true,
+    "trailing_activate_multiple": 1.4,
+    "trailing_drawdown_pct": 30.0,
+    "time_stop_hours_if_flat": 1.5,
+    "flat_band_pct": 10.0,
+    "max_hold_hours": 2.75,
+    "exit_if_liquidity_drop_pct": 50.0
+  },
+  "http": {
+    "timeout": 10,
+    "rugcheck_sleep_s": 1.2,
+    "jupiter_sleep_s": 1.1
+  },
+  "gt_dexes": [
+    "pumpswap",
+    "raydium-launchlab",
+    "meteora-dbc"
+  ],
+  "_mode": "v4 scalp-only, PAPER ONLY (never signs or sends a transaction). Runs on GitHub Actions via main.py --minutes N",
+  "scalp": {
+    "_why": "v4 (2026-11-02, from the review of all 53 closed trades): 42/44 scalps were creator-seeded PumpSwap pools with ~0% LP locked; 6 of them had their liquidity pulled (-45% to -100%) = 1.1% chance per minute held. Losers that were NOT pulls entered extended (5m +20-29%) with weak buy pressure (buys/sells < 3). v4: stricter entry (b/s >= 3, 5m +6..+20%, age 3-8 min, 1h <= +40%), sell 70% at +15% and cap the trade at 10 min on creator pools, smaller size and max 2 creator pools at once.",
+    "position_size_usd": 3.5,
+    "max_concurrent": 3,
+    "max_new_per_scan": 2,
+    "reentry_cooldown_min": 30,
+    "min_cash_reserve_usd": 3.0,
+    "max_rugchecks_per_scan": 10,
+    "filters": {
+      "min_age_min": 3,
+      "min_mcap_usd": 15000,
+      "max_mcap_usd": 400000,
+      "min_liquidity_usd": 20000,
+      "min_liq_to_mcap": 0.1,
+      "min_vol_m5_usd": 8000,
+      "min_txns_m5": 60,
+      "min_buy_sell_ratio_m5": 3.0,
+      "min_price_change_m5": 6.0,
+      "max_price_change_m5": 20.0,
+      "min_price_change_h1": -10.0,
+      "max_price_change_h1": 40.0,
+      "min_accel": 0.9,
+      "allowed_quote_symbols": [
+        "SOL"
+      ],
+      "blocked_dexes": [
+        "meteora",
+        "meteoradbc",
+        "raydium",
+        "launchlab",
+        "raydiumlaunchlab",
+        "pumpfun"
+      ],
+      "allowed_dexes": [
+        "pumpswap"
+      ],
+      "max_age_min": 8
+    },
+    "safety": {
+      "require_mint_revoked": true,
+      "require_freeze_revoked": true,
+      "block_transfer_fee": true,
+      "allowed_token_programs": [
+        "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+        "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
+      ],
+      "max_top10_pct_ex_pools": 35.0,
+      "max_single_holder_pct_ex_pools": 8.0,
+      "max_creator_pct": 5.0,
+      "min_lp_locked_pct": 0,
+      "max_rugcheck_score_normalised": null,
+      "max_insiders_detected": 3,
+      "min_total_holders": 200,
+      "ignore_danger_risks": [
+        "Large Amount of LP Unlocked",
+        "Low Liquidity",
+        "Low amount of LP Providers"
+      ],
+      "danger_risk_names_block": [
+        "Freeze Authority still enabled",
+        "Mint Authority still enabled",
+        "Copycat token",
+        "Single holder ownership",
+        "High ownership"
+      ]
+    },
+    "entry": {
+      "max_price_impact_pct": 2.0,
+      "max_mark_divergence_pct": 8.0,
+      "max_total_entry_cost_pct": 5.0,
+      "max_roundtrip_quote_loss_pct": 3.5
+    },
+    "exits": {
+      "stop_loss_gross_pct": -5.0,
+      "tp1_gross_pct": 15.0,
+      "tp1_sell_fraction": 0.7,
+      "stop_after_tp1_gross_pct": 10.0,
+      "runner_take_profit_gross_pct": 25.0,
+      "runner_trail_drawdown_pct": 6.0,
+      "runner_max_min": 10,
+      "time_stop_min": 6,
+      "time_stop_min_gain_pct": 2.0,
+      "max_hold_min": 10,
+      "exit_if_liquidity_drop_pct": 7.0,
+      "_note": "v4 defaults = creator_pool rules. exits_by_tier overrides per tier.",
+      "exit_sells_to_buys_m5": 1.5,
+      "exit_sell_spike_min_sells": 30,
+      "glitch_jump_multiple": 5.0
+    },
+    "loop": {
+      "update_every_s": 3,
+      "scan_every_s": 60,
+      "swing_update_every_s": 300,
+      "swing_cycle_every_s": 600,
+      "self_review_every_s": 1800,
+      "pass_timeout_s": 110,
+      "intra_scan_update_every_s": 5,
+      "export_every_s": 30,
+      "drain_min": 12,
+      "_note": "drain_min: no new entries in the last N minutes of a run, so nothing is left open between GitHub Actions runs"
+    },
+    "watch": {
+      "new_pool_pages": 6,
+      "min_buys_m5": 15,
+      "min_fdv_usd": 8000,
+      "max_recheck": 200
+    },
+    "version": "v4",
+    "review_v2": {
+      "min_new_trades_for_change": 8,
+      "min_entries_per_hour_floor": 2,
+      "tp1_bounds": [
+        12.0,
+        18.0
+      ],
+      "stop_bounds": [
+        -6.0,
+        -4.0
+      ],
+      "loose_floor": {
+        "min_price_change_m5": 4.0,
+        "min_buy_sell_ratio_m5": 3.0,
+        "min_vol_m5_usd": 6000,
+        "min_txns_m5": 50
+      },
+      "tight_cap": {
+        "min_price_change_m5": 10.0,
+        "min_buy_sell_ratio_m5": 4.5,
+        "min_vol_m5_usd": 20000,
+        "min_txns_m5": 150
+      },
+      "never_touch": [
+        "safety",
+        "tiers",
+        "min_age_min",
+        "max_age_min",
+        "allowed_dexes",
+        "min_liquidity_usd",
+        "max_price_change_m5",
+        "max_price_change_h1",
+        "position_size_usd",
+        "max_concurrent",
+        "max_hold_min",
+        "runner_max_min",
+        "stop_loss_gross_pct"
+      ],
+      "_note": "bs_m5 floor stays at 3.0 (the strongest winner/loser separator); the review may only tighten it."
+    },
+    "tiers": {
+      "_why": "LP burned (>=90%) pools cannot be rug-pulled by removing liquidity; creator pools can, at any second.",
+      "burned_min_lp_locked_pct": 90,
+      "burned": {
+        "enabled": true,
+        "position_size_usd": 3.5,
+        "max_concurrent": 3
+      },
+      "creator_pool": {
+        "enabled": true,
+        "position_size_usd": 3.0,
+        "max_concurrent": 2
+      }
+    },
+    "exits_by_tier": {
+      "creator_pool": {},
+      "burned": {
+        "tp1_sell_fraction": 0.5,
+        "stop_after_tp1_gross_pct": 5.0,
+        "runner_take_profit_gross_pct": 40.0,
+        "runner_trail_drawdown_pct": 10.0,
+        "runner_max_min": 20,
+        "max_hold_min": 20,
+        "time_stop_min": 10
+      }
+    }
+  },
+  "swing_enabled": false
+}

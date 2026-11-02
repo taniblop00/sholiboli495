@@ -1,0 +1,15 @@
+[2026-11-02 14:48:15] === RUN start pid 539359 v4 PAPER ONLY | 3 min (until 2026-11-02 14:51 Asia/Jerusalem), drain last 0 min | update 3s scan 60s export 30s | equity $20.76 ===
+[2026-11-02 14:48:54] [scalp] SCAN universe 320 (watchlist 200, +12 new, -191 dead) | momentum-pass 0 | safety-pass 0 | opened 0 | open 0/3 | top rejects {'too_old': 303, 'blocked_dex': 13, 'mcap_range': 2, 'too_young': 1, 'no_pair_data': 1}
+[2026-11-02 14:49:46] [scalp] SCAN universe 143 (watchlist 24, +3 new, -0 dead) | momentum-pass 0 | safety-pass 0 | opened 0 | open 0/3 | top rejects {'too_old': 130, 'blocked_dex': 9, 'too_young': 3, 'mcap_range': 1}
+[2026-11-02 14:50:48] [scalp] SCAN universe 150 (watchlist 34, +10 new, -0 dead) | momentum-pass 0 | safety-pass 0 | opened 0 | open 0/3 | top rejects {'too_old': 127, 'blocked_dex': 14, 'too_young': 7, 'mcap_range': 2}
+[2026-11-02 14:51:16] === RUN END (time limit reached): closing any open scalp positions (reason run_end) and saving state ===
+[2026-11-02 14:51:16] [review v4] v4 trades 0: WR 0%, avg win +0.0%, avg loss +0.0%, entries last 60 min 0 (floor 2/h), equity $20.76 | Config changes: none (0 new trades since last change; need 8, or rate below floor after 45 min)
+[2026-11-02 14:51:16] 
+PAPER TRADING REPORT (2026-11-02 14:51 Asia/Jerusalem) - simulation only, no real trades
+Bankroll start $30.00 | cash $20.76 | open positions value (mark) $0.00 | equity $20.76 (-30.8%)
+ALL: closed trades 53 | wins 32 | losses 21 | win rate 60% | realized PnL $-9.24
+SWING: closed 9 | wins 2 | losses 7 | win rate 22% | avg win +27.8% | avg loss -35.3% | net PnL $-7.17 | profit factor 0.21 | avg hold 123 min
+SCALP: closed 44 | wins 30 | losses 14 | win rate 68% | avg win +14.6% | avg loss -35.5% | net PnL $-2.07 | profit factor 0.88 | avg hold 12 min
+Scalp entries in last 60 min: 0
+avg win +15.4% | avg loss -35.4% | profit factor 0.65 | best ANAKIN +55.3% | worst BHF -100.0%
+[2026-11-02 14:51:16] === RUN ended cleanly ===

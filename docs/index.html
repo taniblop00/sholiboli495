@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<meta name="color-scheme" content="dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<title>YONI · מסחר דמה</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#000;
+  --card:#101113;
+  --card2:#18191d;
+  --line:rgba(255,255,255,.08);
+  --txt:#f4f5f7;
+  --mut:#8d909a;
+  --up:#3ee0a2;
+  --dn:#ff5d73;
+  --gold:#e8c27a;
+  --acc:#b9a6ff;
+  --acc2:#7ec8ff;
+  --shadow:0 20px 50px rgba(0,0,0,.45);
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:#000;color:var(--txt);font-family:Heebo,"Noto Sans Hebrew","Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+body{min-height:100dvh;background:
+  radial-gradient(900px 420px at 50% -80px, rgba(140,110,255,.22), transparent 60%),
+  radial-gradient(700px 320px at 100% 0, rgba(60,180,255,.08), transparent 50%),
+  #000}
+button,input{font-family:inherit}
+.app{max-width:1080px;margin:0 auto;padding:14px 14px 108px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 2px 10px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px;font-size:18px}
+.logo{width:34px;height:34px;border-radius:11px;background:linear-gradient(160deg,#2a2148,#12131a 60%);border:1px solid rgba(255,255,255,.12);display:grid;place-items:center;box-shadow:inset 0 0 18px rgba(160,130,255,.25)}
+.logo b{background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent;font-size:16px}
+.top-actions{display:flex;align-items:center;gap:8px}
+.paper{font-size:12px;font-weight:700;color:#1a1408;background:linear-gradient(180deg,#f3d59a,#e0b15a);padding:5px 10px;border-radius:999px;letter-spacing:.2px}
+.pill{font-size:12px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid var(--line);color:var(--mut);display:flex;gap:7px;align-items:center;white-space:nowrap}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--mut);flex:none}
+.dot.on{background:var(--up);box-shadow:0 0 0 4px rgba(62,224,162,.15)}
+.dot.warn{background:#ffb020}
+.dot.off{background:var(--dn)}
+.banner{margin:2px 0 8px;text-align:center;color:var(--gold);font-size:12px;font-weight:600;letter-spacing:.2px}
+.layout{display:block}
+.hero{text-align:center;padding:8px 0 2px}
+.hero .lbl{color:var(--mut);font-size:13px;font-weight:500}
+.eq{font-size:clamp(52px,15vw,78px);font-weight:800;letter-spacing:-1.6px;line-height:1.05;margin:4px 0 10px;direction:ltr;font-variant-numeric:tabular-nums}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.chip{direction:ltr;font-size:13px;font-weight:650;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid var(--line);font-variant-numeric:tabular-nums}
+.chip small{color:var(--mut);font-weight:500;margin-inline-start:4px}
+.sub{margin-top:10px;color:var(--mut);font-size:12px}
+.sub b{font-weight:650;color:var(--txt)}
+.chart-card{margin:16px 0 8px;background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.015));border:1px solid var(--line);border-radius:22px;padding:12px 10px 8px;box-shadow:var(--shadow)}
+canvas{width:100%;height:196px;display:block}
+.ranges{display:flex;justify-content:center;gap:6px;margin:2px 0 4px}
+.ranges button,.tabs button,.nav button{cursor:pointer}
+.ranges button{background:transparent;border:0;color:var(--mut);padding:7px 12px;border-radius:999px;font-size:13px;font-weight:600}
+.ranges button.a{background:#fff;color:#000}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.st{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px 12px 12px;min-height:78px}
+.st b{display:block;font-size:22px;font-weight:750;direction:ltr;font-variant-numeric:tabular-nums;letter-spacing:-.3px}
+.st small{display:block;margin-top:3px;color:var(--mut);font-size:12px}
+.tabs{display:none}
+.list{min-height:120px}
+.row{display:flex;align-items:flex-start;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:12px;margin-bottom:8px}
+.ic{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;flex:none;color:#fff}
+.mid{flex:1;min-width:0}
+.n{font-weight:700;font-size:15px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.s{color:var(--mut);font-size:12px;margin-top:3px;line-height:1.45}
+.rt{text-align:left;direction:ltr;font-variant-numeric:tabular-nums}
+.rt .p{font-weight:800;font-size:16px}
+.rt .d{font-size:12px;margin-top:2px;font-weight:650}
+.tag{font-size:10px;font-weight:700;padding:2px 6px;border-radius:6px;background:#1c1e27;color:var(--mut)}
+.tag.b{background:#10281c;color:var(--up)}
+.tag.r{background:#31141c;color:var(--dn)}
+.tag.a{background:#2c2412;color:var(--gold)}
+.tag.n{background:#1a2230;color:var(--acc2)}
+.track{position:relative;height:6px;background:#1b1c22;border-radius:99px;margin-top:10px;overflow:hidden}
+.track i{position:absolute;top:-2px;bottom:-2px;width:3px;border-radius:2px;background:#fff;box-shadow:0 0 8px #fff}
+.track .fill{position:absolute;top:0;bottom:0;inset-inline-start:0;background:linear-gradient(90deg,var(--dn),var(--gold),var(--up));opacity:.9}
+.lv{display:flex;justify-content:space-between;gap:8px;margin-top:6px;color:var(--mut);font-size:11px;direction:ltr}
+.empty{color:var(--mut);text-align:center;padding:36px 12px;font-size:14px;line-height:1.6}
+.scan{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;margin-bottom:8px}
+.scan h3{margin:0 0 8px;font-size:13px;font-weight:650;color:var(--mut)}
+.kv{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:14px}
+.kv:last-child{border-bottom:0}
+.kv span{color:var(--mut)}
+.kv b{font-weight:650;text-align:left;direction:ltr}
+.cands{display:flex;flex-direction:column;gap:6px;margin-top:4px}
+.cand{display:flex;justify-content:space-between;gap:8px;background:#0c0c0e;border-radius:12px;padding:8px 10px;font-size:13px}
+.cand b{direction:ltr}
+.rules{color:var(--mut);font-size:12.5px;line-height:1.7}
+.foot{color:var(--mut);font-size:11px;text-align:center;margin-top:16px;line-height:1.7}
+.nav{position:fixed;left:0;right:0;bottom:0;display:flex;gap:4px;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:rgba(0,0,0,.92);backdrop-filter:blur(16px);border-top:1px solid var(--line);z-index:5}
+.nav button{flex:1;background:transparent;border:0;color:var(--mut);padding:8px 0 6px;border-radius:12px;font-size:12px;font-weight:650}
+.nav button.a{color:#fff;background:#16171c}
+.up{color:var(--up)}.dn{color:var(--dn)}
+@media(min-width:760px){
+  .app{padding:22px 22px 40px}
+  .grid{grid-template-columns:repeat(4,1fr)}
+  .layout{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;align-items:start}
+  .nav{display:none}
+  .tabs{display:flex;background:#0c0c0e;border:1px solid var(--line);border-radius:16px;padding:4px;margin-bottom:12px}
+  .tabs button{flex:1;background:transparent;border:0;color:var(--mut);padding:10px 0;border-radius:12px;font-size:14px;font-weight:650}
+  .tabs button.a{background:#fff;color:#000}
+  .chart-card{position:sticky;top:12px}
+}
+@media(min-width:760px){
+  .portfolio .chart-card{position:static}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <div class="brand"><div class="logo"><b>Y</b></div><div>YONI</div></div>
+    <div class="top-actions">
+      <span class="paper">מסחר דמה</span>
+      <div class="pill"><i class="dot" id="dot"></i><span id="stat">טוען…</span></div>
+    </div>
+  </header>
+  <div class="banner">מסחר דמה · אין ארנק · אין חתימה · אין עסקאות אמיתיות</div>
+  <div class="layout">
+    <section class="portfolio">
+      <div class="hero">
+        <div class="lbl">שווי התיק</div>
+        <div class="eq" id="eq">$—</div>
+        <div class="chips" id="chips"></div>
+        <div class="sub" id="cashline"></div>
+      </div>
+      <div class="chart-card">
+        <canvas id="cv"></canvas>
+        <div class="ranges" id="ranges">
+          <button data-h="1">שעה</button>
+          <button data-h="6">6 שע׳</button>
+          <button data-h="24">יום</button>
+          <button data-h="0" class="a">הכול</button>
+        </div>
+      </div>
+      <div class="grid">
+        <div class="st"><b id="wr">—</b><small>אחוז הצלחה</small></div>
+        <div class="st"><b id="pf">—</b><small>מקדם רווח</small></div>
+        <div class="st"><b id="tph">—</b><small>עסקאות לשעה</small></div>
+        <div class="st"><b id="op">—</b><small>פוזיציות פתוחות</small></div>
+      </div>
+      <div class="foot" id="scope"></div>
+    </section>
+    <section>
+      <div class="tabs" id="tabs">
+        <button data-t="open" class="a">פתוחות</button>
+        <button data-t="hist">היסטוריה</button>
+        <button data-t="scan">סורק</button>
+      </div>
+      <div class="list" id="list"></div>
+      <div class="foot" id="foot"></div>
+    </section>
+  </div>
+</div>
+<nav class="nav" id="nav">
+  <button data-t="open" class="a">פתוחות</button>
+  <button data-t="hist">היסטוריה</button>
+  <button data-t="scan">סורק</button>
+</nav>
+<script>
+const $=id=>document.getElementById(id);
+let S=null, tab='open', range=0;
+const qtab=new URLSearchParams(location.search).get('tab');
+if(['open','hist','scan'].includes(qtab))tab=qtab;
+const usd=v=>{const n=Number(v)||0;return (n<0?'-':'')+'$'+Math.abs(n).toFixed(2)};
+const pct=v=>v==null||!isFinite(+v)?'—':((+v>0?'+':'')+(+v).toFixed(1)+'%');
+const cls=v=>v>0?'up':(v<0?'dn':'');
+const esc=s=>String(s??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+const col=s=>{let h=0;for(const ch of String(s||'?'))h=(h*31+ch.codePointAt(0))%360;return `hsl(${h} 62% 46%)`};
+const tLocal=t=>{if(!t)return '—';const d=new Date(t);if(isNaN(d))return '—';return d.toLocaleString('he-IL',{timeZone:'Asia/Jerusalem',hour:'2-digit',minute:'2-digit',day:'2-digit',month:'2-digit'})};
+const dayKey=t=>new Date(t).toLocaleDateString('en-CA',{timeZone:'Asia/Jerusalem'});
+const px=v=>{
+  const n=Number(v); if(!isFinite(n))return '—';
+  const a=Math.abs(n); let d=2;
+  if(a>0 && a<0.000001)d=10; else if(a<0.001)d=8; else if(a<1)d=6; else if(a<100)d=4;
+  return (n<0?'-':'')+'$'+a.toFixed(d);
+};
+const reasonHe={
+  runner_take_profit:'יעד רווח',take_profit_full:'יעד רווח',take_profit:'יעד רווח',tp1:'מימוש חלקי',
+  runner_trailing_stop:'סטופ נגרר',trailing_stop:'סטופ נגרר',runner_breakeven_stop:'סטופ ברווח',
+  stop_loss:'סטופ לוס',liquidity_drop:'משיכת נזילות',liquidity_pull_suspected:'משיכת נזילות',
+  time_stop:'עצירת זמן',time_stop_flat:'עצירת זמן',max_hold:'זמן מקסימלי',max_hold_time:'זמן מקסימלי',
+  runner_max_hold:'זמן מקסימלי',session_end:'סוף סשן',run_end:'סוף ריצה',sell_spike:'גל מכירות',profit_lock:'נעילת רווח'
+};
+const rejHe={
+  too_young:'צעיר מדי',too_old:'מבוגר מדי',low_liq:'נזילות נמוכה',mcap_range:'שווי שוק',
+  h1_parabolic:'קפיצה בשעה',h1_down:'ירידה בשעה',m5_spike:'קפיצה ב־5 דק׳',m5_dumping:'ירידה ב־5 דק׳',
+  sell_pressure:'לחץ מוכרים',low_vol_h1:'מחזור נמוך',no_pair_data:'אין נתונים',
+  open_or_cooldown:'כבר נסחר',slots_full:'אין מקום',rugcheck_budget:'תקציב בדיקות',
+  rugcheck_unavailable:'RugCheck לא זמין',no_cash:'אין מזומן',no_jupiter_price:'אין מחיר',
+  mark_divergence:'פער מחירים',no_buy_route:'אין מסלול קנייה',price_impact:'השפעת מחיר',
+  roundtrip_loss:'עלות סיבוב',entry_cost_too_high:'עלות כניסה','no_sell_route_honeypot?':'אין מסלול מכירה',
+  'same_symbol_open(copycat/dup)':'שם כפול',same_symbol_in_scan:'שם כפול בסריקה'
+};
+function reasonTag(r){
+  const k=r||'';
+  if(/liquid/.test(k))return 'a';
+  if(/stop_loss|sell_spike/.test(k))return 'r';
+  if(/take_profit|profit/.test(k))return 'b';
+  if(/session|run_end|time|max_hold/.test(k))return 'n';
+  return '';
+}
+function sources(){
+  const q=new URLSearchParams(location.search).get('src');
+  if(q)return [q];
+  const host=location.hostname;
+  const repo=(location.pathname.split('/').filter(Boolean)[0])||'';
+  const out=[];
+  if(host.endsWith('.github.io')&&repo){
+    const owner=host.replace('.github.io','');
+    out.push(`https://raw.githubusercontent.com/${owner}/${repo}/main/docs/data/state.json`);
+  }
+  out.push('data/state.json');
+  return out;
+}
+async function fetchJson(url){
+  const sep=url.includes('?')?'&':'?';
+  const r=await fetch(url+sep+'t='+Date.now(),{cache:'no-store'});
+  if(!r.ok)throw new Error(String(r.status));
+  return r.json();
+}
+async function load(){
+  try{
+    const got=await Promise.all(sources().map(u=>fetchJson(u).catch(()=>null)));
+    const ok=got.filter(x=>x&&x.portfolio);
+    if(!ok.length)throw new Error('empty');
+    ok.sort((a,b)=>new Date(b.generated_at)-new Date(a.generated_at));
+    S=ok[0]; render();
+  }catch(e){
+    $('stat').textContent='אין חיבור לנתונים';
+    $('dot').className='dot off';
+  }
+}
+function dayDelta(eq, hist){
+  if(!hist||!hist.length)return null;
+  const today=dayKey(Date.now());
+  let base=null;
+  for(const p of hist){ if(dayKey(p.t)<today)base=p.equity; else break; }
+  if(base==null)base=hist[0].equity;
+  return {d:eq-base, pct:base?100*(eq/base-1):0, base};
+}
+function tierExits(tier){
+  const base=(S.rules&&S.rules.exits)||{};
+  const over=((S.rules&&S.rules.exits_by_tier)||{})[tier]||{};
+  return Object.assign({}, base, over);
+}
+function render(){
+  const P=S.portfolio, st=S.status||{}, age=(Date.now()-new Date(S.generated_at))/1000;
+  $('eq').textContent=usd(P.equity_usd);
+  const start=P.bankroll_start_usd||30;
+  const vs=P.equity_usd-start;
+  const day=dayDelta(P.equity_usd, S.equity_history||[]);
+  const chip=(d,p,label)=>`<span class="chip ${cls(d)}">${d>=0?'▲':'▼'} ${usd(Math.abs(d))} · ${Math.abs(Number(p)||0).toFixed(1)}%<small>${label}</small></span>`;
+  $('chips').innerHTML=chip(vs, P.pnl_vs_start_pct, 'מהתחלה $'+start.toFixed(0))+(day?chip(day.d, day.pct, 'מהיום'):'');
+  $('cashline').innerHTML=`מזומן <b dir="ltr">${usd(P.cash_usd)}</b> · בפוזיציות <b dir="ltr">${usd(P.open_value_usd)}</b>`;
+  const live=['running','draining','starting'].includes(st.state)&&age<240;
+  $('dot').className='dot '+(live?'on':(st.state==='ended'?'warn':'off'));
+  $('stat').textContent=live?(st.state==='draining'?'מסיים ריצה':'המנוע פעיל'):(st.state==='ended'?'הריצה הסתיימה':(st.state==='idle'?'המנוע כבוי':'המנוע לא מעודכן'));
+  const all=S.stats.all_time_all||{};
+  const ver=S.stats.current_version||{};
+  const useVer=ver.trades>0;
+  const v=useVer?ver:all;
+  const trades=useVer?(S.closed_trades||[]).filter(t=>t.session===S.engine_version):(S.closed_trades||[]);
+  $('wr').textContent=v.win_rate_pct==null?'—':v.win_rate_pct.toFixed(0)+'%';
+  $('pf').textContent=v.profit_factor==null?'—':v.profit_factor;
+  $('tph').textContent=ratePerHour(v, useVer?trades:(S.closed_trades||[]));
+  $('op').textContent=String((S.open_positions||[]).length);
+  $('scope').textContent=useVer?`הנתונים לפי גרסה ${S.engine_version} · ${v.trades} עסקאות`:`הנתונים לפי כל ${v.trades||0} העסקאות`;
+  chart(); list(); syncTabs();
+  const ago=age<90?`לפני ${Math.max(0,Math.round(age))} שנ׳`:(age<3600?`לפני ${Math.round(age/60)} דק׳`:`לפני ${Math.round(age/3600)} שע׳`);
+  $('foot').innerHTML=`עודכן ${tLocal(S.generated_at)} (${ago}) · שעון ישראל<br>גרסה ${esc(S.engine_version)} · ${esc(S.mode||'מסחר דמה')}`;
+}
+function ratePerHour(stats, rows){
+  if(stats.trades_per_hour!=null)return String(stats.trades_per_hour);
+  if(!rows||rows.length<2)return '—';
+  const ts=rows.map(t=>new Date(t.opened_at).getTime()).filter(n=>!isNaN(n));
+  if(ts.length<2)return '—';
+  const hours=(Math.max(...ts)-Math.min(...ts))/36e5;
+  if(hours<0.25)return '—';
+  return (rows.length/hours).toFixed(1);
+}
+function chart(){
+  const cv=$('cv'); const dpr=devicePixelRatio||1;
+  const W=cv.clientWidth||300, H=cv.clientHeight||196;
+  cv.width=Math.round(W*dpr); cv.height=Math.round(H*dpr);
+  const g=cv.getContext('2d'); g.setTransform(dpr,0,0,dpr,0,0); g.clearRect(0,0,W,H);
+  let pts=(S.equity_history||[]).map(p=>[new Date(p.t).getTime(), Number(p.equity)]).filter(p=>isFinite(p[0])&&isFinite(p[1]));
+  if(range){const cut=Date.now()-range*36e5; const f=pts.filter(p=>p[0]>=cut); if(f.length>1)pts=f;}
+  if(pts.length<2){g.fillStyle='#8d909a';g.font='13px Heebo,sans-serif';g.textAlign='center';g.fillText('אין עדיין מספיק נקודות לגרף',W/2,H/2);return}
+  const ys=pts.map(p=>p[1]), xs=pts.map(p=>p[0]);
+  let y0=Math.min(...ys), y1=Math.max(...ys);
+  const start=S.portfolio.bankroll_start_usd||30;
+  if(!range){y0=Math.min(y0,start); y1=Math.max(y1,start)}
+  const pad=(y1-y0)*0.16||1; y0-=pad; y1+=pad;
+  const x0=xs[0], x1=xs[xs.length-1];
+  const X=x=>((x-x0)/(x1-x0||1))*(W-16)+8;
+  const Y=y=>H-18-(y-y0)/(y1-y0||1)*(H-32);
+  g.strokeStyle='rgba(255,255,255,.06)'; g.lineWidth=1;
+  for(let i=0;i<3;i++){const y=12+(H-28)*i/2; g.beginPath(); g.moveTo(8,y); g.lineTo(W-8,y); g.stroke();}
+  if(start>=y0&&start<=y1){
+    g.setLineDash([3,4]); g.strokeStyle='rgba(232,194,122,.45)';
+    g.beginPath(); g.moveTo(8,Y(start)); g.lineTo(W-8,Y(start)); g.stroke(); g.setLineDash([]);
+  }
+  const up=ys[ys.length-1]>=ys[0]; const c=up?'#3ee0a2':'#ff5d73';
+  const gr=g.createLinearGradient(0,12,0,H);
+  gr.addColorStop(0, up?'rgba(62,224,162,.30)':'rgba(255,93,115,.32)');
+  gr.addColorStop(1,'rgba(0,0,0,0)');
+  const line=()=>pts.forEach((p,i)=>{const x=X(p[0]), y=Y(p[1]); i?g.lineTo(x,y):g.moveTo(x,y)});
+  g.beginPath(); line();
+  g.lineTo(X(xs[xs.length-1]), H-8); g.lineTo(X(xs[0]), H-8); g.closePath();
+  g.fillStyle=gr; g.fill();
+  g.beginPath(); line();
+  g.strokeStyle=c; g.lineWidth=2.4; g.lineJoin='round'; g.lineCap='round'; g.stroke();
+  const lx=X(xs[xs.length-1]), ly=Y(ys[ys.length-1]);
+  g.beginPath(); g.arc(lx,ly,4.5,0,7); g.fillStyle=c; g.fill();
+  if(start>=y0&&start<=y1){
+    g.fillStyle='rgba(232,194,122,.9)'; g.font='11px Heebo,sans-serif'; g.textAlign='left';
+    g.fillText('$'+start.toFixed(0), 8, Math.max(14, Y(start)-6));
+  }
+}
+function list(){
+  const L=$('list');
+  if(tab==='open')L.innerHTML=openHtml();
+  else if(tab==='hist')L.innerHTML=histHtml();
+  else L.innerHTML=scanHtml();
+}
+function openHtml(){
+  const rows=S.open_positions||[];
+  if(!rows.length)return '<div class="empty">אין פוזיציות פתוחות<br>הסורק מחפש מטבעות חדשים</div>';
+  return rows.map(p=>{
+    const X=tierExits(p.tier);
+    const stopPct=p.tp1_done?X.stop_after_tp1_gross_pct:X.stop_loss_gross_pct;
+    const tgtPct=p.tp1_done?X.runner_take_profit_gross_pct:X.tp1_gross_pct;
+    const g=Number(p.gross_pct)||0;
+    const span=(Number(tgtPct)||0)-(Number(stopPct)||0)||1;
+    const pos=Math.max(0,Math.min(100, (g-(Number(stopPct)||0))/span*100 ));
+    const entry=Number(p.entry_price);
+    const stopPx=isFinite(entry)?entry*(1+(Number(stopPct)||0)/100):null;
+    const tgtPx=isFinite(entry)?entry*(1+(Number(tgtPct)||0)/100):null;
+    return `<article class="row"><div class="ic" style="background:${col(p.symbol)}">${esc((p.symbol||'?').slice(0,1))}</div>
+      <div class="mid"><div class="n">${esc(p.symbol)}<span class="tag ${p.tier==='burned'?'b':'r'}">${p.tier==='burned'?'LP נעול':'LP פתוח'}</span>${p.tp1_done?'<span class="tag b">TP1</span>':''}</div>
+      <div class="s">כניסה ${tLocal(p.opened_at)} · ${esc(p.held_min)} דק׳ · שיא ${pct(p.peak_pct)}</div>
+      <div class="track"><div class="fill" style="width:${pos}%"></div><i style="inset-inline-start:${pos}%"></i></div>
+      <div class="lv"><span>סטופ ${pct(stopPct)} · ${px(stopPx)}</span><span>יעד ${pct(tgtPct)} · ${px(tgtPx)}</span></div></div>
+      <div class="rt"><div class="p ${cls(p.live_pnl_usd)}">${pct(p.live_pnl_pct)}</div><div class="d ${cls(p.live_pnl_usd)}">${(p.live_pnl_usd>=0?'+':'')+usd(p.live_pnl_usd)}</div><div class="s">${usd(p.est_value_usd)}</div></div></article>`;
+  }).join('');
+}
+function histHtml(){
+  const rows=S.closed_trades||[];
+  if(!rows.length)return '<div class="empty">אין עדיין עסקאות סגורות</div>';
+  return rows.slice(0,200).map(t=>{
+    const why=reasonHe[t.exit_reason]||t.exit_reason||'—';
+    return `<article class="row"><div class="ic" style="background:${col(t.symbol)}">${esc((t.symbol||'?').slice(0,1))}</div>
+      <div class="mid"><div class="n">${esc(t.symbol)}<span class="tag ${reasonTag(t.exit_reason)}">${esc(why)}</span></div>
+      <div class="s"><bdi dir="ltr">${tLocal(t.opened_at)} → ${tLocal(t.closed_at)}</bdi> · ${t.hold_min??'—'} דק׳${t.session?' · '+esc(t.session):''}</div>
+      <div class="s" dir="ltr" style="text-align:right">${px(t.entry_price)} → ${px(t.exit_price)}</div></div>
+      <div class="rt"><div class="p ${cls(t.pnl_usd)}">${pct(t.pnl_pct)}</div><div class="d ${cls(t.pnl_usd)}">${(t.pnl_usd>=0?'+':'')+usd(t.pnl_usd)}</div></div></article>`;
+  }).join('');
+}
+function scanHtml(){
+  const st=S.status||{}, sc=st.scanner||{}, age=(Date.now()-new Date(S.generated_at))/1000;
+  const live=['running','draining','starting'].includes(st.state)&&age<240;
+  const hb=S.heartbeat||{};
+  const cands=sc.candidates||[];
+  const rejects=Object.entries(sc.top_rejects||{});
+  const R=(S.rules&&S.rules.entry)||{};
+  const X=(S.rules&&S.rules.exits)||{};
+  const stateLbl=live?(st.state==='draining'?'מסיים ריצה — לא נפתחות עסקאות חדשות':'פועל'):(st.state==='idle'?'כבוי':'עצור / לא מעודכן');
+  return `<div class="scan"><h3>מצב המנוע</h3>
+    <div class="kv"><span>סטטוס</span><b class="${live?'up':'dn'}">${stateLbl}</b></div>
+    <div class="kv"><span>פעימת לב אחרונה</span><b>${tLocal(S.generated_at)}</b></div>
+    <div class="kv"><span>שלב</span><b>${esc(st.phase||'—')}</b></div>
+    <div class="kv"><span>הריצה מסתיימת</span><b>${tLocal(st.run_ends_at)}</b></div>
+    <div class="kv"><span>רץ על</span><b>${esc(st.runner||'—')}</b></div>
+    ${hb.raw?`<div class="kv"><span>heartbeat</span><b>${esc(hb.raw)}</b></div>`:''}
+  </div>
+  <div class="scan"><h3>מה נסרק עכשיו</h3>
+    <div class="kv"><span>סריקה אחרונה</span><b>${sc.last_scan?tLocal(sc.last_scan):'עוד לא רץ'}</b></div>
+    <div class="kv"><span>נבדקו</span><b>${sc.universe??'—'}</b></div>
+    <div class="kv"><span>עברו מומנטום</span><b>${sc.momentum_pass??'—'}</b></div>
+    <div class="kv"><span>עברו בטיחות</span><b>${sc.safety_pass??'—'}</b></div>
+    <div class="cands">${cands.length?cands.map(c=>`<div class="cand"><span>${esc(c.symbol)}</span><b>${esc(c.age_min)} דק׳ · ${pct(c.pc_m5)} · b/s ${esc(c.bs_m5)}</b></div>`).join(''):'<div class="empty" style="padding:12px 0">אין מועמדים בסריקה האחרונה</div>'}</div>
+    <div class="s" style="margin-top:8px">דחיות: ${rejects.length?rejects.map(([k,v])=>esc(rejHe[k]||k)+' '+v).join(' · '):'—'}</div>
+  </div>
+  <div class="scan"><h3>חוקי ${esc(S.engine_version||'')} · מסחר דמה</h3>
+    <div class="rules">גיל ${R.min_age_min??'—'}–${R.max_age_min??'—'} דק׳ · קונים/מוכרים ≥ ${R.min_buy_sell_ratio_m5??'—'} · 5 דק׳ ${R.min_price_change_m5??'—'}% עד ${R.max_price_change_m5??'—'}% · שעה ≤ ${R.max_price_change_h1??'—'}%<br>
+    סטופ ${X.stop_loss_gross_pct??'—'}% · מימוש ${Math.round((X.tp1_sell_fraction||0)*100)}% ב־+${X.tp1_gross_pct??'—'}% · יעד +${X.runner_take_profit_gross_pct??'—'}% · מקסימום ${X.max_hold_min??'—'} דק׳</div>
+  </div>`;
+}
+function syncTabs(){
+  document.querySelectorAll('#tabs button, #nav button').forEach(b=>b.classList.toggle('a', b.dataset.t===tab));
+}
+function setTab(name){
+  tab=name; syncTabs();
+  if(S)list();
+}
+$('tabs').onclick=e=>{const b=e.target.closest('button'); if(b)setTab(b.dataset.t)};
+$('nav').onclick=e=>{const b=e.target.closest('button'); if(b)setTab(b.dataset.t)};
+$('ranges').onclick=e=>{
+  const b=e.target.closest('button'); if(!b)return;
+  range=+b.dataset.h;
+  [...$('ranges').children].forEach(x=>x.classList.toggle('a', x===b));
+  if(S)chart();
+};
+addEventListener('resize',()=>S&&chart());
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)load()});
+load(); setInterval(load, 25000);
+</script>
+</body>
+</html>

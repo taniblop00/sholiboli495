@@ -1,0 +1,87 @@
+cost 6.0
+  none                       v3                           n=30 WR= 70% avgW=+15.6 avgL= -35.9 PF= 1.02 exp=+0.17 pulls=4
+  none                       all@15 max10                 n=30 WR= 77% avgW= +8.9 avgL= -21.0 PF= 1.39 exp=+1.94 pulls=1
+  none                       all@15 SL-4 max8 ts5         n=30 WR= 70% avgW= +8.5 avgL= -18.6 PF= 1.07 exp=+0.41 pulls=1
+  none                       all@18 SL-5 max10            n=30 WR= 73% avgW=+10.5 avgL= -30.9 PF= 0.93 exp=-0.58 pulls=1
+  none                       80%@15 +20%->25 BE10 max10   n=30 WR= 77% avgW= +9.7 avgL= -21.0 PF= 1.51 exp=+2.51 pulls=1
+  none                       70%@15 +30%->25 BE10 max10   n=30 WR= 77% avgW=+10.1 avgL= -21.0 PF= 1.57 exp=+2.80 pulls=1
+  none                       50%@12 50%@20 BE5 max10      n=30 WR= 73% avgW= +9.0 avgL= -24.3 PF= 1.02 exp=+0.13 pulls=1
+  bs5>=3                     v3                           n=22 WR= 73% avgW=+14.8 avgL= -27.3 PF= 1.45 exp=+3.35 pulls=2
+  bs5>=3                     all@15 max10                 n=22 WR= 77% avgW= +9.1 avgL=  -6.8 PF= 4.61 exp=+5.53 pulls=0
+  bs5>=3                     all@15 SL-4 max8 ts5         n=22 WR= 73% avgW= +8.8 avgL=  -8.3 PF= 2.85 exp=+4.17 pulls=0
+  bs5>=3                     all@18 SL-5 max10            n=22 WR= 73% avgW=+11.0 avgL= -22.3 PF= 1.32 exp=+1.93 pulls=0
+  bs5>=3                     80%@15 +20%->25 BE10 max10   n=22 WR= 77% avgW= +9.9 avgL=  -6.8 PF= 4.98 exp=+6.11 pulls=0
+  bs5>=3                     70%@15 +30%->25 BE10 max10   n=22 WR= 77% avgW=+10.3 avgL=  -6.8 PF= 5.17 exp=+6.40 pulls=0
+  bs5>=3                     50%@12 50%@20 BE5 max10      n=22 WR= 73% avgW= +9.5 avgL= -13.5 PF= 1.87 exp=+3.20 pulls=0
+  pc5<=20                    v3                           n=22 WR= 73% avgW=+15.2 avgL= -48.2 PF= 0.84 exp=-2.11 pulls=4
+  pc5<=20                    all@15 max10                 n=22 WR= 82% avgW= +9.1 avgL= -29.2 PF= 1.39 exp=+2.09 pulls=1
+  pc5<=20                    all@15 SL-4 max8 ts5         n=22 WR= 77% avgW= +8.8 avgL= -24.7 PF= 1.22 exp=+1.23 pulls=1
+  pc5<=20                    all@18 SL-5 max10            n=22 WR= 77% avgW=+10.3 avgL= -43.4 PF= 0.81 exp=-1.88 pulls=1
+  pc5<=20                    80%@15 +20%->25 BE10 max10   n=22 WR= 82% avgW= +9.6 avgL= -29.2 PF= 1.47 exp=+2.50 pulls=1
+  pc5<=20                    70%@15 +30%->25 BE10 max10   n=22 WR= 82% avgW= +9.8 avgL= -29.2 PF= 1.51 exp=+2.71 pulls=1
+  pc5<=20                    50%@12 50%@20 BE5 max10      n=22 WR= 77% avgW= +8.8 avgL= -32.8 PF= 0.91 exp=-0.66 pulls=1
+  bs5>=3&pc5<=20             v3                           n=16 WR= 75% avgW=+14.4 avgL= -35.8 PF= 1.21 exp=+1.86 pulls=2
+  bs5>=3&pc5<=20             all@15 max10                 n=16 WR= 81% avgW= +9.3 avgL=  -5.7 PF= 7.16 exp=+6.53 pulls=0
+  bs5>=3&pc5<=20             all@15 SL-4 max8 ts5         n=16 WR= 81% avgW= +9.3 avgL=  -6.6 PF= 6.14 exp=+6.33 pulls=0
+  bs5>=3&pc5<=20             all@18 SL-5 max10            n=16 WR= 75% avgW=+11.1 avgL= -29.2 PF= 1.13 exp=+0.99 pulls=0
+  bs5>=3&pc5<=20             80%@15 +20%->25 BE10 max10   n=16 WR= 81% avgW= +9.8 avgL=  -5.7 PF= 7.54 exp=+6.94 pulls=0
+  bs5>=3&pc5<=20             70%@15 +30%->25 BE10 max10   n=16 WR= 81% avgW=+10.1 avgL=  -5.7 PF= 7.73 exp=+7.14 pulls=0
+  bs5>=3&pc5<=20             50%@12 50%@20 BE5 max10      n=16 WR= 75% avgW= +9.4 avgL= -16.0 PF= 1.76 exp=+3.05 pulls=0
+  bs5>=3&pc5<=20&age<=8      v3                           n=16 WR= 75% avgW=+14.4 avgL= -35.8 PF= 1.21 exp=+1.86 pulls=2
+  bs5>=3&pc5<=20&age<=8      all@15 max10                 n=16 WR= 81% avgW= +9.3 avgL=  -5.7 PF= 7.16 exp=+6.53 pulls=0
+  bs5>=3&pc5<=20&age<=8      all@15 SL-4 max8 ts5         n=16 WR= 81% avgW= +9.3 avgL=  -6.6 PF= 6.14 exp=+6.33 pulls=0
+  bs5>=3&pc5<=20&age<=8      all@18 SL-5 max10            n=16 WR= 75% avgW=+11.1 avgL= -29.2 PF= 1.13 exp=+0.99 pulls=0
+  bs5>=3&pc5<=20&age<=8      80%@15 +20%->25 BE10 max10   n=16 WR= 81% avgW= +9.8 avgL=  -5.7 PF= 7.54 exp=+6.94 pulls=0
+  bs5>=3&pc5<=20&age<=8      70%@15 +30%->25 BE10 max10   n=16 WR= 81% avgW=+10.1 avgL=  -5.7 PF= 7.73 exp=+7.14 pulls=0
+  bs5>=3&pc5<=20&age<=8      50%@12 50%@20 BE5 max10      n=16 WR= 75% avgW= +9.4 avgL= -16.0 PF= 1.76 exp=+3.05 pulls=0
+  bs5>=3.5&pc5 6-20&age<=6   v3                           n=15 WR= 73% avgW=+13.8 avgL= -35.8 PF= 1.06 exp=+0.56 pulls=2
+  bs5>=3.5&pc5 6-20&age<=6   all@15 max10                 n=15 WR= 80% avgW= +9.4 avgL=  -5.7 PF= 6.65 exp=+6.39 pulls=0
+  bs5>=3.5&pc5 6-20&age<=6   all@15 SL-4 max8 ts5         n=15 WR= 80% avgW= +9.4 avgL=  -6.6 PF= 5.70 exp=+6.17 pulls=0
+  bs5>=3.5&pc5 6-20&age<=6   all@18 SL-5 max10            n=15 WR= 73% avgW=+10.9 avgL= -29.2 PF= 1.03 exp=+0.20 pulls=0
+  bs5>=3.5&pc5 6-20&age<=6   80%@15 +20%->25 BE10 max10   n=15 WR= 80% avgW= +9.8 avgL=  -5.7 PF= 6.91 exp=+6.69 pulls=0
+  bs5>=3.5&pc5 6-20&age<=6   70%@15 +30%->25 BE10 max10   n=15 WR= 80% avgW=+10.0 avgL=  -5.7 PF= 7.05 exp=+6.84 pulls=0
+  bs5>=3.5&pc5 6-20&age<=6   50%@12 50%@20 BE5 max10      n=15 WR= 73% avgW= +9.4 avgL= -16.0 PF= 1.62 exp=+2.65 pulls=0
+cost 7.5
+  none                       v3                           n=30 WR= 70% avgW=+13.8 avgL= -36.9 PF= 0.87 exp=-1.43 pulls=4
+  none                       all@15 max10                 n=30 WR= 73% avgW= +7.6 avgL= -19.6 PF= 1.06 exp=+0.31 pulls=1
+  none                       all@15 SL-4 max8 ts5         n=30 WR= 70% avgW= +6.8 avgL= -19.9 PF= 0.80 exp=-1.19 pulls=1
+  none                       all@18 SL-5 max10            n=30 WR= 70% avgW= +9.1 avgL= -28.5 PF= 0.75 exp=-2.16 pulls=1
+  none                       80%@15 +20%->25 BE10 max10   n=30 WR= 73% avgW= +8.3 avgL= -19.6 PF= 1.17 exp=+0.88 pulls=1
+  none                       70%@15 +30%->25 BE10 max10   n=30 WR= 73% avgW= +8.7 avgL= -19.6 PF= 1.22 exp=+1.16 pulls=1
+  none                       50%@12 50%@20 BE5 max10      n=30 WR= 70% avgW= +7.7 avgL= -22.8 PF= 0.79 exp=-1.47 pulls=1
+  bs5>=3                     v3                           n=22 WR= 73% avgW=+13.0 avgL= -28.4 PF= 1.22 exp=+1.70 pulls=2
+  bs5>=3                     all@15 max10                 n=22 WR= 77% avgW= +7.4 avgL=  -8.2 PF= 3.05 exp=+3.85 pulls=0
+  bs5>=3                     all@15 SL-4 max8 ts5         n=22 WR= 73% avgW= +7.1 avgL=  -9.8 PF= 1.94 exp=+2.51 pulls=0
+  bs5>=3                     all@18 SL-5 max10            n=22 WR= 73% avgW= +9.2 avgL= -23.5 PF= 1.05 exp=+0.30 pulls=0
+  bs5>=3                     80%@15 +20%->25 BE10 max10   n=22 WR= 77% avgW= +8.1 avgL=  -8.2 PF= 3.36 exp=+4.42 pulls=0
+  bs5>=3                     70%@15 +30%->25 BE10 max10   n=22 WR= 77% avgW= +8.5 avgL=  -8.2 PF= 3.51 exp=+4.70 pulls=0
+  bs5>=3                     50%@12 50%@20 BE5 max10      n=22 WR= 73% avgW= +7.7 avgL= -14.9 PF= 1.38 exp=+1.56 pulls=0
+  pc5<=20                    v3                           n=22 WR= 73% avgW=+13.3 avgL= -49.0 PF= 0.73 exp=-3.67 pulls=4
+  pc5<=20                    all@15 max10                 n=22 WR= 77% avgW= +7.8 avgL= -24.4 PF= 1.08 exp=+0.46 pulls=1
+  pc5<=20                    all@15 SL-4 max8 ts5         n=22 WR= 77% avgW= +7.1 avgL= -25.9 PF= 0.93 exp=-0.39 pulls=1
+  pc5<=20                    all@18 SL-5 max10            n=22 WR= 73% avgW= +9.2 avgL= -37.0 PF= 0.66 exp=-3.45 pulls=1
+  pc5<=20                    80%@15 +20%->25 BE10 max10   n=22 WR= 77% avgW= +8.3 avgL= -24.4 PF= 1.16 exp=+0.87 pulls=1
+  pc5<=20                    70%@15 +30%->25 BE10 max10   n=22 WR= 77% avgW= +8.6 avgL= -24.4 PF= 1.19 exp=+1.07 pulls=1
+  pc5<=20                    50%@12 50%@20 BE5 max10      n=22 WR= 73% avgW= +7.5 avgL= -28.4 PF= 0.71 exp=-2.25 pulls=1
+  bs5>=3&pc5<=20             v3                           n=16 WR= 75% avgW=+12.6 avgL= -36.8 PF= 1.03 exp=+0.23 pulls=2
+  bs5>=3&pc5<=20             all@15 max10                 n=16 WR= 81% avgW= +7.6 avgL=  -7.2 PF= 4.60 exp=+4.83 pulls=0
+  bs5>=3&pc5<=20             all@15 SL-4 max8 ts5         n=16 WR= 81% avgW= +7.6 avgL=  -8.1 PF= 4.06 exp=+4.63 pulls=0
+  bs5>=3&pc5<=20             all@18 SL-5 max10            n=16 WR= 75% avgW= +9.3 avgL= -30.4 PF= 0.92 exp=-0.63 pulls=0
+  bs5>=3&pc5<=20             80%@15 +20%->25 BE10 max10   n=16 WR= 81% avgW= +8.1 avgL=  -7.2 PF= 4.89 exp=+5.23 pulls=0
+  bs5>=3&pc5<=20             70%@15 +30%->25 BE10 max10   n=16 WR= 81% avgW= +8.3 avgL=  -7.2 PF= 5.04 exp=+5.43 pulls=0
+  bs5>=3&pc5<=20             50%@12 50%@20 BE5 max10      n=16 WR= 75% avgW= +7.7 avgL= -17.4 PF= 1.32 exp=+1.40 pulls=0
+  bs5>=3&pc5<=20&age<=8      v3                           n=16 WR= 75% avgW=+12.6 avgL= -36.8 PF= 1.03 exp=+0.23 pulls=2
+  bs5>=3&pc5<=20&age<=8      all@15 max10                 n=16 WR= 81% avgW= +7.6 avgL=  -7.2 PF= 4.60 exp=+4.83 pulls=0
+  bs5>=3&pc5<=20&age<=8      all@15 SL-4 max8 ts5         n=16 WR= 81% avgW= +7.6 avgL=  -8.1 PF= 4.06 exp=+4.63 pulls=0
+  bs5>=3&pc5<=20&age<=8      all@18 SL-5 max10            n=16 WR= 75% avgW= +9.3 avgL= -30.4 PF= 0.92 exp=-0.63 pulls=0
+  bs5>=3&pc5<=20&age<=8      80%@15 +20%->25 BE10 max10   n=16 WR= 81% avgW= +8.1 avgL=  -7.2 PF= 4.89 exp=+5.23 pulls=0
+  bs5>=3&pc5<=20&age<=8      70%@15 +30%->25 BE10 max10   n=16 WR= 81% avgW= +8.3 avgL=  -7.2 PF= 5.04 exp=+5.43 pulls=0
+  bs5>=3&pc5<=20&age<=8      50%@12 50%@20 BE5 max10      n=16 WR= 75% avgW= +7.7 avgL= -17.4 PF= 1.32 exp=+1.40 pulls=0
+  bs5>=3.5&pc5 6-20&age<=6   v3                           n=15 WR= 73% avgW=+12.0 avgL= -36.8 PF= 0.89 exp=-1.04 pulls=2
+  bs5>=3.5&pc5 6-20&age<=6   all@15 max10                 n=15 WR= 80% avgW= +7.7 avgL=  -7.2 PF= 4.28 exp=+4.69 pulls=0
+  bs5>=3.5&pc5 6-20&age<=6   all@15 SL-4 max8 ts5         n=15 WR= 80% avgW= +7.6 avgL=  -8.1 PF= 3.78 exp=+4.48 pulls=0
+  bs5>=3.5&pc5 6-20&age<=6   all@18 SL-5 max10            n=15 WR= 73% avgW= +9.1 avgL= -30.4 PF= 0.83 exp=-1.40 pulls=0
+  bs5>=3.5&pc5 6-20&age<=6   80%@15 +20%->25 BE10 max10   n=15 WR= 80% avgW= +8.0 avgL=  -7.2 PF= 4.48 exp=+4.99 pulls=0
+  bs5>=3.5&pc5 6-20&age<=6   70%@15 +30%->25 BE10 max10   n=15 WR= 80% avgW= +8.2 avgL=  -7.2 PF= 4.59 exp=+5.14 pulls=0
+  bs5>=3.5&pc5 6-20&age<=6   50%@12 50%@20 BE5 max10      n=15 WR= 73% avgW= +7.7 avgL= -17.4 PF= 1.22 exp=+1.01 pulls=0
+[(28, 'FAGENT', 5.9, 9.56, 3.7, False), (29, 'PEACE', 4.9, 18.75, 3.9, False), (33, 'Musk', 5.7, 8.82, 4.9, False), (35, '火龙果', 5.0, 17.74, 3.5, False), (36, 'PEACE', 4.8, 8.76, 4.1, False), (37, 'Trump', 6.1, 11.95, 3.8, True), (39, 'Trump', 6.2, 13.19, 4.2, False), (40, 'Warcoin', 8.0, 19.23, 3.9, False), (41, 'NEAR', 4.7, 19.16, 3.1, False), (42, 'PEACE', 3.1, 10.89, 3.9, False), (45, 'Tesla', 6.3, 6.34, 4.1, False), (46, 'Musk', 5.5, 9.25, 3.8, True), (48, 'Warcoin', 6.6, 16.22, 4.3, False), (52, 'Musk', 5.6, 16.99, 3.2, False), (53, 'Claude AI', 4.4, 19.39, 3.2, True), (54, 'Capybara', 3.6, 18.96, 4.1, False)]
