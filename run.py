@@ -258,6 +258,34 @@ def market_filter(f):
     if f["pc_m5"] < F["min_price_change_m5"]: return "m5_dumping"
     return None
 
+def _lp_value(m):
+    """Rank a RugCheck market by the dollars in it, counting unlocked LP too.
+    A dust side-pool that is 100% locked must not outrank the real pool."""
+    lp = m.get("lp") or {}
+    locked = float(lp.get("lpLocked") or 0)
+    unlocked = float(lp.get("lpUnlocked") or 0)
+    locked_usd = float(lp.get("lpLockedUSD") or 0)
+    if locked > 0 and locked_usd > 0:
+        return locked_usd * (locked + unlocked) / locked
+    if unlocked > 0:
+        return unlocked   # unpriced unlocked pool: still larger than a $0.03 lock
+    return locked_usd
+
+def lp_locked_pct(markets, prefer_types=None):
+    """LP lock of the dominant market, not the max across every side-pool.
+    RugCheck often reports a dust Meteora market at 100% next to a creator PumpSwap
+    pool at ~0%. max(lpLockedPct) would call that burned. The pool we would trade is
+    the one with the money in it. prefer_types (e.g. pump_fun_amm) wins when present."""
+    pool = list(markets or [])
+    if prefer_types:
+        pref = [m for m in pool if (m.get("marketType") or "") in prefer_types]
+        if pref:
+            pool = pref
+    if not pool:
+        return 0.0
+    best = max(pool, key=_lp_value)
+    return float((best.get("lp") or {}).get("lpLockedPct") or 0)
+
 def safety_features(rc, mint):
     known = rc.get("knownAccounts") or {}
     pool_owners = set(known.keys())
@@ -274,14 +302,17 @@ def safety_features(rc, mint):
     insiders_top = sum(1 for h in holders[:20] if h.get("insider"))
     supply = ((rc.get("token") or {}).get("supply") or 0)
     creator_pct = 100.0 * (rc.get("creatorBalance") or 0) / supply if supply else 0
-    lp_locked = max([((m.get("lp") or {}).get("lpLockedPct") or 0) for m in rc.get("markets") or []] or [0])
+    markets = rc.get("markets") or []
+    lp_locked = lp_locked_pct(markets)
+    pump_amm = lp_locked_pct(markets, prefer_types=("pump_fun_amm", "pump_amm", "pumpswap"))
     tf = rc.get("transferFee") or {}
     return {
         "mint_auth": (rc.get("token") or {}).get("mintAuthority") if rc.get("token") else rc.get("mintAuthority"),
         "freeze_auth": (rc.get("token") or {}).get("freezeAuthority") if rc.get("token") else rc.get("freezeAuthority"),
         "top10_ex_pools": round(top10, 2), "top1_ex_pools": round(top1, 2), "insiders_in_top": insiders_top,
         "graph_insiders": rc.get("graphInsidersDetected") or 0, "creator_pct": round(creator_pct, 3),
-        "lp_locked_pct": round(lp_locked, 1), "rc_score_norm": rc.get("score_normalised"),
+        "lp_locked_pct": round(lp_locked, 1), "pump_amm_lp_locked_pct": round(pump_amm, 1),
+        "rc_score_norm": rc.get("score_normalised"),
         "holders": rc.get("totalHolders") or 0, "rugged": bool(rc.get("rugged")),
         "risks": [f"{r.get('name')}({r.get('level')})" for r in rc.get("risks") or []],
         "risk_names": [r.get("name") for r in rc.get("risks") or []],

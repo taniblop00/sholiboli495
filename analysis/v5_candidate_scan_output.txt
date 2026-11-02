@@ -1,0 +1,73 @@
+v5 candidate snapshot — 2026-11-02 ~15:00 UTC
+PAPER ONLY. Public DexScreener + GeckoTerminal reads. No orders.
+
+Chosen thresholds after the first pass (b/s >= 3 and 5m volume >= $8k) passed nobody:
+  burned tier only, creator_pool disabled
+  age 3-120 min, or 2h-24h only on a surge (m5 +6..+25, b/s >= 2, h1 <= 80, liq >= $30k)
+  primary band: b/s >= 1.5 (was 3.0), m5 +6%..+25% (cap was +20%), h1 <= +80%
+  liq >= $15k, 5m volume >= $3k (was $8k), txns >= 40, accel >= 0.4
+
+Why these and not looser: the only pump.fun graduates near the band in this hour were
+  Microsoft (m5 about +24%, b/s 1.74, liq ~$25k, 5m volume flickering around $4k)
+  FI        (m5 about +16..+24%, b/s ~1.05 — left out on purpose)
+  BARRON    (born vertical, then m5 +27% with only ~$1.3k of 5m volume)
+Creator-pool names that cleared momentum (Big Cat, MAMESUKE) are not entries.
+
+Rate: a single snapshot never held a fully qualified name at the same second.
+Across the hour, about one graduate sat inside the band once volume floor was $3k
+and b/s was 1.5. That is roughly 0-2 entries/hour on this tape, not 4.
+The self-review may loosen b/s to 1.2 and 5m volume to $2.5k if the first hour
+is under 2 entries. It cannot re-enable creator pools.
+
+LP check (separate RugCheck reads the same day): a pump.fun graduate's pump_fun_amm
+market is lpLockedPct 100 with lpUnlocked 0. A creator PumpSwap pool is ~0% locked
+on that market, with a dust Meteora market at 100%. v5 uses the dominant market,
+not max(lpLockedPct).
+
+Raw counter from the last public fetch (thresholds already at b/s 1.5, m5 cap 25,
+volume floor $3k). pre-LP pass was still 0 in that instant; BARRON was +26.6% m5
+with only $1.3k of 5m volume.
+
+fetching public pools...
+universe 167  pump-suffix 101
+
+inside 3 min–24h (first failing gate):
+{'blocked_dex': 26, 'low_vol_m5': 3, 'bad_quote': 7, 'mcap_range': 33, 'm5_sell_pressure': 5, 'low_liq': 10, 'h1_parabolic': 2}
+  blocked_dex        LongCat      pumpfun    age=5 mcap=11815 liq=0 m5=214 bs=1.32 vol5=57833 tx5=1378 accel=1.04 pump=False
+  low_vol_m5         BARRON       pumpswap   age=6 mcap=150888 liq=29972 m5=26.57 bs=1.81 vol5=1365 tx5=2304 accel=0.2 pump=True
+  blocked_dex        DOGE         pumpfun    age=7 mcap=2713 liq=0 m5=-66.3 bs=0.61 vol5=7710 tx5=229 accel=0.31 pump=True
+  blocked_dex        MUCHAN       meteora    age=17 mcap=17335 liq=8 m5=0 bs=0.00 vol5=0 tx5=0 accel=0.0 pump=False
+  blocked_dex        MUCHAN       meteora    age=17 mcap=42143 liq=23 m5=0 bs=0.00 vol5=0 tx5=0 accel=0.0 pump=False
+  blocked_dex        MUCHAN       meteora    age=18 mcap=83981 liq=0 m5=0 bs=0.00 vol5=0 tx5=0 accel=0.0 pump=False
+  mcap_range         NVIDIA       pumpswap   age=126 mcap=1694 liq=1735 m5=0 bs=0.00 vol5=0 tx5=0 accel=0.0 pump=True
+  bad_quote          MAMESUKE     raydium    age=202 mcap=1253579 liq=97481 m5=-1.35 bs=1.55 vol5=51439 tx5=680 accel=1.56 pump=False
+  mcap_range         CZ           pumpswap   age=303 mcap=1678 liq=1718 m5=0 bs=0.00 vol5=0 tx5=0 accel=0.0 pump=True
+  mcap_range         Grok         pumpswap   age=334 mcap=1674 liq=1715 m5=0 bs=0.00 vol5=0 tx5=0 accel=0 pump=True
+  mcap_range         ELON         pumpswap   age=444 mcap=1682 liq=1731 m5=0 bs=0.00 vol5=0 tx5=0 accel=0 pump=True
+  blocked_dex        PREDICT      meteoradbc age=639 mcap=0 liq=0 m5=0 bs=0.00 vol5=0 tx5=0 accel=0 pump=False
+  mcap_range         USDF         pumpswap   age=655 mcap=1696 liq=1740 m5=0 bs=0.00 vol5=0 tx5=0 accel=0 pump=True
+  m5_sell_pressure   PEACE        pumpswap   age=659 mcap=254971 liq=45722 m5=2.65 bs=1.06 vol5=3601 tx5=70 accel=0.78 pump=True
+  mcap_range         NVIDIA       pumpswap   age=756 mcap=1731 liq=1780 m5=0 bs=0.00 vol5=0 tx5=0 accel=0 pump=True
+  mcap_range         YouTube      pumpswap   age=898 mcap=1698 liq=1748 m5=0 bs=0.00 vol5=0 tx5=0 accel=0 pump=True
+  mcap_range         Anakinius    pumpswap   age=963 mcap=1900 liq=2129 m5=0 bs=0.00 vol5=0 tx5=0 accel=0 pump=True
+  mcap_range         ANAKIN       pumpswap   age=989 mcap=3171557 liq=158936 m5=2.43 bs=2.94 vol5=5488 tx5=504 accel=0.45 pump=True
+  mcap_range         GTA 6 Coin   pumpswap   age=1034 mcap=1669 liq=1703 m5=0 bs=0.00 vol5=0 tx5=0 accel=0 pump=True
+  mcap_range         ANAKINCORE   pumpswap   age=1040 mcap=1843 liq=2018 m5=-0.72 bs=0.00 vol5=0 tx5=1 accel=12.0 pump=True
+  mcap_range         uni          pumpswap   age=1084 mcap=8849289 liq=245586 m5=0.52 bs=0.50 vol5=8 tx5=3 accel=0.14 pump=True
+  low_vol_m5         Learjet      pumpswap   age=1113 mcap=85590 liq=25023 m5=-6.88 bs=0.78 vol5=606 tx5=16 accel=0.5 pump=True
+  mcap_range         XTO          pumpswap   age=1146 mcap=747 liq=996 m5=0 bs=0.00 vol5=0 tx5=0 accel=0.0 pump=True
+  mcap_range         AI           pumpswap   age=1148 mcap=1825 liq=1989 m5=0 bs=0.00 vol5=0 tx5=0 accel=0 pump=True
+  mcap_range         Apple        pumpswap   age=1377 mcap=1808 liq=1955 m5=0 bs=0.00 vol5=0 tx5=0 accel=0 pump=True
+
+pre-LP pass 0  (pump 0)
+top rejects: [('too_old', 47), ('mcap_range', 33), ('too_young', 31), ('blocked_dex', 26), ('low_liq', 10), ('bad_quote', 7), ('m5_sell_pressure', 5), ('low_vol_m5', 3), ('h1_parabolic', 2)]
+bands: {}
+
+rugcheck 0 of 0 passers
+
+rugchecked tiers: {}
+safety rejects: []
+qualified burned+safety in the checked set: 0
+estimated qualified stock across the whole pre-LP set: 0.0
+estimated entries/hour if a signal lasts ~10 min: 0.0  (before the 2-per-scan cap)
+qualified with age<=30m in the checked set: 0  -> about 0.0/hour if that bucket refreshes every 30 min

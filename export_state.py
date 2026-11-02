@@ -94,6 +94,7 @@ def build(c, run_info=None, status=None):
                   "this_run": _stats(this_run, (now - rs) / 3600 if rs else None)},
         "sessions": sessions, "open_positions": open_list, "closed_trades": closed_list, "equity_history": eq_hist,
         "rules": {"entry": {k: S["filters"].get(k) for k in ("min_age_min", "max_age_min", "min_buy_sell_ratio_m5", "min_price_change_m5", "max_price_change_m5", "max_price_change_h1", "min_liquidity_usd", "min_mcap_usd", "max_mcap_usd")},
+                  "surge": S["filters"].get("surge"),
                   "exits": {k: S["exits"].get(k) for k in ("stop_loss_gross_pct", "tp1_gross_pct", "tp1_sell_fraction", "stop_after_tp1_gross_pct", "runner_take_profit_gross_pct", "max_hold_min", "time_stop_min", "runner_max_min")},
                   "exits_by_tier": S.get("exits_by_tier") or {},
                   "tiers": S.get("tiers")},
