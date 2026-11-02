@@ -106,9 +106,30 @@ Per-trade notes are appended automatically after each closed trade. The aggregat
 - 2026-11-02 12:33 | [SCALP] #52 Musk | WIN +11.4% ($+0.40) | exit scalp_runner_trailing_stop after 13m, peak +37% | age 3m mcap $22,228 5m chg 16.99% accel x1.0 b/s 296/53 | entered after >15% 5m candle (late), 5m buys >= 2x sells, very fresh (3m)
 - 2026-11-02 12:37 | [SCALP] #53 Claude AI | LOSS -45.9% ($-1.62) | exit scalp_liquidity_drop after 8m, peak +17% | age 3m mcap $19,257 5m chg 19.39% accel x1.0 b/s 237/54 | entered after >15% 5m candle (late), 5m buys >= 2x sells, very fresh (3m), was up 17% but gave it back
 - 2026-11-02 13:00 | [SCALP] #54 Capybara | WIN +12.2% ($+0.43) | exit scalp_session_end after 4m, peak +25% | age 4m mcap $23,379 5m chg 18.96% accel x1.0 b/s 233/64 | entered after >15% 5m candle (late), 5m buys >= 2x sells, very fresh (4m)
+### Self-review v4 2026-11-02 15:31 Asia/Jerusalem (auto)
+- v4 trades 0: WR 0%, avg win +0.0%, avg loss +0.0%, entries last 60 min 1 (floor 2/h), equity $20.64
+- Config changes: none (0 new trades since last change; need 8, or rate below floor after 45 min)
+### Self-review v4 2026-11-02 16:01 Asia/Jerusalem (auto)
+- v4 trades 5: WR 80%, avg win +8.3%, avg loss -100.0%, entries last 60 min 5 (floor 2/h), equity $18.74
+- Median winners vs losers: age_min 4.35/4.55, mcap 2.31e+04/2.37e+04, liq 4.38e+04/4.42e+04, pc_m5 12.1/14.8, bs_m5 5.34/5.99, holders 292/463, top10 3.27/3.05, entry_cost 3.02/2.52, peak 25.7/7.33
+- Config changes: none (5 new trades since last change; need 8, or rate below floor after 45 min)
+- 2026-11-02 15:35 | [SCALP] #55 FOREVER | WIN +8.9% ($+0.27) | exit scalp_runner_take_profit after 4m, peak +26% | age 4m mcap $22,666 5m chg 9.61% accel x1.0 b/s 385/64 | 5m buys >= 2x sells, very fresh (4m)
+- 2026-11-02 15:37 | [SCALP] #56 PREDICT | WIN +6.7% ($+0.20) | exit scalp_runner_breakeven_stop after 4m, peak +20% | age 4m mcap $22,161 5m chg 15.65% accel x1.0 b/s 189/35 | entered after >15% 5m candle (late), 5m buys >= 2x sells, very fresh (4m)
+- 2026-11-02 15:43 | [SCALP] #58 FOREVER | LOSS -100.0% ($-3.03) | exit scalp_liquidity_pull_suspected after 3m, peak +7% | age 5m mcap $23,739 5m chg 14.83% accel x1.0 b/s 437/73 | 5m buys >= 2x sells, very fresh (5m)
+- 2026-11-02 15:45 | [SCALP] #57 PEACE | WIN +8.6% ($+0.26) | exit scalp_runner_take_profit after 5m, peak +26% | age 5m mcap $27,470 5m chg 11.56% accel x0.94 b/s 257/71 | 5m buys >= 2x sells, very fresh (5m)
+- 2026-11-02 15:55 | [SCALP] #59 FOREVER | WIN +9.2% ($+0.28) | exit scalp_runner_take_profit after 9m, peak +25% | age 3m mcap $23,518 5m chg 12.57% accel x1.0 b/s 306/58 | 5m buys >= 2x sells, very fresh (3m)
+### Self-review v4 2026-11-02 16:32 Asia/Jerusalem (auto)
+- v4 trades 5: WR 80%, avg win +8.3%, avg loss -100.0%, entries last 60 min 4 (floor 2/h), equity $18.74
+- Median winners vs losers: age_min 4.35/4.55, mcap 2.31e+04/2.37e+04, liq 4.38e+04/4.42e+04, pc_m5 12.1/14.8, bs_m5 5.34/5.99, holders 292/463, top10 3.27/3.05, entry_cost 3.02/2.52, peak 25.7/7.33
+- Config changes: none (5 new trades since last change; need 8, or rate below floor after 45 min)
+### Self-review v4 2026-11-02 17:00 Asia/Jerusalem (auto)
+- v4 trades 6: WR 83%, avg win +7.6%, avg loss -100.0%, entries last 60 min 1 (floor 2/h), equity $19.01
+- Median winners vs losers: age_min 4.31/4.55, mcap 2.35e+04/2.37e+04, liq 4.41e+04/4.42e+04, pc_m5 12.6/14.8, bs_m5 5.28/5.99, holders 316/463, top10 3.24/3.05, entry_cost 2.99/2.52, peak 25.5/7.33
+- Config change (one knob): min_price_change_m5: 6.0 -> 5.0 (only 1 entries in last hour < floor; momentum-only loosening)
+- 2026-11-02 17:00 | [SCALP] #60 Virus🦠 | WIN +4.8% ($+0.15) | exit scalp_run_end after 2m, peak +12% | age 3m mcap $23,603 5m chg 14.38% accel x1.0 b/s 247/56 | 5m buys >= 2x sells, very fresh (3m)
 
 <!-- AGGREGATE -->
-## Aggregate SWING (auto-regenerated 2026-11-02 13:00 Asia/Jerusalem)
+## Aggregate SWING (auto-regenerated 2026-11-02 17:00 Asia/Jerusalem)
 
 Closed 9: 2 wins / 7 losses.
 
@@ -147,24 +168,24 @@ Rejected-token follow-up (price ~6h+ after rejection):
 
 ## Aggregate SCALP
 
-Closed 44: 30 wins / 14 losses, net $-2.07
+Closed 50: 35 wins / 15 losses, net $-3.94
 
 | feature | avg winners | avg losers |
 |---|---|---|
-| rank | 70.6 | 64.3 |
-| age_min | 10 | 23.5 |
-| mcap | 3.67e+04 | 3.4e+04 |
-| pc_m5 | 15.3 | 18.1 |
-| pc_h1 | 45.3 | 66.8 |
-| accel | 1.02 | 1.13 |
-| bs_m5 | 4.09 | 3.11 |
-| entry_cost_pct | 2.22 | 2.18 |
-| top10_ex_pools | 10.1 | 11.5 |
-| holders | 579 | 631 |
-| peak_pct | 31.7 | 1.08e+05 |
+| rank | 72 | 65.3 |
+| age_min | 9.14 | 22.2 |
+| mcap | 3.49e+04 | 3.33e+04 |
+| pc_m5 | 14.9 | 17.9 |
+| pc_h1 | 40.7 | 63.3 |
+| accel | 1.01 | 1.13 |
+| bs_m5 | 4.21 | 3.3 |
+| entry_cost_pct | 2.28 | 2.21 |
+| top10_ex_pools | 9.36 | 10.9 |
+| holders | 540 | 620 |
+| peak_pct | 30.3 | 1.01e+05 |
 
-Exit reasons: scalp_liquidity_drop: n=8 sum $-13.27, scalp_profit_lock: n=1 sum $-0.31, scalp_runner_take_profit: n=11 sum $+7.76, scalp_runner_trailing_stop: n=7 sum $+1.64, scalp_session_end: n=5 sum $+1.00, scalp_stop_loss: n=4 sum $-2.96, scalp_take_profit: n=6 sum $+4.06, scalp_time_stop: n=1 sum $-0.32, scalp_trailing_stop: n=1 sum $+0.32
+Exit reasons: scalp_liquidity_drop: n=8 sum $-13.27, scalp_liquidity_pull_suspected: n=1 sum $-3.03, scalp_profit_lock: n=1 sum $-0.31, scalp_run_end: n=1 sum $+0.15, scalp_runner_breakeven_stop: n=1 sum $+0.20, scalp_runner_take_profit: n=14 sum $+8.57, scalp_runner_trailing_stop: n=7 sum $+1.64, scalp_session_end: n=5 sum $+1.00, scalp_stop_loss: n=4 sum $-2.96, scalp_take_profit: n=6 sum $+4.06, scalp_time_stop: n=1 sum $-0.32, scalp_trailing_stop: n=1 sum $+0.32
 
 Suggested tuning:
-- winners had higher bs_m5 (4.09 vs 3.11) -> raise its min
+- winners had higher bs_m5 (4.21 vs 3.3) -> raise its min
 - 9 losers were up >=10% first -> lower lock/trail triggers
