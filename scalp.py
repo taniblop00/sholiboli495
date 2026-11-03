@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 """SCALP mode for the memetrader PAPER engine. Simulation only: never signs or sends anything.
-v6 fast quality scalp. Two live tiers:
-  * "bonding_curve" - pump.fun (and other launchpad curves only when DexScreener has a live price).
-                      No LP token the creator can pull. Paper fill uses that price plus a 1.5% round trip.
-  * "burned"        - dominant pool LP >= 90% locked (pump.fun graduates included).
-  * "creator_pool"  - LP unlocked. Still in the code, disabled.
-Full exit at +10%. No runner. Stop -6%. Out within 8 minutes.
+
+v2 (the 08:44 UTC+3 rules in v2_plan.md) plus one extra: rug_escape.
+PumpSwap only, partial take-profit, runner. Exits are decided on the Jupiter
+sell quote and that quote is the fill. Priority fee is added once per side.
+No second slippage and no wallet fee on top of the quote.
   python3 scalp.py scan | update | report
 """
 import json, time, datetime, math, os, sys
@@ -139,7 +138,10 @@ def market_filter(f):
     if f["buys_m5"] / max(1, f["sells_m5"]) < F["min_buy_sell_ratio_m5"]: return "m5_sell_pressure"
     if f["pc_m5"] < F["min_price_change_m5"]: return "m5_not_rising"
     if f["pc_m5"] > F["max_price_change_m5"]: return "m5_parabolic"
-    if f["accel"] < F["min_accel"]: return "no_acceleration"
+    if F.get("min_accel", 0) and f["accel"] < F["min_accel"]: return "no_acceleration"
+    txns = (f.get("buys_m5") or 0) + (f.get("sells_m5") or 0)
+    if F.get("min_txns_m5") and txns < F["min_txns_m5"]: return "low_txns_m5"
+    if "min_price_change_h1" in F and (f.get("pc_h1") or 0) < F["min_price_change_h1"]: return "h1_down"
     return None
 
 def classify_tier(s, mint, dex=None):
@@ -240,11 +242,12 @@ def scan(c):
         tier = classify_tier(s, m, f.get("dex"))
         TT = T.get(tier, {})
         if TT.get("enabled") is False: rej(f"tier_disabled:{tier}"); continue
-        qg = quality_gate(f, s, tier)
-        if qg: rej(qg); continue
-        n_seen = note_deployer(c, m, s.get("creator"))
-        if n_seen is not None and n_seen >= S.get("max_same_deployer", 2):
-            rej("serial_deployer"); continue
+        if str(S.get("version")) != "v2":
+            qg = quality_gate(f, s, tier)
+            if qg: rej(qg); continue
+            n_seen = note_deployer(c, m, s.get("creator"))
+            if n_seen is not None and n_seen >= S.get("max_same_deployer", 2):
+                rej("serial_deployer"); continue
         n_tier = sum(1 for r in c.execute("SELECT features FROM positions WHERE status='open' AND strategy='scalp'")
                      if (json.loads(r["features"] or "{}").get("tier") or "creator_pool") == tier)
         if n_tier >= TT.get("max_concurrent", S["max_concurrent"]): rej(f"tier_slots_full:{tier}"); continue
@@ -276,6 +279,7 @@ def scan(c):
             rt_loss = 100 * (1 - int(qs["outAmount"]) / lamports)
             if rt_loss > E["max_roundtrip_quote_loss_pct"]: rej("roundtrip_loss"); log(f"  [scalp] skip {f['symbol']} instant round-trip quote loss {rt_loss:.1f}%"); continue
             CO = run.CFG["costs"]
+            # Quote outAmount already includes the pool fee. Do not stack slippage or a wallet fee on it.
             tokens = raw / 10 ** s["decimals"] * (1 - CO["extra_slippage_pct_each_side"] / 100) * (1 - CO.get("wallet_swap_fee_pct", 0) / 100)
             mark = jp
             eff = size / tokens
@@ -283,6 +287,7 @@ def scan(c):
             src_fill = "jupiter_quote"
             if entry_cost > E["max_total_entry_cost_pct"]: rej("entry_cost_too_high"); log(f"  [scalp] skip {f['symbol']} entry cost {entry_cost:.1f}%"); continue
         feat = {**f, "price_ds": f["price"], "price": mark, "impact": impact, "roundtrip_quote_loss": round(rt_loss, 2), "entry_cost_pct": round(entry_cost, 2),
+                "last_quote_eff": None, "last_liq": f["liq"] or 0,
                 "fill_source": src_fill, "creator": s.get("creator"),
                 **{k: s[k] for k in ["top10_ex_pools", "top1_ex_pools", "creator_pct", "holders", "graph_insiders", "lp_locked_pct", "pump_amm_lp_locked_pct", "rc_score_norm", "risks", "launchpad"]},
                 "sources": src.get(m), "tier": tier}
@@ -293,8 +298,8 @@ def scan(c):
         cur = c.execute("""INSERT INTO positions(mint,symbol,name,pair,dex,opened_at,entry_mark,entry_eff,tokens,tokens_left,decimals,
             cost_usd,fees_usd,entry_liq,entry_mcap,score,features,reasoning,status,peak_mark,last_mark,last_checked,strategy)
             VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,'open',?,?,?,'scalp')""",
-            (m, f["symbol"], f["name"], f["pair"], f["dex"], iso(), mark, eff, tokens, tokens, s["decimals"], size, fee,
-             f["liq"] or 0, f["mcap"], f["rank"], json.dumps(feat, default=str), reasoning, jp, jp, iso()))
+            (m, f["symbol"], f["name"], f["pair"], f["dex"], iso(), eff, eff, tokens, tokens, s["decimals"], size, fee,
+             f["liq"] or 0, f["mcap"], f["rank"], json.dumps(feat, default=str), reasoning, eff, eff, iso()))
         c.execute("INSERT INTO fills(pos_id,ts,side,tokens,usd,mark,eff_price,impact_pct,fee_usd,reason,source) VALUES(?,?,?,?,?,?,?,?,?,?,?)",
                   (cur.lastrowid, iso(), "BUY", tokens, size, mark, eff, impact, fee, "scalp_entry", src_fill))
         c.commit()
@@ -309,6 +314,83 @@ def scan(c):
     log(f"[scalp] SCAN universe {len(mints)} (watchlist {wl}, +{wadded} new, -{wdead} dead) | momentum-pass {len(stage1)} | safety-pass {safe} | opened {opened} | open {n_open}/{S['max_concurrent']} | top rejects {top}")
     return opened
 
+def sell_fill(p):
+    """Whole-position Jupiter sell quote. The outAmount is the fill. No extra haircut.
+    Paper only: this never builds or sends a swap."""
+    tokens = p["tokens_left"] or 0
+    dec = p["decimals"]
+    if tokens <= 0 or dec is None:
+        return None
+    raw = int(round(float(tokens) * 10 ** int(dec)))
+    if raw < 1:
+        return None
+    q = run.jup_quote(p["mint"], SOL, raw, slippage_bps=50)
+    if not q or not q.get("outAmount"):
+        return None
+    usd = int(q["outAmount"]) / 1e9 * run.sol_price()
+    if usd < 0:
+        return None
+    try:
+        impact = float(q.get("priceImpactPct") or 0) * 100
+    except (TypeError, ValueError):
+        impact = None
+    return {"usd": usd, "eff": (usd / float(tokens)) if tokens else 0, "impact": impact, "source": "jupiter_quote"}
+
+
+def _checked_age(p):
+    try:
+        ts = datetime.datetime.fromisoformat(p["last_checked"])
+        if ts.tzinfo is None:
+            ts = ts.replace(tzinfo=datetime.timezone.utc)
+        return (now() - ts).total_seconds()
+    except Exception:
+        return None
+
+
+def holder_rug(c, mint, feat):
+    """One fresh RugCheck per position every holder_check_s. A large creator or top-holder drop is a sell."""
+    R = (C().get("exits") or {}).get("rug_escape") or {}
+    every = float(R.get("holder_check_s", 20))
+    if time.time() - float(feat.get("rug_holder_ts") or 0) < every:
+        return None
+    rc = rugcheck_cached(c, mint, ttl=0)
+    feat["rug_holder_ts"] = time.time()
+    if not rc:
+        return None
+    s = run.safety_features(rc, mint)
+    dev_pts = float(R.get("dev_drop_points", 2))
+    top_pts = float(R.get("top_holder_drop_points", 5))
+    old_dev, old_top = feat.get("creator_pct"), feat.get("top1_ex_pools")
+    if isinstance(old_dev, (int, float)) and s.get("creator_pct") is not None and s["creator_pct"] <= old_dev - dev_pts:
+        return "dev_sell"
+    if isinstance(old_top, (int, float)) and s.get("top1_ex_pools") is not None and s["top1_ex_pools"] <= old_top - top_pts:
+        return "top_holder_sell"
+    return None
+
+
+def rug_reason(p, feat, fill, liq, mark):
+    """Fast rug check. Returns a short cause, or None. The logged exit reason is always rug_escape."""
+    R = (C().get("exits") or {}).get("rug_escape") or {}
+    liq_cut = 1 - float(R.get("liq_drop_pct", 20)) / 100.0
+    air = float(R.get("airpocket_drop_pct", 9)) / 100.0
+    impact_max = float(R.get("impact_pct", 8))
+    entry_liq = p["entry_liq"] or 0
+    if liq is not None and entry_liq and liq < entry_liq * liq_cut:
+        return "liq_vs_entry"
+    last_liq = feat.get("last_liq")
+    if liq is not None and last_liq and float(last_liq) > 0 and liq < float(last_liq) * liq_cut:
+        return "liq_window"
+    age = _checked_age(p)
+    prev = feat.get("last_quote_eff") or p["entry_eff"] or p["entry_mark"]
+    if fill and prev and age is not None and 0 <= age <= 15 and fill["eff"] <= float(prev) * (1 - air):
+        return "price_airpocket"
+    if fill and fill.get("impact") is not None and fill["impact"] >= impact_max:
+        return "impact"
+    if fill is None and ((liq is not None and entry_liq and liq < entry_liq * 0.5) or not mark):
+        return "quote_failed"
+    return None
+
+
 def update(c, force_close_reason=None):
     X = C()["exits"]
     rows = c.execute("SELECT * FROM positions WHERE status='open' AND strategy='scalp'").fetchall()
@@ -320,24 +402,49 @@ def update(c, force_close_reason=None):
     for p in rows:
         pr = pairs.get(p["mint"])
         mark = jm.get(p["mint"]) or (float(pr["priceUsd"]) if pr and pr.get("priceUsd") else None)
-        if not mark:
-            log(f"  [scalp] #{p['id']} {p['symbol']}: no price this tick - holding"); continue
-        ref = p["last_mark"] or p["entry_mark"]
-        glitch = bool(ref) and mark > ref * C()["exits"].get("glitch_jump_multiple", 5.0)
-        if glitch: log(f"  [scalp] #{p['id']} {p['symbol']}: price jumped x{mark/ref:.1f} in one tick - treating as a liquidity pull, peak not updated")
-        marks[p["mint"]] = mark
-        peak = (p["peak_mark"] or mark) if glitch else max(p["peak_mark"] or mark, mark)
-        c.execute("UPDATE positions SET last_mark=?, peak_mark=?, last_checked=? WHERE id=?", (mark, peak, iso(), p["id"]))
-        p = c.execute("SELECT * FROM positions WHERE id=?", (p["id"],)).fetchone()
-        g = 100 * (mark / p["entry_mark"] - 1); pk = 100 * (peak / p["entry_mark"] - 1)
-        held = (now() - datetime.datetime.fromisoformat(p["opened_at"])).total_seconds() / 60
+        feat = json.loads(p["features"] or "{}")
         liq = ((pr or {}).get("liquidity") or {}).get("usd")
+        fill = sell_fill(p)
+        cause = None if force_close_reason else rug_reason(p, feat, fill, liq, mark)
+        if not cause and not force_close_reason:
+            cause = holder_rug(c, p["mint"], feat)
+        prev_q = feat.get("last_quote_eff") or p["entry_eff"] or p["entry_mark"]
+        glitch = bool(fill and prev_q and fill["eff"] > float(prev_q) * X.get("glitch_jump_multiple", 5.0))
+        if glitch:
+            log(f"  [scalp] #{p['id']} {p['symbol']}: sell quote jumped x{fill['eff']/float(prev_q):.1f} in one poll — booking a loss, not the print")
+            fill = {**fill, "usd": min(fill["usd"], 0.5 * float(prev_q) * (p["tokens_left"] or 0)),
+                    "source": fill["source"] + "+capped_glitch"}
+            cause = cause or "glitch_up"
+        if fill is None and not cause and not force_close_reason:
+            log(f"  [scalp] #{p['id']} {p['symbol']}: no sell quote and the pool is still there — holding")
+            if liq is not None:
+                feat["last_liq"] = liq
+                c.execute("UPDATE positions SET features=?, last_checked=? WHERE id=?", (json.dumps(feat, default=str), iso(), p["id"]))
+            continue
+        quote_eff = fill["eff"] if fill else 0
+        if glitch:
+            peak = p["peak_mark"] or p["entry_eff"] or quote_eff
+        else:
+            peak = max(p["peak_mark"] or quote_eff, quote_eff)
+        feat["last_quote_eff"] = quote_eff or feat.get("last_quote_eff")
+        if liq is not None:
+            feat["last_liq"] = liq
+        c.execute("UPDATE positions SET last_mark=?, peak_mark=?, last_checked=?, features=? WHERE id=?",
+                  (quote_eff or p["last_mark"], peak, iso(), json.dumps(feat, default=str), p["id"]))
+        p = c.execute("SELECT * FROM positions WHERE id=?", (p["id"],)).fetchone()
+        ref_px = p["entry_eff"] or p["entry_mark"] or quote_eff or 1
+        g = 100 * ((quote_eff / ref_px) - 1) if quote_eff else -100
+        pk = 100 * ((peak / ref_px) - 1) if peak else g
+        held = (now() - datetime.datetime.fromisoformat(p["opened_at"])).total_seconds() / 60
+        marks[p["mint"]] = quote_eff or mark or 0
         ticks.append(f"{p['symbol']} {g:+.1f}% (pk {pk:+.0f}%, {held:.0f}m)")
         reason = force_close_reason
+        if not reason and cause:
+            reason = "rug_escape"
+            log(f"  [scalp] RUG #{p['id']} {p['symbol']} {cause} quote {g:+.1f}% liq {liq}")
         tier = (json.loads(p["features"] or "{}").get("tier") or "creator_pool")
-        XT = {**X, **((C().get("exits_by_tier") or {}).get(tier) or {})}   # tier overrides on top of the shared exits
-        if not reason and glitch:
-            reason = "liquidity_pull_suspected"   # price jumped >x5 in one tick = pool drained, quote is meaningless
+        XT = {**X, **((C().get("exits_by_tier") or {}).get(tier) or {})}
+        # Decision price is the sell quote. `quote_eff` is what gets filled.
         if not reason and "tp1_gross_pct" in XT and XT.get("tp1_sell_fraction", 1) >= 0.999:
             # v6: full exit at the target. No runner, so a winner does not sit through a gap.
             _m5 = ((pr or {}).get("txns") or {}).get("m5") or {}
@@ -347,7 +454,7 @@ def update(c, force_close_reason=None):
             elif sells > buys and sells >= XT.get("exit_sell_spike_min_sells", 15): reason = "sell_spike"
             elif g <= XT["stop_loss_gross_pct"]: reason = "stop_loss"
             elif g >= XT["tp1_gross_pct"]: reason = "take_profit_full"
-            elif pk >= XT.get("lock_arm_gross_pct", 6) and mark <= peak * (1 - XT.get("lock_giveback_pct", 4) / 100): reason = "profit_lock"
+            elif pk >= XT.get("lock_arm_gross_pct", 6) and quote_eff <= peak * (1 - XT.get("lock_giveback_pct", 4) / 100): reason = "profit_lock"
             elif held >= XT["max_hold_min"]: reason = "max_hold"
             elif held >= XT["time_stop_min"] and g < XT["time_stop_min_gain_pct"]: reason = "time_stop"
         elif not reason and "tp1_gross_pct" in XT:   # older partial-TP path, kept if a tier sets a fraction below 1
@@ -362,30 +469,28 @@ def update(c, force_close_reason=None):
                 elif g >= XT["runner_take_profit_gross_pct"]: reason = "take_profit_full"
                 elif g >= XT["tp1_gross_pct"]:
                     log(f"  [scalp] TP1 #{p['id']} {p['symbol']} ({tier}) gross {g:+.1f}% -> sell {XT['tp1_sell_fraction']*100:.0f}%, stop to +{XT['stop_after_tp1_gross_pct']}%")
-                    run.close_part(c, p, XT["tp1_sell_fraction"], mark, "scalp_tp1")
+                    run.close_part(c, p, XT["tp1_sell_fraction"], quote_eff, "scalp_tp1", fill=fill)
                     c.execute("UPDATE positions SET tp1_done=1 WHERE id=?", (p["id"],))
                 elif held >= XT["max_hold_min"]: reason = "max_hold"
                 elif held >= XT["time_stop_min"] and g < XT["time_stop_min_gain_pct"]: reason = "time_stop"
             else:
                 if g <= XT["stop_after_tp1_gross_pct"]: reason = "runner_breakeven_stop"
                 elif g >= XT["runner_take_profit_gross_pct"]: reason = "runner_take_profit"
-                elif mark <= peak * (1 - XT["runner_trail_drawdown_pct"] / 100): reason = "runner_trailing_stop"
+                elif quote_eff <= peak * (1 - XT["runner_trail_drawdown_pct"] / 100): reason = "runner_trailing_stop"
                 elif held >= XT["runner_max_min"]: reason = "runner_max_hold"
         elif not reason:
             if liq is not None and p["entry_liq"] and liq < p["entry_liq"] * (1 - X["exit_if_liquidity_drop_pct"] / 100): reason = "liquidity_drop"
             elif g <= X["stop_loss_gross_pct"]: reason = "stop_loss"
             elif pk >= X["lock_trigger_gross_pct"] and g <= X["lock_stop_gross_pct"]: reason = "profit_lock"
-            elif pk >= X["trail_trigger_gross_pct"] and mark <= peak * (1 - X["trail_drawdown_pct"] / 100): reason = "trailing_stop"
+            elif pk >= X["trail_trigger_gross_pct"] and quote_eff <= peak * (1 - X["trail_drawdown_pct"] / 100): reason = "trailing_stop"
             elif g >= X["take_profit_gross_pct"]: reason = "take_profit"
             elif held >= X["max_hold_min"]: reason = "max_hold"
             elif held >= X["time_stop_min"] and g < X["time_stop_min_gain_pct"]: reason = "time_stop"
         if reason:
             p = c.execute("SELECT * FROM positions WHERE id=?", (p["id"],)).fetchone()
             log(f"  [scalp] EXIT #{p['id']} {p['symbol']} {reason}: gross {g:+.1f}% (peak {pk:+.1f}%) held {held:.1f}m")
-            if reason == "liquidity_pull_suspected":   # value at most at the last good mark minus a 50% haircut
-                run.close_part(c, p, 1.0, ref, "scalp_" + reason, cap_mark=0.5 * ref)
-            else:
-                run.close_part(c, p, 1.0, mark, "scalp_" + reason)
+            book = fill if fill else {"usd": 0.0, "eff": 0.0, "impact": None, "source": "no_sell_quote"}
+            run.close_part(c, p, 1.0, quote_eff, "scalp_" + reason, fill=book)
         c.commit()
     if ticks: log("[scalp] tick: " + " | ".join(ticks))
     return marks

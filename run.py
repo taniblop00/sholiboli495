@@ -487,17 +487,24 @@ def scan(c):
     log(f"SCAN done: universe {len(mints)}, market-pass {len(stage1)}, safety+score pass {len(cands)}, opened {opened}. rejects: {dict(sorted(rejects.items(), key=lambda x:-x[1]))}")
     return opened
 
-def close_part(c, p, frac, mark, reason, cap_mark=None):
-    """Simulated sell (Jupiter QUOTE only, never a swap). cap_mark: never book more than tokens x cap_mark
-    (used when the pool looks drained, so a broken price can never create a fake profit)."""
+def close_part(c, p, frac, mark, reason, cap_mark=None, fill=None):
+    """Simulated sell (Jupiter QUOTE only, never a swap).
+    fill={usd, impact, source} is the quote for the whole remaining size. It is scaled
+    for a partial sell and is not haircut again. cap_mark only blocks a fake profit."""
     tokens = p["tokens_left"] * frac if frac < 0.999 else p["tokens_left"]
-    tier = (json.loads(p["features"] or "{}").get("tier") if p["features"] else None)
-    if tier == "bonding_curve" and mark:
-        # Same 0.75% sell haircut as the buy. A curve quote is not a Jupiter swap.
-        slip = 0.0075
-        usd, impact, srcq = tokens * mark * (1 - slip), slip * 100, "curve_mark+1.5pct_roundtrip"
+    if fill is not None:
+        full = p["tokens_left"] or tokens
+        usd = float(fill.get("usd") or 0) * ((tokens / full) if full else 0)
+        impact = fill.get("impact")
+        srcq = fill.get("source") or "jupiter_quote"
     else:
-        usd, impact, srcq = sim_sell(p["mint"], tokens, mark, p["decimals"])
+        tier = (json.loads(p["features"] or "{}").get("tier") if p["features"] else None)
+        if tier == "bonding_curve" and mark:
+            # Same 0.75% sell haircut as the buy. A curve quote is not a Jupiter swap.
+            slip = 0.0075
+            usd, impact, srcq = tokens * mark * (1 - slip), slip * 100, "curve_mark+1.5pct_roundtrip"
+        else:
+            usd, impact, srcq = sim_sell(p["mint"], tokens, mark, p["decimals"])
     if cap_mark is not None and usd > tokens * cap_mark:
         usd = tokens * cap_mark; srcq += "+capped_at_last_good_mark"
     fee = fee_usd()

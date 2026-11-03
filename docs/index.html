@@ -190,7 +190,8 @@ const reasonHe={
   stop_loss:'סטופ לוס',liquidity_drop:'משיכת נזילות',liquidity_pull_suspected:'משיכת נזילות',
   time_stop:'עצירת זמן',time_stop_flat:'עצירת זמן',max_hold:'זמן מקסימלי',max_hold_time:'זמן מקסימלי',
   runner_max_hold:'זמן מקסימלי',session_end:'סוף סשן',run_end:'סוף ריצה',sell_spike:'גל מכירות',profit_lock:'נעילת רווח',
-  quote_take_profit:'יעד (ציטוט מכירה)',quote_stop:'סטופ (ציטוט מכירה)',quote_time_stop:'זמן (ציטוט מכירה)'
+  quote_take_profit:'יעד (ציטוט מכירה)',quote_stop:'סטופ (ציטוט מכירה)',quote_time_stop:'זמן (ציטוט מכירה)',
+  rug_escape:'בריחת ראג'
 };
 const rejHe={
   too_young:'צעיר מדי',too_old:'מבוגר מדי',low_liq:'נזילות נמוכה',mcap_range:'שווי שוק',
@@ -280,10 +281,11 @@ function render(){
   $('pf').textContent=v.profit_factor==null?'—':v.profit_factor;
   $('tph').textContent=ratePerHour(v, useVer?trades:(S.closed_trades||[]));
   $('op').textContent=String((S.open_positions||[]).length);
-  $('scope').textContent=useVer?`הנתונים לפי גרסה ${S.engine_version} · ${v.trades} עסקאות`:`הנתונים לפי כל ${v.trades||0} העסקאות`;
+  const note=S.version_note||'';
+  $('scope').textContent=(note?note+' · ':'')+(useVer?`הנתונים לפי גרסה ${S.engine_version} · ${v.trades} עסקאות`:`הנתונים לפי כל ${v.trades||0} העסקאות`);
   chart(); list(); syncTabs();
   const ago=age<90?`לפני ${Math.max(0,Math.round(age))} שנ׳`:(age<3600?`לפני ${Math.round(age/60)} דק׳`:`לפני ${Math.round(age/3600)} שע׳`);
-  $('foot').innerHTML=`עודכן ${tLocal(S.generated_at)} (${ago}) · שעון ישראל<br>גרסה ${esc(S.engine_version)} · ${esc(S.mode||'מסחר דמה')}`;
+  $('foot').innerHTML=`עודכן ${tLocal(S.generated_at)} (${ago}) · שעון ישראל<br>${esc(S.version_note||('גרסה '+ (S.engine_version||'')))} · ${esc(S.mode||'מסחר דמה')}`;
 }
 function ratePerHour(stats, rows){
   if(stats.trades_per_hour!=null)return String(stats.trades_per_hour);
@@ -440,7 +442,7 @@ function scanHtml(){
     <div class="cands">${cands.length?cands.map(c=>`<div class="cand"><span>${esc(c.symbol)}</span><b>${c.strategy?esc(c.strategy)+' · RT '+esc(c.rt_pct)+'%':esc(c.age_min)+' דק׳ · '+pct(c.pc_m5)+' · b/s '+esc(c.bs_m5)}</b></div>`).join(''):'<div class="empty" style="padding:12px 0">אין מועמדים בסריקה האחרונה</div>'}</div>
     <div class="s" style="margin-top:8px">דחיות: ${rejects.length?rejects.map(([k,v])=>esc(rejHe[k]||k)+' '+v).join(' · '):'—'}</div>
   </div>
-  <div class="scan"><h3>חוקי ${esc(S.engine_version||'')} · מסחר דמה</h3>
+  <div class="scan"><h3>${esc(S.version_note||('חוקי '+(S.engine_version||'')))} · מסחר דמה</h3>
     <div class="rules">${rulesText()}</div>
   </div>`;
 }

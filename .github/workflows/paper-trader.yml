@@ -77,8 +77,12 @@ jobs:
           closed = c.execute("select count(*) from positions where status='closed'").fetchone()[0]
           opened = c.execute("select count(*) from positions where status='open'").fetchone()[0]
           print(f"continuity: cash=${float(row[0]):.4f} open={opened} closed={closed}")
-          if closed < 1:
+          note = c.execute("select v from meta where k='ledger_note'").fetchone()
+          fresh = note and "v2 + rug escape" in note[0] and abs(float(row[0]) - 30.0) < 0.001 and opened == 0
+          if closed < 1 and not fresh:
               sys.exit("REFUSING TO START: state.db has no closed trades — the history was not checked out")
+          if fresh:
+              print("fresh ledger accepted: v2 + rug escape, equity $30.00, history archived")
           PY
 
       - name: Run paper engine

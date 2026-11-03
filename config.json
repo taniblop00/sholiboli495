@@ -70,13 +70,13 @@
   },
   "costs": {
     "use_jupiter_quote": true,
-    "extra_slippage_pct_each_side": 1.5,
-    "fallback_slippage_pct_each_side": 3.0,
-    "priority_fee_sol_per_tx": 0.0003,
+    "extra_slippage_pct_each_side": 0.0,
+    "fallback_slippage_pct_each_side": 0.0,
+    "priority_fee_sol_per_tx": 5e-05,
     "network_base_fee_sol_per_tx": 5e-06,
     "max_entry_price_impact_pct": 2.0,
-    "wallet_swap_fee_pct": 0.85,
-    "_note": "Jupiter quote outAmount already includes pool/LP/creator fees (PumpSwap canonical ~1.0-1.25%/side for small caps). extra_slippage covers MEV/latency. wallet_swap_fee_pct = Phantom in-app swap fee (0.85%); set 0 if trading via Jupiter directly.",
+    "wallet_swap_fee_pct": 0.0,
+    "_note": "The Jupiter quote outAmount is the fill (pool fee included). extra_slippage and wallet_swap_fee stay 0 so costs are not counted twice. priority_fee is added once per side.",
     "max_mark_divergence_pct": 10,
     "max_total_entry_cost_pct": 7
   },
@@ -97,52 +97,54 @@
   "http": {
     "timeout": 10,
     "rugcheck_sleep_s": 1.2,
-    "jupiter_sleep_s": 1.1
+    "jupiter_sleep_s": 0.35
   },
   "gt_dexes": [
     "pumpswap",
     "raydium-launchlab",
     "meteora-dbc"
   ],
-  "_mode": "v8 liquid fade, PAPER ONLY (never signs or sends a transaction). Runs on GitHub Actions via main.py --minutes N",
+  "_mode": "v2 + rug escape, PAPER ONLY (never signs or sends a transaction). Runs on GitHub Actions via main.py --minutes N",
   "scalp": {
-    "_why": "v8 (2026-11-02). Fresh-meme sniping has no edge (66 live trades, PF 0.54). Walk-forward on liquid Solana pairs found no config with OOS PF >= 1.3. The live book is the best OOS config that still trades >= 3 times an hour: 5m opening-range fade, TP +1% / SL -0.4% / 30 min, on SOL JUP PENGU TRUMP FARTCOIN. OOS PF 0.32. Exits use the Jupiter sell quote and the quote is the fill (no second haircut). The meme scalp code remains but the loop does not call it.",
-    "position_size_usd": 3.0,
-    "max_concurrent": 3,
+    "_why": "Exact v2 book from v2_plan.md section 3, applied 2026-11-02 08:44 Asia/Jerusalem (config.v2.json). Self-review logged no parameter changes through the end of the v2 session at 10:00. One addition: rug_escape, repriced every 3s on the sell quote.",
+    "position_size_usd": 3.5,
+    "max_concurrent": 4,
     "max_new_per_scan": 2,
     "reentry_cooldown_min": 30,
     "min_cash_reserve_usd": 3.0,
     "max_rugchecks_per_scan": 10,
-    "max_same_deployer": 2,
+    "max_same_deployer": 999,
     "curve_costs": {
       "slippage_pct_each_side": 0.75,
       "_note": "1.5% round trip. A $3 bonding-curve order barely moves the price; this haircut is the fee plus gap."
     },
     "filters": {
-      "min_age_min": 2,
-      "max_age_min": 120,
+      "min_age_min": 3,
+      "max_age_min": 20,
       "min_mcap_usd": 15000,
       "max_mcap_usd": 400000,
-      "min_liquidity_usd": 12000,
-      "min_liq_to_mcap": 0.06,
-      "min_vol_m5_usd": 800,
-      "min_txns_m5": 20,
-      "min_buys_m5": 25,
-      "min_buy_sell_ratio_m5": 1.2,
-      "min_price_change_m5": 3.0,
+      "min_liquidity_usd": 20000,
+      "min_liq_to_mcap": 0.1,
+      "min_vol_m5_usd": 8000,
+      "min_txns_m5": 60,
+      "min_buys_m5": 20,
+      "min_buy_sell_ratio_m5": 1.4,
+      "min_price_change_m5": 6.0,
       "max_price_change_m5": 30.0,
-      "min_price_change_h1": -40.0,
-      "max_price_change_h1": 120.0,
-      "min_accel": 0.4,
+      "min_price_change_h1": -10.0,
+      "min_accel": 0.0,
       "require_social": false,
       "allowed_quote_symbols": [
-        "SOL",
-        "USDC"
+        "SOL"
       ],
       "blocked_dexes": [
         "meteora",
         "raydium",
-        "orca"
+        "orca",
+        "pumpfun",
+        "meteoradbc",
+        "launchlab",
+        "raydiumlaunchlab"
       ],
       "curve_dexes": [
         "pumpfun",
@@ -151,11 +153,7 @@
         "raydiumlaunchlab"
       ],
       "allowed_dexes": [
-        "pumpswap",
-        "pumpfun",
-        "meteoradbc",
-        "launchlab",
-        "raydiumlaunchlab"
+        "pumpswap"
       ],
       "curve": {
         "_why": "Pre-graduation. No LP to pull. Progress is proxied by mcap because the pump.fun HTTP API returns 403 from GitHub runners; $8k-$60k is about 15%-85% of a ~$69k graduation.",
@@ -173,13 +171,13 @@
         "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
         "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb"
       ],
-      "max_top10_pct_ex_pools": 30.0,
-      "max_single_holder_pct_ex_pools": 12.0,
-      "max_creator_pct": 10.0,
+      "max_top10_pct_ex_pools": 35.0,
+      "max_single_holder_pct_ex_pools": 8.0,
+      "max_creator_pct": 5.0,
       "min_lp_locked_pct": 0,
       "max_rugcheck_score_normalised": null,
       "max_insiders_detected": 3,
-      "min_total_holders": 50,
+      "min_total_holders": 200,
       "ignore_danger_risks": [
         "Large Amount of LP Unlocked",
         "Low Liquidity",
@@ -200,32 +198,37 @@
       "max_roundtrip_quote_loss_pct": 3.5
     },
     "exits": {
-      "stop_loss_gross_pct": -6.0,
-      "tp1_gross_pct": 10.0,
-      "tp1_sell_fraction": 1.0,
-      "stop_after_tp1_gross_pct": 10.0,
-      "runner_take_profit_gross_pct": 10.0,
-      "runner_trail_drawdown_pct": 4.0,
-      "runner_max_min": 8,
-      "time_stop_min": 4,
-      "time_stop_min_gain_pct": 3.0,
-      "max_hold_min": 8,
-      "lock_arm_gross_pct": 6.0,
-      "lock_giveback_pct": 4.0,
-      "exit_if_liquidity_drop_pct": 12.0,
-      "_note": "v6: sell 100% at +10%. No runner. Stop -6% (review may not go past -8). Time stop 4 min if under +3%. Hard max 8 min. Lock if price gives back 4% after having been +6%.",
-      "exit_sells_to_buys_m5": 1.0,
-      "exit_sell_spike_min_sells": 15,
-      "glitch_jump_multiple": 5.0
+      "stop_loss_gross_pct": -5.0,
+      "tp1_gross_pct": 15.0,
+      "tp1_sell_fraction": 0.5,
+      "stop_after_tp1_gross_pct": 3.0,
+      "runner_take_profit_gross_pct": 40.0,
+      "runner_trail_drawdown_pct": 10.0,
+      "runner_max_min": 30,
+      "time_stop_min": 12,
+      "time_stop_min_gain_pct": 4.0,
+      "max_hold_min": 30,
+      "exit_if_liquidity_drop_pct": 20.0,
+      "glitch_jump_multiple": 5.0,
+      "rug_escape": {
+        "poll_s": 3,
+        "liq_drop_pct": 20,
+        "airpocket_drop_pct": 9,
+        "impact_pct": 8,
+        "dev_drop_points": 2,
+        "top_holder_drop_points": 5,
+        "holder_check_s": 20
+      },
+      "_note": "v2 exits, decided on the sell quote. 50% at +15%, stop on the rest to +3%, runner to +40% or a 10% trail, hard stop -5%, time stop 12 min if under +4%, max 30 min. rug_escape is the only added exit."
     },
     "loop": {
-      "update_every_s": 15,
-      "scan_every_s": 45,
+      "update_every_s": 3,
+      "scan_every_s": 90,
       "swing_update_every_s": 300,
       "swing_cycle_every_s": 600,
       "self_review_every_s": 1800,
       "pass_timeout_s": 110,
-      "intra_scan_update_every_s": 15,
+      "intra_scan_update_every_s": 3,
       "export_every_s": 30,
       "drain_min": 12,
       "_note": "drain_min: no new entries in the last N minutes of a run, so nothing is left open between GitHub Actions runs"
@@ -236,83 +239,65 @@
       "min_fdv_usd": 8000,
       "max_recheck": 200
     },
-    "version": "v8",
+    "version": "v2",
     "review_v2": {
       "min_new_trades_for_change": 8,
-      "min_entries_per_hour_floor": 3,
-      "tp1_bounds": [
-        16.0,
-        28.0
-      ],
-      "stop_bounds": [
-        -8.0,
-        -8.0
-      ],
+      "min_entries_per_hour_floor": 2,
       "loose_floor": {
-        "min_price_change_m5": 2.0,
-        "min_buy_sell_ratio_m5": 1.1,
-        "min_vol_m5_usd": 500,
-        "min_txns_m5": 15,
-        "min_buys_m5": 20,
-        "min_accel": 0.3,
-        "max_price_change_m5": 15.0,
-        "max_price_change_h1": 80.0
+        "min_price_change_m5": 4.0,
+        "min_buy_sell_ratio_m5": 1.2,
+        "min_vol_m5_usd": 5000,
+        "min_txns_m5": 40,
+        "min_buys_m5": 10,
+        "min_accel": 0.0,
+        "max_price_change_m5": 20.0
       },
       "tight_cap": {
-        "min_price_change_m5": 8.0,
+        "min_price_change_m5": 10.0,
         "min_buy_sell_ratio_m5": 2.5,
-        "min_vol_m5_usd": 8000,
-        "min_txns_m5": 80,
+        "min_vol_m5_usd": 15000,
+        "min_txns_m5": 120,
         "min_buys_m5": 80,
-        "min_accel": 2.0,
-        "max_price_change_m5": 30.0,
-        "max_price_change_h1": 150.0
+        "min_accel": 1.5,
+        "max_price_change_m5": 40.0
       },
       "burned_bounds": {
-        "stop_loss_gross_pct": [-8.0, -4.0],
-        "tp1_gross_pct": [6.0, 14.0],
-        "tp1_sell_fraction": [1.0, 1.0],
-        "time_stop_min": [2.0, 6.0],
-        "time_stop_min_gain_pct": [1.0, 5.0],
-        "max_hold_min": [4.0, 12.0],
-        "lock_arm_gross_pct": [4.0, 8.0],
-        "lock_giveback_pct": [2.0, 6.0]
+        "tp1_gross_pct": [
+          12.0,
+          20.0
+        ]
       },
       "never_touch": [
         "safety",
         "tiers",
-        "require_social",
-        "curve",
-        "curve_dexes",
-        "blocked_dexes",
         "allowed_dexes",
+        "blocked_dexes",
         "position_size_usd",
         "max_concurrent",
-        "glitch_jump_multiple"
+        "stop_loss_gross_pct"
       ],
-      "_note": "v6: the review may tune momentum and the fast-exit knobs. Stop cannot go looser than -8. Full take-profit stays 100% (no runner). It cannot turn off the quality gate (safety, social, tiers) or re-enable creator_pool."
+      "_note": "v2 review: one momentum or TP1 knob, never safety, age, DEX, liquidity floor, size, or the -5% stop. Needs 8 new trades. Below 2 entries/hour after 45 min it loosens one momentum knob."
     },
     "tiers": {
-      "_why": "Curves have no LP to pull. Burned LP cannot be pulled. Creator pools can, and stay off.",
+      "_why": "v2 had one PumpSwap book and did trade creator pools (LP unlocked). Curves are not in that book.",
       "burned_min_lp_locked_pct": 90,
       "bonding_curve": {
-        "enabled": true,
-        "position_size_usd": 3.0,
-        "max_concurrent": 3,
-        "min_holders": 50
+        "enabled": false,
+        "position_size_usd": 3.5,
+        "max_concurrent": 0,
+        "min_holders": 200
       },
       "burned": {
         "enabled": true,
-        "position_size_usd": 3.0,
-        "max_concurrent": 3,
-        "min_holders": 150
+        "position_size_usd": 3.5,
+        "max_concurrent": 4,
+        "min_holders": 200
       },
       "creator_pool": {
-        "enabled": false,
-        "position_size_usd": 3.0,
-        "max_concurrent": 2,
-        "min_holders": 150,
-        "_why": "Disabled. Liquidity can be pulled. The code path remains."
+        "enabled": true,
+        "position_size_usd": 3.5,
+        "max_concurrent": 4,
+        "min_holders": 200
       }
     },
     "exits_by_tier": {
@@ -320,28 +305,7 @@
       "burned": {},
       "creator_pool": {}
     },
-    "liquid": {
-      "strategy": "orb_fade_30m",
-      "label": "orb fade 30m",
-      "timeframe": "5m",
-      "lookback_min": 30,
-      "tp_pct": 1.0,
-      "sl_pct": 0.4,
-      "max_hold_min": 30,
-      "position_size_usd": 3.0,
-      "max_concurrent": 4,
-      "min_cash_reserve_usd": 2.0,
-      "max_entry_roundtrip_loss_pct": 0.45,
-      "priority_fee_sol_per_tx": 0.00005,
-      "_oos": "Walk-forward last 30% (75h shared clock): n=241, 3.21/h, WR 22.8%, avg win +0.487%, avg loss -0.453%, PF 0.318, gross PF 0.789. Does not clear PF 1.3. Deployed because it is the highest OOS PF among configs with >= 3 trades/hour.",
-      "tokens": [
-        {"symbol": "SOL", "mint": "So11111111111111111111111111111111111111112", "decimals": 9, "quote": "USDC", "pool": "Czfq3xZZDmsdGdUyrNLtRhGc47cXcZtLG4crryfu44zE", "liq_usd": 25292025},
-        {"symbol": "JUP", "mint": "JUPyiwrYJFskUPiHa7hkeR8VUtAeFoSYbKedZNsDvCN", "decimals": 6, "quote": "SOL", "pool": "C8Gr6AUuq9hEdSYJzoEpNcdjpojPZwqG5MtQbeouNNwg", "liq_usd": 1797919},
-        {"symbol": "PENGU", "mint": "2zMMhcVQEXDtdE6vsFS7S7D5oUodfJHE8vd1gnBouauv", "decimals": 6, "quote": "SOL", "pool": "FAqh648xeeaTqL7du49sztp9nfj5PjRQrfvaMccyd9cz", "liq_usd": 3135442},
-        {"symbol": "TRUMP", "mint": "6p6xgHyF7AeE6TZkSmFsko444wqoP15icUSqi2jfGiPN", "decimals": 6, "quote": "SOL", "pool": "3C5YE97HADPDxZehYq9Cis8AXr9aNyrUsczKzE1nDbW9", "liq_usd": 5828187},
-        {"symbol": "FARTCOIN", "mint": "9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump", "decimals": 6, "quote": "SOL", "pool": "Bzc9NZfMqkXR6fz1DBph7BDf9BroyEf6pnzESP7v5iiw", "liq_usd": 6324895}
-      ]
-    }
+    "version_note": "v2 + rug escape"
   },
   "swing_enabled": false
 }

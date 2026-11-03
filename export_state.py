@@ -92,6 +92,7 @@ def build(c, run_info=None, status=None):
                         "tokens": [t.get("symbol") for t in (L.get("tokens") or [])]}
     return {
         "schema": 1, "mode": "PAPER (simulation only - no real trades, no wallet)", "engine_version": v,
+        "version_note": S.get("version_note") or v,
         "generated_at": run.iso(), "generated_at_local": run.local_now().strftime("%Y-%m-%d %H:%M:%S"), "timezone": "Asia/Jerusalem",
         "heartbeat": {"ts": run.iso(), "raw": hb},
         "status": {"state": status.get("state", "running"), "phase": status.get("phase"), "message": status.get("message"),
