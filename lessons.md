@@ -212,9 +212,24 @@ Per-trade notes are appended automatically after each closed trade. The aggregat
 - 2026-11-03 13:32 | #116 TRUMP | LOSS -0.3% ($-0.01) | exit: quote_time_stop | score None | age 0.0h mcap $0 h1 None% | signals: few holders (None), no X account
 - 2026-11-03 14:16 | #117 SOL | WIN +0.1% ($+0.00) | exit: quote_time_stop | score None | age 0.0h mcap $0 h1 None% | signals: few holders (None), no X account
 - 2026-11-03 14:26 | #118 TRUMP | WIN +0.7% ($+0.02) | exit: quote_take_profit | score None | age 0.0h mcap $0 h1 None% | signals: few holders (None), no X account
+- 2026-11-03 15:22 | #120 FARTCOIN | LOSS -0.8% ($-0.02) | exit: quote_stop | score None | age 0.0h mcap $0 h1 None% | signals: few holders (None), no X account
+- 2026-11-03 15:24 | #119 SOL | LOSS -0.8% ($-0.02) | exit: quote_stop | score None | age 0.0h mcap $0 h1 None% | signals: few holders (None), no X account
+- 2026-11-03 15:29 | #122 PENGU | WIN +0.7% ($+0.02) | exit: quote_take_profit | score None | age 0.0h mcap $0 h1 None% | signals: few holders (None), no X account
+- 2026-11-03 15:31 | #121 SOL | WIN +0.8% ($+0.02) | exit: quote_take_profit | score None | age 0.0h mcap $0 h1 None% | signals: few holders (None), no X account
+- 2026-11-03 15:36 | #123 TRUMP | LOSS -0.8% ($-0.02) | exit: quote_stop | score None | age 0.0h mcap $0 h1 None% | signals: few holders (None), no X account
+- 2026-11-03 15:36 | #125 FARTCOIN | LOSS -0.8% ($-0.03) | exit: quote_stop | score None | age 0.0h mcap $0 h1 None% | signals: few holders (None), no X account
+- 2026-11-03 15:53 | #124 SOL | LOSS -0.7% ($-0.02) | exit: quote_stop | score None | age 0.0h mcap $0 h1 None% | signals: few holders (None), no X account
+- 2026-11-03 16:07 | #126 TRUMP | LOSS -0.8% ($-0.02) | exit: quote_stop | score None | age 0.0h mcap $0 h1 None% | signals: few holders (None), no X account
+- 2026-11-03 16:45 | #127 SOL | WIN +0.2% ($+0.01) | exit: quote_time_stop | score None | age 0.0h mcap $0 h1 None% | signals: few holders (None), no X account
+- 2026-11-03 16:45 | #128 TRUMP | WIN +0.5% ($+0.01) | exit: quote_time_stop | score None | age 0.0h mcap $0 h1 None% | signals: few holders (None), no X account
+- 2026-11-03 16:50 | #129 PENGU | WIN +0.1% ($+0.00) | exit: quote_time_stop | score None | age 0.0h mcap $0 h1 None% | signals: few holders (None), no X account
+- 2026-11-03 17:18 | #131 TRUMP | LOSS -0.7% ($-0.02) | exit: quote_stop | score None | age 0.0h mcap $0 h1 None% | signals: few holders (None), no X account
+- 2026-11-03 17:22 | #132 FARTCOIN | LOSS -0.8% ($-0.02) | exit: quote_stop | score None | age 0.0h mcap $0 h1 None% | signals: few holders (None), no X account
+- 2026-11-03 17:45 | #130 SOL | WIN +0.1% ($+0.00) | exit: quote_time_stop | score None | age 0.0h mcap $0 h1 None% | signals: few holders (None), no X account
+- 2026-11-03 17:46 | #133 FARTCOIN | WIN +0.3% ($+0.01) | exit: run_end | score None | age 0.0h mcap $0 h1 None% | signals: few holders (None), no X account
 
 <!-- AGGREGATE -->
-## Aggregate SWING (auto-regenerated 2026-11-03 14:58 Asia/Jerusalem)
+## Aggregate SWING (auto-regenerated 2026-11-03 17:46 Asia/Jerusalem)
 
 Closed 9: 2 wins / 7 losses.
 
