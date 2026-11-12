@@ -1656,9 +1656,57 @@ Fresh ledger for **v2 + rug escape**, starting equity $30.00. The previous book 
 - v2 trades 18: WR 33%, avg win +20.6%, avg loss -67.8%, entries last 60 min 0 (floor 2/h), equity $5.81
 - Median winners vs losers: age_min 10.6/10.2, mcap 2.81e+04/7.61e+04, liq 4.36e+04/1.13e+05, pc_m5 17.3/11.6, bs_m5 4.36/1.8, holders 368/589, top10 11/15.6, entry_cost 0.515/-0.075, peak 40.5/13.9
 - Config changes: none (0 new trades since last change; need 8, or rate below floor after 45 min)
+### Self-review v2 2026-11-12 05:51 Asia/Jerusalem (auto)
+- v2 trades 18: WR 33%, avg win +20.6%, avg loss -67.8%, entries last 60 min 0 (floor 2/h), equity $5.81
+- Median winners vs losers: age_min 10.6/10.2, mcap 2.81e+04/7.61e+04, liq 4.36e+04/1.13e+05, pc_m5 17.3/11.6, bs_m5 4.36/1.8, holders 368/589, top10 11/15.6, entry_cost 0.515/-0.075, peak 40.5/13.9
+- Config changes: none (0 new trades since last change; need 8, or rate below floor after 45 min)
+### Self-review v2 2026-11-12 06:22 Asia/Jerusalem (auto)
+- v2 trades 18: WR 33%, avg win +20.6%, avg loss -67.8%, entries last 60 min 0 (floor 2/h), equity $5.81
+- Median winners vs losers: age_min 10.6/10.2, mcap 2.81e+04/7.61e+04, liq 4.36e+04/1.13e+05, pc_m5 17.3/11.6, bs_m5 4.36/1.8, holders 368/589, top10 11/15.6, entry_cost 0.515/-0.075, peak 40.5/13.9
+- Config changes: none (0 new trades since last change; need 8, or rate below floor after 45 min)
+### Self-review v2 2026-11-12 06:53 Asia/Jerusalem (auto)
+- v2 trades 18: WR 33%, avg win +20.6%, avg loss -67.8%, entries last 60 min 0 (floor 2/h), equity $5.81
+- Median winners vs losers: age_min 10.6/10.2, mcap 2.81e+04/7.61e+04, liq 4.36e+04/1.13e+05, pc_m5 17.3/11.6, bs_m5 4.36/1.8, holders 368/589, top10 11/15.6, entry_cost 0.515/-0.075, peak 40.5/13.9
+- Config changes: none (0 new trades since last change; need 8, or rate below floor after 45 min)
+### Self-review v2 2026-11-12 07:23 Asia/Jerusalem (auto)
+- v2 trades 18: WR 33%, avg win +20.6%, avg loss -67.8%, entries last 60 min 0 (floor 2/h), equity $5.81
+- Median winners vs losers: age_min 10.6/10.2, mcap 2.81e+04/7.61e+04, liq 4.36e+04/1.13e+05, pc_m5 17.3/11.6, bs_m5 4.36/1.8, holders 368/589, top10 11/15.6, entry_cost 0.515/-0.075, peak 40.5/13.9
+- Config changes: none (0 new trades since last change; need 8, or rate below floor after 45 min)
+### Self-review v2 2026-11-12 07:53 Asia/Jerusalem (auto)
+- v2 trades 18: WR 33%, avg win +20.6%, avg loss -67.8%, entries last 60 min 0 (floor 2/h), equity $5.81
+- Median winners vs losers: age_min 10.6/10.2, mcap 2.81e+04/7.61e+04, liq 4.36e+04/1.13e+05, pc_m5 17.3/11.6, bs_m5 4.36/1.8, holders 368/589, top10 11/15.6, entry_cost 0.515/-0.075, peak 40.5/13.9
+- Config changes: none (0 new trades since last change; need 8, or rate below floor after 45 min)
+### Self-review v2 2026-11-12 08:24 Asia/Jerusalem (auto)
+- v2 trades 18: WR 33%, avg win +20.6%, avg loss -67.8%, entries last 60 min 0 (floor 2/h), equity $5.81
+- Median winners vs losers: age_min 10.6/10.2, mcap 2.81e+04/7.61e+04, liq 4.36e+04/1.13e+05, pc_m5 17.3/11.6, bs_m5 4.36/1.8, holders 368/589, top10 11/15.6, entry_cost 0.515/-0.075, peak 40.5/13.9
+- Config changes: none (0 new trades since last change; need 8, or rate below floor after 45 min)
+### Self-review v2 2026-11-12 08:54 Asia/Jerusalem (auto)
+- v2 trades 18: WR 33%, avg win +20.6%, avg loss -67.8%, entries last 60 min 0 (floor 2/h), equity $5.81
+- Median winners vs losers: age_min 10.6/10.2, mcap 2.81e+04/7.61e+04, liq 4.36e+04/1.13e+05, pc_m5 17.3/11.6, bs_m5 4.36/1.8, holders 368/589, top10 11/15.6, entry_cost 0.515/-0.075, peak 40.5/13.9
+- Config changes: none (0 new trades since last change; need 8, or rate below floor after 45 min)
+### Self-review v2 2026-11-12 09:25 Asia/Jerusalem (auto)
+- v2 trades 18: WR 33%, avg win +20.6%, avg loss -67.8%, entries last 60 min 0 (floor 2/h), equity $5.81
+- Median winners vs losers: age_min 10.6/10.2, mcap 2.81e+04/7.61e+04, liq 4.36e+04/1.13e+05, pc_m5 17.3/11.6, bs_m5 4.36/1.8, holders 368/589, top10 11/15.6, entry_cost 0.515/-0.075, peak 40.5/13.9
+- Config changes: none (0 new trades since last change; need 8, or rate below floor after 45 min)
+### Self-review v2 2026-11-12 09:55 Asia/Jerusalem (auto)
+- v2 trades 18: WR 33%, avg win +20.6%, avg loss -67.8%, entries last 60 min 0 (floor 2/h), equity $5.81
+- Median winners vs losers: age_min 10.6/10.2, mcap 2.81e+04/7.61e+04, liq 4.36e+04/1.13e+05, pc_m5 17.3/11.6, bs_m5 4.36/1.8, holders 368/589, top10 11/15.6, entry_cost 0.515/-0.075, peak 40.5/13.9
+- Config changes: none (0 new trades since last change; need 8, or rate below floor after 45 min)
+### Self-review v2 2026-11-12 10:26 Asia/Jerusalem (auto)
+- v2 trades 18: WR 33%, avg win +20.6%, avg loss -67.8%, entries last 60 min 0 (floor 2/h), equity $5.81
+- Median winners vs losers: age_min 10.6/10.2, mcap 2.81e+04/7.61e+04, liq 4.36e+04/1.13e+05, pc_m5 17.3/11.6, bs_m5 4.36/1.8, holders 368/589, top10 11/15.6, entry_cost 0.515/-0.075, peak 40.5/13.9
+- Config changes: none (0 new trades since last change; need 8, or rate below floor after 45 min)
+### Self-review v2 2026-11-12 10:56 Asia/Jerusalem (auto)
+- v2 trades 18: WR 33%, avg win +20.6%, avg loss -67.8%, entries last 60 min 0 (floor 2/h), equity $5.81
+- Median winners vs losers: age_min 10.6/10.2, mcap 2.81e+04/7.61e+04, liq 4.36e+04/1.13e+05, pc_m5 17.3/11.6, bs_m5 4.36/1.8, holders 368/589, top10 11/15.6, entry_cost 0.515/-0.075, peak 40.5/13.9
+- Config changes: none (0 new trades since last change; need 8, or rate below floor after 45 min)
+### Self-review v2 2026-11-12 11:01 Asia/Jerusalem (auto)
+- v2 trades 18: WR 33%, avg win +20.6%, avg loss -67.8%, entries last 60 min 0 (floor 2/h), equity $5.81
+- Median winners vs losers: age_min 10.6/10.2, mcap 2.81e+04/7.61e+04, liq 4.36e+04/1.13e+05, pc_m5 17.3/11.6, bs_m5 4.36/1.8, holders 368/589, top10 11/15.6, entry_cost 0.515/-0.075, peak 40.5/13.9
+- Config changes: none (0 new trades since last change; need 8, or rate below floor after 45 min)
 
 <!-- AGGREGATE -->
-## Aggregate SWING (auto-regenerated 2026-11-12 05:21 Asia/Jerusalem)
+## Aggregate SWING (auto-regenerated 2026-11-12 11:01 Asia/Jerusalem)
 
 Only 0 closed trades - too few for statistical lessons (need >=5, ideally 30+).
 
