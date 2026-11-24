@@ -3703,3 +3703,1110 @@ SCALP: closed 18 | wins 6 | losses 12 | win rate 33% | avg win +20.6% | avg loss
 Scalp entries in last 60 min: 0
 avg win +20.6% | avg loss -67.8% | profit factor 0.15 | best 眉眉 +29.0% | worst 我画地为牢 -100.0%
 [2026-11-24 12:17:07] === RUN ended cleanly ===
+[2026-11-24 12:17:34] === RUN start pid 2376 v2 PAPER ONLY | 340 min (until 2026-11-24 17:57 Asia/Jerusalem), drain last 12 min | update 3s scan 90s export 30s | equity $5.81 ===
+[2026-11-24 12:17:54] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 12:18:05] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 12:18:18] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 12:18:41] [scalp] SCAN universe 287 (watchlist 184, +4 new, -42 dead) | momentum-pass 0 | safety-pass 0 | opened 0 | open 0/4 | top rejects {'blocked_dex': 165, 'too_old': 97, 'bad_quote': 11, 'mcap_range': 6, 'low_liq': 3, 'm5_not_rising': 2, 'no_reliable_price': 2, 'no_pair_data': 1}
+[2026-11-24 12:18:41] WARN loop wall-clock gap of 67s - positions re-priced at current market
+[2026-11-24 12:19:21] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 12:19:34] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 12:19:45] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 12:19:59] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 12:20:12] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 12:20:27]   [scalp] reject ANSEM      few_holders (top10 8.22% top1 3.43% holders 75 insiders 0)
+[2026-11-24 12:20:27] [scalp] SCAN universe 232 (watchlist 146, +4 new, -5 dead) | momentum-pass 1 | safety-pass 0 | opened 0 | open 0/4 | top rejects {'blocked_dex': 140, 'too_old': 70, 'bad_quote': 11, 'mcap_range': 6, 'low_liq': 2, 'no_reliable_price': 2, 'few_holders': 1}
+[2026-11-24 12:20:28] WARN loop wall-clock gap of 83s - positions re-priced at current market
+[2026-11-24 12:20:52] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 12:21:06] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 12:21:24] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 12:21:38] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 12:21:51]   [scalp] reject ANSEM      few_holders (top10 8.22% top1 3.43% holders 75 insiders 0)
+[2026-11-24 12:21:51] [scalp] SCAN universe 231 (watchlist 146, +5 new, -2 dead) | momentum-pass 1 | safety-pass 0 | opened 0 | open 0/4 | top rejects {'blocked_dex': 135, 'too_old': 71, 'bad_quote': 13, 'mcap_range': 5, 'low_liq': 3, 'no_reliable_price': 2, 'm5_parabolic': 1, 'few_holders': 1}
+[2026-11-24 12:21:51] WARN loop wall-clock gap of 74s - positions re-priced at current market
+[2026-11-24 12:22:25] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 12:22:38] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 12:22:54] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 12:23:05] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 12:23:26] [scalp] SCAN universe 239 (watchlist 154, +10 new, -7 dead) | momentum-pass 0 | safety-pass 0 | opened 0 | open 0/4 | top rejects {'blocked_dex': 144, 'too_old': 73, 'bad_quote': 12, 'mcap_range': 3, 'too_young': 2, 'no_reliable_price': 2, 'low_liq': 1, 'm5_parabolic': 1}
+[2026-11-24 12:23:27] WARN loop wall-clock gap of 78s - positions re-priced at current market
+[2026-11-24 12:24:00] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 12:24:14] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 12:24:27] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 12:24:41] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 12:24:58]   [scalp] reject Sunreel    few_holders (top10 2.63% top1 0.3% holders 107 insiders 0)
+[2026-11-24 12:24:58]   [scalp] reject ANSEM      few_holders (top10 8.22% top1 3.43% holders 75 insiders 0)
+[2026-11-24 12:24:58] [scalp] SCAN universe 232 (watchlist 152, +5 new, -5 dead) | momentum-pass 2 | safety-pass 0 | opened 0 | open 0/4 | top rejects {'blocked_dex': 139, 'too_old': 71, 'bad_quote': 12, 'low_liq': 3, 'mcap_range': 2, 'no_reliable_price': 2, 'few_holders': 2, 'm5_parabolic': 1}
+[2026-11-24 12:24:58] WARN loop wall-clock gap of 76s - positions re-priced at current market
+[2026-11-24 12:25:29] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 12:25:42] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 12:25:58] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 12:26:12] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 12:26:27]   [scalp] reject Sunreel    few_holders (top10 2.63% top1 0.3% holders 107 insiders 0)
+[2026-11-24 12:26:27] [scalp] SCAN universe 232 (watchlist 154, +7 new, -5 dead) | momentum-pass 1 | safety-pass 0 | opened 0 | open 0/4 | top rejects {'blocked_dex': 137, 'too_old': 71, 'bad_quote': 12, 'low_liq': 4, 'no_reliable_price': 2, 'too_young': 2, 'mcap_range': 1, 'm5_not_rising': 1}
+[2026-11-24 12:26:28] WARN loop wall-clock gap of 74s - positions re-priced at current market
+[2026-11-24 12:27:01] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 12:27:14] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 12:27:28] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 12:27:41] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 12:27:56] [scalp] SCAN universe 231 (watchlist 150, +1 new, -1 dead) | momentum-pass 0 | safety-pass 0 | opened 0 | open 0/4 | top rejects {'blocked_dex': 137, 'too_old': 70, 'bad_quote': 12, 'low_liq': 4, 'mcap_range': 3, 'm5_not_rising': 2, 'no_reliable_price': 2, 'low_vol_m5': 1}
+[2026-11-24 12:27:56] WARN loop wall-clock gap of 71s - positions re-priced at current market
+[2026-11-24 12:28:33] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 12:28:46] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 12:28:59] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 12:29:13] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 12:29:31] [scalp] SCAN universe 247 (watchlist 159, +10 new, -6 dead) | momentum-pass 1 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 153, 'too_old': 68, 'bad_quote': 13, 'mcap_range': 5, 'low_liq': 2, 'no_reliable_price': 2, 'm5_not_rising': 2, 'm5_parabolic': 1}
+[2026-11-24 12:29:31] WARN loop wall-clock gap of 74s - positions re-priced at current market
+[2026-11-24 12:30:05] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 12:30:18] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 12:30:37] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 12:30:50] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 12:31:08] [scalp] SCAN universe 239 (watchlist 160, +7 new, -2 dead) | momentum-pass 1 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 142, 'too_old': 70, 'bad_quote': 10, 'mcap_range': 5, 'low_liq': 2, 'm5_not_rising': 2, 'no_reliable_price': 2, 'too_young': 2}
+[2026-11-24 12:31:08] WARN loop wall-clock gap of 79s - positions re-priced at current market
+[2026-11-24 12:31:43] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 12:32:01] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 12:32:15] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 12:32:32] [scalp] SCAN universe 259 (watchlist 164, +6 new, -2 dead) | momentum-pass 3 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 141, 'too_old': 86, 'bad_quote': 13, 'mcap_range': 7, 'no_cash': 3, 'low_liq': 2, 'm5_parabolic': 2, 'no_reliable_price': 2}
+[2026-11-24 12:32:32] WARN loop wall-clock gap of 72s - positions re-priced at current market
+[2026-11-24 12:33:25] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 12:33:39] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 12:33:55]   [scalp] reject Karttag    few_holders (top10 5.39% top1 0.64% holders 73 insiders 0)
+[2026-11-24 12:33:58] [scalp] SCAN universe 262 (watchlist 168, +6 new, -1 dead) | momentum-pass 5 | safety-pass 4 | opened 0 | open 0/4 | top rejects {'blocked_dex': 143, 'too_old': 86, 'bad_quote': 13, 'mcap_range': 7, 'no_cash': 4, 'm5_parabolic': 3, 'no_reliable_price': 2, 'no_pair_data': 1}
+[2026-11-24 12:33:59] WARN loop wall-clock gap of 69s - positions re-priced at current market
+[2026-11-24 12:34:41] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 12:34:56] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 12:35:15] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 12:35:28]   [scalp] reject Karttag    few_holders (top10 5.39% top1 0.64% holders 73 insiders 0)
+[2026-11-24 12:35:30] [scalp] SCAN universe 245 (watchlist 171, +4 new, -3 dead) | momentum-pass 5 | safety-pass 4 | opened 0 | open 0/4 | top rejects {'blocked_dex': 133, 'too_old': 82, 'bad_quote': 9, 'mcap_range': 8, 'no_cash': 4, 'low_liq': 2, 'no_reliable_price': 2, 'no_pair_data': 1}
+[2026-11-24 12:35:30] WARN loop wall-clock gap of 67s - positions re-priced at current market
+[2026-11-24 12:36:14] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 12:36:27] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 12:36:44] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 12:37:00]   [scalp] reject Karttag    few_holders (top10 5.39% top1 0.64% holders 73 insiders 0)
+[2026-11-24 12:37:02]   [scalp] reject ON         few_holders (top10 3.89% top1 0.53% holders 133 insiders 0)
+[2026-11-24 12:37:04] [scalp] SCAN universe 263 (watchlist 169, +1 new, -2 dead) | momentum-pass 7 | safety-pass 5 | opened 0 | open 0/4 | top rejects {'blocked_dex': 142, 'too_old': 88, 'bad_quote': 12, 'mcap_range': 8, 'no_cash': 5, 'no_reliable_price': 2, 'few_holders': 2, 'm5_not_rising': 1}
+[2026-11-24 12:37:04] WARN loop wall-clock gap of 70s - positions re-priced at current market
+[2026-11-24 12:37:41] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 12:37:54] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 12:38:13] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 12:38:26] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 12:38:39] [scalp] SCAN universe 249 (watchlist 171, +4 new, -4 dead) | momentum-pass 2 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 148, 'too_old': 70, 'bad_quote': 11, 'mcap_range': 9, 'm5_not_rising': 4, 'no_reliable_price': 2, 'low_liq': 2, 'no_cash': 2}
+[2026-11-24 12:38:40] WARN loop wall-clock gap of 75s - positions re-priced at current market
+[2026-11-24 12:39:16] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 12:39:32] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 12:39:43] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 12:39:56] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 12:40:18]   [scalp] reject FLOAT      rugcheck_risk:Copycat token (top10 6.45% top1 2.59% holders 437 insiders 0)
+[2026-11-24 12:40:20] [scalp] SCAN universe 245 (watchlist 173, +6 new, -5 dead) | momentum-pass 4 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 137, 'too_old': 78, 'mcap_range': 9, 'bad_quote': 7, 'm5_not_rising': 3, 'no_cash': 3, 'no_reliable_price': 2, 'low_liq': 2}
+[2026-11-24 12:40:20] WARN loop wall-clock gap of 82s - positions re-priced at current market
+[2026-11-24 12:40:48] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 12:41:01] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 12:41:15] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 12:41:28] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 12:41:49]   [scalp] reject DUVAL      few_holders (top10 8.54% top1 3.43% holders 103 insiders 0)
+[2026-11-24 12:41:49] [scalp] SCAN universe 255 (watchlist 176, +8 new, -6 dead) | momentum-pass 4 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 150, 'too_old': 69, 'bad_quote': 12, 'mcap_range': 11, 'm5_not_rising': 3, 'no_cash': 3, 'no_reliable_price': 2, 'no_pair_data': 1}
+[2026-11-24 12:41:50] WARN loop wall-clock gap of 80s - positions re-priced at current market
+[2026-11-24 12:42:17] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 12:42:33] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 12:42:45] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 12:42:58] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 12:43:14] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 12:43:28]   [scalp] reject DUVAL      few_holders (top10 8.54% top1 3.43% holders 103 insiders 0)
+[2026-11-24 12:43:28] [scalp] SCAN universe 251 (watchlist 174, +4 new, -12 dead) | momentum-pass 2 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 149, 'too_old': 68, 'bad_quote': 12, 'mcap_range': 10, 'm5_not_rising': 3, 'no_reliable_price': 2, 'low_liq': 2, 'no_pair_data': 1}
+[2026-11-24 12:43:29] WARN loop wall-clock gap of 87s - positions re-priced at current market
+[2026-11-24 12:43:50] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 12:44:04] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 12:44:17] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 12:44:30] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 12:44:49]   [scalp] reject FLOAT      rugcheck_risk:Copycat token (top10 2.79% top1 0.34% holders 310 insiders 0)
+[2026-11-24 12:44:49]   [scalp] reject DUVAL      few_holders (top10 8.54% top1 3.43% holders 103 insiders 0)
+[2026-11-24 12:44:49] [scalp] SCAN universe 245 (watchlist 169, +7 new, -3 dead) | momentum-pass 4 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 147, 'too_old': 65, 'bad_quote': 10, 'mcap_range': 9, 'low_liq': 4, 'm5_not_rising': 2, 'no_reliable_price': 2, 'no_cash': 2}
+[2026-11-24 12:44:50] WARN loop wall-clock gap of 78s - positions re-priced at current market
+[2026-11-24 12:45:18] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 12:45:34] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 12:45:45] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 12:45:59] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 12:46:12] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 12:46:26]   [scalp] reject FLOAT      rugcheck_risk:Copycat token (top10 2.79% top1 0.34% holders 310 insiders 0)
+[2026-11-24 12:46:26] [scalp] SCAN universe 241 (watchlist 169, +3 new, -7 dead) | momentum-pass 2 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 146, 'too_old': 65, 'bad_quote': 9, 'mcap_range': 8, 'm5_not_rising': 3, 'low_liq': 3, 'no_reliable_price': 2, 'no_pair_data': 1}
+[2026-11-24 12:46:27] WARN loop wall-clock gap of 85s - positions re-priced at current market
+[2026-11-24 12:46:48] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 12:47:02] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 12:47:15] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 12:47:28] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 12:47:45]   [scalp] reject FLOAT      rugcheck_risk:Copycat token (top10 2.79% top1 0.34% holders 310 insiders 0)
+[2026-11-24 12:47:45] [scalp] SCAN universe 249 (watchlist 170, +8 new, -3 dead) | momentum-pass 1 | safety-pass 0 | opened 0 | open 0/4 | top rejects {'blocked_dex': 147, 'too_old': 62, 'bad_quote': 15, 'mcap_range': 8, 'low_liq': 4, 'm5_not_rising': 3, 'm5_parabolic': 3, 'no_reliable_price': 2}
+[2026-11-24 12:47:45] [review v2] v2 trades 18: WR 33%, avg win +20.6%, avg loss -67.8%, entries last 60 min 0 (floor 2/h), equity $5.81 | Median winners vs losers: age_min 10.6/10.2, mcap 2.81e+04/7.61e+04, liq 4.36e+04/1.13e+05, pc_m5 17.3/11.6, bs_m5 4.36/1.8, holders 368/589, top10 11/15.6, entry_cost 0.515/-0.075, peak 40.5/13.9 | Config changes: none (0 new trades since last change; need 8, or rate below floor after 45 min)
+[2026-11-24 12:47:45] WARN loop wall-clock gap of 72s - positions re-priced at current market
+[2026-11-24 12:48:21] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 12:48:35] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 12:48:53] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 12:49:04] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 12:49:18]   [scalp] reject FLOAT      rugcheck_risk:Copycat token (top10 2.79% top1 0.34% holders 310 insiders 0)
+[2026-11-24 12:49:18] [scalp] SCAN universe 242 (watchlist 170, +3 new, -6 dead) | momentum-pass 2 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 135, 'too_old': 75, 'bad_quote': 10, 'mcap_range': 5, 'low_liq': 4, 'm5_not_rising': 3, 'm5_parabolic': 2, 'no_reliable_price': 2}
+[2026-11-24 12:49:18] WARN loop wall-clock gap of 75s - positions re-priced at current market
+[2026-11-24 12:49:53] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 12:50:19]   [scalp] reject FLOAT      rugcheck_risk:Copycat token (top10 2.79% top1 0.34% holders 310 insiders 0)
+[2026-11-24 12:50:19] [scalp] SCAN universe 258 (watchlist 166, +2 new, -7 dead) | momentum-pass 1 | safety-pass 0 | opened 0 | open 0/4 | top rejects {'blocked_dex': 146, 'too_old': 79, 'bad_quote': 13, 'low_liq': 4, 'mcap_range': 4, 'm5_not_rising': 3, 'm5_parabolic': 3, 'no_reliable_price': 2}
+[2026-11-24 12:51:27] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 12:51:43] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 12:51:55] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 12:52:06] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 12:52:21]   [scalp] reject FLOAT      rugcheck_risk:Copycat token (top10 2.79% top1 0.34% holders 310 insiders 0)
+[2026-11-24 12:52:23] [scalp] SCAN universe 249 (watchlist 161, +2 new, -8 dead) | momentum-pass 2 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 138, 'too_old': 81, 'bad_quote': 12, 'low_liq': 3, 'mcap_range': 3, 'm5_not_rising': 3, 'no_reliable_price': 2, 'same_symbol_in_scan': 2}
+[2026-11-24 12:52:24] WARN loop wall-clock gap of 79s - positions re-priced at current market
+[2026-11-24 12:52:51] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 12:53:05] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 12:53:18] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 12:53:36] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 12:53:49]   [scalp] reject FLOAT      rugcheck_risk:Copycat token (top10 2.79% top1 0.34% holders 310 insiders 0)
+[2026-11-24 12:53:51]   [scalp] reject NVOWL      few_holders (top10 4.0% top1 0.51% holders 82 insiders 0)
+[2026-11-24 12:53:52] [scalp] SCAN universe 227 (watchlist 154, +1 new, -2 dead) | momentum-pass 3 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 134, 'too_old': 64, 'bad_quote': 12, 'low_liq': 4, 'mcap_range': 3, 'no_reliable_price': 2, 'same_symbol_in_scan': 2, 'no_pair_data': 1}
+[2026-11-24 12:53:53] WARN loop wall-clock gap of 77s - positions re-priced at current market
+[2026-11-24 12:54:23] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 12:54:37] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 12:54:53] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 12:55:04] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 12:55:17] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 12:55:30]   [scalp] reject NVOWL      few_holders (top10 4.0% top1 0.51% holders 82 insiders 0)
+[2026-11-24 12:55:32]   [scalp] reject FLOAT      rugcheck_risk:Copycat token (top10 6.43% top1 0.88% holders 910 insiders 0)
+[2026-11-24 12:55:32] [scalp] SCAN universe 231 (watchlist 155, +3 new, -5 dead) | momentum-pass 3 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 138, 'too_old': 64, 'bad_quote': 12, 'low_liq': 4, 'no_reliable_price': 2, 'mcap_range': 2, 'same_symbol_in_scan': 2, 'm5_not_rising': 1}
+[2026-11-24 12:55:32] WARN loop wall-clock gap of 85s - positions re-priced at current market
+[2026-11-24 12:55:54] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 12:56:12] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 12:56:26] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 12:56:39] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 12:56:53]   [scalp] reject NVOWL      few_holders (top10 4.0% top1 0.51% holders 82 insiders 0)
+[2026-11-24 12:56:56] [scalp] SCAN universe 232 (watchlist 155, +5 new, -2 dead) | momentum-pass 3 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 139, 'too_old': 64, 'bad_quote': 14, 'low_liq': 3, 'no_reliable_price': 2, 'mcap_range': 2, 'same_symbol_in_scan': 2, 'no_cash': 2}
+[2026-11-24 12:56:56] WARN loop wall-clock gap of 78s - positions re-priced at current market
+[2026-11-24 12:57:32] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 12:57:43] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 12:57:57] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 12:58:13] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 12:58:30]   [scalp] reject Bullseye   few_holders (top10 5.87% top1 1.03% holders 186 insiders 0)
+[2026-11-24 12:58:30] [scalp] SCAN universe 229 (watchlist 157, +4 new, -6 dead) | momentum-pass 2 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 128, 'too_old': 78, 'bad_quote': 9, 'low_liq': 4, 'no_reliable_price': 2, 'mcap_range': 2, 'm5_not_rising': 1, 'no_pair_data': 1}
+[2026-11-24 12:58:31] WARN loop wall-clock gap of 79s - positions re-priced at current market
+[2026-11-24 12:59:01] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 12:59:15] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 12:59:28] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 12:59:41] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 12:59:56]   [scalp] reject Bullseye   few_holders (top10 5.87% top1 1.03% holders 186 insiders 0)
+[2026-11-24 12:59:56] [scalp] SCAN universe 235 (watchlist 157, +6 new, -3 dead) | momentum-pass 2 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 141, 'too_old': 64, 'bad_quote': 14, 'mcap_range': 4, 'low_liq': 3, 'too_young': 2, 'no_reliable_price': 2, 'no_pair_data': 1}
+[2026-11-24 12:59:57] WARN loop wall-clock gap of 74s - positions re-priced at current market
+[2026-11-24 13:00:31] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 13:00:44] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 13:00:57] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 13:01:14] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 13:01:42] [scalp] SCAN universe 236 (watchlist 159, +5 new, -6 dead) | momentum-pass 1 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 146, 'too_old': 64, 'bad_quote': 14, 'low_liq': 4, 'mcap_range': 2, 'no_reliable_price': 2, 'no_pair_data': 1, 'm5_parabolic': 1}
+[2026-11-24 13:01:42] WARN loop wall-clock gap of 87s - positions re-priced at current market
+[2026-11-24 13:02:12] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 13:02:43] [scalp] SCAN universe 224 (watchlist 153, +0 new, -1 dead) | momentum-pass 2 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 126, 'too_old': 77, 'bad_quote': 10, 'low_liq': 4, 'mcap_range': 2, 'no_reliable_price': 2, 'no_cash': 2, 'no_pair_data': 1}
+[2026-11-24 13:03:43] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 13:04:06]   [scalp] reject NGBRAWL    few_holders (top10 2.23% top1 0.52% holders 114 insiders 0)
+[2026-11-24 13:04:08] [scalp] SCAN universe 265 (watchlist 163, +11 new, -6 dead) | momentum-pass 3 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 150, 'too_old': 82, 'bad_quote': 19, 'low_liq': 4, 'mcap_range': 3, 'no_reliable_price': 2, 'no_cash': 2, 'no_pair_data': 1}
+[2026-11-24 13:05:28]   [scalp] reject Bullseye   few_holders (top10 8.17% top1 2.17% holders 169 insiders 0)
+[2026-11-24 13:05:28] [scalp] SCAN universe 259 (watchlist 167, +10 new, -8 dead) | momentum-pass 2 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 147, 'too_old': 84, 'bad_quote': 15, 'mcap_range': 4, 'no_reliable_price': 2, 'low_liq': 2, 'm5_not_rising': 1, 'no_pair_data': 1}
+[2026-11-24 13:06:55]   [scalp] reject Bullseye   few_holders (top10 8.17% top1 2.17% holders 169 insiders 0)
+[2026-11-24 13:06:55] [scalp] SCAN universe 259 (watchlist 166, +7 new, -4 dead) | momentum-pass 2 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 150, 'too_old': 81, 'bad_quote': 15, 'mcap_range': 3, 'no_reliable_price': 2, 'low_liq': 2, 'too_young': 1, 'm5_not_rising': 1}
+[2026-11-24 13:08:12] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 13:08:25] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 13:08:44]   [scalp] reject Bullseye   few_holders (top10 8.17% top1 2.17% holders 169 insiders 0)
+[2026-11-24 13:08:44] [scalp] SCAN universe 263 (watchlist 165, +3 new, -3 dead) | momentum-pass 2 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 154, 'too_old': 79, 'bad_quote': 17, 'mcap_range': 3, 'low_liq': 3, 'no_reliable_price': 2, 'no_pair_data': 1, 'too_young': 1}
+[2026-11-24 13:09:38] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 13:09:54] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 13:10:13] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 13:10:29] [scalp] SCAN universe 250 (watchlist 170, +8 new, -3 dead) | momentum-pass 1 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 147, 'too_old': 75, 'bad_quote': 16, 'low_liq': 4, 'mcap_range': 2, 'no_reliable_price': 2, 'no_pair_data': 1, 'm5_not_rising': 1}
+[2026-11-24 13:10:29] WARN loop wall-clock gap of 69s - positions re-priced at current market
+[2026-11-24 13:11:14] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 13:11:27] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 13:11:41] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 13:11:54] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 13:12:07] [scalp] SCAN universe 250 (watchlist 171, +4 new, -0 dead) | momentum-pass 1 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 149, 'too_old': 75, 'bad_quote': 14, 'low_liq': 4, 'mcap_range': 2, 'no_reliable_price': 2, 'm5_not_rising': 1, 'no_pair_data': 1}
+[2026-11-24 13:12:08] WARN loop wall-clock gap of 75s - positions re-priced at current market
+[2026-11-24 13:12:44] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 13:12:57] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 13:13:13] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 13:13:27] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 13:13:42]   [scalp] reject Bullseye   few_holders (top10 6.81% top1 1.31% holders 177 insiders 0)
+[2026-11-24 13:13:42] [scalp] SCAN universe 250 (watchlist 171, +0 new, -2 dead) | momentum-pass 1 | safety-pass 0 | opened 0 | open 0/4 | top rejects {'blocked_dex': 149, 'too_old': 76, 'bad_quote': 13, 'low_liq': 4, 'mcap_range': 2, 'no_reliable_price': 2, 'm5_not_rising': 1, 'no_pair_data': 1}
+[2026-11-24 13:13:42] WARN loop wall-clock gap of 76s - positions re-priced at current market
+[2026-11-24 13:14:17] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 13:14:32] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 13:14:46] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 13:15:00]   [scalp] reject Bullseye   few_holders (top10 6.81% top1 1.31% holders 177 insiders 0)
+[2026-11-24 13:15:00] [scalp] SCAN universe 272 (watchlist 172, +3 new, -2 dead) | momentum-pass 1 | safety-pass 0 | opened 0 | open 0/4 | top rejects {'blocked_dex': 160, 'too_old': 79, 'bad_quote': 21, 'low_liq': 4, 'mcap_range': 2, 'no_reliable_price': 2, 'm5_not_rising': 1, 'no_pair_data': 1}
+[2026-11-24 13:15:01] WARN loop wall-clock gap of 64s - positions re-priced at current market
+[2026-11-24 13:15:45] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 13:15:59] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 13:16:12] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 13:16:25] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 13:16:39] [scalp] SCAN universe 259 (watchlist 175, +5 new, -3 dead) | momentum-pass 0 | safety-pass 0 | opened 0 | open 0/4 | top rejects {'blocked_dex': 148, 'too_old': 78, 'bad_quote': 21, 'low_liq': 4, 'm5_not_rising': 2, 'mcap_range': 2, 'no_reliable_price': 2, 'no_pair_data': 1}
+[2026-11-24 13:16:40] WARN loop wall-clock gap of 72s - positions re-priced at current market
+[2026-11-24 13:17:16] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 13:17:32] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 13:17:43] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 13:17:56] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 13:18:16] [scalp] SCAN universe 260 (watchlist 175, +3 new, -5 dead) | momentum-pass 0 | safety-pass 0 | opened 0 | open 0/4 | top rejects {'blocked_dex': 148, 'too_old': 76, 'bad_quote': 25, 'low_liq': 4, 'm5_not_rising': 2, 'no_reliable_price': 2, 'mcap_range': 2, 'no_pair_data': 1}
+[2026-11-24 13:18:16] [review v2] v2 trades 18: WR 33%, avg win +20.6%, avg loss -67.8%, entries last 60 min 0 (floor 2/h), equity $5.81 | Median winners vs losers: age_min 10.6/10.2, mcap 2.81e+04/7.61e+04, liq 4.36e+04/1.13e+05, pc_m5 17.3/11.6, bs_m5 4.36/1.8, holders 368/589, top10 11/15.6, entry_cost 0.515/-0.075, peak 40.5/13.9 | Config changes: none (0 new trades since last change; need 8, or rate below floor after 45 min)
+[2026-11-24 13:18:17] WARN loop wall-clock gap of 79s - positions re-priced at current market
+[2026-11-24 13:18:42] WARN scalp gt gt_trend1h: GET failed https://api.geckoterminal.com/api/v2/networks/solana/trending_pools?duration=1h&page=1: HTTP 429
+[2026-11-24 13:19:01] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 13:19:14] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 13:19:27] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 13:19:43]   [scalp] reject Bullseye   few_holders (top10 6.81% top1 1.31% holders 177 insiders 0)
+[2026-11-24 13:19:43] [scalp] SCAN universe 266 (watchlist 179, +9 new, -1 dead) | momentum-pass 1 | safety-pass 0 | opened 0 | open 0/4 | top rejects {'blocked_dex': 166, 'too_old': 80, 'bad_quote': 12, 'low_liq': 3, 'no_reliable_price': 2, 'no_pair_data': 1, 'mcap_range': 1, 'few_holders': 1}
+[2026-11-24 13:19:44] WARN loop wall-clock gap of 75s - positions re-priced at current market
+[2026-11-24 13:20:14] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 13:20:28] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 13:20:44] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 13:20:58] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 13:21:18]   [scalp] reject Bullseye   few_holders (top10 6.81% top1 1.31% holders 177 insiders 0)
+[2026-11-24 13:21:18] [scalp] SCAN universe 270 (watchlist 181, +3 new, -6 dead) | momentum-pass 1 | safety-pass 0 | opened 0 | open 0/4 | top rejects {'blocked_dex': 166, 'too_old': 68, 'bad_quote': 29, 'low_liq': 2, 'no_reliable_price': 2, 'no_pair_data': 1, 'mcap_range': 1, 'few_holders': 1}
+[2026-11-24 13:21:18] WARN loop wall-clock gap of 80s - positions re-priced at current market
+[2026-11-24 13:21:53] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 13:22:21]   [scalp] reject Malidol    few_holders (top10 2.39% top1 0.97% holders 122 insiders 0)
+[2026-11-24 13:22:21]   [scalp] reject Bullseye   few_holders (top10 6.81% top1 1.31% holders 177 insiders 0)
+[2026-11-24 13:22:21] [scalp] SCAN universe 283 (watchlist 177, +2 new, -4 dead) | momentum-pass 2 | safety-pass 0 | opened 0 | open 0/4 | top rejects {'blocked_dex': 166, 'too_old': 82, 'bad_quote': 28, 'mcap_range': 2, 'no_reliable_price': 2, 'few_holders': 2, 'no_pair_data': 1}
+[2026-11-24 13:23:23] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 13:23:46] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 13:24:01]   [scalp] reject Malidol    few_holders (top10 2.39% top1 0.97% holders 122 insiders 0)
+[2026-11-24 13:24:03] [scalp] SCAN universe 279 (watchlist 179, +6 new, -4 dead) | momentum-pass 2 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 164, 'too_old': 82, 'bad_quote': 23, 'mcap_range': 4, 'no_reliable_price': 2, 'no_pair_data': 1, 'too_young': 1, 'few_holders': 1}
+[2026-11-24 13:24:03] WARN loop wall-clock gap of 63s - positions re-priced at current market
+[2026-11-24 13:25:03] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 13:25:16] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 13:25:31] [scalp] SCAN universe 282 (watchlist 183, +8 new, -7 dead) | momentum-pass 1 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 167, 'too_old': 82, 'bad_quote': 23, 'mcap_range': 4, 'no_reliable_price': 2, 'no_pair_data': 1, 'low_liq': 1, 'low_vol_m5': 1}
+[2026-11-24 13:26:27] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 13:26:38] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 13:26:50] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 13:27:01] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 13:27:14] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 13:27:30] [scalp] SCAN universe 274 (watchlist 177, +1 new, -8 dead) | momentum-pass 0 | safety-pass 0 | opened 0 | open 0/4 | top rejects {'blocked_dex': 163, 'too_old': 85, 'bad_quote': 17, 'low_liq': 3, 'mcap_range': 2, 'no_reliable_price': 2, 'no_pair_data': 1, 'm5_sell_pressure': 1}
+[2026-11-24 13:27:30] WARN loop wall-clock gap of 85s - positions re-priced at current market
+[2026-11-24 13:27:52] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 13:28:05] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 13:28:18] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 13:28:37] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 13:28:53] [scalp] SCAN universe 261 (watchlist 181, +12 new, -5 dead) | momentum-pass 1 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 167, 'too_old': 63, 'bad_quote': 19, 'mcap_range': 5, 'low_liq': 3, 'no_reliable_price': 2, 'no_pair_data': 1, 'no_cash': 1}
+[2026-11-24 13:28:53] WARN loop wall-clock gap of 77s - positions re-priced at current market
+[2026-11-24 13:29:25] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 13:29:38] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 13:29:55] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 13:30:06] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 13:30:32]   [scalp] reject FLOAT      rugcheck_risk:Copycat token (top10 6.04% top1 2.59% holders 370 insiders 0)
+[2026-11-24 13:30:32] [scalp] SCAN universe 264 (watchlist 185, +9 new, -10 dead) | momentum-pass 2 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 170, 'too_old': 64, 'bad_quote': 16, 'mcap_range': 4, 'too_young': 2, 'no_reliable_price': 2, 'low_liq': 2, 'm5_sell_pressure': 1}
+[2026-11-24 13:30:32] WARN loop wall-clock gap of 84s - positions re-priced at current market
+[2026-11-24 13:31:00] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 13:31:13] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 13:31:27] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 13:31:48]   [scalp] reject FLOAT      rugcheck_risk:Copycat token (top10 6.04% top1 2.59% holders 370 insiders 0)
+[2026-11-24 13:31:50]   [scalp] reject HAULER     few_holders (top10 4.24% top1 0.59% holders 81 insiders 0)
+[2026-11-24 13:31:52] [scalp] SCAN universe 263 (watchlist 183, +8 new, -5 dead) | momentum-pass 4 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 167, 'too_old': 64, 'bad_quote': 15, 'mcap_range': 4, 'low_liq': 3, 'too_young': 3, 'no_reliable_price': 2, 'no_cash': 2}
+[2026-11-24 13:31:52] WARN loop wall-clock gap of 71s - positions re-priced at current market
+[2026-11-24 13:32:42] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 13:33:02]   [scalp] reject FLOAT      rugcheck_risk:Copycat token (top10 6.04% top1 2.59% holders 370 insiders 0)
+[2026-11-24 13:33:06]   [scalp] reject HAULER     few_holders (top10 4.24% top1 0.59% holders 81 insiders 0)
+[2026-11-24 13:33:06] [scalp] SCAN universe 284 (watchlist 185, +7 new, -4 dead) | momentum-pass 5 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 168, 'too_old': 81, 'bad_quote': 16, 'low_liq': 5, 'mcap_range': 4, 'no_cash': 3, 'no_reliable_price': 2, 'same_symbol_in_scan': 2}
+[2026-11-24 13:34:23]   [scalp] reject FLOAT      rugcheck_risk:Copycat token (top10 6.04% top1 2.59% holders 370 insiders 0)
+[2026-11-24 13:34:23]   [scalp] reject HAULER     few_holders (top10 4.24% top1 0.59% holders 81 insiders 0)
+[2026-11-24 13:34:23] [scalp] SCAN universe 286 (watchlist 191, +10 new, -4 dead) | momentum-pass 4 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 171, 'too_old': 79, 'bad_quote': 15, 'mcap_range': 6, 'low_liq': 5, 'no_reliable_price': 2, 'same_symbol_in_scan': 2, 'no_cash': 2}
+[2026-11-24 13:35:39] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 13:35:50] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 13:36:01] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 13:36:15] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 13:36:30]   [scalp] reject FLOAT      rugcheck_risk:Copycat token (top10 6.04% top1 2.59% holders 370 insiders 0)
+[2026-11-24 13:36:30] [scalp] SCAN universe 284 (watchlist 188, +1 new, -8 dead) | momentum-pass 3 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 167, 'too_old': 79, 'bad_quote': 16, 'mcap_range': 7, 'low_liq': 6, 'no_reliable_price': 2, 'no_cash': 2, 'no_pair_data': 1}
+[2026-11-24 13:36:30] WARN loop wall-clock gap of 73s - positions re-priced at current market
+[2026-11-24 13:37:13] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 13:37:27] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 13:37:40] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 13:37:57]   [scalp] reject FLOAT      rugcheck_risk:Copycat token (top10 6.04% top1 2.59% holders 370 insiders 0)
+[2026-11-24 13:38:00]   [scalp] reject Bullseye   few_holders (top10 6.39% top1 1.6% holders 171 insiders 0)
+[2026-11-24 13:38:00] [scalp] SCAN universe 284 (watchlist 189, +9 new, -1 dead) | momentum-pass 4 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 166, 'too_old': 76, 'bad_quote': 17, 'mcap_range': 8, 'low_liq': 7, 'no_reliable_price': 2, 'no_cash': 2, 'no_pair_data': 1}
+[2026-11-24 13:38:01] WARN loop wall-clock gap of 72s - positions re-priced at current market
+[2026-11-24 13:38:36] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 13:38:53] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 13:39:04] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 13:39:17] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 13:39:34]   [scalp] reject FLOAT      rugcheck_risk:Copycat token (top10 6.04% top1 2.59% holders 370 insiders 0)
+[2026-11-24 13:39:34]   [scalp] reject Bullseye   few_holders (top10 6.39% top1 1.6% holders 171 insiders 0)
+[2026-11-24 13:39:35] [scalp] SCAN universe 265 (watchlist 190, +2 new, -9 dead) | momentum-pass 5 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 155, 'too_old': 72, 'bad_quote': 13, 'mcap_range': 8, 'low_liq': 5, 'no_cash': 3, 'no_reliable_price': 2, 'same_symbol_in_scan': 2}
+[2026-11-24 13:39:36] WARN loop wall-clock gap of 77s - positions re-priced at current market
+[2026-11-24 13:40:06] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 13:40:25] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 13:40:38] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 13:40:52] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 13:41:10]   [scalp] reject FLOAT      rugcheck_risk:Copycat token (top10 7.26% top1 2.59% holders 873 insiders 0)
+[2026-11-24 13:41:10]   [scalp] reject Bullseye   few_holders (top10 6.39% top1 1.6% holders 171 insiders 0)
+[2026-11-24 13:41:10] [scalp] SCAN universe 263 (watchlist 188, +7 new, -3 dead) | momentum-pass 5 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 159, 'too_old': 61, 'bad_quote': 15, 'mcap_range': 7, 'low_liq': 4, 'too_young': 3, 'no_cash': 3, 'no_pair_data': 2}
+[2026-11-24 13:41:10] WARN loop wall-clock gap of 79s - positions re-priced at current market
+[2026-11-24 13:41:43] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 13:41:59] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 13:42:12] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 13:42:26] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 13:42:42]   [scalp] reject Bullseye   few_holders (top10 6.39% top1 1.6% holders 171 insiders 0)
+[2026-11-24 13:42:44]   [scalp] reject ANSEM      few_holders (top10 5.58% top1 2.3% holders 151 insiders 0)
+[2026-11-24 13:42:45] [scalp] SCAN universe 266 (watchlist 190, +5 new, -3 dead) | momentum-pass 6 | safety-pass 4 | opened 0 | open 0/4 | top rejects {'blocked_dex': 151, 'too_old': 73, 'bad_quote': 12, 'mcap_range': 9, 'low_liq': 5, 'no_cash': 4, 'm5_sell_pressure': 3, 'same_symbol_in_scan': 3}
+[2026-11-24 13:42:46] WARN loop wall-clock gap of 84s - positions re-priced at current market
+[2026-11-24 13:43:12] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 13:43:26] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 13:43:39] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 13:43:52] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 13:44:08]   [scalp] reject Bullseye   few_holders (top10 6.39% top1 1.6% holders 171 insiders 0)
+[2026-11-24 13:44:08]   [scalp] reject ANSEM      few_holders (top10 5.58% top1 2.3% holders 151 insiders 0)
+[2026-11-24 13:44:08] [scalp] SCAN universe 262 (watchlist 188, +1 new, -7 dead) | momentum-pass 5 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 150, 'too_old': 73, 'bad_quote': 9, 'mcap_range': 9, 'low_liq': 5, 'm5_sell_pressure': 4, 'no_cash': 3, 'no_pair_data': 2}
+[2026-11-24 13:44:08] WARN loop wall-clock gap of 73s - positions re-priced at current market
+[2026-11-24 13:44:44] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 13:44:57] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 13:45:14] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 13:45:27] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 13:45:41] [scalp] SCAN universe 259 (watchlist 185, +4 new, -4 dead) | momentum-pass 3 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 146, 'too_old': 74, 'bad_quote': 12, 'mcap_range': 9, 'm5_not_rising': 5, 'low_liq': 3, 'm5_sell_pressure': 3, 'no_cash': 3}
+[2026-11-24 13:45:42] WARN loop wall-clock gap of 76s - positions re-priced at current market
+[2026-11-24 13:46:28] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 13:46:42]   [scalp] reject Bullseye   few_holders (top10 6.39% top1 1.6% holders 171 insiders 0)
+[2026-11-24 13:46:44]   [scalp] reject CHIBI      whale_holder (top10 18.33% top1 10.5% holders 162 insiders 0)
+[2026-11-24 13:46:44] [scalp] SCAN universe 280 (watchlist 186, +5 new, -1 dead) | momentum-pass 3 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 158, 'too_old': 79, 'bad_quote': 16, 'mcap_range': 10, 'm5_not_rising': 4, 'low_liq': 4, 'no_pair_data': 2, 'no_reliable_price': 2}
+[2026-11-24 13:48:06] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 13:48:25]   [scalp] reject CHIBI      whale_holder (top10 18.33% top1 10.5% holders 162 insiders 0)
+[2026-11-24 13:48:25] [scalp] SCAN universe 288 (watchlist 194, +9 new, -6 dead) | momentum-pass 4 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 163, 'too_old': 82, 'bad_quote': 16, 'mcap_range': 10, 'm5_not_rising': 3, 'too_young': 3, 'no_cash': 3, 'low_liq': 2}
+[2026-11-24 13:48:25] [review v2] v2 trades 18: WR 33%, avg win +20.6%, avg loss -67.8%, entries last 60 min 0 (floor 2/h), equity $5.81 | Median winners vs losers: age_min 10.6/10.2, mcap 2.81e+04/7.61e+04, liq 4.36e+04/1.13e+05, pc_m5 17.3/11.6, bs_m5 4.36/1.8, holders 368/589, top10 11/15.6, entry_cost 0.515/-0.075, peak 40.5/13.9 | Config changes: none (0 new trades since last change; need 8, or rate below floor after 45 min)
+[2026-11-24 13:49:35] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 13:49:53]   [scalp] reject CHIBI      whale_holder (top10 18.33% top1 10.5% holders 162 insiders 0)
+[2026-11-24 13:49:53] [scalp] SCAN universe 288 (watchlist 196, +8 new, -4 dead) | momentum-pass 5 | safety-pass 4 | opened 0 | open 0/4 | top rejects {'blocked_dex': 163, 'too_old': 85, 'bad_quote': 16, 'mcap_range': 7, 'no_cash': 4, 'm5_not_rising': 2, 'no_pair_data': 2, 'no_reliable_price': 2}
+[2026-11-24 13:50:50] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 13:51:03] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 13:51:16] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 13:51:30] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 13:51:50]   [scalp] reject 英伟达        insider_network (top10 5.56% top1 0.77% holders 957 insiders 47)
+[2026-11-24 13:51:52] [scalp] SCAN universe 277 (watchlist 197, +5 new, -6 dead) | momentum-pass 4 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 159, 'too_old': 80, 'bad_quote': 13, 'mcap_range': 6, 'm5_not_rising': 3, 'no_reliable_price': 3, 'same_symbol_in_scan': 3, 'no_cash': 3}
+[2026-11-24 13:51:52] WARN loop wall-clock gap of 80s - positions re-priced at current market
+[2026-11-24 13:52:22] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 13:52:33] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 13:52:46] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 13:52:58] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 13:53:14] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 13:53:28]   [scalp] reject 英伟达        insider_network (top10 5.56% top1 0.77% holders 957 insiders 47)
+[2026-11-24 13:53:30]   [scalp] reject Ktrap      few_holders (top10 6.74% top1 1.15% holders 141 insiders 0)
+[2026-11-24 13:53:30] [scalp] SCAN universe 271 (watchlist 191, +0 new, -7 dead) | momentum-pass 4 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 155, 'too_old': 79, 'bad_quote': 13, 'mcap_range': 5, 'low_liq': 4, 'no_reliable_price': 3, 'm5_not_rising': 2, 'no_pair_data': 2}
+[2026-11-24 13:53:31] WARN loop wall-clock gap of 86s - positions re-priced at current market
+[2026-11-24 13:53:52] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 13:54:05] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 13:54:29] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 13:54:40] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 13:54:55]   [scalp] reject Ktrap      few_holders (top10 6.74% top1 1.15% holders 141 insiders 0)
+[2026-11-24 13:54:55]   [scalp] reject 英伟达        insider_network (top10 5.56% top1 0.77% holders 957 insiders 47)
+[2026-11-24 13:54:55] [scalp] SCAN universe 264 (watchlist 186, +2 new, -2 dead) | momentum-pass 4 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 159, 'too_old': 66, 'bad_quote': 18, 'mcap_range': 5, 'no_reliable_price': 3, 'low_liq': 2, 'no_pair_data': 2, 'm5_sell_pressure': 2}
+[2026-11-24 13:54:55] WARN loop wall-clock gap of 79s - positions re-priced at current market
+[2026-11-24 13:55:23] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 13:55:36] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 13:55:52] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 13:56:04] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 13:56:17] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 13:56:34]   [scalp] reject 英伟达        insider_network (top10 5.56% top1 0.77% holders 957 insiders 47)
+[2026-11-24 13:56:34] [scalp] SCAN universe 262 (watchlist 187, +3 new, -5 dead) | momentum-pass 3 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 158, 'too_old': 69, 'bad_quote': 14, 'mcap_range': 5, 'low_liq': 3, 'no_reliable_price': 3, 'm5_not_rising': 2, 'no_pair_data': 2}
+[2026-11-24 13:56:34] WARN loop wall-clock gap of 87s - positions re-priced at current market
+[2026-11-24 13:56:53] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 13:57:06] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 13:57:25] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 13:57:38] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 13:57:55] [scalp] SCAN universe 263 (watchlist 187, +5 new, -2 dead) | momentum-pass 2 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 159, 'too_old': 70, 'bad_quote': 14, 'low_liq': 4, 'mcap_range': 4, 'm5_not_rising': 3, 'no_reliable_price': 3, 'no_pair_data': 2}
+[2026-11-24 13:57:55] WARN loop wall-clock gap of 78s - positions re-priced at current market
+[2026-11-24 13:58:26] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 13:58:39] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 13:58:52] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 13:59:03] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 13:59:17] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 13:59:31] [scalp] SCAN universe 263 (watchlist 188, +3 new, -5 dead) | momentum-pass 3 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 160, 'too_old': 72, 'bad_quote': 14, 'mcap_range': 3, 'no_reliable_price': 3, 'no_cash': 3, 'low_liq': 2, 'no_pair_data': 2}
+[2026-11-24 13:59:32] WARN loop wall-clock gap of 82s - positions re-priced at current market
+[2026-11-24 14:00:01] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 14:00:15] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 14:00:29] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 14:01:00] [scalp] SCAN universe 280 (watchlist 187, +4 new, -7 dead) | momentum-pass 4 | safety-pass 4 | opened 0 | open 0/4 | top rejects {'blocked_dex': 161, 'too_old': 89, 'bad_quote': 13, 'mcap_range': 4, 'no_cash': 4, 'low_liq': 3, 'no_reliable_price': 3, 'no_pair_data': 2}
+[2026-11-24 14:01:00] WARN loop wall-clock gap of 79s - positions re-priced at current market
+[2026-11-24 14:01:36] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 14:01:55] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 14:02:12] [scalp] SCAN universe 278 (watchlist 189, +9 new, -1 dead) | momentum-pass 5 | safety-pass 5 | opened 0 | open 0/4 | top rejects {'blocked_dex': 162, 'too_old': 86, 'bad_quote': 12, 'no_cash': 5, 'mcap_range': 4, 'low_liq': 3, 'no_reliable_price': 3, 'no_pair_data': 1}
+[2026-11-24 14:02:12] WARN loop wall-clock gap of 60s - positions re-priced at current market
+[2026-11-24 14:03:28] [scalp] SCAN universe 277 (watchlist 190, +2 new, -2 dead) | momentum-pass 5 | safety-pass 5 | opened 0 | open 0/4 | top rejects {'blocked_dex': 159, 'too_old': 84, 'bad_quote': 15, 'mcap_range': 5, 'no_cash': 5, 'low_liq': 3, 'no_reliable_price': 3, 'no_pair_data': 1}
+[2026-11-24 14:04:36] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 14:04:54] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 14:05:06] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 14:05:21] [scalp] SCAN universe 280 (watchlist 190, +2 new, -12 dead) | momentum-pass 5 | safety-pass 5 | opened 0 | open 0/4 | top rejects {'blocked_dex': 163, 'too_old': 85, 'bad_quote': 14, 'no_cash': 5, 'low_liq': 4, 'mcap_range': 4, 'no_reliable_price': 3, 'no_pair_data': 1}
+[2026-11-24 14:05:22] WARN loop wall-clock gap of 68s - positions re-priced at current market
+[2026-11-24 14:06:13] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 14:06:26] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 14:06:47] [scalp] SCAN universe 277 (watchlist 186, +8 new, -6 dead) | momentum-pass 4 | safety-pass 4 | opened 0 | open 0/4 | top rejects {'blocked_dex': 155, 'too_old': 89, 'bad_quote': 15, 'mcap_range': 6, 'low_liq': 4, 'no_cash': 4, 'no_reliable_price': 3, 'no_pair_data': 1}
+[2026-11-24 14:06:47] WARN loop wall-clock gap of 61s - positions re-priced at current market
+[2026-11-24 14:07:42] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 14:07:53] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 14:08:05] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 14:08:18] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 14:08:33] [scalp] SCAN universe 281 (watchlist 181, +1 new, -5 dead) | momentum-pass 3 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 159, 'too_old': 93, 'bad_quote': 15, 'mcap_range': 5, 'low_liq': 3, 'no_cash': 3, 'no_reliable_price': 2, 'no_pair_data': 1}
+[2026-11-24 14:08:34] WARN loop wall-clock gap of 77s - positions re-priced at current market
+[2026-11-24 14:09:12] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 14:09:25] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 14:09:38] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 14:09:55] [scalp] SCAN universe 272 (watchlist 181, +5 new, -2 dead) | momentum-pass 3 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 155, 'too_old': 92, 'bad_quote': 12, 'mcap_range': 4, 'low_liq': 3, 'no_cash': 3, 'no_reliable_price': 2, 'no_pair_data': 1}
+[2026-11-24 14:09:56] WARN loop wall-clock gap of 67s - positions re-priced at current market
+[2026-11-24 14:10:29] WARN scalp gt gt_trend5m: GET failed https://api.geckoterminal.com/api/v2/networks/solana/trending_pools?duration=5m&page=1: HTTP 429
+[2026-11-24 14:10:40] WARN scalp gt gt_trend5m: GET failed https://api.geckoterminal.com/api/v2/networks/solana/trending_pools?duration=5m&page=2: HTTP 429
+[2026-11-24 14:10:51] WARN scalp gt gt_trend1h: GET failed https://api.geckoterminal.com/api/v2/networks/solana/trending_pools?duration=1h&page=1: HTTP 429
+[2026-11-24 14:11:05] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 14:11:16] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 14:11:29] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 14:11:40] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 14:11:51] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 14:12:09] [scalp] SCAN universe 235 (watchlist 185, +6 new, -4 dead) | momentum-pass 3 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 141, 'too_old': 77, 'bad_quote': 5, 'mcap_range': 4, 'no_cash': 3, 'no_reliable_price': 2, 'low_liq': 2, 'no_pair_data': 1}
+[2026-11-24 14:12:10] WARN loop wall-clock gap of 110s - positions re-priced at current market
+[2026-11-24 14:12:24] WARN scalp gt gt_trend5m: GET failed https://api.geckoterminal.com/api/v2/networks/solana/trending_pools?duration=5m&page=2: HTTP 429
+[2026-11-24 14:12:35] WARN scalp gt gt_trend1h: GET failed https://api.geckoterminal.com/api/v2/networks/solana/trending_pools?duration=1h&page=1: HTTP 429
+[2026-11-24 14:12:49] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 14:13:02] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 14:13:13] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 14:13:27] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 14:13:38] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 14:13:53] [scalp] SCAN universe 239 (watchlist 182, +1 new, -4 dead) | momentum-pass 2 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 141, 'too_old': 79, 'bad_quote': 7, 'mcap_range': 4, 'low_liq': 3, 'no_reliable_price': 2, 'no_cash': 2, 'no_pair_data': 1}
+[2026-11-24 14:13:54] WARN loop wall-clock gap of 104s - positions re-priced at current market
+[2026-11-24 14:14:05] WARN scalp gt gt_trend5m: GET failed https://api.geckoterminal.com/api/v2/networks/solana/trending_pools?duration=5m&page=2: HTTP 429
+[2026-11-24 14:14:16] WARN scalp gt gt_trend1h: GET failed https://api.geckoterminal.com/api/v2/networks/solana/trending_pools?duration=1h&page=1: HTTP 429
+[2026-11-24 14:14:27] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 14:14:38] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 14:14:50] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 14:15:03] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 14:15:14] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 14:15:27] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 14:15:41] [scalp] SCAN universe 229 (watchlist 190, +12 new, -4 dead) | momentum-pass 0 | safety-pass 0 | opened 0 | open 0/4 | top rejects {'blocked_dex': 147, 'too_old': 63, 'bad_quote': 8, 'mcap_range': 4, 'low_liq': 3, 'no_reliable_price': 2, 'no_pair_data': 1, 'm5_sell_pressure': 1}
+[2026-11-24 14:15:41] WARN loop wall-clock gap of 108s - positions re-priced at current market
+[2026-11-24 14:15:50] WARN scalp gt gt_trend5m: GET failed https://api.geckoterminal.com/api/v2/networks/solana/trending_pools?duration=5m&page=1: HTTP 429
+[2026-11-24 14:16:04] WARN scalp gt gt_trend1h: GET failed https://api.geckoterminal.com/api/v2/networks/solana/trending_pools?duration=1h&page=1: HTTP 429
+[2026-11-24 14:16:30] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 14:16:45] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 14:17:00] [scalp] SCAN universe 269 (watchlist 191, +5 new, -4 dead) | momentum-pass 0 | safety-pass 0 | opened 0 | open 0/4 | top rejects {'blocked_dex': 162, 'too_old': 83, 'bad_quote': 13, 'mcap_range': 4, 'no_reliable_price': 2, 'm5_parabolic': 1, 'low_liq': 1, 'no_pair_data': 1}
+[2026-11-24 14:17:01] WARN loop wall-clock gap of 79s - positions re-priced at current market
+[2026-11-24 14:17:28] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 14:17:42] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 14:18:02] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 14:18:22] [scalp] SCAN universe 260 (watchlist 190, +3 new, -5 dead) | momentum-pass 0 | safety-pass 0 | opened 0 | open 0/4 | top rejects {'blocked_dex': 164, 'too_old': 74, 'bad_quote': 13, 'mcap_range': 4, 'no_reliable_price': 2, 'low_liq': 1, 'no_pair_data': 1, 'too_young': 1}
+[2026-11-24 14:18:22] WARN loop wall-clock gap of 69s - positions re-priced at current market
+[2026-11-24 14:18:25] [review v2] v2 trades 18: WR 33%, avg win +20.6%, avg loss -67.8%, entries last 60 min 0 (floor 2/h), equity $5.81 | Median winners vs losers: age_min 10.6/10.2, mcap 2.81e+04/7.61e+04, liq 4.36e+04/1.13e+05, pc_m5 17.3/11.6, bs_m5 4.36/1.8, holders 368/589, top10 11/15.6, entry_cost 0.515/-0.075, peak 40.5/13.9 | Config changes: none (0 new trades since last change; need 8, or rate below floor after 45 min)
+[2026-11-24 14:19:05] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 14:19:16] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 14:19:38] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 14:19:53] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 14:20:07] [scalp] SCAN universe 244 (watchlist 191, +6 new, -6 dead) | momentum-pass 0 | safety-pass 0 | opened 0 | open 0/4 | top rejects {'blocked_dex': 155, 'too_old': 72, 'bad_quote': 8, 'mcap_range': 4, 'low_liq': 2, 'no_reliable_price': 2, 'no_pair_data': 1}
+[2026-11-24 14:20:08] WARN loop wall-clock gap of 85s - positions re-priced at current market
+[2026-11-24 14:20:36] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 14:20:49] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 14:21:02] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 14:21:21] [scalp] SCAN universe 283 (watchlist 193, +8 new, -4 dead) | momentum-pass 2 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 168, 'too_old': 91, 'bad_quote': 12, 'mcap_range': 4, 'too_young': 3, 'no_reliable_price': 2, 'no_cash': 2, 'no_pair_data': 1}
+[2026-11-24 14:21:22] WARN loop wall-clock gap of 68s - positions re-priced at current market
+[2026-11-24 14:22:13] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 14:22:26] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 14:22:45] [scalp] SCAN universe 280 (watchlist 190, +1 new, -3 dead) | momentum-pass 3 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 164, 'too_old': 94, 'bad_quote': 13, 'no_cash': 3, 'too_young': 2, 'mcap_range': 2, 'no_reliable_price': 1, 'no_pair_data': 1}
+[2026-11-24 14:23:36] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 14:23:52] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 14:24:04] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 14:24:17] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 14:24:34] [scalp] SCAN universe 264 (watchlist 191, +4 new, -6 dead) | momentum-pass 2 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 156, 'too_old': 90, 'bad_quote': 9, 'low_liq': 2, 'mcap_range': 2, 'no_cash': 2, 'no_reliable_price': 1, 'no_pair_data': 1}
+[2026-11-24 14:24:35] WARN loop wall-clock gap of 76s - positions re-priced at current market
+[2026-11-24 14:25:05] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 14:25:24] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 14:25:37] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 14:25:50] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 14:26:07] [scalp] SCAN universe 261 (watchlist 189, +4 new, -7 dead) | momentum-pass 3 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 163, 'too_old': 76, 'bad_quote': 12, 'low_liq': 3, 'no_cash': 3, 'mcap_range': 2, 'no_reliable_price': 1, 'no_pair_data': 1}
+[2026-11-24 14:26:08] WARN loop wall-clock gap of 78s - positions re-priced at current market
+[2026-11-24 14:26:35] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 14:26:49] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 14:27:02] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 14:27:15] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 14:27:32] [scalp] SCAN universe 256 (watchlist 183, +1 new, -5 dead) | momentum-pass 2 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 160, 'too_old': 74, 'bad_quote': 12, 'low_liq': 3, 'mcap_range': 2, 'no_cash': 2, 'no_reliable_price': 1, 'no_pair_data': 1}
+[2026-11-24 14:27:32] WARN loop wall-clock gap of 72s - positions re-priced at current market
+[2026-11-24 14:28:06] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 14:28:24] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 14:28:38] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 14:28:51] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 14:29:05] [scalp] SCAN universe 253 (watchlist 180, +2 new, -5 dead) | momentum-pass 3 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 158, 'too_old': 73, 'bad_quote': 12, 'low_liq': 3, 'no_cash': 3, 'mcap_range': 2, 'no_reliable_price': 1, 'no_pair_data': 1}
+[2026-11-24 14:29:06] WARN loop wall-clock gap of 76s - positions re-priced at current market
+[2026-11-24 14:29:36] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 14:29:50] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 14:30:03] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 14:30:16] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 14:30:35] [scalp] SCAN universe 251 (watchlist 177, +2 new, -12 dead) | momentum-pass 1 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 155, 'too_old': 71, 'bad_quote': 14, 'mcap_range': 4, 'low_liq': 2, 'm5_parabolic': 1, 'm5_sell_pressure': 1, 'no_reliable_price': 1}
+[2026-11-24 14:30:36] WARN loop wall-clock gap of 75s - positions re-priced at current market
+[2026-11-24 14:31:14] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 14:31:27] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 14:31:50]   [scalp] reject ANSEM      few_holders (top10 1.57% top1 0.95% holders 129 insiders 0)
+[2026-11-24 14:31:50] [scalp] SCAN universe 265 (watchlist 175, +10 new, -4 dead) | momentum-pass 2 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 154, 'too_old': 85, 'bad_quote': 14, 'mcap_range': 5, 'm5_parabolic': 1, 'no_reliable_price': 1, 'no_pair_data': 1, 'm5_sell_pressure': 1}
+[2026-11-24 14:33:19]   [scalp] reject ANSEM      few_holders (top10 1.57% top1 0.95% holders 129 insiders 0)
+[2026-11-24 14:33:19] [scalp] SCAN universe 274 (watchlist 183, +12 new, -2 dead) | momentum-pass 5 | safety-pass 4 | opened 0 | open 0/4 | top rejects {'blocked_dex': 156, 'too_old': 86, 'bad_quote': 15, 'mcap_range': 6, 'no_cash': 4, 'm5_sell_pressure': 2, 'low_liq': 1, 'm5_not_rising': 1}
+[2026-11-24 14:34:28] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 14:34:47] [scalp] SCAN universe 279 (watchlist 187, +6 new, -11 dead) | momentum-pass 5 | safety-pass 5 | opened 0 | open 0/4 | top rejects {'blocked_dex': 162, 'too_old': 87, 'bad_quote': 14, 'no_cash': 5, 'mcap_range': 4, 'low_liq': 2, 'm5_not_rising': 2, 'no_reliable_price': 1}
+[2026-11-24 14:36:00] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 14:36:17] [scalp] SCAN universe 269 (watchlist 177, +1 new, -6 dead) | momentum-pass 4 | safety-pass 4 | opened 0 | open 0/4 | top rejects {'blocked_dex': 153, 'too_old': 85, 'bad_quote': 15, 'mcap_range': 4, 'no_cash': 4, 'low_liq': 3, 'm5_not_rising': 2, 'no_reliable_price': 1}
+[2026-11-24 14:37:18] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 14:37:30] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 14:37:43] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 14:37:54] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 14:38:09] [scalp] SCAN universe 267 (watchlist 175, +4 new, -8 dead) | momentum-pass 4 | safety-pass 4 | opened 0 | open 0/4 | top rejects {'blocked_dex': 151, 'too_old': 86, 'bad_quote': 14, 'mcap_range': 4, 'no_cash': 4, 'low_liq': 3, 'm5_not_rising': 2, 'no_reliable_price': 1}
+[2026-11-24 14:38:09] WARN loop wall-clock gap of 73s - positions re-priced at current market
+[2026-11-24 14:38:48] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 14:39:03] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 14:39:24] [scalp] SCAN universe 242 (watchlist 168, +1 new, -3 dead) | momentum-pass 3 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 135, 'too_old': 82, 'bad_quote': 10, 'low_liq': 3, 'mcap_range': 3, 'no_cash': 3, 'm5_not_rising': 2, 'no_reliable_price': 1}
+[2026-11-24 14:40:22] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 14:40:33] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 14:40:46] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 14:41:01] [scalp] SCAN universe 265 (watchlist 167, +2 new, -7 dead) | momentum-pass 2 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 149, 'too_old': 87, 'bad_quote': 16, 'mcap_range': 4, 'low_liq': 2, 'm5_not_rising': 2, 'no_cash': 2, 'no_reliable_price': 1}
+[2026-11-24 14:41:02] WARN loop wall-clock gap of 64s - positions re-priced at current market
+[2026-11-24 14:41:49] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 14:42:03] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 14:42:16] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 14:42:29] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 14:42:43] [scalp] SCAN universe 241 (watchlist 164, +4 new, -5 dead) | momentum-pass 2 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 137, 'too_old': 81, 'bad_quote': 9, 'mcap_range': 4, 'm5_not_rising': 3, 'low_liq': 2, 'no_cash': 2, 'no_reliable_price': 1}
+[2026-11-24 14:42:44] WARN loop wall-clock gap of 75s - positions re-priced at current market
+[2026-11-24 14:43:17] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 14:43:28] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 14:43:39] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 14:43:52] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 14:44:04] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 14:44:25] [scalp] SCAN universe 245 (watchlist 166, +7 new, -6 dead) | momentum-pass 2 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 139, 'too_old': 83, 'bad_quote': 11, 'mcap_range': 5, 'low_liq': 2, 'no_cash': 2, 'no_reliable_price': 1, 'no_pair_data': 1}
+[2026-11-24 14:44:25] WARN loop wall-clock gap of 86s - positions re-priced at current market
+[2026-11-24 14:44:50] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 14:45:03] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 14:45:17] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 14:45:30] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 14:45:48] [scalp] SCAN universe 244 (watchlist 167, +7 new, -4 dead) | momentum-pass 3 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 149, 'too_old': 70, 'bad_quote': 12, 'mcap_range': 4, 'no_cash': 3, 'low_liq': 2, 'm5_not_rising': 1, 'no_reliable_price': 1}
+[2026-11-24 14:45:48] WARN loop wall-clock gap of 77s - positions re-priced at current market
+[2026-11-24 14:46:19] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 14:46:32] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 14:46:43] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 14:46:57] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 14:47:13] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 14:47:28] [scalp] SCAN universe 246 (watchlist 166, +3 new, -3 dead) | momentum-pass 2 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 151, 'too_old': 68, 'bad_quote': 13, 'mcap_range': 4, 'low_liq': 2, 'same_symbol_in_scan': 2, 'no_cash': 2, 'm5_not_rising': 1}
+[2026-11-24 14:47:28] WARN loop wall-clock gap of 85s - positions re-priced at current market
+[2026-11-24 14:47:50] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 14:48:03] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 14:48:17] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 14:48:40] [scalp] SCAN universe 253 (watchlist 169, +6 new, -6 dead) | momentum-pass 1 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 155, 'too_old': 67, 'bad_quote': 15, 'mcap_range': 4, 'low_liq': 3, 'too_young': 2, 'm5_not_rising': 1, 'no_reliable_price': 1}
+[2026-11-24 14:48:40] [review v2] v2 trades 18: WR 33%, avg win +20.6%, avg loss -67.8%, entries last 60 min 0 (floor 2/h), equity $5.81 | Median winners vs losers: age_min 10.6/10.2, mcap 2.81e+04/7.61e+04, liq 4.36e+04/1.13e+05, pc_m5 17.3/11.6, bs_m5 4.36/1.8, holders 368/589, top10 11/15.6, entry_cost 0.515/-0.075, peak 40.5/13.9 | Config changes: none (0 new trades since last change; need 8, or rate below floor after 45 min)
+[2026-11-24 14:48:41] WARN loop wall-clock gap of 67s - positions re-priced at current market
+[2026-11-24 14:49:20] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 14:49:34] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 14:49:45] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 14:49:58] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 14:50:15] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 14:50:31] [scalp] SCAN universe 254 (watchlist 171, +8 new, -2 dead) | momentum-pass 1 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 157, 'too_old': 70, 'bad_quote': 14, 'low_liq': 5, 'mcap_range': 2, 'no_reliable_price': 1, 'no_pair_data': 1, 'low_vol_m5': 1}
+[2026-11-24 14:50:31] WARN loop wall-clock gap of 87s - positions re-priced at current market
+[2026-11-24 14:51:03] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 14:51:16] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 14:51:29] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 14:51:45] [scalp] SCAN universe 270 (watchlist 175, +6 new, -6 dead) | momentum-pass 2 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 157, 'too_old': 87, 'bad_quote': 13, 'low_liq': 5, 'mcap_range': 2, 'no_cash': 2, 'm5_parabolic': 1, 'no_reliable_price': 1}
+[2026-11-24 14:51:46] WARN loop wall-clock gap of 68s - positions re-priced at current market
+[2026-11-24 14:52:28] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 14:52:44] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 14:52:55] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 14:53:06] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 14:53:27] [scalp] SCAN universe 260 (watchlist 180, +11 new, -6 dead) | momentum-pass 2 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 157, 'too_old': 81, 'bad_quote': 11, 'low_liq': 3, 'mcap_range': 2, 'no_cash': 2, 'no_reliable_price': 1, 'no_pair_data': 1}
+[2026-11-24 14:53:28] WARN loop wall-clock gap of 78s - positions re-priced at current market
+[2026-11-24 14:53:53] WARN scalp gt gt_trend1h: GET failed https://api.geckoterminal.com/api/v2/networks/solana/trending_pools?duration=1h&page=1: HTTP 429
+[2026-11-24 14:54:12] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 14:54:25] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 14:54:38] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 14:54:57]   [scalp] reject Brebar     few_holders (top10 6.87% top1 1.63% holders 58 insiders 0)
+[2026-11-24 14:54:57] [scalp] SCAN universe 259 (watchlist 177, +3 new, -4 dead) | momentum-pass 3 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 160, 'too_old': 75, 'bad_quote': 11, 'low_liq': 3, 'mcap_range': 3, 'same_symbol_in_scan': 2, 'no_cash': 2, 'no_reliable_price': 1}
+[2026-11-24 14:54:58] WARN loop wall-clock gap of 78s - positions re-priced at current market
+[2026-11-24 14:55:31] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 14:55:44] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 14:55:57] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 14:56:14] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 14:56:28]   [scalp] reject Brebar     few_holders (top10 6.87% top1 1.63% holders 58 insiders 0)
+[2026-11-24 14:56:28] [scalp] SCAN universe 249 (watchlist 175, +2 new, -2 dead) | momentum-pass 3 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 149, 'too_old': 78, 'bad_quote': 9, 'low_liq': 3, 'same_symbol_in_scan': 3, 'mcap_range': 2, 'no_cash': 2, 'no_reliable_price': 1}
+[2026-11-24 14:56:28] WARN loop wall-clock gap of 76s - positions re-priced at current market
+[2026-11-24 14:57:01] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 14:57:14] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 14:57:28] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 14:57:41] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 14:57:55]   [scalp] reject Brebar     few_holders (top10 6.87% top1 1.63% holders 58 insiders 0)
+[2026-11-24 14:57:55] [scalp] SCAN universe 253 (watchlist 180, +7 new, -4 dead) | momentum-pass 3 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 152, 'too_old': 80, 'bad_quote': 9, 'low_liq': 2, 'mcap_range': 2, 'no_cash': 2, 'no_reliable_price': 1, 'no_pair_data': 1}
+[2026-11-24 14:57:55] WARN loop wall-clock gap of 72s - positions re-priced at current market
+[2026-11-24 14:58:34] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 14:58:45] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 14:58:58] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 14:59:12] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 14:59:29] [scalp] SCAN universe 255 (watchlist 181, +5 new, -1 dead) | momentum-pass 2 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 153, 'too_old': 81, 'bad_quote': 9, 'mcap_range': 4, 'low_liq': 3, 'no_cash': 2, 'no_reliable_price': 1, 'no_pair_data': 1}
+[2026-11-24 14:59:30] WARN loop wall-clock gap of 74s - positions re-priced at current market
+[2026-11-24 15:00:03] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 15:00:17] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 15:00:30] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 15:00:49] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 15:01:09]   [scalp] reject DUVAL      few_holders (top10 3.03% top1 1.54% holders 182 insiders 0)
+[2026-11-24 15:01:09] [scalp] SCAN universe 264 (watchlist 189, +9 new, -3 dead) | momentum-pass 2 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 167, 'too_old': 71, 'bad_quote': 13, 'mcap_range': 4, 'low_liq': 3, 'm5_not_rising': 1, 'no_reliable_price': 1, 'no_pair_data': 1}
+[2026-11-24 15:01:10] WARN loop wall-clock gap of 82s - positions re-priced at current market
+[2026-11-24 15:01:35] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 15:01:58] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 15:02:21] [scalp] SCAN universe 264 (watchlist 191, +5 new, -8 dead) | momentum-pass 2 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 168, 'too_old': 66, 'bad_quote': 14, 'mcap_range': 5, 'low_liq': 3, 'm5_not_rising': 2, 'no_cash': 2, 'no_reliable_price': 1}
+[2026-11-24 15:02:22] WARN loop wall-clock gap of 63s - positions re-priced at current market
+[2026-11-24 15:03:42] [scalp] SCAN universe 276 (watchlist 187, +4 new, -1 dead) | momentum-pass 3 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 165, 'too_old': 80, 'bad_quote': 15, 'mcap_range': 6, 'low_liq': 3, 'no_cash': 3, 'no_reliable_price': 1, 'no_pair_data': 1}
+[2026-11-24 15:04:50] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 15:05:08] [scalp] SCAN universe 276 (watchlist 186, +0 new, -6 dead) | momentum-pass 3 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 164, 'too_old': 81, 'bad_quote': 15, 'mcap_range': 7, 'low_liq': 3, 'no_cash': 3, 'no_reliable_price': 1, 'no_pair_data': 1}
+[2026-11-24 15:06:35] [scalp] SCAN universe 281 (watchlist 190, +10 new, -2 dead) | momentum-pass 4 | safety-pass 4 | opened 0 | open 0/4 | top rejects {'blocked_dex': 165, 'too_old': 89, 'bad_quote': 12, 'mcap_range': 6, 'no_cash': 4, 'low_liq': 2, 'm5_not_rising': 1, 'no_reliable_price': 1}
+[2026-11-24 15:07:51] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 15:08:04] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 15:08:23] [scalp] SCAN universe 284 (watchlist 192, +4 new, -2 dead) | momentum-pass 3 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 167, 'too_old': 89, 'bad_quote': 15, 'mcap_range': 6, 'no_cash': 3, 'm5_not_rising': 1, 'no_reliable_price': 1, 'no_pair_data': 1}
+[2026-11-24 15:09:41]   [scalp] reject Goldtemp   few_holders (top10 3.97% top1 0.43% holders 58 insiders 0)
+[2026-11-24 15:09:41] [scalp] SCAN universe 288 (watchlist 195, +5 new, -4 dead) | momentum-pass 4 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 174, 'too_old': 84, 'bad_quote': 15, 'mcap_range': 6, 'no_cash': 3, 'low_liq': 2, 'm5_not_rising': 1, 'no_reliable_price': 1}
+[2026-11-24 15:10:47] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 15:11:00] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 15:11:14] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 15:11:33]   [scalp] reject Goldtemp   few_holders (top10 3.97% top1 0.43% holders 58 insiders 0)
+[2026-11-24 15:11:33] [scalp] SCAN universe 293 (watchlist 196, +5 new, -9 dead) | momentum-pass 4 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 176, 'too_old': 86, 'bad_quote': 16, 'mcap_range': 6, 'no_cash': 3, 'low_liq': 2, 'no_reliable_price': 1, 'no_pair_data': 1}
+[2026-11-24 15:11:33] WARN loop wall-clock gap of 66s - positions re-priced at current market
+[2026-11-24 15:12:15] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 15:12:28] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 15:12:45] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 15:13:05]   [scalp] reject Goldtemp   few_holders (top10 3.97% top1 0.43% holders 58 insiders 0)
+[2026-11-24 15:13:07] [scalp] SCAN universe 271 (watchlist 192, +5 new, -6 dead) | momentum-pass 3 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 159, 'too_old': 81, 'bad_quote': 17, 'mcap_range': 6, 'no_cash': 2, 'low_liq': 1, 'no_reliable_price': 1, 'no_pair_data': 1}
+[2026-11-24 15:13:08] WARN loop wall-clock gap of 70s - positions re-priced at current market
+[2026-11-24 15:13:52] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 15:14:05] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 15:14:18] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 15:14:38] [scalp] SCAN universe 285 (watchlist 188, +2 new, -3 dead) | momentum-pass 3 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 164, 'too_old': 86, 'bad_quote': 19, 'mcap_range': 7, 'no_cash': 3, 'low_liq': 2, 'no_reliable_price': 1, 'no_pair_data': 1}
+[2026-11-24 15:14:39] WARN loop wall-clock gap of 70s - positions re-priced at current market
+[2026-11-24 15:15:18] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 15:15:29] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 15:15:42] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 15:15:54] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 15:16:05] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 15:16:24] [scalp] SCAN universe 266 (watchlist 191, +6 new, -11 dead) | momentum-pass 4 | safety-pass 4 | opened 0 | open 0/4 | top rejects {'blocked_dex': 154, 'too_old': 83, 'bad_quote': 14, 'mcap_range': 7, 'no_cash': 4, 'no_reliable_price': 1, 'no_pair_data': 1, 'low_liq': 1}
+[2026-11-24 15:16:25] WARN loop wall-clock gap of 85s - positions re-priced at current market
+[2026-11-24 15:17:03] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 15:17:21] [scalp] SCAN universe 278 (watchlist 187, +7 new, -6 dead) | momentum-pass 4 | safety-pass 4 | opened 0 | open 0/4 | top rejects {'blocked_dex': 159, 'too_old': 87, 'bad_quote': 19, 'mcap_range': 6, 'no_cash': 4, 'no_reliable_price': 1, 'no_pair_data': 1, 'low_liq': 1}
+[2026-11-24 15:18:32] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 15:18:43] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 15:19:00] [scalp] SCAN universe 287 (watchlist 192, +11 new, -5 dead) | momentum-pass 3 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 164, 'too_old': 89, 'bad_quote': 20, 'mcap_range': 7, 'no_cash': 3, 'no_reliable_price': 1, 'no_pair_data': 1, 'low_liq': 1}
+[2026-11-24 15:19:00] [review v2] v2 trades 18: WR 33%, avg win +20.6%, avg loss -67.8%, entries last 60 min 0 (floor 2/h), equity $5.81 | Median winners vs losers: age_min 10.6/10.2, mcap 2.81e+04/7.61e+04, liq 4.36e+04/1.13e+05, pc_m5 17.3/11.6, bs_m5 4.36/1.8, holders 368/589, top10 11/15.6, entry_cost 0.515/-0.075, peak 40.5/13.9 | Config changes: none (0 new trades since last change; need 8, or rate below floor after 45 min)
+[2026-11-24 15:20:25] [scalp] SCAN universe 285 (watchlist 196, +9 new, -8 dead) | momentum-pass 2 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 165, 'too_old': 87, 'bad_quote': 17, 'mcap_range': 8, 'no_cash': 2, 'no_reliable_price': 1, 'no_pair_data': 1, 'too_young': 1}
+[2026-11-24 15:21:33] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 15:21:53] [scalp] SCAN universe 280 (watchlist 191, +3 new, -3 dead) | momentum-pass 3 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 161, 'too_old': 87, 'bad_quote': 17, 'mcap_range': 6, 'no_cash': 3, 'no_reliable_price': 1, 'no_pair_data': 1, 'too_young': 1}
+[2026-11-24 15:23:19] [scalp] SCAN universe 280 (watchlist 190, +2 new, -2 dead) | momentum-pass 3 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 162, 'too_old': 84, 'bad_quote': 19, 'mcap_range': 7, 'no_cash': 3, 'low_liq': 2, 'no_reliable_price': 1, 'no_pair_data': 1}
+[2026-11-24 15:24:32] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 15:25:00] [scalp] SCAN universe 283 (watchlist 191, +3 new, -4 dead) | momentum-pass 2 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 163, 'too_old': 86, 'bad_quote': 18, 'mcap_range': 7, 'low_liq': 2, 'no_cash': 2, 'too_young': 1, 'no_reliable_price': 1}
+[2026-11-24 15:26:00] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 15:26:18] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 15:26:36] [scalp] SCAN universe 287 (watchlist 195, +8 new, -6 dead) | momentum-pass 2 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 165, 'too_old': 91, 'bad_quote': 17, 'mcap_range': 6, 'low_liq': 2, 'no_cash': 2, 'no_reliable_price': 1, 'no_pair_data': 1}
+[2026-11-24 15:27:30] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 15:27:48] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 15:27:59] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 15:28:22] [scalp] SCAN universe 266 (watchlist 191, +2 new, -10 dead) | momentum-pass 2 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 151, 'too_old': 86, 'bad_quote': 14, 'mcap_range': 7, 'low_liq': 2, 'm5_sell_pressure': 2, 'no_cash': 2, 'no_reliable_price': 1}
+[2026-11-24 15:28:23] WARN loop wall-clock gap of 71s - positions re-priced at current market
+[2026-11-24 15:29:02] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 15:29:15] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 15:29:46] [scalp] SCAN universe 261 (watchlist 187, +6 new, -2 dead) | momentum-pass 3 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 149, 'too_old': 82, 'bad_quote': 14, 'mcap_range': 6, 'no_cash': 3, 'low_liq': 2, 'no_pair_data': 2, 'm5_sell_pressure': 2}
+[2026-11-24 15:29:46] WARN loop wall-clock gap of 62s - positions re-priced at current market
+[2026-11-24 15:30:34] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 15:30:45] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 15:30:59] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 15:31:12] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 15:31:31]   [scalp] reject ANSEM      few_holders (top10 6.06% top1 3.38% holders 141 insiders 0)
+[2026-11-24 15:31:31] [scalp] SCAN universe 264 (watchlist 191, +6 new, -5 dead) | momentum-pass 4 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 151, 'too_old': 82, 'bad_quote': 13, 'mcap_range': 8, 'no_cash': 3, 'low_liq': 2, 'no_reliable_price': 1, 'no_pair_data': 1}
+[2026-11-24 15:31:32] WARN loop wall-clock gap of 76s - positions re-priced at current market
+[2026-11-24 15:32:12] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 15:32:30] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 15:32:47] [scalp] SCAN universe 280 (watchlist 188, +2 new, -4 dead) | momentum-pass 3 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 157, 'too_old': 87, 'bad_quote': 18, 'mcap_range': 8, 'no_cash': 3, 'low_liq': 2, 'too_young': 2, 'no_reliable_price': 1}
+[2026-11-24 15:32:48] WARN loop wall-clock gap of 61s - positions re-priced at current market
+[2026-11-24 15:33:49] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 15:34:07]   [scalp] reject PI         insider_network (top10 7.58% top1 0.96% holders 589 insiders 9)
+[2026-11-24 15:34:07] [scalp] SCAN universe 283 (watchlist 189, +5 new, -4 dead) | momentum-pass 3 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 157, 'too_old': 90, 'bad_quote': 18, 'mcap_range': 10, 'no_cash': 2, 'low_liq': 1, 'no_reliable_price': 1, 'm5_not_rising': 1}
+[2026-11-24 15:35:32]   [scalp] reject KOOP       few_holders (top10 7.47% top1 1.69% holders 190 insiders 0)
+[2026-11-24 15:35:32] [scalp] SCAN universe 280 (watchlist 189, +4 new, -2 dead) | momentum-pass 2 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 155, 'too_old': 89, 'bad_quote': 18, 'mcap_range': 9, 'low_liq': 1, 'm5_not_rising': 1, 'm5_parabolic': 1, 'no_reliable_price': 1}
+[2026-11-24 15:36:45] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 15:37:01] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 15:37:18]   [scalp] reject PI         insider_network (top10 7.58% top1 0.96% holders 589 insiders 9)
+[2026-11-24 15:37:18]   [scalp] reject KOOP       few_holders (top10 7.47% top1 1.69% holders 190 insiders 0)
+[2026-11-24 15:37:18] [scalp] SCAN universe 276 (watchlist 187, +0 new, -11 dead) | momentum-pass 3 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 154, 'too_old': 88, 'bad_quote': 16, 'mcap_range': 9, 'low_liq': 2, 'm5_not_rising': 1, 'no_reliable_price': 1, 'no_pair_data': 1}
+[2026-11-24 15:38:34]   [scalp] reject KOOP       few_holders (top10 7.47% top1 1.69% holders 190 insiders 0)
+[2026-11-24 15:38:34] [scalp] SCAN universe 271 (watchlist 176, +0 new, -4 dead) | momentum-pass 2 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 149, 'too_old': 87, 'bad_quote': 19, 'mcap_range': 8, 'low_liq': 3, 'm5_not_rising': 1, 'no_reliable_price': 1, 'no_pair_data': 1}
+[2026-11-24 15:40:02] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 15:40:18]   [scalp] reject KOOP       few_holders (top10 7.47% top1 1.69% holders 190 insiders 0)
+[2026-11-24 15:40:18] [scalp] SCAN universe 269 (watchlist 178, +6 new, -6 dead) | momentum-pass 1 | safety-pass 0 | opened 0 | open 0/4 | top rejects {'blocked_dex': 151, 'too_old': 88, 'bad_quote': 15, 'mcap_range': 8, 'low_liq': 2, 'm5_not_rising': 2, 'no_reliable_price': 1, 'no_pair_data': 1}
+[2026-11-24 15:41:21] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 15:41:33] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 15:41:52]   [scalp] reject KOOP       few_holders (top10 7.47% top1 1.69% holders 190 insiders 0)
+[2026-11-24 15:41:52] [scalp] SCAN universe 274 (watchlist 181, +9 new, -2 dead) | momentum-pass 2 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 154, 'too_old': 89, 'bad_quote': 15, 'mcap_range': 8, 'low_liq': 2, 'm5_not_rising': 1, 'no_reliable_price': 1, 'too_young': 1}
+[2026-11-24 15:42:45] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 15:42:58] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 15:43:17] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 15:43:33]   [scalp] reject FLOAT      rugcheck_risk:Copycat token (top10 7.75% top1 3.04% holders 871 insiders 0)
+[2026-11-24 15:43:33] [scalp] SCAN universe 270 (watchlist 180, +1 new, -7 dead) | momentum-pass 2 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 154, 'too_old': 86, 'bad_quote': 15, 'mcap_range': 7, 'm5_not_rising': 2, 'low_liq': 2, 'no_reliable_price': 1, 'no_pair_data': 1}
+[2026-11-24 15:43:33] WARN loop wall-clock gap of 68s - positions re-priced at current market
+[2026-11-24 15:44:29] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 15:44:48]   [scalp] reject KOOP       few_holders (top10 7.47% top1 1.69% holders 190 insiders 0)
+[2026-11-24 15:44:48] [scalp] SCAN universe 272 (watchlist 181, +8 new, -7 dead) | momentum-pass 3 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 155, 'too_old': 85, 'bad_quote': 16, 'mcap_range': 7, 'no_cash': 2, 'm5_parabolic': 1, 'low_liq': 1, 'too_young': 1}
+[2026-11-24 15:45:49] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 15:46:02] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 15:46:15] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 15:46:29] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 15:46:44] [scalp] SCAN universe 252 (watchlist 178, +4 new, -9 dead) | momentum-pass 2 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 142, 'too_old': 84, 'bad_quote': 11, 'mcap_range': 6, 'too_young': 2, 'no_cash': 2, 'm5_parabolic': 1, 'low_liq': 1}
+[2026-11-24 15:46:45] WARN loop wall-clock gap of 77s - positions re-priced at current market
+[2026-11-24 15:47:21] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 15:47:32] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 15:47:47] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 15:47:58] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 15:48:14] [scalp] SCAN universe 270 (watchlist 176, +7 new, -3 dead) | momentum-pass 2 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 156, 'too_old': 86, 'bad_quote': 17, 'low_liq': 3, 'mcap_range': 3, 'no_cash': 2, 'm5_parabolic': 1, 'no_reliable_price': 1}
+[2026-11-24 15:48:15] WARN loop wall-clock gap of 75s - positions re-priced at current market
+[2026-11-24 15:49:00] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 15:49:28] [scalp] SCAN universe 274 (watchlist 182, +9 new, -6 dead) | momentum-pass 1 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 160, 'too_old': 87, 'bad_quote': 15, 'mcap_range': 4, 'low_liq': 3, 'm5_parabolic': 1, 'm5_not_rising': 1, 'no_reliable_price': 1}
+[2026-11-24 15:49:28] [review v2] v2 trades 18: WR 33%, avg win +20.6%, avg loss -67.8%, entries last 60 min 0 (floor 2/h), equity $5.81 | Median winners vs losers: age_min 10.6/10.2, mcap 2.81e+04/7.61e+04, liq 4.36e+04/1.13e+05, pc_m5 17.3/11.6, bs_m5 4.36/1.8, holders 368/589, top10 11/15.6, entry_cost 0.515/-0.075, peak 40.5/13.9 | Config changes: none (0 new trades since last change; need 8, or rate below floor after 45 min)
+[2026-11-24 15:50:32] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 15:50:45] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 15:51:07] [scalp] SCAN universe 272 (watchlist 183, +7 new, -8 dead) | momentum-pass 2 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 159, 'too_old': 90, 'bad_quote': 14, 'low_liq': 3, 'mcap_range': 2, 'no_cash': 2, 'm5_parabolic': 1, 'no_reliable_price': 1}
+[2026-11-24 15:51:07] WARN loop wall-clock gap of 63s - positions re-priced at current market
+[2026-11-24 15:51:53] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 15:52:06] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 15:52:40] [scalp] SCAN universe 254 (watchlist 180, +5 new, -9 dead) | momentum-pass 1 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 156, 'too_old': 75, 'bad_quote': 15, 'm5_sell_pressure': 2, 'm5_not_rising': 1, 'no_reliable_price': 1, 'too_young': 1, 'mcap_range': 1}
+[2026-11-24 15:52:40] WARN loop wall-clock gap of 63s - positions re-priced at current market
+[2026-11-24 15:53:23] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 15:53:42] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 15:54:00] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 15:54:19]   [scalp] reject SuperELON  few_holders (top10 3.71% top1 0.66% holders 144 insiders 0)
+[2026-11-24 15:54:19] [scalp] SCAN universe 248 (watchlist 175, +4 new, -5 dead) | momentum-pass 2 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 153, 'too_old': 69, 'bad_quote': 17, 'm5_parabolic': 1, 'no_age': 1, 'no_reliable_price': 1, 'no_pair_data': 1, 'mcap_range': 1}
+[2026-11-24 15:54:19] WARN loop wall-clock gap of 72s - positions re-priced at current market
+[2026-11-24 15:55:01] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 15:55:14] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 15:55:30] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 15:55:47] [scalp] SCAN universe 249 (watchlist 175, +5 new, -1 dead) | momentum-pass 1 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 147, 'too_old': 83, 'bad_quote': 10, 'm5_parabolic': 1, 'm5_not_rising': 1, 'no_age': 1, 'no_reliable_price': 1, 'no_pair_data': 1}
+[2026-11-24 15:55:48] WARN loop wall-clock gap of 67s - positions re-priced at current market
+[2026-11-24 15:56:42] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 15:56:55] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 15:57:18] [scalp] SCAN universe 270 (watchlist 180, +6 new, -6 dead) | momentum-pass 2 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 157, 'too_old': 88, 'bad_quote': 14, 'too_young': 2, 'no_cash': 2, 'm5_not_rising': 1, 'no_age': 1, 'no_reliable_price': 1}
+[2026-11-24 15:57:18] WARN loop wall-clock gap of 67s - positions re-priced at current market
+[2026-11-24 15:58:02] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 15:58:16] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 15:58:29] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 15:58:49] [scalp] SCAN universe 268 (watchlist 177, +3 new, -2 dead) | momentum-pass 1 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 159, 'too_old': 83, 'bad_quote': 15, 'mcap_range': 2, 'low_liq': 2, 'm5_sell_pressure': 1, 'm5_not_rising': 1, 'no_age': 1}
+[2026-11-24 15:58:50] WARN loop wall-clock gap of 67s - positions re-priced at current market
+[2026-11-24 15:59:33] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 15:59:45] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 15:59:58] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 16:00:15] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 16:00:37] [scalp] SCAN universe 273 (watchlist 181, +6 new, -11 dead) | momentum-pass 1 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 163, 'too_old': 85, 'bad_quote': 15, 'm5_not_rising': 2, 'mcap_range': 2, 'low_liq': 2, 'no_age': 1, 'no_reliable_price': 1}
+[2026-11-24 16:00:38] WARN loop wall-clock gap of 84s - positions re-priced at current market
+[2026-11-24 16:01:03] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 16:01:17] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 16:01:30] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 16:01:56]   [scalp] reject SuperELON  few_holders (top10 3.51% top1 0.82% holders 116 insiders 0)
+[2026-11-24 16:01:56] [scalp] SCAN universe 252 (watchlist 176, +6 new, -7 dead) | momentum-pass 3 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 149, 'too_old': 80, 'bad_quote': 12, 'mcap_range': 3, 'low_liq': 2, 'no_cash': 2, 'no_age': 1, 'no_reliable_price': 1}
+[2026-11-24 16:01:56] WARN loop wall-clock gap of 73s - positions re-priced at current market
+[2026-11-24 16:02:43] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 16:03:04]   [scalp] reject SuperELON  few_holders (top10 3.51% top1 0.82% holders 116 insiders 0)
+[2026-11-24 16:03:04] [scalp] SCAN universe 264 (watchlist 176, +7 new, -4 dead) | momentum-pass 2 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 155, 'too_old': 80, 'bad_quote': 17, 'mcap_range': 3, 'low_liq': 2, 'm5_parabolic': 1, 'no_age': 1, 'no_reliable_price': 1}
+[2026-11-24 16:04:25] [scalp] SCAN universe 260 (watchlist 173, +1 new, -7 dead) | momentum-pass 1 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 155, 'too_old': 79, 'bad_quote': 15, 'mcap_range': 3, 'm5_not_rising': 2, 'low_liq': 2, 'no_age': 1, 'no_reliable_price': 1}
+[2026-11-24 16:05:51] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 16:06:07] [scalp] SCAN universe 265 (watchlist 174, +8 new, -3 dead) | momentum-pass 2 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 153, 'too_old': 85, 'bad_quote': 16, 'low_liq': 3, 'mcap_range': 2, 'no_cash': 2, 'no_age': 1, 'no_reliable_price': 1}
+[2026-11-24 16:07:20] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 16:07:36] [scalp] SCAN universe 268 (watchlist 178, +7 new, -0 dead) | momentum-pass 2 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 155, 'too_old': 84, 'bad_quote': 16, 'mcap_range': 3, 'too_young': 2, 'low_liq': 2, 'no_cash': 2, 'm5_not_rising': 1}
+[2026-11-24 16:09:01] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 16:09:21] [scalp] SCAN universe 283 (watchlist 189, +11 new, -8 dead) | momentum-pass 3 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 165, 'too_old': 84, 'bad_quote': 17, 'mcap_range': 5, 'no_cash': 3, 'no_pair_data': 2, 'too_young': 2, 'low_liq': 2}
+[2026-11-24 16:09:22] WARN loop wall-clock gap of 61s - positions re-priced at current market
+[2026-11-24 16:10:30] [scalp] SCAN universe 277 (watchlist 185, +4 new, -3 dead) | momentum-pass 2 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 160, 'too_old': 83, 'bad_quote': 17, 'mcap_range': 5, 'low_liq': 3, 'too_young': 2, 'no_pair_data': 2, 'no_cash': 2}
+[2026-11-24 16:11:49] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 16:12:00] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 16:12:22] [scalp] SCAN universe 280 (watchlist 187, +5 new, -8 dead) | momentum-pass 2 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 162, 'too_old': 83, 'bad_quote': 17, 'mcap_range': 7, 'low_liq': 2, 'no_pair_data': 2, 'no_cash': 2, 'm5_not_rising': 1}
+[2026-11-24 16:13:22] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 16:13:38] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 16:13:55] [scalp] SCAN universe 278 (watchlist 186, +7 new, -6 dead) | momentum-pass 3 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 161, 'too_old': 81, 'bad_quote': 15, 'mcap_range': 9, 'no_cash': 3, 'too_young': 2, 'no_pair_data': 2, 'low_liq': 2}
+[2026-11-24 16:13:56] WARN loop wall-clock gap of 60s - positions re-priced at current market
+[2026-11-24 16:14:41] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 16:15:01] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 16:15:23] [scalp] SCAN universe 262 (watchlist 190, +10 new, -1 dead) | momentum-pass 1 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 159, 'too_old': 66, 'bad_quote': 15, 'mcap_range': 8, 'too_young': 6, 'm5_not_rising': 2, 'low_liq': 2, 'no_reliable_price': 1}
+[2026-11-24 16:16:18] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 16:16:37] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 16:17:07] [scalp] SCAN universe 284 (watchlist 195, +6 new, -4 dead) | momentum-pass 4 | safety-pass 4 | opened 0 | open 0/4 | top rejects {'blocked_dex': 162, 'too_old': 83, 'bad_quote': 16, 'mcap_range': 10, 'no_cash': 4, 'low_liq': 3, 'm5_not_rising': 2, 'too_young': 1}
+[2026-11-24 16:17:07] WARN loop wall-clock gap of 71s - positions re-priced at current market
+[2026-11-24 16:17:50] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 16:18:04] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 16:18:31]   [scalp] reject ANSEM      few_holders (top10 2.36% top1 1.2% holders 160 insiders 0)
+[2026-11-24 16:18:31] [scalp] SCAN universe 289 (watchlist 197, +6 new, -10 dead) | momentum-pass 5 | safety-pass 4 | opened 0 | open 0/4 | top rejects {'blocked_dex': 168, 'too_old': 82, 'bad_quote': 15, 'mcap_range': 8, 'low_liq': 4, 'no_cash': 4, 'too_young': 2, 'm5_not_rising': 2}
+[2026-11-24 16:18:32] WARN loop wall-clock gap of 64s - positions re-priced at current market
+[2026-11-24 16:19:27] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 16:19:48]   [scalp] reject EBARREL    few_holders (top10 6.55% top1 0.82% holders 63 insiders 0)
+[2026-11-24 16:19:48]   [scalp] reject ANSEM      few_holders (top10 2.36% top1 1.2% holders 160 insiders 0)
+[2026-11-24 16:19:48] [scalp] SCAN universe 278 (watchlist 192, +6 new, -0 dead) | momentum-pass 6 | safety-pass 4 | opened 0 | open 0/4 | top rejects {'blocked_dex': 157, 'too_old': 84, 'bad_quote': 13, 'mcap_range': 10, 'no_cash': 4, 'low_liq': 3, 'm5_not_rising': 2, 'few_holders': 2}
+[2026-11-24 16:19:48] [review v2] v2 trades 18: WR 33%, avg win +20.6%, avg loss -67.8%, entries last 60 min 0 (floor 2/h), equity $5.81 | Median winners vs losers: age_min 10.6/10.2, mcap 2.81e+04/7.61e+04, liq 4.36e+04/1.13e+05, pc_m5 17.3/11.6, bs_m5 4.36/1.8, holders 368/589, top10 11/15.6, entry_cost 0.515/-0.075, peak 40.5/13.9 | Config changes: none (0 new trades since last change; need 8, or rate below floor after 45 min)
+[2026-11-24 16:21:10]   [scalp] reject EBARREL    few_holders (top10 6.55% top1 0.82% holders 63 insiders 0)
+[2026-11-24 16:21:10] [scalp] SCAN universe 285 (watchlist 199, +7 new, -7 dead) | momentum-pass 5 | safety-pass 4 | opened 0 | open 0/4 | top rejects {'blocked_dex': 162, 'too_old': 85, 'bad_quote': 13, 'mcap_range': 11, 'no_cash': 4, 'low_liq': 3, 'too_young': 2, 'm5_not_rising': 2}
+[2026-11-24 16:22:26] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 16:22:37] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 16:22:50] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 16:23:11]   [scalp] reject EBARREL    few_holders (top10 6.55% top1 0.82% holders 63 insiders 0)
+[2026-11-24 16:23:11] [scalp] SCAN universe 284 (watchlist 197, +5 new, -12 dead) | momentum-pass 6 | safety-pass 5 | opened 0 | open 0/4 | top rejects {'blocked_dex': 160, 'too_old': 86, 'bad_quote': 15, 'mcap_range': 10, 'no_cash': 5, 'm5_not_rising': 3, 'low_liq': 2, 'no_reliable_price': 1}
+[2026-11-24 16:23:12] WARN loop wall-clock gap of 70s - positions re-priced at current market
+[2026-11-24 16:23:53] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 16:24:26]   [scalp] reject EBARREL    few_holders (top10 6.55% top1 0.82% holders 63 insiders 0)
+[2026-11-24 16:24:30] [scalp] SCAN universe 284 (watchlist 193, +8 new, -3 dead) | momentum-pass 6 | safety-pass 5 | opened 0 | open 0/4 | top rejects {'blocked_dex': 163, 'too_old': 83, 'bad_quote': 14, 'mcap_range': 10, 'no_cash': 5, 'm5_not_rising': 4, 'low_liq': 2, 'no_reliable_price': 1}
+[2026-11-24 16:25:23] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 16:25:37] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 16:25:52] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 16:26:08] [scalp] SCAN universe 287 (watchlist 194, +4 new, -9 dead) | momentum-pass 6 | safety-pass 6 | opened 0 | open 0/4 | top rejects {'blocked_dex': 165, 'too_old': 84, 'bad_quote': 15, 'mcap_range': 11, 'no_cash': 6, 'low_liq': 2, 'm5_not_rising': 1, 'no_reliable_price': 1}
+[2026-11-24 16:26:08] WARN loop wall-clock gap of 65s - positions re-priced at current market
+[2026-11-24 16:27:04] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 16:27:23]   [scalp] reject 英伟达        insider_network (top10 5.57% top1 0.87% holders 1140 insiders 55)
+[2026-11-24 16:27:24] [scalp] SCAN universe 280 (watchlist 190, +5 new, -6 dead) | momentum-pass 5 | safety-pass 4 | opened 0 | open 0/4 | top rejects {'blocked_dex': 164, 'too_old': 84, 'bad_quote': 13, 'mcap_range': 7, 'no_cash': 4, 'low_liq': 3, 'm5_not_rising': 2, 'no_reliable_price': 1}
+[2026-11-24 16:28:35] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 16:28:46] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 16:29:02]   [scalp] reject 英伟达        insider_network (top10 5.57% top1 0.87% holders 1140 insiders 55)
+[2026-11-24 16:29:02] [scalp] SCAN universe 281 (watchlist 189, +5 new, -3 dead) | momentum-pass 5 | safety-pass 4 | opened 0 | open 0/4 | top rejects {'blocked_dex': 161, 'too_old': 88, 'bad_quote': 14, 'mcap_range': 5, 'no_cash': 4, 'low_liq': 3, 'm5_not_rising': 2, 'no_reliable_price': 1}
+[2026-11-24 16:30:22]   [scalp] reject 英伟达        insider_network (top10 5.57% top1 0.87% holders 1140 insiders 55)
+[2026-11-24 16:30:24]   [scalp] reject SuperELON  few_holders (top10 2.94% top1 0.51% holders 110 insiders 0)
+[2026-11-24 16:30:24] [scalp] SCAN universe 288 (watchlist 197, +11 new, -6 dead) | momentum-pass 5 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 165, 'too_old': 85, 'bad_quote': 18, 'mcap_range': 5, 'low_liq': 3, 'no_cash': 3, 'too_young': 2, 'm5_not_rising': 2}
+[2026-11-24 16:31:35] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 16:31:47] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 16:31:58] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 16:32:14]   [scalp] reject 英伟达        insider_network (top10 5.57% top1 0.87% holders 1140 insiders 55)
+[2026-11-24 16:32:14] [scalp] SCAN universe 286 (watchlist 193, +2 new, -4 dead) | momentum-pass 4 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 166, 'too_old': 84, 'bad_quote': 18, 'low_liq': 4, 'mcap_range': 4, 'no_cash': 3, 'm5_not_rising': 2, 'm5_sell_pressure': 2}
+[2026-11-24 16:32:15] WARN loop wall-clock gap of 65s - positions re-priced at current market
+[2026-11-24 16:33:03] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 16:33:24] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 16:33:42] [scalp] SCAN universe 283 (watchlist 189, +0 new, -5 dead) | momentum-pass 3 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 162, 'too_old': 89, 'bad_quote': 19, 'low_liq': 4, 'mcap_range': 3, 'no_cash': 3, 'm5_not_rising': 2, 'no_reliable_price': 1}
+[2026-11-24 16:33:43] WARN loop wall-clock gap of 61s - positions re-priced at current market
+[2026-11-24 16:34:45] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 16:34:56] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 16:35:20]   [scalp] reject UGOS       rugcheck_danger:Top 10 holders high ownership (top10 7.43% top1 1.22% holders 1139 insiders 0)
+[2026-11-24 16:35:20] [scalp] SCAN universe 282 (watchlist 188, +4 new, -5 dead) | momentum-pass 4 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 159, 'too_old': 88, 'bad_quote': 22, 'mcap_range': 4, 'low_liq': 3, 'no_cash': 3, 'no_reliable_price': 1, 'm5_not_rising': 1}
+[2026-11-24 16:35:21] WARN loop wall-clock gap of 68s - positions re-priced at current market
+[2026-11-24 16:36:31] [scalp] SCAN universe 277 (watchlist 184, +1 new, -0 dead) | momentum-pass 2 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 156, 'too_old': 87, 'bad_quote': 22, 'mcap_range': 5, 'low_liq': 3, 'no_cash': 2, 'no_reliable_price': 1, 'm5_not_rising': 1}
+[2026-11-24 16:37:43] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 16:38:05] [scalp] SCAN universe 295 (watchlist 196, +12 new, -3 dead) | momentum-pass 2 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 173, 'too_old': 89, 'bad_quote': 22, 'mcap_range': 4, 'low_liq': 2, 'no_cash': 2, 'no_reliable_price': 1, 'm5_not_rising': 1}
+[2026-11-24 16:39:18] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 16:39:34] [scalp] SCAN universe 298 (watchlist 198, +6 new, -2 dead) | momentum-pass 1 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 175, 'too_old': 92, 'bad_quote': 21, 'mcap_range': 4, 'low_liq': 2, 'no_reliable_price': 1, 'm5_not_rising': 1, 'm5_sell_pressure': 1}
+[2026-11-24 16:40:53] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 16:41:09] [scalp] SCAN universe 295 (watchlist 200, +6 new, -7 dead) | momentum-pass 0 | safety-pass 0 | opened 0 | open 0/4 | top rejects {'blocked_dex': 174, 'too_old': 91, 'bad_quote': 20, 'mcap_range': 6, 'low_liq': 2, 'no_reliable_price': 1, 'm5_not_rising': 1}
+[2026-11-24 16:42:29] [scalp] SCAN universe 296 (watchlist 200, +5 new, -4 dead) | momentum-pass 0 | safety-pass 0 | opened 0 | open 0/4 | top rejects {'blocked_dex': 172, 'too_old': 91, 'bad_quote': 21, 'mcap_range': 6, 'm5_not_rising': 2, 'low_liq': 2, 'too_young': 2}
+[2026-11-24 16:43:52] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 16:44:15] [scalp] SCAN universe 300 (watchlist 199, +3 new, -7 dead) | momentum-pass 1 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 178, 'too_old': 90, 'bad_quote': 21, 'mcap_range': 7, 'low_liq': 2, 'm5_not_rising': 1, 'no_cash': 1}
+[2026-11-24 16:45:36]   [scalp] reject FLOAT      rugcheck_risk:Copycat token (top10 6.86% top1 3.98% holders 322 insiders 0)
+[2026-11-24 16:45:36] [scalp] SCAN universe 291 (watchlist 196, +4 new, -2 dead) | momentum-pass 2 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 171, 'too_old': 90, 'bad_quote': 18, 'mcap_range': 6, 'm5_not_rising': 2, 'low_liq': 1, 'no_pair_data': 1, 'no_cash': 1}
+[2026-11-24 16:47:18]   [scalp] reject FLOAT      rugcheck_risk:Copycat token (top10 6.86% top1 3.98% holders 322 insiders 0)
+[2026-11-24 16:47:18] [scalp] SCAN universe 295 (watchlist 200, +12 new, -12 dead) | momentum-pass 1 | safety-pass 0 | opened 0 | open 0/4 | top rejects {'blocked_dex': 177, 'too_old': 87, 'bad_quote': 19, 'mcap_range': 4, 'low_liq': 3, 'too_young': 2, 'm5_not_rising': 1, 'no_pair_data': 1}
+[2026-11-24 16:48:24] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 16:48:46]   [scalp] reject FLOAT      rugcheck_risk:Copycat token (top10 6.86% top1 3.98% holders 322 insiders 0)
+[2026-11-24 16:48:47] [scalp] SCAN universe 292 (watchlist 196, +2 new, -7 dead) | momentum-pass 3 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 174, 'too_old': 88, 'bad_quote': 18, 'mcap_range': 4, 'low_liq': 3, 'no_cash': 2, 'too_young': 1, 'no_pair_data': 1}
+[2026-11-24 16:50:18]   [scalp] reject FLOAT      rugcheck_risk:Copycat token (top10 6.86% top1 3.98% holders 322 insiders 0)
+[2026-11-24 16:50:18] [scalp] SCAN universe 289 (watchlist 195, +6 new, -5 dead) | momentum-pass 4 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 170, 'too_old': 88, 'bad_quote': 19, 'mcap_range': 4, 'no_cash': 3, 'm5_not_rising': 1, 'low_liq': 1, 'too_young': 1}
+[2026-11-24 16:50:18] [review v2] v2 trades 18: WR 33%, avg win +20.6%, avg loss -67.8%, entries last 60 min 0 (floor 2/h), equity $5.81 | Median winners vs losers: age_min 10.6/10.2, mcap 2.81e+04/7.61e+04, liq 4.36e+04/1.13e+05, pc_m5 17.3/11.6, bs_m5 4.36/1.8, holders 368/589, top10 11/15.6, entry_cost 0.515/-0.075, peak 40.5/13.9 | Config changes: none (0 new trades since last change; need 8, or rate below floor after 45 min)
+[2026-11-24 16:51:27] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 16:51:38] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 16:51:50] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 16:52:05]   [scalp] reject FLOAT      rugcheck_risk:Copycat token (top10 6.86% top1 3.98% holders 322 insiders 0)
+[2026-11-24 16:52:05] [scalp] SCAN universe 287 (watchlist 192, +2 new, -7 dead) | momentum-pass 4 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 167, 'too_old': 88, 'bad_quote': 19, 'mcap_range': 4, 'no_cash': 3, 'too_young': 2, 'm5_not_rising': 1, 'no_pair_data': 1}
+[2026-11-24 16:52:06] WARN loop wall-clock gap of 65s - positions re-priced at current market
+[2026-11-24 16:53:01] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 16:53:19]   [scalp] reject FLOAT      rugcheck_risk:Copycat token (top10 6.86% top1 3.98% holders 322 insiders 0)
+[2026-11-24 16:53:19] [scalp] SCAN universe 286 (watchlist 191, +6 new, -3 dead) | momentum-pass 4 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 165, 'too_old': 88, 'bad_quote': 19, 'mcap_range': 5, 'no_cash': 3, 'too_young': 2, 'm5_not_rising': 1, 'no_pair_data': 1}
+[2026-11-24 16:54:27] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 16:54:45] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 16:55:02]   [scalp] reject FLOAT      rugcheck_risk:Copycat token (top10 6.86% top1 3.98% holders 322 insiders 0)
+[2026-11-24 16:55:04]   [scalp] reject Bullseye   few_holders (top10 7.72% top1 1.52% holders 167 insiders 0)
+[2026-11-24 16:55:04] [scalp] SCAN universe 287 (watchlist 191, +3 new, -3 dead) | momentum-pass 5 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 167, 'too_old': 86, 'bad_quote': 19, 'mcap_range': 7, 'no_cash': 3, 'low_liq': 1, 'm5_not_rising': 1, 'no_pair_data': 1}
+[2026-11-24 16:56:06] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 16:56:29]   [scalp] reject FLOAT      rugcheck_risk:Copycat token (top10 10.51% top1 3.98% holders 923 insiders 0)
+[2026-11-24 16:56:29]   [scalp] reject Bullseye   few_holders (top10 7.72% top1 1.52% holders 167 insiders 0)
+[2026-11-24 16:56:29] [scalp] SCAN universe 294 (watchlist 199, +11 new, -6 dead) | momentum-pass 6 | safety-pass 4 | opened 0 | open 0/4 | top rejects {'blocked_dex': 173, 'too_old': 85, 'bad_quote': 19, 'mcap_range': 7, 'no_cash': 4, 'low_liq': 1, 'm5_not_rising': 1, 'too_young': 1}
+[2026-11-24 16:57:39] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 16:57:56]   [scalp] reject Bullseye   few_holders (top10 7.72% top1 1.52% holders 167 insiders 0)
+[2026-11-24 16:57:56]   [scalp] reject FLOAT      rugcheck_risk:Copycat token (top10 10.51% top1 3.98% holders 923 insiders 0)
+[2026-11-24 16:57:56] [scalp] SCAN universe 289 (watchlist 194, +1 new, -10 dead) | momentum-pass 6 | safety-pass 4 | opened 0 | open 0/4 | top rejects {'blocked_dex': 168, 'too_old': 86, 'bad_quote': 19, 'mcap_range': 7, 'no_cash': 4, 'low_liq': 1, 'm5_parabolic': 1, 'no_pair_data': 1}
+[2026-11-24 16:59:25]   [scalp] reject Bullseye   few_holders (top10 7.72% top1 1.52% holders 167 insiders 0)
+[2026-11-24 16:59:25]   [scalp] reject FLOAT      rugcheck_risk:Copycat token (top10 10.51% top1 3.98% holders 923 insiders 0)
+[2026-11-24 16:59:25] [scalp] SCAN universe 288 (watchlist 194, +10 new, -5 dead) | momentum-pass 5 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 172, 'too_old': 82, 'bad_quote': 18, 'mcap_range': 6, 'no_cash': 3, 'low_liq': 2, 'm5_parabolic': 1, 'm5_not_rising': 1}
+[2026-11-24 17:00:53] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 17:01:24]   [scalp] reject SuperELON  few_holders (top10 2.87% top1 0.8% holders 100 insiders 0)
+[2026-11-24 17:01:24]   [scalp] reject Bullseye   few_holders (top10 7.72% top1 1.52% holders 167 insiders 0)
+[2026-11-24 17:01:24] [scalp] SCAN universe 289 (watchlist 197, +8 new, -4 dead) | momentum-pass 5 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 170, 'too_old': 84, 'bad_quote': 19, 'mcap_range': 4, 'no_cash': 3, 'm5_parabolic': 2, 'm5_sell_pressure': 2, 'few_holders': 2}
+[2026-11-24 17:01:25] WARN loop wall-clock gap of 72s - positions re-priced at current market
+[2026-11-24 17:02:39]   [scalp] reject SuperELON  few_holders (top10 2.87% top1 0.8% holders 100 insiders 0)
+[2026-11-24 17:02:39]   [scalp] reject Bullseye   few_holders (top10 7.72% top1 1.52% holders 167 insiders 0)
+[2026-11-24 17:02:41] [scalp] SCAN universe 291 (watchlist 199, +6 new, -4 dead) | momentum-pass 6 | safety-pass 4 | opened 0 | open 0/4 | top rejects {'blocked_dex': 171, 'too_old': 84, 'bad_quote': 18, 'mcap_range': 7, 'no_cash': 4, 'few_holders': 2, 'too_young': 1, 'low_liq': 1}
+[2026-11-24 17:03:49] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 17:04:20]   [scalp] reject Bullseye   few_holders (top10 7.72% top1 1.52% holders 167 insiders 0)
+[2026-11-24 17:04:20] [scalp] SCAN universe 298 (watchlist 200, +11 new, -11 dead) | momentum-pass 2 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 177, 'too_old': 81, 'bad_quote': 20, 'mcap_range': 9, 'too_young': 3, 'm5_not_rising': 2, 'low_liq': 1, 'm5_parabolic': 1}
+[2026-11-24 17:04:20] WARN loop wall-clock gap of 63s - positions re-priced at current market
+[2026-11-24 17:06:00] [scalp] SCAN universe 300 (watchlist 200, +5 new, -6 dead) | momentum-pass 2 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 177, 'too_old': 82, 'bad_quote': 23, 'mcap_range': 10, 'low_liq': 3, 'no_cash': 2, 'm5_not_rising': 1, 'too_young': 1}
+[2026-11-24 17:06:00] WARN loop wall-clock gap of 73s - positions re-priced at current market
+[2026-11-24 17:06:34] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 17:06:56] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 17:07:44] [scalp] SCAN universe 282 (watchlist 200, +8 new, -5 dead) | momentum-pass 3 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 175, 'too_old': 67, 'bad_quote': 24, 'mcap_range': 8, 'low_liq': 4, 'no_cash': 3, 'no_pair_data': 1}
+[2026-11-24 17:07:44] WARN loop wall-clock gap of 86s - positions re-priced at current market
+[2026-11-24 17:08:13] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 17:08:26] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 17:08:39] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 17:09:00] [scalp] SCAN universe 296 (watchlist 200, +4 new, -4 dead) | momentum-pass 3 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 180, 'too_old': 80, 'bad_quote': 21, 'mcap_range': 8, 'low_liq': 3, 'no_cash': 3, 'no_pair_data': 1}
+[2026-11-24 17:09:01] WARN loop wall-clock gap of 71s - positions re-priced at current market
+[2026-11-24 17:09:43] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 17:09:59] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 17:10:13] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 17:10:26] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 17:10:50]   [scalp] reject NIAN       few_holders (top10 3.8% top1 0.86% holders 120 insiders 0)
+[2026-11-24 17:10:50] [scalp] SCAN universe 273 (watchlist 200, +8 new, -13 dead) | momentum-pass 3 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 166, 'too_old': 73, 'bad_quote': 16, 'mcap_range': 8, 'low_liq': 4, 'no_cash': 2, 'm5_not_rising': 1, 'too_young': 1}
+[2026-11-24 17:10:51] WARN loop wall-clock gap of 89s - positions re-priced at current market
+[2026-11-24 17:11:14] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 17:11:28] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 17:11:41] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 17:11:54] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 17:12:16]   [scalp] reject NIAN       few_holders (top10 3.8% top1 0.86% holders 120 insiders 0)
+[2026-11-24 17:12:16] [scalp] SCAN universe 276 (watchlist 197, +5 new, -3 dead) | momentum-pass 4 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 167, 'too_old': 70, 'bad_quote': 20, 'mcap_range': 7, 'low_liq': 4, 'no_cash': 3, 'too_young': 2, 'no_pair_data': 1}
+[2026-11-24 17:12:17] WARN loop wall-clock gap of 83s - positions re-priced at current market
+[2026-11-24 17:12:35] WARN scalp gt gt_trend5m: GET failed https://api.geckoterminal.com/api/v2/networks/solana/trending_pools?duration=5m&page=1: HTTP 429
+[2026-11-24 17:12:48] WARN scalp gt gt_trend1h: GET failed https://api.geckoterminal.com/api/v2/networks/solana/trending_pools?duration=1h&page=1: HTTP 429
+[2026-11-24 17:13:02] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 17:13:15] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 17:13:28] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 17:13:42] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 17:14:10] [scalp] SCAN universe 269 (watchlist 200, +8 new, -9 dead) | momentum-pass 2 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 169, 'too_old': 63, 'bad_quote': 17, 'mcap_range': 11, 'm5_not_rising': 2, 'low_liq': 2, 'no_cash': 2, 'no_pair_data': 1}
+[2026-11-24 17:14:10] WARN loop wall-clock gap of 104s - positions re-priced at current market
+[2026-11-24 17:14:26] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 17:14:39] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 17:14:53] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 17:15:04] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 17:15:17] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 17:16:00] WATCHDOG: step 'scan' exceeded 110s - aborted, transaction rolled back, loop continues
+[2026-11-24 17:16:01] WARN loop wall-clock gap of 111s - positions re-priced at current market
+[2026-11-24 17:16:21] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 17:16:32] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 17:16:43] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 17:16:54] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 17:17:05] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 17:17:51] WATCHDOG: step 'scan' exceeded 110s - aborted, transaction rolled back, loop continues
+[2026-11-24 17:17:51] WARN loop wall-clock gap of 111s - positions re-priced at current market
+[2026-11-24 17:18:14] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 17:18:28] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 17:18:41] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 17:19:31] [scalp] SCAN universe 299 (watchlist 199, +9 new, -16 dead) | momentum-pass 2 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 184, 'too_old': 76, 'bad_quote': 20, 'mcap_range': 9, 'm5_not_rising': 3, 'no_cash': 2, 'too_young': 1, 'low_vol_m5': 1}
+[2026-11-24 17:19:31] WARN loop wall-clock gap of 100s - positions re-priced at current market
+[2026-11-24 17:19:49] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 17:20:02] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 17:20:16] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 17:20:29] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 17:21:02] [scalp] SCAN universe 268 (watchlist 187, +4 new, -11 dead) | momentum-pass 3 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 161, 'too_old': 68, 'bad_quote': 20, 'mcap_range': 9, 'm5_not_rising': 3, 'no_cash': 3, 'low_liq': 1, 'too_young': 1}
+[2026-11-24 17:21:02] [review v2] v2 trades 18: WR 33%, avg win +20.6%, avg loss -67.8%, entries last 60 min 0 (floor 2/h), equity $5.81 | Median winners vs losers: age_min 10.6/10.2, mcap 2.81e+04/7.61e+04, liq 4.36e+04/1.13e+05, pc_m5 17.3/11.6, bs_m5 4.36/1.8, holders 368/589, top10 11/15.6, entry_cost 0.515/-0.075, peak 40.5/13.9 | Config changes: none (0 new trades since last change; need 8, or rate below floor after 45 min)
+[2026-11-24 17:21:02] WARN loop wall-clock gap of 91s - positions re-priced at current market
+[2026-11-24 17:21:20] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 17:21:31] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 17:21:45] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 17:21:56] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 17:22:12] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 17:22:41]   [scalp] reject Claser     few_holders (top10 5.54% top1 0.74% holders 100 insiders 0)
+[2026-11-24 17:22:46] [scalp] SCAN universe 263 (watchlist 183, +7 new, -5 dead) | momentum-pass 5 | safety-pass 4 | opened 0 | open 0/4 | top rejects {'blocked_dex': 154, 'too_old': 71, 'bad_quote': 20, 'mcap_range': 7, 'no_cash': 4, 'm5_not_rising': 2, 'low_liq': 2, 'too_young': 1}
+[2026-11-24 17:22:47] WARN loop wall-clock gap of 104s - positions re-priced at current market
+[2026-11-24 17:23:04] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 17:23:18] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 17:23:36] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 17:24:00]   [scalp] reject Claser     few_holders (top10 5.54% top1 0.74% holders 100 insiders 0)
+[2026-11-24 17:24:00] [scalp] SCAN universe 264 (watchlist 182, +4 new, -8 dead) | momentum-pass 3 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 153, 'too_old': 70, 'bad_quote': 21, 'mcap_range': 11, 'm5_not_rising': 3, 'low_liq': 2, 'no_cash': 2, 'no_pair_data': 1}
+[2026-11-24 17:24:00] WARN loop wall-clock gap of 74s - positions re-priced at current market
+[2026-11-24 17:24:34] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 17:24:47] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 17:25:01] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 17:25:14] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 17:25:56]   [scalp] reject Claser     few_holders (top10 5.54% top1 0.74% holders 100 insiders 0)
+[2026-11-24 17:25:56] [scalp] SCAN universe 263 (watchlist 178, +4 new, -6 dead) | momentum-pass 2 | safety-pass 1 | opened 0 | open 0/4 | top rejects {'blocked_dex': 158, 'too_old': 61, 'bad_quote': 24, 'mcap_range': 10, 'low_liq': 4, 'm5_not_rising': 3, 'no_pair_data': 1, 'few_holders': 1}
+[2026-11-24 17:25:56] WARN loop wall-clock gap of 98s - positions re-priced at current market
+[2026-11-24 17:26:14] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 17:26:27] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 17:26:43] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 17:26:57] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 17:27:29]   [scalp] reject JIMMY      few_holders (top10 8.69% top1 2.51% holders 188 insiders 0)
+[2026-11-24 17:27:29] [scalp] SCAN universe 260 (watchlist 179, +7 new, -7 dead) | momentum-pass 4 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 147, 'too_old': 70, 'bad_quote': 21, 'mcap_range': 8, 'low_liq': 6, 'no_cash': 3, 'm5_not_rising': 2, 'too_young': 1}
+[2026-11-24 17:27:29] WARN loop wall-clock gap of 93s - positions re-priced at current market
+[2026-11-24 17:27:50] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 17:28:03] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 17:28:16] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 17:28:30] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 17:29:06]   [scalp] reject SuperELON  few_holders (top10 7.64% top1 1.73% holders 170 insiders 0)
+[2026-11-24 17:29:06] [scalp] SCAN universe 260 (watchlist 177, +5 new, -4 dead) | momentum-pass 4 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 148, 'too_old': 72, 'bad_quote': 19, 'mcap_range': 7, 'low_liq': 6, 'no_cash': 3, 'too_young': 2, 'm5_not_rising': 2}
+[2026-11-24 17:29:06] WARN loop wall-clock gap of 97s - positions re-priced at current market
+[2026-11-24 17:29:24] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 17:29:35] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 17:29:48] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 17:30:00] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 17:30:13] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 17:30:52]   [scalp] reject SuperELON  few_holders (top10 7.64% top1 1.73% holders 170 insiders 0)
+[2026-11-24 17:30:53]   [scalp] reject WORTHLESS  rugcheck_danger:Top 10 holders high ownership (top10 99.97% top1 44.78% holders 223 insiders 229)
+[2026-11-24 17:30:53] [scalp] SCAN universe 258 (watchlist 176, +3 new, -12 dead) | momentum-pass 5 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 146, 'too_old': 73, 'bad_quote': 21, 'low_liq': 7, 'mcap_range': 3, 'no_cash': 3, 'm5_not_rising': 2, 'too_young': 1}
+[2026-11-24 17:30:54] WARN loop wall-clock gap of 108s - positions re-priced at current market
+[2026-11-24 17:31:15] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 17:31:28] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 17:31:44] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 17:32:09]   [scalp] reject ARILEO     few_holders (top10 3.56% top1 0.42% holders 96 insiders 0)
+[2026-11-24 17:32:11]   [scalp] reject SuperELON  few_holders (top10 7.64% top1 1.73% holders 170 insiders 0)
+[2026-11-24 17:32:11] [scalp] SCAN universe 267 (watchlist 167, +3 new, -5 dead) | momentum-pass 6 | safety-pass 4 | opened 0 | open 0/4 | top rejects {'blocked_dex': 153, 'too_old': 75, 'bad_quote': 21, 'low_liq': 8, 'no_cash': 4, 'm5_not_rising': 2, 'mcap_range': 2, 'few_holders': 2}
+[2026-11-24 17:32:12] WARN loop wall-clock gap of 78s - positions re-priced at current market
+[2026-11-24 17:32:42] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 17:33:01] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 17:33:14] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 17:33:27] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 17:33:41]   [scalp] reject ARILEO     few_holders (top10 3.56% top1 0.42% holders 96 insiders 0)
+[2026-11-24 17:33:41] [scalp] SCAN universe 250 (watchlist 167, +5 new, -5 dead) | momentum-pass 5 | safety-pass 4 | opened 0 | open 0/4 | top rejects {'blocked_dex': 153, 'too_old': 58, 'bad_quote': 21, 'low_liq': 8, 'no_cash': 4, 'm5_not_rising': 2, 'mcap_range': 2, 'too_young': 1}
+[2026-11-24 17:33:42] WARN loop wall-clock gap of 75s - positions re-priced at current market
+[2026-11-24 17:34:17] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 17:34:28] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 17:34:45] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 17:34:56] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 17:35:12] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 17:35:28] [scalp] SCAN universe 249 (watchlist 164, +2 new, -8 dead) | momentum-pass 3 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 142, 'too_old': 68, 'bad_quote': 21, 'low_liq': 9, 'm5_not_rising': 3, 'no_cash': 3, 'mcap_range': 2, 'too_young': 1}
+[2026-11-24 17:35:28] WARN loop wall-clock gap of 89s - positions re-priced at current market
+[2026-11-24 17:35:50] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 17:36:03] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 17:36:16] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 17:36:30] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 17:36:46] [scalp] SCAN universe 239 (watchlist 158, +2 new, -3 dead) | momentum-pass 2 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 144, 'too_old': 56, 'bad_quote': 22, 'low_liq': 10, 'm5_not_rising': 2, 'mcap_range': 2, 'no_cash': 2, 'too_young': 1}
+[2026-11-24 17:36:46] WARN loop wall-clock gap of 75s - positions re-priced at current market
+[2026-11-24 17:37:17] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 17:37:33] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 17:37:44] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 17:37:58] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 17:38:14] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 17:38:32] [scalp] SCAN universe 241 (watchlist 158, +3 new, -9 dead) | momentum-pass 2 | safety-pass 2 | opened 0 | open 0/4 | top rejects {'blocked_dex': 142, 'too_old': 58, 'bad_quote': 24, 'low_liq': 10, 'm5_not_rising': 3, 'no_cash': 2, 'too_young': 1, 'mcap_range': 1}
+[2026-11-24 17:38:33] WARN loop wall-clock gap of 91s - positions re-priced at current market
+[2026-11-24 17:38:48] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 17:39:02] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 17:39:15] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 17:39:28] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=5: HTTP 429
+[2026-11-24 17:39:47] [scalp] SCAN universe 238 (watchlist 156, +7 new, -5 dead) | momentum-pass 3 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 140, 'too_old': 59, 'bad_quote': 22, 'low_liq': 9, 'm5_not_rising': 3, 'no_cash': 3, 'too_young': 2}
+[2026-11-24 17:39:47] WARN loop wall-clock gap of 74s - positions re-priced at current market
+[2026-11-24 17:40:21] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 17:40:34] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 17:40:45] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 17:40:58] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 17:41:12] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 17:41:30] [scalp] SCAN universe 235 (watchlist 153, +2 new, -6 dead) | momentum-pass 3 | safety-pass 3 | opened 0 | open 0/4 | top rejects {'blocked_dex': 137, 'too_old': 60, 'bad_quote': 21, 'low_liq': 8, 'm5_not_rising': 3, 'no_cash': 3, 'mcap_range': 2, 'm5_sell_pressure': 1}
+[2026-11-24 17:41:30] WARN loop wall-clock gap of 85s - positions re-priced at current market
+[2026-11-24 17:41:52] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 17:42:05] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 17:42:24] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 17:42:37] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 17:42:58] [scalp] SCAN universe 231 (watchlist 153, +6 new, -6 dead) | momentum-pass 6 | safety-pass 6 | opened 0 | open 0/4 | top rejects {'blocked_dex': 132, 'too_old': 60, 'bad_quote': 22, 'low_liq': 6, 'no_cash': 6, 'm5_not_rising': 1, 'low_vol_m5': 1, 'mcap_range': 1}
+[2026-11-24 17:42:59] WARN loop wall-clock gap of 83s - positions re-priced at current market
+[2026-11-24 17:43:23] WARN scalp gt gt_pumpswap_vol: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pumpswap/pools?sort=h24_volume_: HTTP 429
+[2026-11-24 17:43:37] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=1: HTTP 429
+[2026-11-24 17:43:53] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=3: HTTP 429
+[2026-11-24 17:44:04] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 17:44:17] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 17:44:31] [scalp] SCAN universe 224 (watchlist 147, +0 new, -4 dead) | momentum-pass 5 | safety-pass 5 | opened 0 | open 0/4 | top rejects {'blocked_dex': 128, 'too_old': 64, 'bad_quote': 19, 'low_liq': 5, 'no_cash': 5, 'mcap_range': 2, 'm5_parabolic': 1}
+[2026-11-24 17:44:31] WARN loop wall-clock gap of 83s - positions re-priced at current market
+[2026-11-24 17:45:01] WARN scalp gt gt_pumpfun_curve_tx: GET failed https://api.geckoterminal.com/api/v2/networks/solana/dexes/pump-fun/pools?sort=h24_tx_coun: HTTP 429
+[2026-11-24 17:45:14] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=2: HTTP 429
+[2026-11-24 17:45:27] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=4: HTTP 429
+[2026-11-24 17:45:41] WARN scalp gt gt_new: GET failed https://api.geckoterminal.com/api/v2/networks/solana/new_pools?page=6: HTTP 429
+[2026-11-24 17:45:54] [scalp] SCAN universe 224 (watchlist 148, +5 new, -4 dead) | momentum-pass 4 | safety-pass 4 | opened 0 | open 0/4 | top rejects {'blocked_dex': 118, 'too_old': 74, 'bad_quote': 17, 'mcap_range': 5, 'low_liq': 4, 'no_cash': 4, 'no_reliable_price': 1, 'm5_parabolic': 1}
+[2026-11-24 17:45:55] WARN loop wall-clock gap of 75s - positions re-priced at current market
+[2026-11-24 17:51:04] [review v2] v2 trades 18: WR 33%, avg win +20.6%, avg loss -67.8%, entries last 60 min 0 (floor 2/h), equity $5.81 | Median winners vs losers: age_min 10.6/10.2, mcap 2.81e+04/7.61e+04, liq 4.36e+04/1.13e+05, pc_m5 17.3/11.6, bs_m5 4.36/1.8, holders 368/589, top10 11/15.6, entry_cost 0.515/-0.075, peak 40.5/13.9 | Config changes: none (0 new trades since last change; need 8, or rate below floor after 45 min)
+[2026-11-24 17:57:34] === RUN END (time limit reached): closing any open scalp positions (reason run_end) and saving state ===
+[2026-11-24 17:57:34] [review v2] v2 trades 18: WR 33%, avg win +20.6%, avg loss -67.8%, entries last 60 min 0 (floor 2/h), equity $5.81 | Median winners vs losers: age_min 10.6/10.2, mcap 2.81e+04/7.61e+04, liq 4.36e+04/1.13e+05, pc_m5 17.3/11.6, bs_m5 4.36/1.8, holders 368/589, top10 11/15.6, entry_cost 0.515/-0.075, peak 40.5/13.9 | Config changes: none (0 new trades since last change; need 8, or rate below floor after 45 min)
+[2026-11-24 17:57:34] 
+PAPER TRADING REPORT (2026-11-24 17:57 Asia/Jerusalem) - simulation only, no real trades
+Bankroll start $30.00 | cash $5.81 | open positions value (mark) $0.00 | equity $5.81 (-80.6%)
+ALL: closed trades 18 | wins 6 | losses 12 | win rate 33% | realized PnL $-24.19
+SWING: closed 0 | wins 0 | losses 0 | win rate 0% | avg win +0.0% | avg loss +0.0% | net PnL $+0.00 | profit factor inf | avg hold 0 min
+SCALP: closed 18 | wins 6 | losses 12 | win rate 33% | avg win +20.6% | avg loss -67.8% | net PnL $-24.19 | profit factor 0.15 | avg hold 11 min
+Scalp entries in last 60 min: 0
+avg win +20.6% | avg loss -67.8% | profit factor 0.15 | best 眉眉 +29.0% | worst 我画地为牢 -100.0%
+[2026-11-24 17:57:34] === RUN ended cleanly ===
